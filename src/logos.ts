@@ -3,5 +3,5 @@ export const LOGOS = {
 	uber: {archivo: 'uber.svg', alto: 70},
 	google: {archivo: 'google.svg', alto: 90},
 	tesla: {archivo: 'tesla.svg', alto: 120},
-	waymo: {archivo: 'waymo.svg', alto: 90},
+	waymo: {archivo: 'waymo.png', alto: 150},
 };
