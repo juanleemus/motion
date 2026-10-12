@@ -1,7 +1,8 @@
 // Día 5 · Uber — Escuela Invora. Cada animación entra en la palabra exacta del audio guía.
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
-import {C, Columna, Escena, Fila, FUENTE, Fondo, Icono, Insignia, Logo, LogoInvora, Texto, Cifra} from './robots/ui';
+import {C, Columna, Dinamico, Escena, Fila, FUENTE, Fondo, Icono, Insignia, Logo, LogoInvora, Texto, Cifra} from './robots/ui';
+import {Caravana, Carretera, Robotaxi} from './robots/carros';
 import {ChatInvora, Comentario, Cuadricula, Notificacion, RayaRoja, SiNo, Tachado, Teclas} from './robots/piezas';
 import {ICONOS} from './robots/iconos';
 import {en, finDe} from './tiempos';
@@ -10,8 +11,13 @@ import {LOGOS} from './logos';
 
 const orden = Object.keys(ESCENAS) as (keyof typeof ESCENAS)[];
 const hasta = (k: keyof typeof ESCENAS) => ESCENAS[orden[orden.indexOf(k) + 1]];
-const E: React.FC<{k: keyof typeof ESCENAS; children: React.ReactNode; salida?: boolean}> = ({k, children, salida}) => (
-	<Escena desde={ESCENAS[k]} hasta={hasta(k)} salida={salida}>
+const E: React.FC<{k: keyof typeof ESCENAS; children: React.ReactNode; salida?: boolean; golpes?: number[]}> = ({
+	k,
+	children,
+	salida,
+	golpes,
+}) => (
+	<Escena desde={ESCENAS[k]} hasta={hasta(k)} salida={salida} golpes={golpes}>
 		{children}
 	</Escena>
 );
@@ -59,6 +65,7 @@ const CarroMini: React.FC = () => (
 export const Reel: React.FC = () => {
 	const frame = useCurrentFrame();
 	return (
+		<Dinamico.Provider value>
 		<AbsoluteFill style={{fontFamily: FUENTE}}>
 			<Fondo />
 
@@ -94,7 +101,7 @@ export const Reel: React.FC = () => {
 				</Columna>
 			</E>
 
-			<E k="plata">
+			<E k="plata" golpes={[en('10 millones') + 22]}>
 				<Columna gap={20} style={{marginTop: 120}}>
 					<Cifra valor={10} en={en('10 millones')} tam={340} antes="$" />
 					<Texto en={en('millones')} tam={84}>
@@ -127,7 +134,7 @@ export const Reel: React.FC = () => {
 				</Columna>
 			</E>
 
-			<E k="feo">
+			<E k="feo" golpes={[en('equivocando')]}>
 				<Columna gap={110}>
 					<Icono trazos={ICONOS.alerta} en={en('Alguien')} tam={300} />
 					<Texto en={en('equivocando')} tam={100}>
@@ -223,7 +230,7 @@ export const Reel: React.FC = () => {
 				</Columna>
 			</E>
 
-			<E k="chat">
+			<E k="chat" golpes={[en('cambia todo')]}>
 				<Columna gap={56}>
 					<Texto en={en('una sola')} tam={70}>
 						{'le hice *una sola*\n*pregunta*'}
@@ -241,16 +248,22 @@ export const Reel: React.FC = () => {
 				</Columna>
 			</E>
 
-			<E k="unaODos">
-				<Columna gap={40}>
-					<Texto en={en('El miedo supone')} tam={60} peso={800} color={C.gris}>
+			<E k="unaODos" golpes={[en('dos empresas') + 14]}>
+				<Columna gap={34}>
+					<Texto en={en('El miedo supone')} tam={58} peso={800} color={C.gris}>
 						{'el miedo supone que'}
 					</Texto>
-					<Texto en={en('una o dos')} tam={240}>
-						{'*1 o 2*'}
+					<Texto en={en('una o dos')} tam={104}>
+						{'*una o dos*\nempresas'}
 					</Texto>
-					<Texto en={en('empresas')} tam={72}>
-						{'empresas van a tener\n*todos* los carros\nautónomos'}
+					<div style={{position: 'relative', width: 860, height: 470}}>
+						<Carretera ancho={860} alto={470} carriles={[118, 262]} en={en('El miedo supone')} />
+						<Caravana en={en('todos', 1)} cantidad={7} y={44} ancho={830} />
+						<Robotaxi logo={LOGOS.tesla.archivo} en={en('dos empresas')} x={468} y={118} escala={0.95} alturaLogo={42} />
+						<Robotaxi logo={LOGOS.waymo.archivo} en={en('una o dos')} x={4} y={262} escala={1.15} alturaLogo={48} />
+					</div>
+					<Texto en={en('van a tener')} tam={68}>
+						{'van a tener *todos*\nlos carros autónomos'}
 					</Texto>
 				</Columna>
 			</E>
@@ -314,7 +327,7 @@ export const Reel: React.FC = () => {
 				</Columna>
 			</E>
 
-			<E k="esaApp">
+			<E k="esaApp" golpes={[en('Uber', 6)]}>
 				<Columna gap={70}>
 					<Texto en={en('Y esa app')} tam={84}>
 						{'y esa app…\npodría ser'}
@@ -364,7 +377,7 @@ export const Reel: React.FC = () => {
 				</Columna>
 			</E>
 
-			<E k="gringos">
+			<E k="gringos" golpes={[en('Aquí no')]}>
 				<Columna gap={70}>
 					<SiNo si={en('gringos')} no={en('Aquí no')} etiquetaSi="los gringos" subSi="hace años" etiquetaNo="aquí no" />
 				</Columna>
@@ -385,6 +398,7 @@ export const Reel: React.FC = () => {
 				</Columna>
 			</E>
 		</AbsoluteFill>
+		</Dinamico.Provider>
 	);
 };
 

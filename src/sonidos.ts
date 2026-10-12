@@ -83,7 +83,14 @@ add(en('cambia todo'), 'campanita', 0.6);
 // Una o dos, flotas, apps
 texto(en('El miedo supone'));
 texto(en('una o dos'));
-texto(en('empresas'));
+// robotaxis que llegan (Waymo y Tesla) y caravana de carritos
+add(en('una o dos'), 'whoosh', 1.0);
+add(en('una o dos') + 16, 'pop', 0.8);
+add(en('dos empresas'), 'whoosh', 1.0);
+add(en('dos empresas') + 14, 'pop', 0.9);
+for (let i = 0; i < 7; i++) add(en('todos', 1) + i * 3, 'tic', 0.5);
+add(en('todos', 1), 'whoosh', 0.6);
+texto(en('van a tener'));
 texto(en('Pero y si'));
 cifra(en('diez', 1));
 cuadricula(en('flotas'), 10, 2);

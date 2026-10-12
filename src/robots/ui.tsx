@@ -6,6 +6,7 @@ import {
 	Easing,
 	Img,
 	interpolate,
+	random,
 	spring,
 	staticFile,
 	useCurrentFrame,
@@ -29,6 +30,13 @@ export const ZONA = {x0: 70, x1: 930, y0: 300, y1: 1520};
 
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 
+// Modo dinámico: más movimiento (cámara, partículas, palabras escalonadas, flotación).
+// Lo activa el reel; la intro "Día X" queda idéntica al Día 1.
+export const Dinamico = React.createContext(false);
+const useDinamico = () => React.useContext(Dinamico);
+// Pulso al ritmo de la música (100 BPM = 18 fotogramas por tiempo).
+export const pulsoBeat = (frame: number) => Math.exp(-((frame % 18) / 18) * 5);
+
 // Rebote estándar de la marca.
 export const useRebote = (desde: number, config = {damping: 11, mass: 0.6, stiffness: 140}) => {
 	const frame = useCurrentFrame();
@@ -44,12 +52,20 @@ export const Fondo: React.FC = () => {
 	const frame = useCurrentFrame();
 	const {durationInFrames} = useVideoConfig();
 	const zoom = interpolate(frame, [0, durationInFrames], [1, 1.12], clamp);
+	const din = useDinamico();
+	const deriva = din ? Math.sin(frame / 90) * 14 : 0;
 	return (
 		<AbsoluteFill style={{backgroundColor: C.tinta}}>
 			<Img
 				src={staticFile('fondo-cuadricula.png')}
-				style={{width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${zoom})`}}
+				style={{
+					width: '100%',
+					height: '100%',
+					objectFit: 'cover',
+					transform: `scale(${zoom}) translate(${deriva}px, ${din ? -((frame * 0.25) % 27) : 0}px)`,
+				}}
 			/>
+			{din ? <Particulas /> : null}
 			<AbsoluteFill
 				style={{
 					background:
@@ -60,19 +76,76 @@ export const Fondo: React.FC = () => {
 	);
 };
 
+// Puntos de luz que suben despacio y titilan, y un resplandor que late con la música.
+const Particulas: React.FC = () => {
+	const frame = useCurrentFrame();
+	const late = pulsoBeat(frame);
+	return (
+		<AbsoluteFill>
+			<AbsoluteFill
+				style={{
+					background: `radial-gradient(circle at 50% 46%, rgba(42,157,255,${0.07 + 0.05 * late}) 0%, rgba(42,157,255,0) 45%)`,
+				}}
+			/>
+			{Array.from({length: 46}).map((_, i) => {
+				const x = random(`x${i}`) * 1080;
+				const vel = 0.6 + random(`v${i}`) * 1.6;
+				const tam = 2 + random(`t${i}`) * 5;
+				const y = 1980 - ((random(`y${i}`) * 2000 + frame * vel) % 2060);
+				const tit = 0.35 + 0.65 * Math.abs(Math.sin(frame / (14 + random(`f${i}`) * 20) + i));
+				const azul = random(`c${i}`) > 0.35;
+				return (
+					<div
+						key={i}
+						style={{
+							position: 'absolute',
+							left: x + Math.sin(frame / 40 + i) * 12,
+							top: y,
+							width: tam,
+							height: tam,
+							borderRadius: tam,
+							background: azul ? C.azul : C.blanco,
+							opacity: tit * (azul ? 0.55 : 0.3),
+							boxShadow: azul ? `0 0 ${tam * 3}px ${C.brillo}` : undefined,
+						}}
+					/>
+				);
+			})}
+		</AbsoluteFill>
+	);
+};
+
 // ---------- Escena ----------
 // Muestra su contenido entre `desde` y `hasta`; sale con desvanecido y desenfoque de 0,2 s.
-export const Escena: React.FC<{desde: number; hasta: number; children: React.ReactNode; salida?: boolean}> = ({
-	desde,
-	hasta,
-	children,
-	salida = true,
-}) => {
+export const Escena: React.FC<{
+	desde: number;
+	hasta: number;
+	children: React.ReactNode;
+	salida?: boolean;
+	golpes?: number[]; // fotogramas con "golpe de cámara" (sacudida corta)
+}> = ({desde, hasta, children, salida = true, golpes = []}) => {
 	const frame = useCurrentFrame();
+	const din = useDinamico();
 	if (frame < desde || frame >= hasta) return null;
 	const s = salida ? interpolate(frame, [hasta - 6, hasta], [0, 1], clamp) : 0;
+	let camara = '';
+	if (din) {
+		const empuje = interpolate(frame, [desde, hasta], [1, 1.025], clamp);
+		const llega = interpolate(frame, [desde, desde + 8], [1.05, 1], {...clamp, easing: Easing.out(Easing.cubic)});
+		const flota = Math.sin((frame - desde) / 22) * 8;
+		let golpe = 0;
+		let sacude = 0;
+		for (const g of golpes) {
+			const d = frame - g;
+			if (d >= 0 && d < 12) {
+				golpe += 0.06 * Math.exp(-d / 3);
+				sacude += Math.sin(d * 2.4) * 10 * Math.exp(-d / 3);
+			}
+		}
+		camara = `translate(${sacude}px, ${flota}px) scale(${empuje * llega * (1 + golpe) * (1 + s * 0.12)})`;
+	}
 	return (
-		<AbsoluteFill style={{opacity: 1 - s, filter: s > 0 ? `blur(${s * 14}px)` : undefined}}>
+		<AbsoluteFill style={{opacity: 1 - s, filter: s > 0 ? `blur(${s * 14}px)` : undefined, transform: camara || undefined, transformOrigin: `${(ZONA.x0 + ZONA.x1) / 2}px ${(ZONA.y0 + ZONA.y1) / 2}px`}}>
 			<div
 				style={{
 					position: 'absolute',
@@ -134,8 +207,44 @@ export const Texto: React.FC<{
 }> = ({children, en, tam = 76, peso = 900, color = C.blanco, ancho = 860, sinEntrada = false, style}) => {
 	const frame = useCurrentFrame();
 	const r = useRebote(en);
-	const esc = sinEntrada ? 1 : interpolate(r, [0, 1], [0.6, 1]);
-	const op = sinEntrada ? 1 : aparece(frame, en, 5);
+	const din = useDinamico();
+	const {fps} = useVideoConfig();
+	const escalonado = din && !sinEntrada;
+	const esc = sinEntrada || escalonado ? 1 : interpolate(r, [0, 1], [0.6, 1]);
+	const op = sinEntrada ? 1 : escalonado ? (frame >= en ? 1 : 0) : aparece(frame, en, 5);
+	let n = 0;
+	const palabra = (w: string, azul: boolean, k: string) => {
+		const i = n++;
+		const ri = spring({frame: frame - en - i * 2, fps, config: {damping: 10, mass: 0.5, stiffness: 170}});
+		const brillo = azul ? 24 + 14 * pulsoBeat(frame) : 0;
+		return (
+			<span
+				key={k}
+				style={{
+					display: 'inline-block',
+					transform: `translateY(${(1 - ri) * 46}px) scale(${interpolate(ri, [0, 1], [0.5, 1])}) rotate(${(1 - ri) * (i % 2 ? 6 : -6)}deg)`,
+					opacity: interpolate(frame - en - i * 2, [0, 4], [0, 1], clamp),
+					color: azul ? C.azul : undefined,
+					textShadow: azul ? `0 0 ${brillo}px ${C.brillo}, ${SOMBRA}` : undefined,
+				}}
+			>
+				{w}
+			</span>
+		);
+	};
+	const lineaEscalonada = (linea: string, li: number) => {
+		const out: React.ReactNode[] = [];
+		linea.split(/(\*[^*]+\*)/g).forEach((parte, pi) => {
+			const azul = parte.startsWith('*');
+			const t = azul ? parte.slice(1, -1) : parte;
+			t.split(/( +)/).forEach((w, wi) => {
+				if (!w) return;
+				if (/^ +$/.test(w)) out.push(<span key={`${li}-${pi}-${wi}`}> </span>);
+				else out.push(palabra(w, azul, `${li}-${pi}-${wi}`));
+			});
+		});
+		return out;
+	};
 	return (
 		<div
 			style={{
@@ -154,7 +263,7 @@ export const Texto: React.FC<{
 			}}
 		>
 			{children.split('\n').map((linea, i) => (
-				<div key={i}>{conResaltado(linea)}</div>
+				<div key={i}>{escalonado ? lineaEscalonada(linea, i) : conResaltado(linea)}</div>
 			))}
 		</div>
 	);
@@ -169,14 +278,21 @@ export const Logo: React.FC<{archivo: string; en: number; alto?: number; ancho?:
 }) => {
 	const frame = useCurrentFrame();
 	const r = useRebote(en, {damping: 10, mass: 0.7, stiffness: 150});
+	const din = useDinamico();
+	const t = Math.max(0, frame - en);
+	const flota = din ? Math.sin(t / 17) * 7 : 0;
+	const gira = din ? Math.sin(t / 23) * 1.6 : 0;
+	const brilloX = din ? interpolate(t, [6, 22], [-140, 240], clamp) : -200;
 	return (
 		<div
 			style={{
+				position: 'relative',
+				overflow: 'hidden',
 				background: C.blanco,
 				borderRadius: 32,
 				padding: 30,
-				boxShadow: `0 18px 44px rgba(0,0,0,0.65), 0 0 46px ${C.brillo}`,
-				transform: `scale(${interpolate(r, [0, 1], [0.5, 1])}) rotate(${interpolate(r, [0, 1], [-6, 0])}deg)`,
+				boxShadow: `0 18px 44px rgba(0,0,0,0.65), 0 0 ${46 + (din ? 16 * pulsoBeat(frame) : 0)}px ${C.brillo}`,
+				transform: `translateY(${flota}px) scale(${interpolate(r, [0, 1], [0.5, 1])}) rotate(${interpolate(r, [0, 1], [-6, 0]) + gira}deg)`,
 				opacity: aparece(frame, en, 4),
 				display: 'flex',
 				alignItems: 'center',
@@ -184,6 +300,19 @@ export const Logo: React.FC<{archivo: string; en: number; alto?: number; ancho?:
 			}}
 		>
 			<Img src={staticFile(`logos/${archivo}`)} style={{height: alto, width: ancho, objectFit: 'contain', display: 'block'}} />
+			{din ? (
+				<div
+					style={{
+						position: 'absolute',
+						top: -40,
+						bottom: -40,
+						left: `${brilloX}%`,
+						width: '35%',
+						background: 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(160,210,255,0.55) 50%, rgba(255,255,255,0) 100%)',
+						transform: 'rotate(18deg)',
+					}}
+				/>
+			) : null}
 		</div>
 	);
 };
@@ -201,6 +330,8 @@ export const Cifra: React.FC<{
 	const r = useRebote(en);
 	const p = interpolate(frame, [en, en + dur], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
 	const n = Math.round(valor * p);
+	const din = useDinamico();
+	const golpe = din && frame >= en + dur ? 0.12 * Math.exp(-(frame - en - dur) / 4) : 0;
 	return (
 		<div
 			style={{
@@ -210,7 +341,7 @@ export const Cifra: React.FC<{
 				lineHeight: 1,
 				color: C.azul,
 				textShadow: `0 0 50px ${C.brillo}, ${SOMBRA}`,
-				transform: `scale(${interpolate(r, [0, 1], [0.6, 1])})`,
+				transform: `scale(${interpolate(r, [0, 1], [0.6, 1]) * (1 + golpe)})`,
 				opacity: aparece(frame, en, 4),
 				fontVariantNumeric: 'tabular-nums',
 				letterSpacing: '-0.03em',
@@ -237,9 +368,18 @@ export const Insignia: React.FC<{
 	const paso = Math.min(giro.length - 1, Math.max(0, Math.floor((frame - en) / 3)));
 	const sub = interpolate((frame - en) % 3, [0, 3], [0, 1]);
 	const yNum = paso < giro.length - 1 ? interpolate(sub, [0, 1], [-14, 14]) : 0;
+	const din = useDinamico();
 	return (
 		<div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 18, opacity: aparece(frame, en, 4)}}>
-			<div style={{display: 'flex', alignItems: 'center', gap: 18, transform: `scale(${interpolate(r, [0, 1], [0.5, 1])})`}}>
+			<div
+				style={{
+					position: 'relative',
+					display: 'flex',
+					alignItems: 'center',
+					gap: 18,
+					transform: `scale(${interpolate(r, [0, 1], [0.5, 1])})`,
+				}}
+			>
 				<div
 					style={{
 						width: 74,
@@ -259,6 +399,20 @@ export const Insignia: React.FC<{
 				>
 					<span style={{transform: `translateY(${yNum}px)`}}>{giro[paso]}</span>
 				</div>
+				{din && frame > en + 9 ? (
+					<div
+						style={{
+							position: 'absolute',
+							left: 37 - 37 * (1 + ((frame - en) % 36) / 24),
+							top: 37 - 37 * (1 + ((frame - en) % 36) / 24),
+							width: 74 * (1 + ((frame - en) % 36) / 24),
+							height: 74 * (1 + ((frame - en) % 36) / 24),
+							borderRadius: '50%',
+							border: `3px solid ${C.azul}`,
+							opacity: 0.6 * (1 - ((frame - en) % 36) / 36),
+						}}
+					/>
+				) : null}
 				<div style={{fontFamily: FUENTE, fontWeight: 800, fontSize: 44, color: C.blanco, textShadow: SOMBRA}}>
 					{etiqueta}
 				</div>
@@ -303,8 +457,21 @@ export const Icono: React.FC<{
 	const lleno = encender ? interpolate(frame, [enc, enc + 6], [0, 1], clamp) : 0;
 	const rayos = encender ? interpolate(frame, [enc, enc + 10], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)}) : 0;
 	const escala = 1 + 0.12 * Math.sin(Math.min(1, e) * Math.PI) * (1 - Math.min(1, (frame - enc) / 20));
+	const din = useDinamico();
+	const vivo = din && frame >= enc ? frame - enc : 0;
+	const flota = din ? Math.sin(vivo / 14) * 8 : 0;
+	const giroRayos = din ? vivo * 0.7 : 0;
+	const lateRayos = din && frame >= enc ? 4 * pulsoBeat(frame) : 0;
 	return (
-		<div style={{width: tam, height: tam, position: 'relative', opacity: frame >= en ? 1 : 0}}>
+		<div
+			style={{
+				width: tam,
+				height: tam,
+				position: 'relative',
+				opacity: frame >= en ? 1 : 0,
+				transform: `translateY(${flota}px) rotate(${din ? Math.sin(vivo / 19) * 3 : 0}deg)`,
+			}}
+		>
 			<svg
 				viewBox="-30 -30 160 160"
 				style={{
@@ -320,9 +487,9 @@ export const Icono: React.FC<{
 				{/* rayos */}
 				{rayos > 0
 					? Array.from({length: 8}).map((_, i) => {
-							const ang = (i / 8) * Math.PI * 2 - Math.PI / 2;
-							const r0 = 66 + 6 * rayos;
-							const r1 = r0 + 14 * rayos;
+							const ang = (i / 8) * Math.PI * 2 - Math.PI / 2 + (giroRayos * Math.PI) / 180;
+							const r0 = 66 + 6 * rayos + lateRayos;
+							const r1 = r0 + 14 * rayos + lateRayos;
 							return (
 								<line
 									key={i}
