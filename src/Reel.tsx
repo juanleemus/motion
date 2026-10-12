@@ -137,7 +137,7 @@ export const Reel: React.FC = () => {
 			</E>
 
 			<E k="dia5">
-				<Columna gap={95}>
+				<Columna gap={125}>
 					<Insignia numero={5} etiqueta="de 12" en={en('Día 5')} />
 					<Icono
 						trazos={ICONOS.calendario}

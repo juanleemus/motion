@@ -292,12 +292,13 @@ export const Icono: React.FC<{
 	en: number;
 	tam?: number;
 	encender?: boolean;
+	enciendeEn?: number; // por defecto, apenas termina de dibujarse
 	extra?: (dibujo: number, encendido: number) => React.ReactNode;
-}> = ({trazos, en, tam = 300, encender = true, extra}) => {
+}> = ({trazos, en, tam = 300, encender = true, enciendeEn, extra}) => {
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
 	const dibujo = interpolate(frame, [en, en + 15], [0, 1], {...clamp, easing: Easing.inOut(Easing.cubic)});
-	const enc = en + 15;
+	const enc = enciendeEn ?? en + 15;
 	const e = encender ? spring({frame: frame - enc, fps, config: {damping: 9, mass: 0.5, stiffness: 160}}) : 0;
 	const lleno = encender ? interpolate(frame, [enc, enc + 6], [0, 1], clamp) : 0;
 	const rayos = encender ? interpolate(frame, [enc, enc + 10], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)}) : 0;

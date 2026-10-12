@@ -137,10 +137,22 @@ for e in json.load(open(eventos_path)):
 # Música por debajo de los efectos
 mezcla = musica * 0.55 + efectos * 1.0
 med = pyln.Meter(SR)
-l = med.integrated_loudness(mezcla)
-mezcla *= 10 ** ((LUFS - l) / 20)
-pico = np.max(np.abs(mezcla))
-if pico > 0.89: mezcla *= 0.89 / pico  # margen de pico (-1 dB)
+from scipy.ndimage import maximum_filter1d
+def limitar(y, techo=0.89):
+    # limitador suave: baja la ganancia solo alrededor de los picos (5 ms de anticipación, 80 ms de suelta)
+    env = maximum_filter1d(np.max(np.abs(y), 1), size=int(0.005 * SR))
+    g = np.minimum(1.0, techo / np.maximum(env, 1e-9))
+    a = np.exp(-1 / (0.08 * SR)); suave = np.empty_like(g); v = 1.0
+    for i in range(len(g) - 1, -1, -1):  # hacia atrás: anticipa el pico
+        v = min(g[i], a * v + (1 - a) * g[i]); suave[i] = v
+    v = 1.0
+    for i in range(len(g)):  # hacia adelante: suelta suave
+        v = min(suave[i], a * v + (1 - a) * suave[i]); suave[i] = v
+    return y * suave[:, None]
+for _ in range(4):
+    l = med.integrated_loudness(mezcla)
+    mezcla *= 10 ** ((LUFS - l) / 20)
+    if np.max(np.abs(mezcla)) > 0.89: mezcla = limitar(mezcla)
 print(f'sonoridad: {med.integrated_loudness(mezcla):.1f} LUFS · pico {20*np.log10(np.max(np.abs(mezcla))):.1f} dBFS')
 import wave
 pcm = (np.clip(mezcla, -1, 1) * 32767).astype('<i2')
