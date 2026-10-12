@@ -8,6 +8,7 @@ import json, re, subprocess, sys
 import numpy as np
 
 wav, guion, salida = sys.argv[1:4]
+PESO_S = float(sys.argv[4]) if len(sys.argv) > 4 else 0.0  # pista de la "s" (0 = apagada)
 
 out = subprocess.run(['ffmpeg', '-i', wav, '-af', 'silencedetect=noise=-35dB:d=0.16', '-f', 'null', '-'],
                      capture_output=True, text=True).stderr
@@ -103,11 +104,12 @@ for k in range(1, U + 1):
                 esperado = (cum[w] - cum[w0]) / ritmo
                 c = 8.0 * np.log((0.5 * (d + voz_trozo) + 0.15) / (esperado + 0.15)) ** 2
                 ms, es_ = seg_s(a0, b0), (cum_es[w] - cum_es[w0]) * por_s
-                c += 2.5 * np.log((ms + 0.08) / (es_ + 0.08)) ** 2
+                c += PESO_S * np.log((ms + 0.08) / (es_ + 0.08)) ** 2
                 if tipo == 'dura' and not punt[w - 1]: c += 1.5
                 if tipo == 'suave': c += 0.1 if punt[w - 1] else 0.9
                 v = f[k0, w0] + c + 0.2
                 if v < f[k, w]: f[k, w] = v; bt[k, w] = (k0, w0)
+print(f'costo total del alineamiento: {f[U, W]:.2f}')
 asig, k, w = [], U, W
 while k > 0:
     k0, w0 = bt[k, w]; asig.append(((unidades[k0][0], unidades[k - 1][1]), w0, w)); k, w = k0, w0

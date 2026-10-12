@@ -137,7 +137,7 @@ export const Reel: React.FC = () => {
 			</E>
 
 			<E k="dia5">
-				<Columna gap={60}>
+				<Columna gap={95}>
 					<Insignia numero={5} etiqueta="de 12" en={en('Día 5')} />
 					<Icono
 						trazos={ICONOS.calendario}
@@ -173,7 +173,7 @@ export const Reel: React.FC = () => {
 			<E k="carros">
 				<Columna gap={110}>
 					<Icono trazos={ICONOS.robotaxi} en={en('carros', 1)} tam={320} />
-					<Texto en={en('carros', 1)} tam={96}>
+					<Texto en={en('A los carros')} tam={96}>
 						{'carros que se\nmanejan *solos*'}
 					</Texto>
 				</Columna>
@@ -192,7 +192,7 @@ export const Reel: React.FC = () => {
 						{'ya tiene taxis\n*sin conductor*'}
 					</Texto>
 					<Texto en={en('varias ciudades')} tam={50} peso={800}>
-						{'en varias ciudades de Estados Unidos'}
+						{'en varias ciudades\nde Estados Unidos'}
 					</Texto>
 				</Columna>
 			</E>
@@ -226,7 +226,7 @@ export const Reel: React.FC = () => {
 			<E k="chat">
 				<Columna gap={56}>
 					<Texto en={en('una sola')} tam={70}>
-						{'le hice *una sola*\n*pregunta* a Invora'}
+						{'le hice *una sola*\n*pregunta*'}
 					</Texto>
 					<ChatInvora
 						en={en('Entonces')}
@@ -289,16 +289,16 @@ export const Reel: React.FC = () => {
 							pieza={(i, enc) => <AppMini encendida={enc} />}
 							destacada={{indice: 7, en: en('Vas a abrir', 2)}}
 						/>
-						<RayaRoja en={en('para comparar')} ancho={5 * 140 + 4 * 28} alto={2 * 140 + 28} hasta={en('Vas a abrir', 2)} />
+						<RayaRoja en={en('Tú no vas')} ancho={5 * 140 + 4 * 28} alto={2 * 140 + 28} hasta={en('Vas a abrir', 2)} />
 					</div>
 					<div style={{position: 'relative', height: 200, width: 860, display: 'flex', justifyContent: 'center'}}>
 						{frame < en('Vas a abrir', 2) ? (
-							<Texto en={en('Tú no vas')} tam={80}>
-								{'no vas a abrir\n*diez apps*'}
+							<Texto en={en('Diez apps')} tam={80}>
+								{'*diez apps*\npara comparar'}
 							</Texto>
 						) : (
 							<Texto en={en('Vas a abrir', 2)} tam={80}>
-								{'vas a abrir *una*'}
+								{'vas a abrir *la que*\nte muestra'}
 							</Texto>
 						)}
 					</div>
@@ -307,7 +307,7 @@ export const Reel: React.FC = () => {
 
 			<E k="cerca">
 				<Columna gap={110}>
-					<Icono trazos={ICONOS.telefono} en={en('La que te')} tam={320} />
+					<Icono trazos={ICONOS.telefono} en={en('el carro', 2)} tam={320} />
 					<Texto en={en('el carro', 2)} tam={88}>
 						{'el carro *más cerca*\ny *más barato*'}
 					</Texto>
@@ -346,8 +346,8 @@ export const Reel: React.FC = () => {
 
 			<E k="apostando">
 				<Columna gap={110}>
-					<Icono trazos={ICONOS.ficha} en={en('apostando')} tam={280} />
-					<Texto en={en('Pero ahora')} tam={84}>
+					<Icono trazos={ICONOS.ficha} en={en('Pero ahora')} tam={280} />
+					<Texto en={en('Pero ahora')} tam={76}>
 						{'ahora sabes en qué\nestán *apostando*'}
 					</Texto>
 				</Columna>
