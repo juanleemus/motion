@@ -9,6 +9,7 @@ SR = 48000
 eventos_path, salida = sys.argv[1], sys.argv[2]
 DUR = float(sys.argv[3]) if len(sys.argv) > 3 else 74.0
 LUFS = float(sys.argv[4]) if len(sys.argv) > 4 else -24.0
+SOLO_MUSICA = len(sys.argv) > 5 and sys.argv[5] == 'solo-musica'  # sin efectos
 N = int(round(DUR * SR))
 rng = np.random.default_rng(5)
 
@@ -131,7 +132,7 @@ GEN = {'pop': s_pop, 'whoosh': s_whoosh, 'tic': s_tic, 'trazo': s_trazo, 'tecleo
        'campanita': s_campanita, 'conteo': s_conteo, 'no': s_no}
 NIVEL = {'pop': 0.8, 'whoosh': 0.5, 'tic': 0.35, 'trazo': 0.5, 'tecleo': 0.35, 'campanita': 0.35, 'conteo': 0.45, 'no': 0.6}
 efectos = np.zeros((N, 2))
-for e in json.load(open(eventos_path)):
+for e in ([] if SOLO_MUSICA else json.load(open(eventos_path))):
     put(efectos, GEN[e['tipo']](), e['f'] / 30, NIVEL[e['tipo']] * e.get('vol', 1), pan=rng.uniform(-0.15, 0.15))
 
 # Música por debajo de los efectos
