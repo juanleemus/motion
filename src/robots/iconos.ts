@@ -100,4 +100,10 @@ export const ICONOS: Record<string, Trazo[]> = {
 			relleno: 'a',
 		},
 	],
+	maletin: [
+		{d: 'M14 32 h72 a8 8 0 0 1 8 8 v40 a8 8 0 0 1 -8 8 h-72 a8 8 0 0 1 -8 -8 v-40 a8 8 0 0 1 8 -8Z', relleno: 'a'},
+		{d: 'M36 32 v-8 a6 6 0 0 1 6 -6 h16 a6 6 0 0 1 6 6 v8'},
+		{d: 'M6 54 H94'},
+		{d: 'M43 48 h14 v12 h-14Z', relleno: 'b'},
+	],
 };
