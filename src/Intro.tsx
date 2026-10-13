@@ -5,7 +5,15 @@ import {C, Columna, Escena, FUENTE, Fondo, Icono, Insignia, LogoInvora, Texto} f
 import {ICONOS} from './robots/iconos';
 import {DURACION_INTRO, DURACION_INTRO_CORTA, TOTAL_DIAS, T_INTRO as T_LARGA, T_INTRO_CORTA} from './tiemposIntro';
 
-export const Intro: React.FC<{dia: number; corta?: boolean}> = ({dia, corta = false}) => {
+// posicion 'arriba-izquierda': todo más pequeño y arriba a la izquierda, para dejar libre
+// la esquina de abajo a la derecha (ahí se monta una persona encima).
+const ESQUINA = {escala: 0.72, x: -140, y: -232};
+
+export const Intro: React.FC<{dia: number; corta?: boolean; posicion?: 'centro' | 'arriba-izquierda'}> = ({
+	dia,
+	corta = false,
+	posicion = 'centro',
+}) => {
 	const frame = useCurrentFrame();
 	const T_INTRO = corta ? T_INTRO_CORTA : T_LARGA;
 	const duracion = corta ? DURACION_INTRO_CORTA : DURACION_INTRO;
@@ -18,6 +26,13 @@ export const Intro: React.FC<{dia: number; corta?: boolean}> = ({dia, corta = fa
 			<Fondo />
 			<AbsoluteFill style={{opacity: opacidad}}>
 				<Escena desde={0} hasta={duracion} salida={false}>
+					<div
+						style={
+							posicion === 'arriba-izquierda'
+								? {transform: `translate(${ESQUINA.x}px, ${ESQUINA.y}px) scale(${ESQUINA.escala})`}
+								: undefined
+						}
+					>
 					<Columna gap={150}>
 						<Insignia numero={dia} etiqueta={`de ${TOTAL_DIAS}`} en={T_INTRO.insignia} />
 						<Icono
@@ -40,9 +55,10 @@ export const Intro: React.FC<{dia: number; corta?: boolean}> = ({dia, corta = fa
 							<Texto en={T_INTRO.escuela} tam={88}>
 								{'de la escuela'}
 							</Texto>
-							<LogoInvora en={T_INTRO.invora} tam={100} />
+							<LogoInvora en={T_INTRO.invora} tam={100} separacion={posicion === 'arriba-izquierda' ? 0.62 : undefined} />
 						</Columna>
 					</Columna>
+					</div>
 				</Escena>
 			</AbsoluteFill>
 		</AbsoluteFill>
