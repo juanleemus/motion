@@ -25,7 +25,7 @@ if dur - cur > 0.1: tramos.append((cur, dur))
 tramos = [t for t in tramos if t[1] - t[0] >= 0.12]
 
 NUM = {'10': 'diez', '5': 'cinco', '6': 'seis'}
-LECTURA = {'ceo': 'ciou', 'waymo': 'weimo', 'ackman': 'acman', 'apps': 'aps'}
+LECTURA = {'ceo': 'ciou', 'waymo': 'weimo', 'ackman': 'acman', 'apps': 'aps', 'guia': 'guía', 'micron': 'maicron', 'posts': 'pos'}
 def silabas(pal):
     p = NUM.get(pal.lower().strip('.,:;?!¿…'), pal.lower())
     p = re.sub(r'[^a-záéíóúüñ]', '', p)
