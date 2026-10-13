@@ -58,4 +58,46 @@ export const ICONOS: Record<string, Trazo[]> = {
 		{d: 'M14 16 h72 a8 8 0 0 1 8 8 v42 a8 8 0 0 1 -8 8 h-40 l-18 16 v-16 h-14 a8 8 0 0 1 -8 -8 v-42 a8 8 0 0 1 8 -8Z', relleno: 'a'},
 		{d: 'M30 45 v1 M50 45 v1 M70 45 v1'},
 	],
+	periodico: [
+		{d: 'M24 12 h62 a6 6 0 0 1 6 6 v62 a10 10 0 0 1 -10 10 H18 a10 10 0 0 1 -10 -10 V34 h16Z', relleno: 'a'},
+		{d: 'M24 34 V80 a6 6 0 0 1 -12 0'},
+		{d: 'M34 24 h46 v16 h-46Z', relleno: 'b'},
+		{d: 'M34 52 h46 M34 64 h46 M34 76 h30'},
+	],
+	documento: [
+		{d: 'M26 6 h36 l20 20 v60 a8 8 0 0 1 -8 8 h-48 a8 8 0 0 1 -8 -8 v-72 a8 8 0 0 1 8 -8Z', relleno: 'a'},
+		{d: 'M62 6 v20 h20', relleno: 'b'},
+		{d: 'M32 46 h36 M32 59 h36 M32 72 h22'},
+	],
+	embudo: [
+		{d: 'M8 12 h84 l-32 38 v28 l-20 12 v-40Z', relleno: 'a'},
+		{d: 'M20 26 h60', relleno: null},
+	],
+	chip: [
+		{d: 'M28 24 h44 a6 6 0 0 1 6 6 v40 a6 6 0 0 1 -6 6 h-44 a6 6 0 0 1 -6 -6 v-40 a6 6 0 0 1 6 -6Z', relleno: 'a'},
+		{d: 'M38 38 h24 v24 h-24Z', relleno: 'b'},
+		{d: 'M36 24 V10 M50 24 V10 M64 24 V10 M36 76 V90 M50 76 V90 M64 76 V90 M22 38 H8 M22 62 H8 M78 38 H92 M78 62 H92'},
+	],
+	diana: [
+		{d: circulo(46, 54, 38), relleno: 'a'},
+		{d: circulo(46, 54, 24), relleno: 'b'},
+		{d: circulo(46, 54, 10), relleno: 'a'},
+		{d: 'M46 54 L86 14 M74 12 h14 v14'},
+	],
+	edificio: [
+		{d: 'M14 84 V36 L50 12 L86 36 V84Z', relleno: 'a'},
+		{d: 'M30 46 V74 M50 46 V74 M70 46 V74'},
+		{d: 'M6 88 H94'},
+	],
+	politico: [
+		{d: 'M16 90c0-20 15-33 34-33s34 13 34 33Z', relleno: 'a'},
+		{d: circulo(50, 30, 18), relleno: 'b'},
+		{d: 'M50 58 l-6 8 l6 20 l6 -20Z', relleno: 'b'},
+	],
+	mano: [
+		{
+			d: 'M34 92 C26 84 16 70 11 60 c-3 -6 3 -11 9 -6 l10 9 V26 a6 6 0 0 1 12 0 v22 V16 a6 6 0 0 1 12 0 v32 V20 a6 6 0 0 1 12 0 v30 V32 a6 6 0 0 1 12 0 v32 c0 16 -10 28 -24 28Z',
+			relleno: 'a',
+		},
+	],
 };

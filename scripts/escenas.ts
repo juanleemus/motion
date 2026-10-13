@@ -1,6 +1,7 @@
 // Imprime los fotogramas de revisión: uno ya asentado por escena (o "mov" para momentos en movimiento).
-import {ESCENAS} from '../src/escenas.ts';
-const v = Object.values(ESCENAS);
+// REEL=acciones usa src/acciones/escenas.ts; sin REEL, el reel del día 5.
+const {ESCENAS} = await import(process.env.REEL ? `../src/${process.env.REEL}/escenas.ts` : '../src/escenas.ts');
+const v = Object.values(ESCENAS) as number[];
 const modo = process.argv[2] ?? 'quieto';
 const out: number[] = [];
 for (let i = 0; i < v.length - 1; i++) {

@@ -260,13 +260,16 @@ export const Comentario: React.FC<{en: number; texto: string; enviaEn: number}> 
 };
 
 // ---------- Sí / no ----------
-export const SiNo: React.FC<{si: number; no: number; etiquetaSi: string; subSi?: string; etiquetaNo: string}> = ({
-	si,
-	no,
-	etiquetaSi,
-	subSi,
-	etiquetaNo,
-}) => {
+export const SiNo: React.FC<{
+	si: number;
+	no: number;
+	etiquetaSi: string;
+	subSi?: string;
+	etiquetaNo: string;
+	tam?: number;
+	ancho?: number;
+	noPrimero?: boolean; // la fila roja va arriba (cuando el "no" se dice primero)
+}> = ({si, no, etiquetaSi, subSi, etiquetaNo, tam = 72, ancho = 420, noPrimero = false}) => {
 	const frame = useCurrentFrame();
 	const rs = useRebote(si);
 	const rn = useRebote(no);
@@ -288,14 +291,14 @@ export const SiNo: React.FC<{si: number; no: number; etiquetaSi: string; subSi?:
 			>
 				{marca}
 			</div>
-			<div style={{fontFamily: FUENTE, color: C.blanco, textShadow: SOMBRA, width: 420}}>
-				<div style={{fontWeight: 900, fontSize: 72, lineHeight: 1}}>{titulo}</div>
+			<div style={{fontFamily: FUENTE, color: C.blanco, textShadow: SOMBRA, width: ancho}}>
+				<div style={{fontWeight: 900, fontSize: tam, lineHeight: 1.05, whiteSpace: 'pre-line'}}>{titulo}</div>
 				{sub ? <div style={{fontWeight: 800, fontSize: 44, color: C.azul, marginTop: 10}}>{sub}</div> : null}
 			</div>
 		</div>
 	);
 	return (
-		<div style={{display: 'flex', flexDirection: 'column', gap: 70}}>
+		<div style={{display: 'flex', flexDirection: noPrimero ? 'column-reverse' : 'column', gap: 70}}>
 			{fila(
 				rs,
 				C.azul,

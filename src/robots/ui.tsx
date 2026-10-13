@@ -527,11 +527,12 @@ export const Icono: React.FC<{
 };
 
 // ---------- Logo INVORA (texto) ----------
-export const LogoInvora: React.FC<{en: number; tam?: number}> = ({en, tam = 92}) => {
+// separacion: cuánto se abren las letras al entrar (en em); 1,1 en la intro "Día X".
+export const LogoInvora: React.FC<{en: number; tam?: number; separacion?: number}> = ({en, tam = 92, separacion = 1.1}) => {
 	const frame = useCurrentFrame();
 	const p = interpolate(frame, [en, en + 18], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
 	const raya = interpolate(frame, [en + 14, en + 28], [0, 1], {...clamp, easing: Easing.inOut(Easing.cubic)});
-	const esp = interpolate(p, [0, 1], [1.1, 0.32]);
+	const esp = interpolate(p, [0, 1], [separacion, 0.32]);
 	return (
 		<div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 22, opacity: p}}>
 			<div
