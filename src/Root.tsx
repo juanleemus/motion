@@ -9,7 +9,7 @@ import {ClipNoticias} from './acciones/clip-noticias/Clip';
 import {DURACION as DURACION_NOTICIAS} from './acciones/clip-noticias/tiempos';
 import {DURACION as DURACION_CLIP} from './acciones/clip-portafolio/tiempos';
 import {Intro} from './Intro';
-import {DURACION_INTRO, TOTAL_DIAS} from './tiemposIntro';
+import {DURACION_INTRO, DURACION_INTRO_CORTA, TOTAL_DIAS} from './tiemposIntro';
 import {DURACION, FPS} from './tiempos';
 
 for (const peso of ['500', '800', '900']) {
@@ -30,6 +30,19 @@ export const RemotionRoot: React.FC = () => (
 				component={Intro}
 				defaultProps={{dia}}
 				durationInFrames={DURACION_INTRO}
+				fps={FPS}
+				width={1080}
+				height={1920}
+			/>
+		))}
+		{/* Intros cortas de 2,5 s (dia1-escuela-invora-corta … dia12-escuela-invora-corta) */}
+		{Array.from({length: TOTAL_DIAS}, (_, i) => i + 1).map((dia) => (
+			<Composition
+				key={`corta${dia}`}
+				id={`dia${dia}-escuela-invora-corta`}
+				component={Intro}
+				defaultProps={{dia, corta: true}}
+				durationInFrames={DURACION_INTRO_CORTA}
 				fps={FPS}
 				width={1080}
 				height={1920}

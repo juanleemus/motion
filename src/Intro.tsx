@@ -1,12 +1,14 @@
-// Intro de la serie "Día X de 12 de la Escuela Invora" (4,5 s). Solo cambia el número del día.
+// Intro de la serie "Día X de 12 de la Escuela Invora" (4,5 s, o 2,5 s con corta). Solo cambia el número del día.
 import React from 'react';
 import {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';
 import {C, Columna, Escena, FUENTE, Fondo, Icono, Insignia, LogoInvora, Texto} from './robots/ui';
 import {ICONOS} from './robots/iconos';
-import {DURACION_INTRO, TOTAL_DIAS, T_INTRO} from './tiemposIntro';
+import {DURACION_INTRO, DURACION_INTRO_CORTA, TOTAL_DIAS, T_INTRO as T_LARGA, T_INTRO_CORTA} from './tiemposIntro';
 
-export const Intro: React.FC<{dia: number}> = ({dia}) => {
+export const Intro: React.FC<{dia: number; corta?: boolean}> = ({dia, corta = false}) => {
 	const frame = useCurrentFrame();
+	const T_INTRO = corta ? T_INTRO_CORTA : T_LARGA;
+	const duracion = corta ? DURACION_INTRO_CORTA : DURACION_INTRO;
 	const opacidad = interpolate(frame, [T_INTRO.baja, T_INTRO.baja + 12], [1, 0.35], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
@@ -15,7 +17,7 @@ export const Intro: React.FC<{dia: number}> = ({dia}) => {
 		<AbsoluteFill style={{fontFamily: FUENTE}}>
 			<Fondo />
 			<AbsoluteFill style={{opacity: opacidad}}>
-				<Escena desde={0} hasta={DURACION_INTRO} salida={false}>
+				<Escena desde={0} hasta={duracion} salida={false}>
 					<Columna gap={150}>
 						<Insignia numero={dia} etiqueta={`de ${TOTAL_DIAS}`} en={T_INTRO.insignia} />
 						<Icono
