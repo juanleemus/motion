@@ -5,10 +5,16 @@ import {Reel} from './Reel';
 import {Intro} from './Intro';
 import {DURACION_INTRO, TOTAL_DIAS} from './tiemposIntro';
 import {DURACION, FPS} from './tiempos';
+import {ReelJPR} from './jpr/Reel';
+import {PruebaJPR, DURACION_PRUEBA} from './jpr/Prueba';
+import {DURACION as DURACION_JPR} from './jpr/tiempos';
+import {cargarFuentes} from './jpr/marca';
 
 for (const peso of ['500', '800', '900']) {
 	loadFont({family: 'Montserrat', url: staticFile(`fuentes/montserrat-latin-${peso}-normal.woff2`), weight: peso});
 }
+
+cargarFuentes();
 
 export const RemotionRoot: React.FC = () => (
 	<>
@@ -26,5 +32,16 @@ export const RemotionRoot: React.FC = () => (
 				height={1920}
 			/>
 		))}
+		{/* Juan Pablo Ramos P. (JPR) */}
+		<Composition id="jpr-prueba-piezas" component={PruebaJPR} durationInFrames={DURACION_PRUEBA} fps={FPS} width={1080} height={1920} />
+		<Composition
+			id="jpr-marcas-colaboran"
+			component={ReelJPR}
+			defaultProps={{transparente: false, criticos: false}}
+			durationInFrames={DURACION_JPR}
+			fps={FPS}
+			width={1080}
+			height={1920}
+		/>
 	</>
 );

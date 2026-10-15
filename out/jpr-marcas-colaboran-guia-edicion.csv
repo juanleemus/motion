@@ -1,0 +1,17 @@
+entra,sale,fotograma_entra,fotograma_sale,plano,escena,video_de_juan_pablo,acercamientos_12%
+00:00:00:00,00:00:02:22,0,82,S,gancho,"Juan Pablo abajo, de y 920 a 1920 (1080x1000), encuadre más abierto; cabeza debajo de y 920",
+00:00:02:22,00:00:06:19,82,199,A,competir,"Juan Pablo a pantalla completa (1080x1920)",00:00:02:22-00:00:03:10 / 00:00:06:05-00:00:06:19
+00:00:06:19,00:00:10:00,199,300,B,sobrevivir,"Sin Juan Pablo (apoyo a pantalla completa)",
+00:00:10:00,00:00:13:26,300,416,S,alianzas,"Juan Pablo abajo, de y 920 a 1920 (1080x1000), encuadre más abierto; cabeza debajo de y 920",
+00:00:13:26,00:00:16:15,416,495,A,costo,"Juan Pablo a pantalla completa (1080x1920)",00:00:16:02-00:00:16:15
+00:00:16:15,00:00:19:02,495,572,B,anuncios,"Sin Juan Pablo (apoyo a pantalla completa)",
+00:00:19:02,00:00:21:21,572,651,A,intercambiar,"Juan Pablo a pantalla completa (1080x1920)",00:00:20:14-00:00:21:05
+00:00:21:21,00:00:25:05,651,755,S,solo,"Juan Pablo abajo, de y 920 a 1920 (1080x1000), encuadre más abierto; cabeza debajo de y 920",
+00:00:25:05,00:00:28:27,755,867,A,vecino,"Juan Pablo a pantalla completa (1080x1920)",00:00:27:05-00:00:27:17
+00:00:28:27,00:00:31:05,867,935,B,afin,"Sin Juan Pablo (apoyo a pantalla completa)",
+00:00:31:05,00:00:33:13,935,1003,S,cobranding,"Juan Pablo abajo, de y 920 a 1920 (1080x1000), encuadre más abierto; cabeza debajo de y 920",
+00:00:33:13,00:00:36:19,1003,1099,A,colaboren,"Juan Pablo a pantalla completa (1080x1920)",00:00:34:13-00:00:35:02
+00:00:36:19,00:00:40:03,1099,1203,B,ganando,"Sin Juan Pablo (apoyo a pantalla completa)",
+00:00:40:03,00:00:42:18,1203,1278,A,estrategia,"Juan Pablo a pantalla completa (1080x1920)",
+00:00:42:18,00:00:45:25,1278,1375,S,pauta,"Juan Pablo abajo, de y 920 a 1920 (1080x1000), encuadre más abierto; cabeza debajo de y 920",
+00:00:45:25,00:00:48:00,1375,1440,A,cierre,"Juan Pablo a pantalla completa (1080x1920)",
