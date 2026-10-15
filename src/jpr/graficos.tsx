@@ -145,7 +145,7 @@ const Nodo: React.FC<{x: number; y: number; r: number; c: ContenidoNodo; borde: 
 		}}
 	>
 		{c.logo ? (
-			<Img src={staticFile(c.logo)} style={{width: '68%', height: '68%', objectFit: 'contain'}} />
+			<Img src={staticFile(c.logo)} style={{width: '74%', height: '74%', objectFit: 'contain', filter: c.logo.endsWith('.svg') ? 'brightness(0) invert(1)' : 'none'}} />
 		) : c.glifo ? (
 			<Glifo nombre={c.glifo} color={borde === COLOR.lima ? COLOR.lima : COLOR.blanco} tam={r * 1.1} />
 		) : c.texto ? (

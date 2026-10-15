@@ -59,7 +59,7 @@ const lista: Omit<Escena, 'hasta'>[] = [
 	{
 		id: 'alianzas',
 		plano: 'S',
-		fondo: 'oscuro',
+		fondo: 'claro',
 		desde: en('Oreo'),
 		bloques: [
 			b(en('Oreo'), 'Oreo con'),
@@ -170,7 +170,7 @@ const lista: Omit<Escena, 'hasta'>[] = [
 	{
 		id: 'ganando',
 		plano: 'B',
-		fondo: 'oscuro',
+		fondo: 'claro',
 		desde: en('ambos'),
 		bloques: [
 			b(en('ambos'), 'ambos'),
@@ -189,7 +189,7 @@ const lista: Omit<Escena, 'hasta'>[] = [
 	{
 		id: 'pauta',
 		plano: 'S',
-		fondo: 'oscuro',
+		fondo: 'claro',
 		desde: en('que no te'),
 		bloques: [
 			b(en('que no te'), 'que no te'),

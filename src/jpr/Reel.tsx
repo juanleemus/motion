@@ -7,7 +7,7 @@ import {Alerta, Barra, Nodos, Pastillas, Recuadro, Resaltador} from './graficos'
 import {Icono3D, Sello} from './medios';
 import {ESCENAS, escena} from './escenas';
 import {Y_SUB} from './marca';
-import {LOGOS} from './kit';
+import {LOGOS, LOGOS_GANCHO} from './kit';
 import {en, finDe} from './tiempos';
 
 export type PropsReel = {transparente?: boolean; criticos?: boolean};
@@ -21,13 +21,13 @@ const APOYOS: Record<string, {nodo: React.ReactNode; ySub?: number}> = {
 				centro={{x: 540, y: 610, r: 100, glifo: 'mundo'}}
 				r={68}
 				satelites={[
-					{x: 300, y: 400, glifo: 'tienda'},
-					{x: 780, y: 400, glifo: 'tienda'},
-					{x: 845, y: 620, glifo: 'tienda'},
-					{x: 750, y: 820, glifo: 'tienda'},
-					{x: 330, y: 820, glifo: 'tienda'},
-					{x: 235, y: 620, glifo: 'tienda'},
-				]}
+					[300, 400],
+					[780, 400],
+					[845, 620],
+					[750, 820],
+					[330, 820],
+					[235, 620],
+				].map(([x, y], i) => ({x, y, logo: LOGOS_GANCHO[i]}))}
 			/>
 		),
 	},
@@ -99,7 +99,7 @@ const APOYOS: Record<string, {nodo: React.ReactNode; ySub?: number}> = {
 	ganando: {
 		nodo: (
 			<>
-				<Titular desde={en('ganando')} y={420} texto="GANANDO" modo="lima" />
+				<Titular desde={en('ganando')} y={420} texto="GANANDO" tono="claro" />
 				<Nodos
 					desde={escena('ganando').desde}
 					centro={{x: 540, y: 720, r: 100, glifo: 'union'}}
@@ -119,7 +119,7 @@ const APOYOS: Record<string, {nodo: React.ReactNode; ySub?: number}> = {
 			<>
 				<Icono3D desde={escena('pauta').desde} nombre="billetes" x={540} y={450} tam={260} />
 				<Resaltador desde={en('pauta')} x={215} y={706} ancho={650} alto={112} />
-				<Titular desde={en('en pauta')} y={762} texto="EN PAUTA" modo="fijo" />
+				<Titular desde={en('en pauta')} y={762} texto="EN PAUTA" tono="claro" modo="fijo" />
 			</>
 		),
 	},

@@ -35,7 +35,17 @@ const Partes: React.FC<{t: string; desde: number; tono: Tono}> = ({t, desde, ton
 				if (s.startsWith('{')) {
 					const e = interpolate(frame - desde, [0, 5], [1.15, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
 					return (
-						<span key={i} style={{color: COLOR.lima, display: 'inline-block', transform: `scale(${e})`}}>
+						<span
+							key={i}
+							style={{
+								color: tono === 'claro' ? COLOR.medianoche : COLOR.lima,
+								background: tono === 'claro' ? COLOR.lima35 : 'none',
+								borderRadius: 8,
+								padding: tono === 'claro' ? '0 8px' : 0,
+								display: 'inline-block',
+								transform: `scale(${e})`,
+							}}
+						>
 							{s.slice(1, -1)}
 						</span>
 					);

@@ -1,8 +1,8 @@
 // Planos (A, S, B), fondos de marca y encuadre del presentador.
 import React, {createContext, useContext} from 'react';
-import {AbsoluteFill, OffthreadVideo, random, staticFile, useCurrentFrame} from 'remotion';
-import {COLOR, FUENTE_CUERPO, LIENZO, UNION_S} from './marca';
-import {CLIP_PRESENTADOR} from './kit';
+import {AbsoluteFill, Img, OffthreadVideo, random, staticFile, useCurrentFrame} from 'remotion';
+import {COLOR, LIENZO, UNION_S} from './marca';
+import {CLIP_PRESENTADOR, FONDO_CLARO} from './kit';
 
 // transparente: el área de Juan Pablo queda vacía (para el .mov con canal alfa).
 // criticos: solo se dibuja lo importante (textos, gráficos); sirve para revisar las zonas seguras.
@@ -44,11 +44,9 @@ export const FondoOscuro: React.FC<{alto?: number}> = ({alto = LIENZO.alto}) => 
 export const FondoClaro: React.FC = () => {
 	if (useModo().criticos) return null;
 	return (
-		<AbsoluteFill
-			style={{
-				background: `radial-gradient(ellipse 85% 75% at 50% 45%, ${COLOR.blanco} 55%, rgba(47,95,255,0.13) 100%), ${COLOR.blanco}`,
-			}}
-		/>
+		<AbsoluteFill style={{background: COLOR.blanco}}>
+			<Img src={staticFile(FONDO_CLARO)} style={{width: LIENZO.ancho, height: LIENZO.alto, objectFit: 'cover'}} />
+		</AbsoluteFill>
 	);
 };
 
@@ -66,27 +64,10 @@ export const Presentador: React.FC<{encuadre: 'A' | 'S'; zoom?: boolean}> = ({en
 			</AbsoluteFill>
 		);
 	}
-	// Provisional: el editor del cliente pone aquí el video de Juan Pablo.
+	// Provisional (solo en los MP4 de muestra): fondo liso donde el editor monta el video de Juan Pablo.
 	return (
 		<AbsoluteFill style={{overflow: 'hidden', background: COLOR.medianoche}}>
-			<AbsoluteFill style={{...estilo, background: 'linear-gradient(180deg, #1a3366 0%, #0d2552 55%, #081733 100%)'}}>
-				<div
-					style={{
-						position: 'absolute',
-						left: '50%',
-						top: encuadre === 'S' ? '42%' : '30%',
-						transform: 'translate(-50%,-50%)',
-						fontFamily: FUENTE_CUERPO,
-						fontWeight: 600,
-						fontSize: 30,
-						letterSpacing: 4,
-						color: 'rgba(255,255,255,0.28)',
-						whiteSpace: 'nowrap',
-					}}
-				>
-					VIDEO DE JUAN PABLO {encuadre === 'S' ? '· ABIERTO' : ''}
-				</div>
-			</AbsoluteFill>
+			<AbsoluteFill style={{...estilo, background: 'linear-gradient(180deg, #1a3366 0%, #0d2552 55%, #081733 100%)'}} />
 		</AbsoluteFill>
 	);
 };
