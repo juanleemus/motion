@@ -1,0 +1,50 @@
+TRANSCRIPCIÓN CON TIEMPOS · contenido5-jpr
+
+OJO: provisional. whisper.cpp no pudo bajar su modelo (la red del entorno bloquea huggingface.co),
+así que el texto es el guion y los tiempos salen de alinearlo con las pausas y las sílabas de la voz (±0,2 s).
+Cuando se abra la red: se corre whisper medium, se comparan textos y se resincroniza todo sin cambiar el diseño.
+
+0:00.00  Si pagas anuncios en Facebook o Instagram,
+0:02.68  tienes que revisar tus campañas hoy mismo,
+0:05.15  porque Meta acaba de empezar a bloquear cuentas sin previo aviso.
+0:09.84  Pagar pauta en Meta para crecer tu cuenta o tu tienda en
+0:13.71  TikTok era la estrategia de todos.
+0:16.37  Pero el puente se cerró.
+0:18.11  Meta le declaró la guerra a ByteDance en siete mercados clave,
+0:21.67  incluido Estados Unidos.
+0:23.28  Y el problema es que,
+0:24.73  según los reportes,
+0:26.25  la prohibición no es solo para ellos:
+0:29.00  si eres una marca o creador y tu anuncio manda tráfico a
+0:33.17  TikTok,
+0:33.46  te lo van a bloquear.
+0:34.74  La época de usar a Meta para alimentar a su competencia se
+0:38.95  acabó.
+0:39.61  Mándale este video urgente a tu media buyer o a tu agencia
+0:42.67  para que cambien los enlaces hoy,
+0:44.82  y sígueme para enterarte de estas crisis antes que tu competencia.
+
+PALABRA POR PALABRA (inicio en segundos):
+  0.00 Si    0.18 pagas    0.54 anuncios    1.07 en    1.25 Facebook    1.97 o
+  2.15 Instagram,    2.68 tienes    3.04 que    3.22 revisar    3.76 tus    3.93 campañas
+  4.47 hoy    4.65 mismo,    5.15 porque    5.56 Meta    5.97 acaba    6.58 de
+  6.78 empezar    7.39 a    7.60 bloquear    8.21 cuentas    8.62 sin    8.82 previo
+  9.23 aviso.    9.84 Pagar   10.25 pauta   10.65 en   10.86 Meta   11.26 para
+ 11.67 crecer   12.08 tu   12.28 cuenta   12.69 o   12.89 tu   13.10 tienda
+ 13.51 en   13.71 TikTok   14.12 era   14.52 la   14.73 estrategia   15.54 de
+ 15.75 todos.   16.37 Pero   16.70 el   16.86 puente   17.60 se   17.77 cerró.
+ 18.11 Meta   18.45 le   18.62 declaró   19.12 la   19.29 guerra   19.63 a
+ 19.80 ByteDance   20.31 en   20.48 siete   20.82 mercados   21.33 clave,   21.67 incluido
+ 22.17 Estados   22.68 Unidos.   23.28 Y   23.48 el   23.69 problema   24.32 es
+ 24.52 que,   24.73 según   25.15 los   25.35 reportes,   26.25 la   26.43 prohibición
+ 27.16 no   27.35 es   27.53 solo   27.90 para   28.26 ellos:   29.00 si
+ 29.21 eres   29.88 una   30.25 marca   30.63 o   31.08 creador   31.52 y
+ 31.67 tu   31.82 anuncio   32.27 manda   32.57 tráfico   33.02 a   33.17 TikTok,
+ 33.46 te   33.61 lo   33.76 van   33.91 a   34.06 bloquear.   34.74 La
+ 34.92 época   35.47 de   35.65 usar   36.02 a   36.20 Meta   36.57 para
+ 36.93 alimentar   37.67 a   37.85 su   38.03 competencia   38.76 se   38.95 acabó.
+ 39.61 Mándale   40.01 este   40.28 video   40.68 urgente   41.07 a   41.21 tu
+ 41.34 media   41.60 buyer   41.87 o   42.00 a   42.14 tu   42.27 agencia
+ 42.67 para   42.93 que   43.06 cambien   43.33 los   43.46 enlaces   43.86 hoy,
+ 44.82 y   44.98 sígueme   45.46 para   45.79 enterarte   46.65 de   46.81 estas
+ 47.12 crisis   47.44 antes   47.76 que   47.91 tu   48.07 competencia.

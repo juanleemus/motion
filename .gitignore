@@ -4,3 +4,5 @@ trabajo/
 kit-jpr/04-reels/*/*.MOV
 kit-jpr/04-reels/*/*.mov
 kit-jpr/04-reels/*/*.mp4
+kit-jpr/out/**/*.mov
+kit-jpr/out/**/*.mp4

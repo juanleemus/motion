@@ -1,0 +1,78 @@
+HOJA DE MONTAJE · contenido5-jpr
+
+Duración: 1223 fotogramas = 48.92 s a 25 fps. Todo empieza en 00:00:00:00.
+Pistas: V3 = subtitulos.mov · V2 = motion.mov · V1 = video de JPR (sin tocar) · A1 voz · A2 efectos.wav
+Código de tiempo en HH:MM:SS:FF (FF = fotograma, 25 por segundo).
+
+ESCENA DESDE        HASTA           SEG  FORMATO / QUÉ HACE EL EDITOR
+--------------------------------------------------------------------------------------------------------------
+A1     00:00:00:00  00:00:00:22    0.88  A · JPR a cámara (capa transparente, solo subtítulos)
+                                       Frase: Si pagas anuncios
+                                       Animación: Gancho a cámara: subtítulo grande, "anuncios" en lima
+
+B1     00:00:00:22  00:00:05:04    4.28  B · PANTALLA DIVIDIDA -> BAJA A JPR a la mitad de abajo (y 960-1920)
+                                       Frase: en Facebook o Instagram, tienes que revisar tus campañas hoy mismo,
+                                       Animación: Split con whoosh; logos de Facebook e Instagram en su palabra; chips "revisar tus campañas" y "hoy mismo"
+
+C1     00:00:05:04  00:00:09:21    4.68  C · Gráfico completo (tapa todo el video)
+                                       Frase: porque Meta acaba de empezar a bloquear cuentas sin previo aviso.
+                                       Animación: Destello; logo de Meta grande; chips con candado "bloquear cuentas" y alerta "sin previo aviso"
+
+A2     00:00:09:21  00:00:10:13    0.68  A · JPR a cámara (capa transparente, solo subtítulos)
+                                       Frase: Pagar pauta en
+                                       Animación: A cámara; "pauta" en lima
+
+B2     00:00:10:13  00:00:17:24    7.44  B · PANTALLA DIVIDIDA -> BAJA A JPR a la mitad de abajo (y 960-1920)
+                                       Frase: Meta para crecer tu cuenta o tu tienda en TikTok era la estrategia de todos. Pero el puente se cerró.
+                                       Animación: Diagrama: Meta → línea que se dibuja → TikTok; chip "la estrategia de todos"; la línea se pone lima en "puente" y se rompe en "cerró"
+
+C2     00:00:17:24  00:00:23:07    5.32  C · Gráfico completo (tapa todo el video)
+                                       Frase: Meta le declaró la guerra a ByteDance en siete mercados clave, incluido Estados Unidos.
+                                       Animación: Destello; Meta vs ByteDance con "guerra" gigante y marcador; cifra 7 que cuenta + "mercados clave"; chip "Estados Unidos"
+
+A3     00:00:23:07  00:00:26:02    2.80  A · JPR a cámara (capa transparente, solo subtítulos)
+                                       Frase: Y el problema es que, según los reportes, la
+                                       Animación: A cámara; "problema" en lima y "reportes" en Lora Italic
+
+B3     00:00:26:02  00:00:31:17    5.60  B · PANTALLA DIVIDIDA -> BAJA A JPR a la mitad de abajo (y 960-1920)
+                                       Frase: prohibición no es solo para ellos: si eres una marca o creador
+                                       Animación: "prohibición" con marcador lima; ByteDance en gris ("ellos"); chips "marca" y "creador"
+
+C3     00:00:31:11  00:00:34:19    3.32  C · Gráfico completo (tapa todo el video)
+                                       Frase: y tu anuncio manda tráfico a TikTok, te lo van a bloquear.
+                                       Animación: Chip "tu anuncio" → línea de tráfico → TikTok; en "bloquear" la línea se corta y sale el ícono de bloqueo
+
+A4     00:00:34:19  00:00:35:21    1.08  A · JPR a cámara (capa transparente, solo subtítulos)
+                                       Frase: La época de usar a
+                                       Animación: Destello; a cámara
+
+B4     00:00:35:21  00:00:39:17    3.84  B · PANTALLA DIVIDIDA -> BAJA A JPR a la mitad de abajo (y 960-1920)
+                                       Frase: Meta para alimentar a su competencia se acabó.
+                                       Animación: Logo de Meta; barra "alimentar a su competencia" que se llena y cambia a lima con alerta en "acabó"
+
+A5     00:00:39:17  00:00:41:00    1.32  A · JPR a cámara (capa transparente, solo subtítulos)
+                                       Frase: Mándale este video urgente a tu
+                                       Animación: A cámara; "urgente" en lima
+
+B5     00:00:41:00  00:00:44:17    3.68  B · PANTALLA DIVIDIDA -> BAJA A JPR a la mitad de abajo (y 960-1920)
+                                       Frase: media buyer o a tu agencia para que cambien los enlaces hoy,
+                                       Animación: Chips apilados "media buyer", "agencia" y "cambien los enlaces hoy" (se escribe solo, "hoy" en lima)
+
+A6     00:00:44:17  00:00:47:23    3.24  A · JPR a cámara (capa transparente, solo subtítulos)
+                                       Frase: y sígueme para enterarte de estas crisis antes que
+                                       Animación: CTA: pastilla lima "SÍGUEME" con clic; "crisis" en lima
+
+C4     00:00:47:23  00:00:48:23    1.00  C · Gráfico completo (tapa todo el video)
+                                       Frase: tu competencia.
+                                       Animación: Firma JPR con raya lima que se dibuja
+
+TRAMOS DONDE SE BAJA A JPR (pantalla dividida):
+  00:00:00:22 -> 00:00:05:04  (B1): escala o mueve a JPR para que su cara quede en la mitad de abajo. La mitad de arriba baja desde arriba en 8 fotogramas: haz el movimiento de JPR en esos mismos 8 fotogramas.
+  00:00:10:13 -> 00:00:17:24  (B2): escala o mueve a JPR para que su cara quede en la mitad de abajo. La mitad de arriba baja desde arriba en 8 fotogramas: haz el movimiento de JPR en esos mismos 8 fotogramas.
+  00:00:26:02 -> 00:00:31:17  (B3): escala o mueve a JPR para que su cara quede en la mitad de abajo. La mitad de arriba baja desde arriba en 8 fotogramas: haz el movimiento de JPR en esos mismos 8 fotogramas.
+  00:00:35:21 -> 00:00:39:17  (B4): escala o mueve a JPR para que su cara quede en la mitad de abajo. La mitad de arriba baja desde arriba en 8 fotogramas: haz el movimiento de JPR en esos mismos 8 fotogramas.
+  00:00:41:00 -> 00:00:44:17  (B5): escala o mueve a JPR para que su cara quede en la mitad de abajo. La mitad de arriba baja desde arriba en 8 fotogramas: haz el movimiento de JPR en esos mismos 8 fotogramas.
+
+Notas:
+- C3 empieza 6 fotogramas antes de que termine B3 (el gráfico completo entra por debajo mientras la mitad de arriba sube).
+- Los tiempos se calcularon alineando el guion con las pausas de la voz (sin whisper); pueden variar ±0,2 s por palabra.
