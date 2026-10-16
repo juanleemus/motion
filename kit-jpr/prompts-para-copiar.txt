@@ -1,0 +1,118 @@
+PROMPTS · MANUAL DE MOTION GRAPHICS · JUAN PABLO RAMOS (JPR)
+Llena lo que está entre [corchetes] y pega el prompt completo en Claude Code, abierto en la carpeta del kit.
+
+==================================================
+PROMPT 1 · MOTION GRAPHICS DE UN REEL
+==================================================
+
+Vas a crear los motion graphics de un reel para el cliente JUAN PABLO RAMOS (JPR), todo con código y sin abrir ningún programa de edición: Remotion para animar, ffmpeg para sacar el audio y whisper.cpp para transcribir en mi computador. Háblame en español de Colombia, claro y sin tecnicismos.
+
+QUÉ HACES Y QUÉ NO
+- NO editas el video de Juan Pablo: no lo cortas, no lo reencuadras, no le cambias el color ni el audio. Solo lo escuchas para saber en qué momento va cada cosa.
+- SÍ creas los motion graphics, los subtítulos y los efectos de sonido, sincronizados con su voz, como capas separadas para que el editor las monte encima en su programa.
+
+MATERIAL
+- Video base: [ruta del video de JPR]. Solo para sincronizar; no se modifica.
+- Guion: [pega aquí el guion]. Solo sirve para escribir bien nombres, marcas y cifras.
+- Nombre del reel: [nombre-corto-sin-espacios]
+- CTA: la palabra es [PALABRA] y la persona recibe [lo que se le manda].
+- Kit del cliente: esta carpeta (kit-jpr). Ahí están el fondo, el video de referencia, los logos ya descargados y el proyecto de Remotion con las piezas reutilizables (proyecto-remotion/src/jpr/ui.tsx). Si el proyecto todavía no existe, créalo la primera vez con esas piezas.
+
+IDENTIDAD VISUAL (obligatoria, no la cambies)
+- Formato 1080×1920, los mismos fps del video base (míralos con ffprobe) y la duración EXACTA del video base.
+- Colores: azul medianoche #0A1F44 (tarjetas y texto sobre el fondo blanco), azul eléctrico #2F5FFF (formas, líneas, recuadros, gráficas), verde lima #C8F542 (acento: 1 a 3 palabras clave por frase, botones, CTA), blanco #FFFFFF (texto sobre el video), gris #8A94A6 (etiquetas y lo que "no"). Nada fuera de esta paleta.
+- El verde lima NUNCA va como texto sobre el fondo blanco: ahí va como marcador detrás de la palabra, con el texto en azul medianoche encima.
+- Letras: Poppins (Google Fonts) para todo. Lora Italic solo para la palabra de acento. Open Sans solo para texto pequeño de más de 6 palabras dentro de tarjetas. Ninguna otra.
+- Fondo de las escenas de gráfico: 01-fondo/fondo-x.jpg (blanco con cuadrícula de x grises), escalado para cubrir y con un zoom muy lento (de 1 a 1,06).
+- Firma: "JPR" escrito con texto (no imagen), Poppins Bold, espaciado 0,08 em, azul medianoche sobre blanco o blanco sobre video, con una raya lima de 120×8 px debajo que se dibuja de izquierda a derecha.
+
+SUBTÍTULOS (van en su propia capa)
+- 1 a 3 palabras por bloque, una sola línea, Poppins Bold 68 px, en minúscula salvo siglas (IA, ROAS, CPA), marcas, personas y países. Sin puntos ni comas.
+- Sobre el video: blanco con sombra 0 4px 14px rgba(0,0,0,0.85). La palabra clave en verde lima o en Lora Italic (máximo una por bloque).
+- Sobre el fondo blanco: azul medianoche sin sombra. La palabra clave en azul eléctrico o en Lora Italic.
+- Posición: centrados; y = 1180 cuando se ve a JPR completo, y = 1040 (justo debajo de la unión, sobre el video) en pantalla dividida, y = 1400 en las escenas de gráfico completo.
+- Cada bloque entra justo en su primera palabra (4 fotogramas: opacidad de 0 a 1, escala de 0,92 a 1 y sube 12 px) y se cambia en seco por el siguiente. En silencios de más de 0,6 s no hay subtítulo.
+
+LOS 4 FORMATOS DE PANTALLA (capa de motion)
+A) JPR a cámara: la capa va transparente; solo se ven los subtítulos.
+B) Pantalla dividida: mitad de arriba (y de 0 a 960) con fondo-x y el gráfico o la captura; mitad de abajo transparente, porque ahí el editor baja a JPR. Entra bajando desde arriba en 8 fotogramas, con whoosh.
+C) Gráfico completo: fondo-x en toda la pantalla con un gráfico grande.
+D) Captura completa: captura de una web en toda la pantalla, con zoom y recuadro.
+- Ritmo: algo nuevo cada 2 a 4 s. JPR solo a cámara sin gráfico, máximo 4 s seguidos. Un formato B, C o D dura mínimo 1,5 s.
+ESTILO DE ANIMACIÓN (sale de 02-referencia/referencia-estilo.mp4, adaptado a JPR)
+- Capturas: entran con escala de 1,08 a 1 y luego un zoom lento. Un recuadro azul eléctrico (4 px, radio 14) se dibuja alrededor del dato, un marcador lima barre detrás del texto importante y encima aparece una palabra gigante (Poppins Bold 150 px) al ritmo de la voz.
+- Chips: tarjetas azul medianoche (radio 18) con un ícono de línea lima y texto blanco. Entran uno por uno desde abajo y se apilan (rotación entre −2° y 2°).
+- Barra de progreso: se llena en azul eléctrico; al llegar al 100 % cambia a lima y aparece un ícono de alerta de línea.
+- Cifras: Poppins Bold gigante que cuenta hasta el valor dicho (18 fotogramas, con tic).
+- Logos: en tarjeta blanca redondeada (radio 28) con sombra suave. Entran en la palabra exacta en que se nombra la marca.
+- Ícono de herramienta: su logo en un cuadrado redondeado que flota encima de la captura.
+- Diagrama de nodos: puntos y líneas azul eléctrico que se dibujan solos.
+- Destello: luz blanca y lima suave de 8 fotogramas entre bloques grandes, máximo una cada 12 s.
+- Salidas: desvanecido y desenfoque en 6 fotogramas.
+- Reutiliza las piezas de proyecto-remotion/src/jpr/ui.tsx (Subtitulo, Acento, Split, Captura, Recuadro, Marcador, Chip, Barra, Cifra, TarjetaLogo, IconoApp, Nodos, Destello, Cta, Firma) para que todos los reels se vean iguales.
+
+PREMIUM, NO INFANTIL
+- Rebote máximo del 6 %; nada gira más de 3°. Máximo 2 elementos moviéndose a la vez. Una idea por pantalla.
+- Sin emojis, stickers, GIFs, memes ni efectos de sonido de caricatura. Íconos siempre de línea.
+
+ZONAS SEGURAS (lo que tapa Instagram)
+- Nada importante en los 250 px de arriba, los 380 px de abajo ni los 140 px de la derecha. Todo el contenido entre x = 70 y 930, y entre y = 300 y 1520.
+
+CAPTURAS Y LOGOS
+- Logos: primero búscalos en 03-logos/. Si falta alguno, descárgalo en PNG de Wikimedia Commons o Wikipedia (tienes mi permiso) y guárdalo ahí. Debe verse completo y legible.
+- Capturas: tómalas tú con Playwright, de páginas públicas, a 1080 px de ancho. Nunca inicies sesión ni muestres datos personales. Pon la lista de URLs en el plan para que yo la apruebe.
+
+SONIDO
+- Solo efectos, sin música: whoosh, pop, tic, clic, tecleo y trazo, todos generados con código (nada de bancos de sonidos). Cada efecto atado a su animación.
+- Mide el volumen de la voz del video base y deja los efectos unos 14 dB por debajo, para que la voz siempre mande.
+
+REGLAS
+- Los subtítulos dicen EXACTAMENTE lo que dice el audio. Muéstrame las diferencias entre el guion y el audio.
+- No inventes cifras ni datos: solo lo que se dice.
+- Cada marca o herramienta nombrada lleva su logo o su captura en esa palabra.
+- Nunca me pidas contraseñas ni claves.
+- Si dudas de cómo se usa algo de Remotion, revísalo en remotion.dev/docs.
+
+ORDEN DE TRABAJO (enséñame cada paso y espera mi OK antes de seguir)
+1. Prepárate: comprueba que tengo Node, ffmpeg, whisper.cpp con el modelo medium y Playwright. Si falta algo, dime cómo instalarlo y espera. Revisa el video base (vertical, fps, duración) sin modificarlo.
+2. Saca una copia del audio y transcríbela palabra por palabra (español), con el tiempo de cada palabra. Corrige los nombres con el guion. Muéstrame el texto con tiempos y las diferencias, y espera mi OK.
+3. Propón el plan en una tabla: tiempo → frase → formato (A/B/C/D) → animación → recurso (logo o URL de captura). Espera mi OK.
+4. Toma las capturas y busca los logos.
+5. Construye las animaciones, los subtítulos y los efectos.
+6. Revisa: arma una vista previa con las capas encima del video base (solo para revisar, NO es entregable). Saca una hoja con un fotograma de cada escena, con las zonas seguras marcadas en rojo, y otra con los momentos en movimiento. Comprueba que todo entra en la palabra exacta, que nada se monta sobre otra cosa y que nada cae en las zonas seguras. Corrige lo que veas.
+7. Renderiza en out/[nombre]/, todo con la duración exacta del video base y empezando en 00:00:
+   - [nombre]-motion.mov → capa de motion graphics con transparencia (ProRes 4444)
+   - [nombre]-subtitulos.mov → capa de subtítulos con transparencia (ProRes 4444)
+   - [nombre]-subtitulos.srt
+   - [nombre]-efectos.wav → solo los efectos
+   - [nombre]-hoja-de-montaje.txt → tiempos de cada escena y en cuáles el editor baja a JPR a la mitad de abajo
+   - [nombre]-preview.mp4 → vista previa con marca de agua "PREVIEW" (no se publica)
+8. Al final dame un resumen corto: dónde están los archivos, qué cambió respecto al guion, la tabla de escenas con el minuto y cómo te pido cambios.
+
+==================================================
+PROMPT 2 · PORTADA DEL REEL
+==================================================
+
+Vas a crear la portada del reel [nombre] para el cliente JUAN PABLO RAMOS, con Remotion (una imagen fija), usando el proyecto del kit (kit-jpr/proyecto-remotion). Háblame en español de Colombia, claro y sin tecnicismos.
+
+- Formato PNG de 1080×1920.
+- Foto de fondo: [ruta de la foto o fotograma de JPR que eligió el editor]. No la retoques: solo escálala para cubrir.
+- Encima, un degradado azul medianoche #0A1F44 de abajo hacia arriba (85 % de opacidad abajo, transparente al 45 % de la altura) para que el texto se lea.
+- Título: [TÍTULO EN 2 O 3 LÍNEAS]. Poppins Bold, MAYÚSCULAS, de 110 a 140 px (que ninguna línea se parta), interlineado 0,95, blanco. La última línea (o la palabra clave) en verde lima #C8F542.
+- Línea de apoyo opcional debajo: [frase de apoyo], en Poppins Medium 40 px, blanca.
+- Firma JPR pequeña arriba a la izquierda (Poppins Bold, espaciado 0,08 em, raya lima debajo).
+- Todo dentro de x = 70 a 930 e y = 300 a 1520. Revisa también el recorte 4:5 centrado (1080×1350) que muestra la cuadrícula del perfil: el título se tiene que leer completo ahí.
+- Nada de emojis, stickers ni efectos; solo foto, degradado, título y firma.
+
+Renderiza out/[nombre]/[nombre]-portada.png y un segundo archivo con el recorte 4:5 marcado para revisarlo. Muéstramelos.
+
+==================================================
+PROMPT 3 · REVISIÓN FINAL
+==================================================
+
+Antes de darme los archivos, revísalos así y dime el resultado punto por punto:
+1. Arma la vista previa con las capas encima del video base y saca una hoja con un fotograma de cada escena, con las zonas seguras marcadas en rojo (250 px arriba, 380 px abajo, 140 px a la derecha), y mírala.
+2. Saca otra hoja con los momentos en movimiento (entradas de chips, recuadros, cifras contando, pantallas divididas).
+3. Comprueba: subtítulos idénticos al audio y de 1 a 3 palabras; solo Poppins, Lora Italic en los acentos y Open Sans en texto pequeño; lima en máximo 1 a 3 palabras por frase y nunca como texto sobre blanco; logos completos en la palabra exacta; ninguna cifra inventada; nada infantil (sin emojis, rebote de máximo 6 %).
+4. Comprueba que las capas .mov tienen transparencia, que todo dura exactamente lo mismo que el video base, que empieza en 00:00 y que los efectos quedan unos 14 dB por debajo de la voz.
+5. Corrige lo que encuentres, vuelve a renderizar y dime qué corregiste.

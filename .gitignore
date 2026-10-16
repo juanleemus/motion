@@ -1,3 +1,6 @@
 node_modules/
 .cache/
 trabajo/
+kit-jpr/04-reels/*/*.MOV
+kit-jpr/04-reels/*/*.mov
+kit-jpr/04-reels/*/*.mp4

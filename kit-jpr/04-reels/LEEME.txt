@@ -1,0 +1,3 @@
+Una carpeta por reel, con el nombre corto del reel (sin espacios).
+Adentro: el video de Juan Pablo YA CORTADO por el editor y el guion (guion.txt).
+Claude no modifica este video: solo lo escucha para sincronizar.
