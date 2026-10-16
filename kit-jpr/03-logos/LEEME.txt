@@ -151,3 +151,4 @@ Si falta una marca, Claude la busca en Wikimedia Commons o en simple-icons y la 
   Figma → figma.png
 
   canva → canva.png (agregado desde simple-icons (Canva, CC0))
+  coca-cola → coca-cola.png (agregado desde simple-icons (Coca-Cola, CC0))
