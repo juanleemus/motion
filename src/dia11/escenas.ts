@@ -1,0 +1,30 @@
+import {DURACION, en} from './tiempos.ts';
+
+// Inicio de cada escena: la primera palabra de su frase (3 fotogramas antes).
+export const ESCENAS = {
+	portada: 0,
+	druckenmiller: en('Stanley') - 3,
+	plata: en('865') - 3,
+	empresa: en('en una empresa') - 3,
+	sangre: en('que busca') - 3,
+	dia11: en('Día 11') - 3,
+	paciente: en('Después') - 3,
+	restos: en('El problema') - 3,
+	adn: en('pero las células') - 3,
+	pedacitos: en('y pedacitos') - 3,
+	huella: en('Entonces') - 3,
+	natera: en('Y la empresa') - 3,
+	chat: en('Le pregunté') - 3,
+	pacientes: en('Como la historia') - 3,
+	tratamiento: en('El tratamiento') - 3,
+	ia: en('y con esto') - 3,
+	riesgos: en('Pero Invora') - 3,
+	uno: en('Uno') - 3,
+	dos: en('Dos', 2) - 3,
+	perdio: en('Perdió') - 3,
+	comenta: en('Comenta') - 3,
+	lista: en('el portafolio') - 3,
+	gringos: en('Esto los gringos') - 3,
+	cierre: en('Por esto') - 3,
+	fin: DURACION,
+};
