@@ -1,6 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Composition, continueRender, delayRender} from 'remotion';
 import {fuentesListas} from './jpr/fuentes';
+import {ModoPantallaCompleta} from './jpr/ui';
 import {DURACION, FPS, NOMBRE} from './reels/contenido5/datos';
 import {Motion} from './reels/contenido5/Motion';
 import {Subtitulos} from './reels/contenido5/Subtitulos';
@@ -16,10 +17,20 @@ const Juntas: React.FC = () => (
   </AbsoluteFill>
 );
 
+// Solo los motion graphics, sin pantalla dividida y sin transparencia (fondo negro cuando no hay gráfico).
+const MotionSolo: React.FC = () => (
+  <AbsoluteFill style={{backgroundColor: '#000'}}>
+    <ModoPantallaCompleta.Provider value>
+      <Motion />
+    </ModoPantallaCompleta.Provider>
+  </AbsoluteFill>
+);
+
 export const Root: React.FC = () => (
   <>
     <Composition id={`${NOMBRE}-motion`} component={Motion} durationInFrames={DURACION} fps={FPS} width={1080} height={1920} />
     <Composition id={`${NOMBRE}-subtitulos`} component={Subtitulos} durationInFrames={DURACION} fps={FPS} width={1080} height={1920} />
+    <Composition id={`${NOMBRE}-motion-solo`} component={MotionSolo} durationInFrames={DURACION} fps={FPS} width={1080} height={1920} />
     <Composition id={`${NOMBRE}-juntas`} component={Juntas} durationInFrames={DURACION} fps={FPS} width={1080} height={1920} />
   </>
 );

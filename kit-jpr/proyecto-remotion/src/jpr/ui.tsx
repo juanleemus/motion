@@ -77,9 +77,26 @@ export const Salida: React.FC<{dur: number; children: React.ReactNode; frames?: 
   return <AbsoluteFill style={{opacity: 1 - p, filter: p > 0 ? `blur(${p * 14}px)` : undefined}}>{children}</AbsoluteFill>;
 };
 
+// Modo "pantalla completa": las escenas de pantalla dividida se muestran a pantalla completa
+// (para editores que montan el gráfico a su manera, sin la mitad de arriba).
+export const ModoPantallaCompleta = React.createContext(false);
+
 // Formato B: mitad de arriba (y 0–960) con fondo x; baja desde arriba en 8 fotogramas y sale igual hacia arriba.
+// En modo pantalla completa: fondo x en toda la pantalla y el contenido centrado (entra con fundido).
 export const Split: React.FC<{dur: number; children?: React.ReactNode}> = ({dur, children}) => {
   const frame = useCurrentFrame();
+  const completa = React.useContext(ModoPantallaCompleta);
+  if (completa) {
+    const o = interpolate(frame, [0, 4], [0, 1], clamp);
+    return (
+      <Salida dur={dur}>
+        <AbsoluteFill style={{opacity: o}}>
+          <FondoX dur={dur} />
+          <div style={{position: 'absolute', left: 0, top: 0, width: 1080, height: 960, transform: 'translateY(330px) scale(1.12)', transformOrigin: '540px 600px'}}>{children}</div>
+        </AbsoluteFill>
+      </Salida>
+    );
+  }
   const entra = interpolate(frame, [0, 8], [-960, 0], {...clamp, easing: Easing.out(Easing.cubic)});
   const sale = interpolate(frame, [dur - 8, dur], [0, -960], {...clamp, easing: Easing.in(Easing.cubic)});
   return (
