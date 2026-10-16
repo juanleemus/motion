@@ -1,0 +1,2 @@
+Poppins y Lora son fuentes libres (SIL Open Font License), de Google Fonts.
+Claude las carga desde esta carpeta, sin internet.

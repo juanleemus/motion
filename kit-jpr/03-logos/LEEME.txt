@@ -1,0 +1,153 @@
+LOGOS DEL KIT JPR
+
+Un PNG transparente por marca, aquí mismo (ej. openai.png). Cuando existe, también la versión con el nombre escrito (ej. openai-texto.png).
+Los mismos logos en SVG están en la carpeta svg/.
+Fuentes: gilbarbara/logos (CC0), lobehub/lobe-icons (MIT) y simple-icons (CC0). Las marcas son de sus dueños: se usan solo para nombrarlas en los videos.
+Si falta una marca, Claude la busca en Wikimedia Commons o en simple-icons y la guarda aquí.
+
+[ia]
+  OpenAI / ChatGPT → openai.png
+  OpenAI / ChatGPT → openai-texto.png
+  Claude → claude.png
+  Claude → claude-texto.png
+  Claude Code → claude-code.png
+  Anthropic → anthropic.png
+  Anthropic → anthropic-texto.png
+  Gemini → gemini.png
+  Gemini → gemini-texto.png
+  Perplexity → perplexity.png
+  Perplexity → perplexity-texto.png
+  Midjourney → midjourney.png
+  Grok → grok.png
+  Grok → grok-texto.png
+  Meta AI → meta-ai.png
+  Microsoft Copilot → copilot.png
+  GitHub Copilot → github-copilot.png
+  DeepSeek → deepseek.png
+  Mistral → mistral.png
+  Qwen → qwen.png
+  Kimi → kimi.png
+  Sora → sora.png
+  DALL·E → dalle.png
+  Runway → runway.png
+  Kling → kling.png
+  Pika → pika.png
+  Luma → luma.png
+  Hailuo → hailuo.png
+  Ideogram → ideogram.png
+  Flux → flux.png
+  Krea → krea.png
+  Stability AI → stability-ai.png
+  Stability AI → stability-ai-texto.png
+  Suno → suno.png
+  ElevenLabs → elevenlabs.png
+  ElevenLabs → elevenlabs-texto.png
+  NotebookLM → notebooklm.png
+  Manus → manus.png
+  Lovable → lovable.png
+  v0 → v0.png
+  Cursor → cursor.png
+  Windsurf → windsurf.png
+  Replit → replit.png
+  Ollama → ollama.png
+  Hugging Face → hugging-face.png
+  n8n → n8n.png
+  n8n → n8n-texto.png
+  Make → make.png
+  Zapier → zapier.png
+  Zapier → zapier-texto.png
+  Adobe Firefly → adobe-firefly.png
+
+[redes]
+  Meta → meta.png
+  Meta → meta-texto.png
+  Facebook → facebook.png
+  Instagram → instagram.png
+  Instagram → instagram-texto.png
+  WhatsApp → whatsapp.png
+  WhatsApp → whatsapp-texto.png
+  Messenger → messenger.png
+  Threads → threads.png
+  Threads → threads-texto.png
+  TikTok → tiktok.png
+  TikTok → tiktok-texto.png
+  YouTube → youtube.png
+  YouTube → youtube-texto.png
+  X → x.png
+  LinkedIn → linkedin.png
+  LinkedIn → linkedin-texto.png
+  Pinterest → pinterest.png
+  Telegram → telegram.png
+  Snapchat → snapchat.png
+  Reddit → reddit.png
+  Reddit → reddit-texto.png
+  Discord → discord.png
+  Discord → discord-texto.png
+  Twitch → twitch.png
+  Spotify → spotify.png
+  Spotify → spotify-texto.png
+  Bluesky → bluesky.png
+  Kick → kick.png
+  CapCut → capcut.png
+
+[marketing]
+  Google → google.png
+  Google → google-texto.png
+  Google Ads → google-ads.png
+  Google Analytics → google-analytics.png
+  Google Tag Manager → google-tag-manager.png
+  Looker → looker-studio.png
+  Looker → looker-studio-texto.png
+  Gmail → gmail.png
+  Google Drive → google-drive.png
+  Google Sheets → google-sheets.png
+  Google Meet → google-meet.png
+  Google Calendar → google-calendar.png
+  Chrome → chrome.png
+  Shopify → shopify.png
+  HubSpot → hubspot.png
+  Salesforce → salesforce.png
+  Mailchimp → mailchimp.png
+  Mailchimp → mailchimp-texto.png
+  WordPress → wordpress.png
+  WordPress → wordpress-texto.png
+  Wix → wix.png
+  Webflow → webflow.png
+  Stripe → stripe.png
+  Mercado Pago → mercado-pago.png
+  Semrush → semrush.png
+  Hotjar → hotjar.png
+  Hotjar → hotjar-texto.png
+  Calendly → calendly.png
+  Typeform → typeform.png
+  Typeform → typeform-texto.png
+  Hootsuite → hootsuite.png
+  Hootsuite → hootsuite-texto.png
+  Buffer → buffer.png
+  Notion → notion.png
+  Notion → notion-texto.png
+  Airtable → airtable.png
+  Trello → trello.png
+  Asana → asana.png
+  Asana → asana-texto.png
+  ClickUp → clickup.png
+  ClickUp → clickup-texto.png
+  Miro → miro.png
+  Miro → miro-texto.png
+  Loom → loom.png
+  Loom → loom-texto.png
+  Slack → slack.png
+  Slack → slack-texto.png
+  Zoom → zoom.png
+  Zoom → zoom-texto.png
+  Microsoft → microsoft.png
+  Microsoft → microsoft-texto.png
+  Microsoft Teams → microsoft-teams.png
+  Apple → apple.png
+  Adobe → adobe.png
+  Photoshop → photoshop.png
+  Premiere Pro → premiere-pro.png
+  After Effects → after-effects.png
+  Figma → figma.png
+
+  canva → canva.png (agregado desde simple-icons (Canva, CC0))
