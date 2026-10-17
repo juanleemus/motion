@@ -76,6 +76,29 @@ No se programan piezas nuevas por reel. Si algo del estilo cambia, se cambia aqu
 | `Firma` | "JPR" + raya lima que se dibuja. 1 s, al final del reel. Se queda hasta el último fotograma. |
 | Salidas | Cada escena sale con desvanecido y desenfoque en 6 fotogramas. Nada salta de lugar ni se monta sobre otra cosa: la escena siguiente empieza cuando la anterior terminó. |
 
+## 5b. Piezas de impacto (para que el motion tenga poder, no se vea vacío ni infantil)
+
+Se suman a las de arriba (archivo `src/jpr/cine.tsx`). Úsalas cuando el reel pida más fuerza:
+
+| Pieza | Qué es | `datos` |
+|---|---|---|
+| `Palabras` | 1 a 3 líneas de palabras grandes (90–230 px) que **golpean** al ritmo de la voz: entran de grande a su tamaño con desenfoque. Palabras clave, no subtítulos. Acentos `[marcador]`, `*lora*`, `{azul}`. `tachar` dibuja una raya y apaga la palabra. `golpe: true` = entrada más fuerte con sonido de golpe. | `{"palabras": [{"texto": "tu [SEO]", "en": 37.88, "tam": 230, "golpe": true}, {"texto": "del algoritmo", "en": 41, "tam": 112, "tachar": 41.86}], "gap": 20}` |
+| `Buscador` | Pantalla de Google en un marco de celular que **se usa**. Vistas: `ia` (escribe, vista con IA, links que entran, suben y se tocan), `resultados` (el sitio oficial sube con su insignia, los demás se apagan), `favoritos` (estrellas que se marcan), `verificado` (logo de Google + "fuente oficial"). | `{"vista": "ia", "consulta": "seo", "en": 4, "escribe": {"en": 4.7}, "ia": {"en": 6.1}, "links": [{"en": 7.1}, {"en": 7.3}], "sube": {"en": 8.7}, "toca": {"en": 9.9}}` |
+| `Video` | Tarjeta de video que corre: "en prueba", fila del creador, su nombre se vuelve link y aparece la cuenta/perfil de Google. `imagen` opcional (foto o clip del reel) en la miniatura. | `{"en": 29.3, "prueba": {"en": 30}, "creador": {"en": 32.2}, "link": {"en": 33.2}, "cuenta": {"en": 34.5}, "perfil": {"en": 35.8}}` |
+| `Multitud` | Retícula de personas que se enciende en ola; las elegidas pasan a lima con check (audiencia, comunidad, "la gente elige"). | `{"en": 23.7, "elige": {"en": 24.9}, "elegidos": [7, 16, 21], "columnas": 6, "filas": 5}` |
+| `Clip` | Video o foto a sangre (toda la zona), en dos tonos de la marca, con `palabras` encima. El archivo va en `04-reels/<nombre>/`. | `{"archivo": "clip1.mp4", "desde": 0, "palabras": [...]}` |
+
+- Cada paso con `"en"` puede llevar `"sonido"` (`pop`, `whoosh`, `clic`, `tecleo`, `trazo`, `golpe` o `ninguno`).
+- **Superficie oscura**: `"fondo": "oscuro"` en la escena → azul medianoche con la luz azul eléctrico del manual. Textos en blanco, acentos en lima (aquí el lima sí va como texto; el marcador lleva azul medianoche encima). Úsala en los golpes: cifras, remates, preguntas. Alternar claro/oscuro da ritmo.
+- Todas las escenas entran con un empuje del 4 % en 8 fotogramas (corte con fuerza, sin saltos).
+
+## 8b. Música (cuando el reel la pide)
+
+- `"musica"` en `escenas.json` → base oscura y tecnológica generada con código (`scripts/musica.py`, sin bancos de sonido), a −23 LUFS para ir debajo de la voz:
+  `"musica": {"bpm": 100, "golpes": [1.9, 18.2, 36.1], "pausas": [[28.0, 29.3]], "final": 46.3}`
+  - `golpes`: impacto con subida antes (máximo los mismos de los destellos). `pausas`: la batería se apaga. `final`: golpe de la firma.
+- Con música, `<nombre>-motion.mp4` lleva **música + efectos** y además salen `<nombre>-musica.wav` y `<nombre>-efectos.wav` por separado. `<nombre>-motion-mudo.mp4` va sin nada.
+
 ## 6. Premium, no infantil
 
 - Todo va derecho: nada inclinado ni rotado. Rebote máximo del 6 % (las piezas usan ≈ 3 %).
@@ -91,7 +114,7 @@ No se programan piezas nuevas por reel. Si algo del estilo cambia, se cambia aqu
 
 ## 8. Sonido
 
-- Solo efectos, **sin música**, generados con código (`scripts/sfx.py` → `public/sfx/`). Nada de bancos de sonidos.
+- Por defecto solo efectos, sin música (si el reel la pide, ver §8b), generados con código (`scripts/sfx.py` → `public/sfx/`). Nada de bancos de sonidos.
 - Cada efecto va atado a su animación (lo calcula `src/jpr/plan.ts`, así imagen y sonido salen de la misma fuente):
 
 | Efecto | Suena cuando… |

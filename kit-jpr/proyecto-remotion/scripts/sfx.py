@@ -1,4 +1,4 @@
-# Efectos de sonido JPR generados con código: whoosh, pop, tic, clic, tecleo, trazo.
+# Efectos de sonido JPR generados con código: whoosh, pop, tic, clic, tecleo, trazo, golpe.
 # Secos y sutiles (nada de caricatura). Cada uno queda en −24 LUFS para ir debajo de la voz.
 # Uso: python3 scripts/sfx.py public/sfx
 import os, sys
@@ -65,8 +65,16 @@ def trazo():  # línea que se dibuja: roce suave que sube
     env = np.clip(n / 0.06, 0, 1) * np.exp(-np.clip(n - 0.08, 0, None) / 0.11)
     return cola(y * env)
 
+def golpe():  # palabra que golpea: cuerpo grave corto + ataque seco (cine, no caricatura)
+    d = 0.55; n = t(d)
+    f = 48 + 70 * np.exp(-n * 30)
+    cuerpo = caida(np.sin(2 * np.pi * np.cumsum(f) / SR), 0.002, 0.16)
+    ataque = caida(filtro(ruido(d), 'bandpass', [1800, 7000]), 0.0003, 0.012) * 0.35
+    aire = caida(filtro(ruido(d), 'lowpass', 900), 0.004, 0.09) * 0.25
+    return cola(np.tanh(1.6 * (cuerpo + ataque + aire)))
+
 medidor = pyln.Meter(SR, block_size=0.1)
-for nombre, fn in [('whoosh', whoosh), ('pop', pop), ('tic', tic), ('clic', clic), ('tecleo', tecleo), ('trazo', trazo)]:
+for nombre, fn in [('whoosh', whoosh), ('pop', pop), ('tic', tic), ('clic', clic), ('tecleo', tecleo), ('trazo', trazo), ('golpe', golpe)]:
     s = fn().astype(np.float64)
     medir = np.concatenate([s, np.zeros(max(0, int(0.2 * SR) - len(s)))])
     ganancia = 10 ** ((LUFS - medidor.integrated_loudness(medir)) / 20)

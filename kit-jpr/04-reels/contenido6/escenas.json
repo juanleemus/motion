@@ -2,17 +2,50 @@
  "nombre": "contenido6",
  "fps": 24,
  "duracion": "00:47:07",
+ "musica": {
+  "bpm": 100,
+  "golpes": [
+   1.9,
+   18.2,
+   36.1
+  ],
+  "pausas": [
+   [
+    28.0,
+    29.3
+   ]
+  ],
+  "final": 46.3
+ },
  "escenas": [
   {
    "inicio": 0,
    "fin": 1.9,
-   "tramo": "a-camara",
-   "nota": "gancho: todos dicen que el SEO murió"
+   "tramo": "mitad",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "el [SEO]",
+      "en": 0.78,
+      "tam": 170,
+      "golpe": true
+     },
+     {
+      "texto": "*murió*",
+      "en": 1.14,
+      "tam": 170
+     }
+    ]
+   },
+   "nota": "gancho: dicen que el SEO murió"
   },
   {
    "inicio": 1.9,
    "fin": 4.0,
-   "tramo": "mitad",
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "destello": true,
    "pieza": "TarjetaLogo",
    "datos": {
     "logos": [
@@ -22,219 +55,198 @@
      }
     ]
    },
+   "texto": "dice lo *contrario*",
+   "textoEn": 3.22,
    "nota": "Google acaba de decir lo contrario"
   },
   {
    "inicio": 4.0,
-   "fin": 5.6,
-   "tramo": "completa",
-   "destello": true,
-   "pieza": "IconoApp",
-   "datos": {
-    "logo": "google",
-    "en": 4.72
-   },
-   "nota": "esta semana Google anunció"
-  },
-  {
-   "inicio": 5.6,
-   "fin": 7.1,
+   "fin": 10.2,
    "tramo": "mitad",
-   "pieza": "Chip",
+   "pieza": "Buscador",
    "datos": {
-    "texto": "",
-    "icono": "rayo",
-    "en": 6.12,
-    "tam": 130
-   },
-   "nota": "con su IA"
-  },
-  {
-   "inicio": 7.1,
-   "fin": 8.7,
-   "tramo": "mitad",
-   "pieza": "Grafica",
-   "datos": {
-    "tipo": "barras",
-    "valores": [
-     1,
-     2,
-     3
-    ],
-    "en": 7.12
-   },
-   "nota": "va a mostrar más links"
-  },
-  {
-   "inicio": 8.7,
-   "fin": 10.3,
-   "tramo": "mitad",
-   "pieza": "PilaChips",
-   "datos": {
-    "chips": [
+    "vista": "ia",
+    "consulta": "seo",
+    "en": 4.06,
+    "escribe": {
+     "en": 4.72,
+     "sonido": "tecleo"
+    },
+    "ia": {
+     "en": 6.12,
+     "sonido": "whoosh"
+    },
+    "links": [
      {
-      "texto": "",
-      "icono": "sube",
-      "en": 8.72
+      "en": 7.12
      },
      {
-      "texto": "",
-      "icono": "check",
-      "en": 9.94
+      "en": 7.32
+     },
+     {
+      "en": 7.54
      }
     ],
-    "actual": 2,
-    "tam": 100
+    "sube": {
+     "en": 8.7,
+     "sonido": "whoosh"
+    },
+    "toca": {
+     "en": 9.94,
+     "sonido": "clic"
+    }
    },
-   "nota": "más arriba y más fáciles de tocar"
+   "nota": "Google anunció que con su IA va a mostrar más links, más arriba y más fáciles de tocar"
   },
   {
-   "inicio": 10.3,
+   "inicio": 10.2,
    "fin": 12.8,
    "tramo": "completa",
-   "pieza": "PilaChips",
+   "fondo": "oscuro",
+   "pieza": "Palabras",
    "datos": {
-    "chips": [
+    "palabras": [
      {
-      "texto": "",
-      "icono": "usuario",
-      "en": 11.2
+      "texto": "¿a quién le manda",
+      "en": 11.2,
+      "tam": 92
      },
      {
-      "texto": "",
-      "icono": "check",
-      "en": 12.28
+      "texto": "esos [clics]?",
+      "en": 12.2,
+      "tam": 170,
+      "golpe": true
      }
-    ],
-    "actual": 1,
-    "tam": 140
+    ]
    },
    "nota": "pero fíjate a quién le manda esos clics"
   },
   {
    "inicio": 12.8,
-   "fin": 14.9,
+   "fin": 15.4,
    "tramo": "mitad",
-   "pieza": "Chip",
+   "pieza": "Buscador",
    "datos": {
-    "texto": "",
-    "icono": "check",
-    "en": 13.38,
-    "tam": 130
+    "vista": "resultados",
+    "consulta": "seo",
+    "en": 12.86,
+    "oficial": {
+     "en": 13.38,
+     "sonido": "whoosh"
+    },
+    "unica": {
+     "en": 14.6,
+     "sonido": "trazo"
+    }
    },
    "nota": "a la página oficial, cuando hay una sola fuente"
   },
   {
-   "inicio": 14.9,
+   "inicio": 15.4,
    "fin": 18.2,
    "tramo": "mitad",
-   "pieza": "PilaChips",
+   "pieza": "Buscador",
    "datos": {
-    "chips": [
+    "vista": "favoritos",
+    "consulta": "seo",
+    "en": 15.5,
+    "estrellas": [
      {
-      "texto": "",
-      "icono": "usuario",
-      "en": 16.5
-     },
-     {
-      "texto": "",
-      "icono": "check",
       "en": 16.9
      },
      {
-      "texto": "",
-      "icono": "sube",
       "en": 17.44
      }
-    ],
-    "actual": 3,
-    "tam": 80
+    ]
    },
-   "nota": "los medios que la gente marca como favoritos"
+   "nota": "y a los medios que la gente marca como favoritos"
   },
   {
    "inicio": 18.2,
    "fin": 21.2,
    "tramo": "completa",
+   "fondo": "oscuro",
    "destello": true,
-   "pieza": "Grafica",
+   "pieza": "Cifra",
    "datos": {
-    "tipo": "barras",
-    "valores": [
-     1,
-     7
-    ],
-    "en": 19.74
+    "valor": 7,
+    "sufijo": "x",
+    "etiqueta": "creció más de",
+    "en": 19.74,
+    "grafica": {
+     "tipo": "barras",
+     "valores": [
+      1,
+      7
+     ]
+    }
    },
+   "texto": "este *año*",
+   "textoEn": 20.42,
    "nota": "esa función creció más de 7 veces este año"
   },
   {
    "inicio": 21.2,
    "fin": 23.6,
    "tramo": "mitad",
-   "pieza": "PilaChips",
+   "fondo": "oscuro",
+   "pieza": "Palabras",
    "datos": {
-    "chips": [
+    "palabras": [
      {
-      "texto": "",
-      "icono": "x",
-      "en": 21.82
+      "texto": "ya no gana",
+      "en": 21.82,
+      "tam": 96
      },
      {
-      "texto": "",
-      "icono": "x",
-      "en": 22.62
-     },
-     {
-      "texto": "",
-      "icono": "x",
-      "en": 23.04
+      "texto": "más keywords",
+      "en": 22.38,
+      "tam": 112,
+      "tachar": 23.04
      }
-    ],
-    "tam": 80
+    ]
    },
-   "nota": "ya no gana el que más keywords mete"
+   "nota": "o sea, ya no gana el que más keywords mete"
   },
   {
    "inicio": 23.6,
    "fin": 25.7,
    "tramo": "completa",
-   "pieza": "PilaChips",
+   "fondo": "oscuro",
+   "pieza": "Multitud",
    "datos": {
-    "chips": [
-     {
-      "texto": "",
-      "icono": "check",
-      "en": 23.7
-     },
-     {
-      "texto": "",
-      "icono": "usuario",
-      "en": 24.56
-     },
-     {
-      "texto": "",
-      "icono": "check",
-      "en": 24.94
-     }
+    "en": 23.7,
+    "elige": {
+     "en": 24.94
+    },
+    "elegidos": [
+     7,
+     16,
+     21
     ],
-    "actual": 3,
-    "tam": 110
+    "columnas": 6,
+    "filas": 5
    },
+   "texto": "la gente *elige*",
+   "textoEn": 24.56,
    "nota": "gana el que la gente elige"
   },
   {
    "inicio": 25.7,
    "fin": 28.0,
    "tramo": "mitad",
-   "pieza": "TarjetaLogo",
+   "pieza": "Buscador",
    "datos": {
-    "logos": [
-     {
-      "logo": "google",
-      "en": 26.06
-     }
-    ]
+    "vista": "verificado",
+    "consulta": "seo",
+    "en": 25.74,
+    "verificado": {
+     "en": 26.06
+    },
+    "oficial": {
+     "en": 27.36,
+     "sonido": "clic"
+    }
    },
    "nota": "el que Google reconoce como una fuente oficial"
   },
@@ -246,146 +258,131 @@
   },
   {
    "inicio": 29.3,
-   "fin": 31.2,
-   "tramo": "mitad",
-   "pieza": "Chip",
-   "datos": {
-    "texto": "",
-    "icono": "rayo",
-    "en": 30.04,
-    "tam": 130
-   },
-   "nota": "están probando algo más"
-  },
-  {
-   "inicio": 31.2,
-   "fin": 33.1,
-   "tramo": "completa",
-   "destello": true,
-   "pieza": "Chip",
-   "datos": {
-    "texto": "",
-    "icono": "usuario",
-    "en": 32.18,
-    "tam": 170
-   },
-   "nota": "el nombre del creador como link"
-  },
-  {
-   "inicio": 33.1,
    "fin": 36.1,
    "tramo": "mitad",
-   "pieza": "TarjetaLogo",
+   "pieza": "Video",
    "datos": {
-    "logos": [
-     {
-      "logo": "google",
-      "en": 34.48
-     },
-     {
-      "logo": "google-texto",
-      "en": 35.76
-     }
-    ]
+    "en": 29.34,
+    "prueba": {
+     "en": 30.04
+    },
+    "creador": {
+     "en": 32.18,
+     "sonido": "whoosh"
+    },
+    "link": {
+     "en": 33.2,
+     "sonido": "clic"
+    },
+    "cuenta": {
+     "en": 34.48
+    },
+    "perfil": {
+     "en": 35.76
+    }
    },
-   "nota": "a su cuenta de Google o su perfil de Google"
+   "nota": "están probando algo más: el nombre del creador como link a su cuenta o su perfil de Google"
   },
   {
    "inicio": 36.1,
    "fin": 38.2,
-   "tramo": "mitad",
-   "pieza": "PilaChips",
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "destello": true,
+   "pieza": "Palabras",
    "datos": {
-    "chips": [
+    "palabras": [
      {
-      "texto": "",
-      "icono": "usuario",
-      "en": 36.28
+      "texto": "tu cara",
+      "en": 36.28,
+      "tam": 190
      },
      {
-      "texto": "",
-      "icono": "sube",
-      "en": 37.88
+      "texto": "se vuelve",
+      "en": 36.82,
+      "tam": 90
+     },
+     {
+      "texto": "tu [SEO]",
+      "en": 37.88,
+      "tam": 230,
+      "golpe": true
      }
-    ],
-    "actual": 2,
-    "tam": 100
+    ]
    },
    "nota": "tu cara se vuelve tu SEO"
   },
   {
    "inicio": 38.2,
-   "fin": 39.8,
+   "fin": 40.7,
    "tramo": "mitad",
-   "pieza": "Grafica",
+   "pieza": "Palabras",
    "datos": {
-    "tipo": "linea",
-    "valores": [
-     2,
-     1.5,
-     3,
-     4.5
-    ],
-    "en": 38.84
-   },
-   "nota": "el SEO no murió"
-  },
-  {
-   "inicio": 39.8,
-   "fin": 41.5,
-   "tramo": "mitad",
-   "pieza": "Chip",
-   "datos": {
-    "texto": "",
-    "icono": "usuario",
-    "en": 40.26,
-    "tam": 130
-   },
-   "nota": "cambió de dueño"
-  },
-  {
-   "inicio": 41.5,
-   "fin": 43.2,
-   "tramo": "completa",
-   "pieza": "PilaChips",
-   "datos": {
-    "chips": [
+    "palabras": [
      {
-      "texto": "",
-      "icono": "rayo",
-      "en": 41.6
+      "texto": "el SEO",
+      "en": 38.54,
+      "tam": 140
      },
      {
-      "texto": "",
-      "icono": "usuario",
-      "en": 42.18
+      "texto": "no *murió*",
+      "en": 38.84,
+      "tam": 140,
+      "golpe": true
+     },
+     {
+      "texto": "cambió de [dueño]",
+      "en": 39.88,
+      "tam": 96
+     }
+    ]
+   },
+   "nota": "el SEO no murió, cambió de dueño"
+  },
+  {
+   "inicio": 40.7,
+   "fin": 42.9,
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "del algoritmo",
+      "en": 41.0,
+      "tam": 112,
+      "tachar": 41.86
+     },
+     {
+      "texto": "a tu [audiencia]",
+      "en": 42.08,
+      "tam": 118,
+      "golpe": true
      }
     ],
-    "actual": 2,
-    "tam": 140
+    "gap": 30
    },
    "nota": "pasó del algoritmo a tu audiencia"
   },
   {
-   "inicio": 43.2,
+   "inicio": 42.9,
    "fin": 44.8,
    "tramo": "mitad",
-   "destello": true,
-   "pieza": "PilaChips",
+   "pieza": "Palabras",
    "datos": {
-    "chips": [
+    "palabras": [
      {
-      "texto": "",
-      "icono": "dinero",
-      "en": 43.4
+      "texto": "si tu empresa",
+      "en": 43.28,
+      "tam": 110
      },
      {
-      "texto": "",
-      "icono": "grafica",
-      "en": 43.94
+      "texto": "hace [SEO]",
+      "en": 43.94,
+      "tam": 170,
+      "golpe": true
      }
-    ],
-    "tam": 100
+    ]
    },
    "nota": "si tu empresa está haciendo SEO"
   },
@@ -393,14 +390,25 @@
    "inicio": 44.8,
    "fin": 46.3,
    "tramo": "completa",
-   "pieza": "Chip",
+   "fondo": "oscuro",
+   "pieza": "Palabras",
    "datos": {
-    "texto": "",
-    "icono": "comentario",
-    "en": 44.88,
-    "tam": 170
+    "palabras": [
+     {
+      "texto": "mándale este video",
+      "en": 44.88,
+      "tam": 88
+     },
+     {
+      "texto": "al [CEO]",
+      "en": 45.72,
+      "tam": 230,
+      "golpe": true
+     }
+    ],
+    "gap": 20
    },
-   "nota": "mándale este video al SEO de tu empresa"
+   "nota": "mándale este video al CEO de tu empresa"
   },
   {
    "inicio": 46.3,

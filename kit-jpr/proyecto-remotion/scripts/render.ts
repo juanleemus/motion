@@ -95,6 +95,7 @@ const archivoMotion = esDemo ? path.join(out, 'demo.mp4') : base('motion.mp4');
 const archivoMudo = base('motion-mudo.mp4');
 const archivoEfectos = base('efectos.wav');
 const archivoHoja = base('hoja-de-montaje.txt');
+const archivoMusica = base('musica.wav');
 
 // 5. Video mudo (H.264 normal, sin transparencia)
 const nucleos = os.cpus().length;
@@ -151,9 +152,21 @@ const medida = (() => {
 })();
 console.log(`  Efectos: ${medida.lufs} LUFS integrados · pico ${medida.pico} dBFS`);
 
-// 7. Motion con efectos (mismo video, sin recomprimir)
-paso('Uniendo video y efectos');
-corre('ffmpeg', ['-y', '-v', 'error', '-i', archivoMudo, '-i', archivoEfectos, '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-t', dur.toFixed(6), '-movflags', '+faststart', archivoMotion]);
+// 7. Música (si el reel la pide en escenas.json → "musica"), generada con código y atada a los mismos tiempos
+let audioFinal = archivoEfectos;
+let notaMusica = 'sin música';
+if (plan.musica) {
+  paso('Generando la música');
+  const r = corre('python3', [path.join(raiz, 'scripts', 'musica.py'), path.join(trabajo, 'plan.json'), archivoMusica]).trim();
+  console.log(`  ${r}`);
+  notaMusica = r.replace(/^Música: /, 'música ');
+  audioFinal = path.join(trabajo, 'musica-y-efectos.wav');
+  corre('ffmpeg', ['-y', '-v', 'error', '-i', archivoMusica, '-i', archivoEfectos, '-filter_complex', `[0:a][1:a]amix=inputs=2:normalize=0,alimiter=limit=0.89,atrim=0:${dur.toFixed(6)}[a]`, '-map', '[a]', '-ar', '48000', '-c:a', 'pcm_s16le', audioFinal]);
+}
+
+// 8. Motion con sonido (mismo video, sin recomprimir)
+paso(plan.musica ? 'Uniendo video, música y efectos' : 'Uniendo video y efectos');
+corre('ffmpeg', ['-y', '-v', 'error', '-i', archivoMudo, '-i', audioFinal, '-map', '0:v', '-map', '1:a', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-t', dur.toFixed(6), '-movflags', '+faststart', archivoMotion]);
 
 // 8. Hoja de montaje para el editor
 const queHace: Record<string, string> = {
@@ -182,7 +195,8 @@ fs.writeFileSync(
     `Motion: ${path.basename(archivoMotion)} · 1080×1920 · ${plan.fps} fps · ${formato(plan.total, plan.fps)} (${seg(plan.total)} s) · empieza en 00:00:00`,
     `Tiempos en mm:ss:ff (ff = fotograma). Ponlo encima del video de Juan Pablo desde 00:00.`,
     `Tramos: mitad ${pct(r.mitad)} · completa ${pct(r.completa)} · a cámara ${pct(r['a-camara'])}`,
-    `Efectos: ${medida.lufs} LUFS (objetivo −24) · pico ${medida.pico} dBFS · sin música`,
+    `Efectos: ${medida.lufs} LUFS (objetivo −24) · pico ${medida.pico} dBFS · ${notaMusica}`,
+    plan.musica ? `Versiones: ${path.basename(archivoMotion)} (música + efectos) · ${path.basename(archivoMudo)} (sin sonido) · ${path.basename(archivoMusica)} y ${path.basename(archivoEfectos)} por separado para CapCut` : '',
     '',
     ...filas,
     '',
@@ -204,4 +218,4 @@ if (!sinHojas) {
 }
 
 paso('Listo');
-for (const f of [archivoMotion, archivoMudo, archivoEfectos, archivoHoja]) console.log(`  ${path.relative(kit, f)}`);
+for (const f of [archivoMotion, archivoMudo, archivoEfectos, ...(plan.musica ? [archivoMusica] : []), archivoHoja]) console.log(`  ${path.relative(kit, f)}`);

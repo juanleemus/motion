@@ -4,6 +4,7 @@ import React from 'react';
 import {AbsoluteFill, Easing, Img, interpolate, interpolateColors, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {AREA_ANCHO, AREA_X, C, LORA, POPPINS, SOMBRA, ZONA} from './tema';
 import {EscenaPlan, Icono, partesTexto} from './plan';
+import {Buscador, FondoOscuro, Medio, Multitud, Oscuro, Palabras, Video, useTinta} from './cine';
 
 // ---------- movimiento ----------
 const suave = Easing.bezier(0.22, 1, 0.36, 1); // sale rápido y frena, sin pasarse
@@ -72,13 +73,15 @@ export const Fondo: React.FC = () => {
 /** Texto corto con acento: *lora* (Lora Italic azul), [marcador] (lima detrás), {azul} (azul eléctrico). */
 export const Texto: React.FC<{texto: string; f: number; tam?: number; ancho?: number}> = ({texto, f, tam = 88, ancho = AREA_ANCHO}) => {
   const frame = useCurrentFrame();
+  const tinta = useTinta();
+  const acento = tinta === C.blanco ? C.lima : C.electrico;
   return (
-    <div style={{...poppins(700, tam), ...entrada(frame, f), maxWidth: ancho, textAlign: 'center', textWrap: 'balance', letterSpacing: '-0.01em'}}>
+    <div style={{...poppins(700, tam, tinta), ...entrada(frame, f), maxWidth: ancho, textAlign: 'center', textWrap: 'balance', letterSpacing: '-0.01em'}}>
       {partesTexto(texto).map((p, i) => {
         if (p.estilo === 'lora') {
           const b = interpolate(frame, [f, f + 6], [8, 0], k);
           return (
-            <span key={i} style={{fontFamily: LORA, fontStyle: 'italic', fontWeight: 500, fontSize: tam * 1.1, color: C.electrico, filter: `blur(${b}px)`, letterSpacing: 0}}>
+            <span key={i} style={{fontFamily: LORA, fontStyle: 'italic', fontWeight: 500, fontSize: tam * 1.1, color: acento, filter: `blur(${b}px)`, letterSpacing: 0}}>
               {p.t}
             </span>
           );
@@ -86,13 +89,13 @@ export const Texto: React.FC<{texto: string; f: number; tam?: number; ancho?: nu
         if (p.estilo === 'marcador') {
           const m = prog(frame, f + 2, 7, enInOut);
           return (
-            <span key={i} style={{position: 'relative', display: 'inline-block', whiteSpace: 'nowrap', zIndex: 0}}>
+            <span key={i} style={{position: 'relative', display: 'inline-block', whiteSpace: 'nowrap', zIndex: 0, color: C.medianoche}}>
               <span style={{position: 'absolute', left: '-0.1em', right: '-0.1em', top: '0.12em', bottom: '0.06em', background: C.lima, borderRadius: 10, transform: `scaleX(${m})`, transformOrigin: 'left center', zIndex: -1}} />
               {p.t}
             </span>
           );
         }
-        if (p.estilo === 'azul') return <span key={i} style={{color: C.electrico}}>{p.t}</span>;
+        if (p.estilo === 'azul') return <span key={i} style={{color: acento}}>{p.t}</span>;
         return <span key={i}>{p.t}</span>;
       })}
     </div>
@@ -178,10 +181,11 @@ const numeroCO = (v: number, dec: number) => v.toLocaleString('es-CO', {minimumF
 export const Cifra: React.FC<{valor: number; decimales: number; prefijo?: string; sufijo?: string; etiqueta?: string; f: number; tam?: number}> = ({valor, decimales, prefijo = '', sufijo = '', etiqueta, f, tam = 240}) => {
   const frame = useCurrentFrame();
   const v = interpolate(frame, [f, f + 18], [0, valor], {...k, easing: Easing.out(Easing.cubic)});
+  const tinta = useTinta();
   return (
     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6}}>
       {etiqueta && <Texto texto={etiqueta} f={Math.max(0, f - 4)} tam={48} />}
-      <div style={{...poppins(700, tam), lineHeight: 1, letterSpacing: '-0.03em', fontVariantNumeric: 'tabular-nums', ...entrada(frame, f)}}>
+      <div style={{...poppins(700, tam, tinta), lineHeight: 1, letterSpacing: '-0.03em', fontVariantNumeric: 'tabular-nums', ...entrada(frame, f)}}>
         {prefijo}
         {numeroCO(v, decimales)}
         {sufijo}
@@ -196,7 +200,8 @@ export const Grafica: React.FC<{tipo: 'barras' | 'linea'; valores: number[]; eti
   const frame = useCurrentFrame();
   const max = Math.max(...valores);
   const n = valores.length;
-  const base = <div style={{width: ancho, height: 5, borderRadius: 3, background: C.medianoche, opacity: prog(frame, f, 4)}} />;
+  const tinta = useTinta();
+  const base = <div style={{width: ancho, height: 5, borderRadius: 3, background: tinta, opacity: prog(frame, f, 4)}} />;
   const rotulos = etiquetas && (
     <div style={{display: 'flex', width: ancho, justifyContent: 'space-around', marginTop: 14}}>
       {etiquetas.map((t, i) => (
@@ -498,6 +503,9 @@ export const Escena: React.FC<{e: EscenaPlan; carpeta: string; final?: boolean}>
   const alto = zona.abajo - arriba;
   const d = e.d;
   const tamTexto = e.pieza === 'Texto' || !e.pieza ? (grande ? 100 : 96) : grande ? 88 : 76;
+  // empuje de entrada: la escena llega un 4 % más grande y se asienta en 8 fotogramas (corte con fuerza, sin saltos)
+  const empuje = 1.04 - 0.04 * prog(frame, 0, 8);
+  let capa: React.ReactNode = e.oscuro ? <FondoOscuro dur={e.dur} /> : null;
 
   let visual: React.ReactNode = null;
   switch (e.pieza) {
@@ -537,6 +545,23 @@ export const Escena: React.FC<{e: EscenaPlan; carpeta: string; final?: boolean}>
     case 'Firma':
       visual = <Firma f={d.f} />;
       break;
+    case 'Palabras':
+      visual = <Palabras palabras={d.palabras ?? []} tam={d.tam ?? (grande ? 190 : 150)} gap={d.gap ?? 0} />;
+      break;
+    case 'Buscador':
+      visual = <Buscador d={d} dur={e.dur} />;
+      break;
+    case 'Video':
+      visual = <Video d={d} carpeta={carpeta} />;
+      break;
+    case 'Multitud':
+      visual = <Multitud d={d} alto={grande ? 700 : 420} />;
+      break;
+    case 'Clip':
+      // el clip llena la zona (toda la pantalla en "completa", la mitad de arriba en "mitad") y las palabras van encima
+      capa = <Oscuro.Provider value><Medio archivo={d.archivo} carpeta={carpeta} desde={d.desde ?? 0} duotono={d.duotono ?? true} /></Oscuro.Provider>;
+      visual = d.palabras ? <Oscuro.Provider value><Palabras palabras={d.palabras} tam={d.tam ?? (grande ? 190 : 150)} /></Oscuro.Provider> : null;
+      break;
     default:
       break;
   }
@@ -544,7 +569,10 @@ export const Escena: React.FC<{e: EscenaPlan; carpeta: string; final?: boolean}>
   const extra = e.pieza === 'Cifra' && d.grafica ? <Grafica tipo={d.grafica.tipo ?? 'barras'} valores={d.grafica.valores} etiquetas={d.grafica.etiquetas} f={d.f + 10} alto={grande ? 300 : 160} /> : null;
 
   return (
+    <Oscuro.Provider value={e.oscuro}>
     <AbsoluteFill style={{opacity: salida, filter: blur ? `blur(${blur}px)` : undefined, clipPath: grande ? undefined : 'inset(0 0 980px 0)'}}>
+      {capa}
+      <AbsoluteFill style={{transform: `scale(${empuje})`}}>
       {e.insignia && (
         <div style={{position: 'absolute', top: zona.arriba, left: AREA_X, width: AREA_ANCHO, display: 'flex', justifyContent: 'center'}}>
           <Insignia {...e.insignia} />
@@ -555,6 +583,8 @@ export const Escena: React.FC<{e: EscenaPlan; carpeta: string; final?: boolean}>
         {extra}
         {e.texto && <Texto texto={e.texto} f={e.textoF} tam={tamTexto} />}
       </div>
+      </AbsoluteFill>
     </AbsoluteFill>
+    </Oscuro.Provider>
   );
 };

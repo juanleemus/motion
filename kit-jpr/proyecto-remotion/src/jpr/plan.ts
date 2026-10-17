@@ -7,9 +7,11 @@ export type Tramo = 'mitad' | 'completa' | 'a-camara';
 export const PIEZAS = [
   'Texto', 'Chip', 'PilaChips', 'Barra', 'Cifra', 'Grafica', 'TarjetaLogo', 'Captura',
   'IconoApp', 'Nodos', 'Comparacion', 'Cta', 'Firma',
+  // piezas de impacto (ESTILO.md §5b): palabras que golpean, pantallas que se usan, video y personas
+  'Palabras', 'Buscador', 'Video', 'Multitud', 'Clip',
 ] as const;
 export type Pieza = (typeof PIEZAS)[number];
-export type TipoSonido = 'whoosh' | 'pop' | 'tic' | 'clic' | 'tecleo' | 'trazo';
+export type TipoSonido = 'whoosh' | 'pop' | 'tic' | 'clic' | 'tecleo' | 'trazo' | 'golpe';
 export type Icono = 'alerta' | 'check' | 'x' | 'sube' | 'baja' | 'reloj' | 'rayo' | 'usuario' | 'dinero' | 'grafica' | 'comentario' | 'numero';
 
 export interface EscenaJson {
@@ -21,14 +23,22 @@ export interface EscenaJson {
   textoEn?: Tiempo;
   insignia?: {numero: number | string; etiqueta: string; puntos?: number; actual?: number; en?: Tiempo};
   destello?: boolean;
+  fondo?: 'claro' | 'oscuro';
   datos?: any;
   nota?: string;
+}
+export interface MusicaJson {
+  bpm?: number;
+  golpes?: Tiempo[]; // impactos con subida antes (cambios de bloque grandes)
+  pausas?: [Tiempo, Tiempo][]; // tramos donde la batería se apaga
+  final?: Tiempo; // golpe final (firma)
 }
 export interface ReelJson {
   nombre: string;
   fps: number;
   duracion: Tiempo;
   escenas: EscenaJson[];
+  musica?: MusicaJson;
 }
 
 export interface Sonido {tipo: TipoSonido; frame: number; ganancia: number; escena: number}
@@ -43,6 +53,7 @@ export interface EscenaPlan {
   textoF: number; // relativo a la escena
   insignia?: {numero: string; etiqueta: string; puntos: number; actual: number; f: number};
   destello: boolean;
+  oscuro: boolean;
   d: any; // datos de la pieza con tiempos ya en fotogramas relativos
   momentos: number[]; // fotogramas relativos donde algo se mueve (para la hoja de movimiento)
   nota?: string;
@@ -54,6 +65,7 @@ export interface Plan {
   escenas: EscenaPlan[];
   sonidos: Sonido[];
   avisos: string[];
+  musica?: {bpm: number; golpes: number[]; pausas: [number, number][]; final?: number}; // en segundos
 }
 
 // ---------- tiempos ----------
@@ -284,6 +296,37 @@ export const planificar = (reel: ReelJson): Plan => {
         ultimoElemento = d.f + 8;
         break;
       }
+      case 'Palabras':
+      case 'Buscador':
+      case 'Video':
+      case 'Multitud':
+      case 'Clip': {
+        // Todo objeto con "en" recibe "f" (fotograma relativo). Lo que ya pasó antes de la escena queda hecho (f < 0).
+        const conv = (x: any): any => {
+          if (Array.isArray(x)) return x.map(conv);
+          if (x && typeof x === 'object') {
+            const o: any = {};
+            for (const [k, v] of Object.entries(x)) o[k] = conv(v);
+            if (x.en !== undefined) {
+              const sx = segundos(x.en, fps)!;
+              o.f = Math.round(sx * fps) - desde < 0 ? -999 : rel(x.en, 0);
+              const tipo: TipoSonido | null = x.sonido === 'ninguno' ? null : x.sonido ?? (pieza === 'Palabras' ? (x.golpe ? 'golpe' : 'whoosh') : 'pop');
+              if (o.f >= 0 && tipo) suena(tipo, o.f, x.ganancia ?? (tipo === 'whoosh' ? 0.55 : 0.85));
+              ultimoElemento = Math.max(ultimoElemento, o.f);
+            }
+            return o;
+          }
+          return x;
+        };
+        Object.assign(d, conv(d));
+        if (pieza === 'Palabras') {
+          for (const l of d.palabras ?? []) if (l.tachar !== undefined) {
+            l.fTachar = rel(l.tachar, 0);
+            suena('trazo', l.fTachar, 0.9);
+          }
+        }
+        break;
+      }
       default:
         break;
     }
@@ -308,7 +351,7 @@ export const planificar = (reel: ReelJson): Plan => {
     if (!vacia && pieza !== 'Captura' && pieza !== 'Comparacion' && !destello && (i === 0 || reel.escenas[i - 1].tramo !== e.tramo))
       suena('whoosh', 0, 0.45); // entrada suave cuando cambia el tipo de tramo
 
-    escenas.push({i: n, desde, hasta, dur, tramo, pieza, texto, textoF, insignia, destello, d, momentos: [...new Set(momentos)].sort((a, b) => a - b), nota: e.nota});
+    escenas.push({i: n, desde, hasta, dur, tramo, pieza, texto, textoF, insignia, destello, oscuro: !vacia && e.fondo === 'oscuro', d, momentos: [...new Set(momentos)].sort((a, b) => a - b), nota: e.nota});
   });
 
   // orden, cruces y ritmo
@@ -327,7 +370,14 @@ export const planificar = (reel: ReelJson): Plan => {
   if (!escenas.some((e) => e.pieza === 'Firma')) avisos.push('El reel no cierra con la Firma JPR (1 s)');
 
   sonidos.sort((a, b) => a.frame - b.frame);
-  return {nombre: reel.nombre, fps, total, escenas, sonidos, avisos};
+  const m = reel.musica;
+  const musica = m && {
+    bpm: m.bpm ?? 100,
+    golpes: (m.golpes ?? []).map((t) => segundos(t, fps)!),
+    pausas: (m.pausas ?? []).map(([a, b]) => [segundos(a, fps)!, segundos(b, fps)!] as [number, number]),
+    final: segundos(m.final, fps),
+  };
+  return {nombre: reel.nombre, fps, total, escenas, sonidos, avisos, musica};
 };
 
 export const resumenTramos = (plan: Plan) => {

@@ -28,7 +28,7 @@ const soloImagenes = (de, a) => {
   for (const n of fs.readdirSync(de)) {
     const p = path.join(de, n);
     if (fs.statSync(p).isDirectory()) soloImagenes(p, path.join(a, n));
-    else if (/\.(png|jpe?g|webp|svg)$/i.test(n)) copiar(p, path.join(a, n));
+    else if (/\.(png|jpe?g|webp|svg|mp4|webm|mov|m4v)$/i.test(n) && n !== 'audio.wav') copiar(p, path.join(a, n));
   }
 };
 
