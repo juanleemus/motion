@@ -1,7 +1,11 @@
-// Comprueba que todas las frases usadas en Reel.tsx existan en la transcripción.
+// Comprueba que todas las frases usadas en un reel existan en la transcripción.
+// Uso: node scripts/revisar-claves.ts [src/Reel.tsx] [src/tiempos.ts]
 import {readFileSync} from 'node:fs';
-import {seg} from '../src/tiempos.ts';
-const src = readFileSync(new URL('../src/Reel.tsx', import.meta.url), 'utf8');
+import path from 'node:path';
+const reel = process.argv[2] ?? 'src/Reel.tsx';
+const tiempos = process.argv[3] ?? 'src/tiempos.ts';
+const {seg} = await import(path.resolve(tiempos));
+const src = readFileSync(reel, 'utf8');
 const re = /(?:en|finDe)\('([^']+)'(?:,\s*(\d+))?\)/g;
 let m: RegExpExecArray | null; let malas = 0;
 while ((m = re.exec(src))) {

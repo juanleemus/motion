@@ -2,6 +2,8 @@ import React from 'react';
 import {Composition, staticFile} from 'remotion';
 import {loadFont} from '@remotion/fonts';
 import {Reel} from './Reel';
+import {Reel12} from './dia12/Reel';
+import {DURACION as DURACION12} from './dia12/tiempos';
 import {Intro} from './Intro';
 import {DURACION_INTRO, TOTAL_DIAS} from './tiemposIntro';
 import {DURACION, FPS} from './tiempos';
@@ -13,6 +15,7 @@ for (const peso of ['500', '800', '900']) {
 export const RemotionRoot: React.FC = () => (
 	<>
 		<Composition id="dia5-uber-escuela-invora" component={Reel} durationInFrames={DURACION} fps={FPS} width={1080} height={1920} />
+		<Composition id="CONTENIDO12" component={Reel12} durationInFrames={DURACION12} fps={FPS} width={1080} height={1920} />
 		{/* Intros "Día X de 12": una composición por día (dia1-escuela-invora … dia12-escuela-invora) */}
 		{Array.from({length: TOTAL_DIAS}, (_, i) => i + 1).map((dia) => (
 			<Composition

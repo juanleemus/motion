@@ -125,11 +125,11 @@ export const ChatInvora: React.FC<{
 };
 
 // ---------- Teclas 3D que escriben la palabra ----------
-export const Teclas: React.FC<{palabra: string; en: number; paso?: number}> = ({palabra, en, paso = 5}) => {
+export const Teclas: React.FC<{palabra: string; en: number; paso?: number; tam?: number}> = ({palabra, en, paso = 5, tam = 150}) => {
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
 	return (
-		<div style={{display: 'flex', gap: 22}}>
+		<div style={{display: 'flex', gap: Math.round(tam * 0.147)}}>
 			{palabra.split('').map((l, i) => {
 				const t = en + i * paso;
 				const entra = spring({frame: frame - (en - 6 + i * 2), fps, config: {damping: 12, mass: 0.5}});
@@ -139,9 +139,9 @@ export const Teclas: React.FC<{palabra: string; en: number; paso?: number}> = ({
 					<div
 						key={i}
 						style={{
-							width: 150,
-							height: 150,
-							borderRadius: 30,
+							width: tam,
+							height: tam,
+							borderRadius: tam / 5,
 							background: marcada ? C.azul : '#1d2638',
 							boxShadow: `0 ${16 - baja * 12}px 0 ${marcada ? C.azulOscuro : '#0b0f19'}, 0 ${26 - baja * 12}px 40px rgba(0,0,0,0.6)${
 								marcada ? `, 0 0 40px ${C.brillo}` : ''
@@ -153,7 +153,7 @@ export const Teclas: React.FC<{palabra: string; en: number; paso?: number}> = ({
 							justifyContent: 'center',
 							fontFamily: FUENTE,
 							fontWeight: 900,
-							fontSize: 84,
+							fontSize: Math.round(tam * 0.56),
 							color: marcada ? C.tinta : C.blanco,
 						}}
 					>

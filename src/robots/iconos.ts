@@ -58,4 +58,40 @@ export const ICONOS: Record<string, Trazo[]> = {
 		{d: 'M14 16 h72 a8 8 0 0 1 8 8 v42 a8 8 0 0 1 -8 8 h-40 l-18 16 v-16 h-14 a8 8 0 0 1 -8 -8 v-42 a8 8 0 0 1 8 -8Z', relleno: 'a'},
 		{d: 'M30 45 v1 M50 45 v1 M70 45 v1'},
 	],
+	cadena: [
+		{d: 'M24 34 h18 a16 16 0 0 1 0 32 h-18 a16 16 0 0 1 0 -32Z', relleno: 'a'},
+		{d: 'M24 44 h18 a6 6 0 0 1 0 12 h-18 a6 6 0 0 1 0 -12Z', relleno: 'b'},
+		{d: 'M58 34 h18 a16 16 0 0 1 0 32 h-18 a16 16 0 0 1 0 -32Z', relleno: 'a'},
+		{d: 'M58 44 h18 a6 6 0 0 1 0 12 h-18 a6 6 0 0 1 0 -12Z', relleno: 'b'},
+	],
+	etiqueta: [
+		{d: 'M8 50 L36 20 H86 a6 6 0 0 1 6 6 V74 a6 6 0 0 1 -6 6 H36 Z', relleno: 'a'},
+		{d: circulo(32, 50, 6), relleno: 'b'},
+		{d: 'M52 42 H78 M52 58 H70'},
+	],
+	flechaAbajo: [
+		{d: 'M38 8 H62 V54 H82 L50 92 L18 54 H38 Z', relleno: 'a'},
+	],
+	rayo: [
+		{d: 'M58 6 L18 56 H46 L40 94 L82 40 H54 Z', relleno: 'a'},
+	],
+	chip: [
+		{d: 'M32 24 h36 a8 8 0 0 1 8 8 v36 a8 8 0 0 1 -8 8 h-36 a8 8 0 0 1 -8 -8 v-36 a8 8 0 0 1 8 -8Z', relleno: 'a'},
+		{d: 'M40 40 h20 v20 h-20Z', relleno: 'b'},
+		{d: 'M38 24 V10 M50 24 V10 M62 24 V10 M38 76 V90 M50 76 V90 M62 76 V90 M24 38 H10 M24 50 H10 M24 62 H10 M76 38 H90 M76 50 H90 M76 62 H90'},
+	],
+	nube: [
+		{d: 'M28 76 a18 18 0 0 1 -2 -36 a24 24 0 0 1 46 -6 a20 20 0 0 1 4 42 Z', relleno: 'a'},
+	],
+	lupa: [
+		{d: 'M62 62 L88 88'},
+		{d: circulo(42, 42, 27), relleno: 'a'},
+		{d: circulo(42, 42, 15), relleno: 'b'},
+	],
+	torta: [
+		{d: 'M14 60 h72 v26 a4 4 0 0 1 -4 4 h-64 a4 4 0 0 1 -4 -4Z', relleno: 'a'},
+		{d: 'M22 38 h56 v22 h-56Z', relleno: 'b'},
+		{d: 'M30 18 h40 v20 h-40Z', relleno: 'a'},
+		{d: 'M50 18 V6'},
+	],
 };
