@@ -527,10 +527,11 @@ export const Icono: React.FC<{
 };
 
 // ---------- Logo INVORA (texto) ----------
-export const LogoInvora: React.FC<{en: number; tam?: number}> = ({en, tam = 92}) => {
+// vel > 1 acelera la entrada (por ejemplo, para clips cortos).
+export const LogoInvora: React.FC<{en: number; tam?: number; vel?: number}> = ({en, tam = 92, vel = 1}) => {
 	const frame = useCurrentFrame();
-	const p = interpolate(frame, [en, en + 18], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
-	const raya = interpolate(frame, [en + 14, en + 28], [0, 1], {...clamp, easing: Easing.inOut(Easing.cubic)});
+	const p = interpolate(frame, [en, en + 18 / vel], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
+	const raya = interpolate(frame, [en + 14 / vel, en + 28 / vel], [0, 1], {...clamp, easing: Easing.inOut(Easing.cubic)});
 	const esp = interpolate(p, [0, 1], [1.1, 0.32]);
 	return (
 		<div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 22, opacity: p}}>
