@@ -1,0 +1,300 @@
+{
+ "nombre": "contenido6",
+ "fps": 24,
+ "duracion": "00:47:07",
+ "escenas": [
+  {
+   "inicio": 0,
+   "fin": 1.9,
+   "tramo": "a-camara",
+   "nota": "gancho: todos dicen que el SEO murió"
+  },
+  {
+   "inicio": 1.9,
+   "fin": 4.0,
+   "tramo": "mitad",
+   "pieza": "TarjetaLogo",
+   "datos": {
+    "logos": [
+     {
+      "logo": "google-texto",
+      "en": 1.98
+     }
+    ]
+   },
+   "nota": "Google acaba de decir lo contrario"
+  },
+  {
+   "inicio": 4.0,
+   "fin": 7.0,
+   "tramo": "mitad",
+   "pieza": "IconoApp",
+   "datos": {
+    "logo": "google",
+    "en": 4.72
+   },
+   "nota": "Google anunció que con su IA"
+  },
+  {
+   "inicio": 7.0,
+   "fin": 10.2,
+   "tramo": "mitad",
+   "pieza": "Grafica",
+   "datos": {
+    "tipo": "barras",
+    "valores": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "en": 7.12
+   },
+   "nota": "más links, más arriba y más fáciles de tocar"
+  },
+  {
+   "inicio": 10.2,
+   "fin": 12.8,
+   "tramo": "a-camara",
+   "nota": "pero fíjate a quién le manda esos clics"
+  },
+  {
+   "inicio": 12.8,
+   "fin": 15.4,
+   "tramo": "mitad",
+   "pieza": "Chip",
+   "datos": {
+    "texto": "",
+    "icono": "check",
+    "en": 13.38,
+    "tam": 130
+   },
+   "nota": "a la página oficial, cuando hay una sola fuente"
+  },
+  {
+   "inicio": 15.4,
+   "fin": 18.2,
+   "tramo": "mitad",
+   "pieza": "PilaChips",
+   "datos": {
+    "chips": [
+     {
+      "texto": "",
+      "icono": "usuario",
+      "en": 16.5
+     },
+     {
+      "texto": "",
+      "icono": "check",
+      "en": 16.9
+     }
+    ],
+    "tam": 110
+   },
+   "nota": "los medios que la gente marca como favoritos"
+  },
+  {
+   "inicio": 18.2,
+   "fin": 21.2,
+   "tramo": "completa",
+   "destello": true,
+   "pieza": "Grafica",
+   "datos": {
+    "tipo": "barras",
+    "valores": [
+     1,
+     7
+    ],
+    "en": 19.74
+   },
+   "nota": "esa función creció más de 7 veces este año"
+  },
+  {
+   "inicio": 21.2,
+   "fin": 23.6,
+   "tramo": "mitad",
+   "pieza": "PilaChips",
+   "datos": {
+    "chips": [
+     {
+      "texto": "",
+      "icono": "x",
+      "en": 21.82
+     },
+     {
+      "texto": "",
+      "icono": "x",
+      "en": 22.62
+     }
+    ],
+    "tam": 110
+   },
+   "nota": "ya no gana el que más keywords mete"
+  },
+  {
+   "inicio": 23.6,
+   "fin": 25.7,
+   "tramo": "mitad",
+   "pieza": "PilaChips",
+   "datos": {
+    "chips": [
+     {
+      "texto": "",
+      "icono": "check",
+      "en": 23.7
+     },
+     {
+      "texto": "",
+      "icono": "usuario",
+      "en": 24.56
+     }
+    ],
+    "tam": 110
+   },
+   "nota": "gana el que la gente elige"
+  },
+  {
+   "inicio": 25.7,
+   "fin": 28.0,
+   "tramo": "mitad",
+   "pieza": "TarjetaLogo",
+   "datos": {
+    "logos": [
+     {
+      "logo": "google",
+      "en": 26.06
+     }
+    ]
+   },
+   "nota": "el que Google reconoce como una fuente oficial"
+  },
+  {
+   "inicio": 28.0,
+   "fin": 31.2,
+   "tramo": "a-camara",
+   "nota": "y en video están probando algo más"
+  },
+  {
+   "inicio": 31.2,
+   "fin": 34.4,
+   "tramo": "mitad",
+   "pieza": "Chip",
+   "datos": {
+    "texto": "",
+    "icono": "usuario",
+    "en": 32.18,
+    "tam": 130
+   },
+   "nota": "el nombre del creador como link"
+  },
+  {
+   "inicio": 34.4,
+   "fin": 36.1,
+   "tramo": "mitad",
+   "pieza": "TarjetaLogo",
+   "datos": {
+    "logos": [
+     {
+      "logo": "google-texto",
+      "en": 34.48
+     }
+    ]
+   },
+   "nota": "a su cuenta de Google o su perfil de Google"
+  },
+  {
+   "inicio": 36.1,
+   "fin": 38.2,
+   "tramo": "mitad",
+   "pieza": "PilaChips",
+   "datos": {
+    "chips": [
+     {
+      "texto": "",
+      "icono": "usuario",
+      "en": 36.28
+     },
+     {
+      "texto": "",
+      "icono": "sube",
+      "en": 37.88
+     }
+    ],
+    "actual": 2,
+    "tam": 110
+   },
+   "nota": "tu cara se vuelve tu SEO"
+  },
+  {
+   "inicio": 38.2,
+   "fin": 40.7,
+   "tramo": "mitad",
+   "destello": true,
+   "pieza": "Grafica",
+   "datos": {
+    "tipo": "linea",
+    "valores": [
+     2,
+     1.5,
+     3,
+     4.5
+    ],
+    "en": 38.84
+   },
+   "nota": "el SEO no murió, cambió de dueño"
+  },
+  {
+   "inicio": 40.7,
+   "fin": 42.9,
+   "tramo": "completa",
+   "pieza": "PilaChips",
+   "datos": {
+    "chips": [
+     {
+      "texto": "",
+      "icono": "rayo",
+      "en": 41.14
+     },
+     {
+      "texto": "",
+      "icono": "usuario",
+      "en": 42.18
+     }
+    ],
+    "actual": 2,
+    "tam": 140
+   },
+   "nota": "pasó del algoritmo a tu audiencia"
+  },
+  {
+   "inicio": 42.9,
+   "fin": 46.3,
+   "tramo": "mitad",
+   "pieza": "PilaChips",
+   "datos": {
+    "chips": [
+     {
+      "texto": "",
+      "icono": "grafica",
+      "en": 43.94
+     },
+     {
+      "texto": "",
+      "icono": "comentario",
+      "en": 44.88
+     }
+    ],
+    "tam": 110
+   },
+   "nota": "si tu empresa está haciendo SEO, mándale este video al SEO de tu empresa"
+  },
+  {
+   "inicio": 46.3,
+   "fin": "00:47:07",
+   "tramo": "completa",
+   "pieza": "Firma",
+   "datos": {},
+   "nota": "firma JPR"
+  }
+ ]
+}

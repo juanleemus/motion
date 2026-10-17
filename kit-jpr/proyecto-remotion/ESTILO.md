@@ -195,6 +195,8 @@ Otros comandos: `npm run studio` (vista previa del demo), `npm run demo` (vuelve
 | `Cta` | `{"palabra": "ADS", "en": 17}` y en `texto` lo que recibe: `"y te mando la *guía*"` |
 | `Firma` | `{}` (1 s, tramo `completa`, al final) |
 
+Chips solo con ícono (reels sin texto): `"texto": ""` y `"tam"` en `datos` (ej. 110 en mitad, 140 en completa): queda una ficha cuadrada con el ícono centrado.
+
 Íconos de línea disponibles para chips: `alerta`, `check`, `x`, `sube`, `baja`, `reloj`, `rayo`, `usuario`, `dinero`, `grafica`, `comentario`.
 
 El comando avisa (⚠) si algo rompe el estilo: textos de más de 6 palabras o con punto final, más de 3 palabras de acento, tramos de menos de 1,5 s, Juan Pablo solo más de 4 s, destellos a menos de 12 s, escenas que se montan, reel sin firma.

@@ -131,13 +131,13 @@ export const Chip: React.FC<{texto: string; icono?: Icono; numero?: number; f: n
   const tinta = actual ? C.medianoche : C.blanco;
   const linea = actual ? C.medianoche : C.lima;
   return (
-    <div style={{display: 'inline-flex', alignItems: 'center', gap: 18, background: fondo, borderRadius: 18, padding: `${tam * 0.42}px ${tam * 0.7}px ${tam * 0.42}px ${tam * 0.5}px`, boxShadow: SOMBRA, ...desdeAbajo(frame, f)}}>
+    <div style={{display: 'inline-flex', alignItems: 'center', gap: texto ? 18 : 0, background: fondo, borderRadius: texto ? 18 : tam * 0.36, padding: texto ? `${tam * 0.42}px ${tam * 0.7}px ${tam * 0.42}px ${tam * 0.5}px` : tam * 0.42, boxShadow: SOMBRA, ...desdeAbajo(frame, f)}}>
       {icono === 'numero' ? (
         <div style={{width: tam, height: tam, borderRadius: tam / 2, border: `3px solid ${linea}`, boxSizing: 'border-box', display: 'flex', alignItems: 'center', justifyContent: 'center', ...poppins(700, tam * 0.5, linea), lineHeight: 1}}>{numero}</div>
       ) : (
         <IconoLinea nombre={icono} tam={tam} color={linea} />
       )}
-      <span style={{...poppins(500, tam, tinta), lineHeight: 1.05, whiteSpace: 'nowrap'}}>{texto}</span>
+      {texto && <span style={{...poppins(500, tam, tinta), lineHeight: 1.05, whiteSpace: 'nowrap'}}>{texto}</span>}
     </div>
   );
 };
@@ -502,10 +502,10 @@ export const Escena: React.FC<{e: EscenaPlan; carpeta: string; final?: boolean}>
   let visual: React.ReactNode = null;
   switch (e.pieza) {
     case 'Chip':
-      visual = <Chip texto={d.texto} icono={d.icono} f={d.f} tam={grande ? 52 : 44} />;
+      visual = <Chip texto={d.texto} icono={d.icono} f={d.f} tam={d.tam ?? (grande ? 52 : 44)} />;
       break;
     case 'PilaChips':
-      visual = <PilaChips chips={d.chips} actual={d.actual} tam={grande ? 52 : 42} />;
+      visual = <PilaChips chips={d.chips} actual={d.actual} tam={d.tam ?? (grande ? 52 : 42)} />;
       break;
     case 'Barra':
       visual = <Barra etiqueta={d.etiqueta} f={d.f} fLleno={d.fLleno} hasta={d.hasta} />;
