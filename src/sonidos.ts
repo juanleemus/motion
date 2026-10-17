@@ -1,7 +1,7 @@
 // Efectos de sonido atados a cada animación de Reel.tsx (mismas palabras, mismos fotogramas).
 import {en, finDe} from './tiempos.ts';
 
-export type Efecto = 'pop' | 'whoosh' | 'tic' | 'trazo' | 'tecleo' | 'campanita' | 'conteo' | 'no';
+export type Efecto = 'pop' | 'whoosh' | 'tic' | 'trazo' | 'tecleo' | 'campanita' | 'conteo' | 'no' | 'tiza' | 'tizaCorta';
 export type Evento = {f: number; tipo: Efecto; vol?: number};
 
 const ev: Evento[] = [];

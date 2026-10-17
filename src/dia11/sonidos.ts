@@ -6,11 +6,14 @@ import type {Efecto, Evento} from '../sonidos.ts';
 const ev: Evento[] = [];
 const add = (f: number, tipo: Efecto, vol = 1) => ev.push({f, tipo, vol});
 
-const texto = (f: number) => add(f, 'whoosh', 0.55);
+const texto = (f: number) => {
+	add(f, 'whoosh', 0.35);
+	add(f, 'tizaCorta', 0.8);
+};
 const logo = (f: number) => add(f, 'pop', 1);
 // El ícono se dibuja en `f` y se enciende en `enc` (por defecto, al terminar de dibujarse).
 const icono = (f: number, enc = f + 15) => {
-	add(f, 'trazo', 0.8);
+	add(f, 'tiza', 0.8);
 	add(enc, 'campanita', 0.7);
 };
 const insignia = (f: number) => {
@@ -18,14 +21,16 @@ const insignia = (f: number) => {
 	add(f + 9, 'pop', 0.7);
 };
 const cifra = (f: number) => {
+	add(f, 'tiza', 0.6);
 	add(f, 'conteo', 0.8);
 	add(f + 22, 'pop', 0.6);
 };
 const logoInvora = (f: number) => {
 	add(f, 'whoosh', 0.8);
-	add(f + 14, 'trazo', 0.6);
+	add(f + 14, 'tiza', 0.6);
 };
 const renglon = (f: number) => {
+	add(f, 'tizaCorta', 0.9);
 	add(f, 'tic', 0.8);
 	add(f, 'pop', 0.5);
 };
@@ -94,7 +99,7 @@ texto(en('que mejore'));
 insignia(en('Dos', 2));
 icono(en('Dos', 2));
 texto(en('la empresa no'));
-add(en('no es rentable'), 'trazo', 0.9);
+add(en('no es rentable'), 'tiza', 0.9);
 add(en('no es rentable'), 'no', 0.7);
 texto(en('Perdió'));
 cifra(en('67'));

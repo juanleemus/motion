@@ -10,6 +10,7 @@ eventos_path, salida = sys.argv[1], sys.argv[2]
 DUR = float(sys.argv[3]) if len(sys.argv) > 3 else 74.0
 LUFS = float(sys.argv[4]) if len(sys.argv) > 4 else -24.0
 SOLO_MUSICA = len(sys.argv) > 5 and sys.argv[5] == 'solo-musica'  # sin efectos
+SOLO_EFECTOS = len(sys.argv) > 5 and sys.argv[5] == 'solo-efectos'  # sin música, al mismo nivel que en la mezcla
 N = int(round(DUR * SR))
 rng = np.random.default_rng(5)
 
@@ -128,9 +129,36 @@ def s_no():
         c = lp(w, 1600) * env(len(x), 0.004, 0.06); s = int(st * SR); out[s:s + len(c)] += c
     return out * 0.6
 
-GEN = {'pop': s_pop, 'whoosh': s_whoosh, 'tic': s_tic, 'trazo': s_trazo, 'tecleo': s_tecleo,
+# Tiza / crayola sobre pizarra: granos de fricción irregulares con resonancias agudas,
+# un toque seco al apoyar y, a veces, un chirrido corto.
+def s_tiza(dur=0.5, chirrido=True):
+    n = int(dur * SR); x = np.arange(n) / SR
+    granos = np.zeros(n); pos = 0
+    while pos < n:
+        largo = int(SR * rng.uniform(0.004, 0.014))
+        g = rng.standard_normal(largo) * np.hanning(largo) * rng.uniform(0.3, 1.0)
+        granos[pos:pos + largo] += g[: n - pos]
+        pos += int(SR * rng.uniform(0.003, 0.012))
+    roce = bp(granos, 1200, 7000) * 0.7
+    for fc in rng.uniform(2200, 4200, 3):  # el "tono" de la pizarra
+        roce += bp(granos, fc * 0.97, fc * 1.03, 2) * 1.6
+    vaiven = 0.55 + 0.45 * np.abs(np.sin(2 * np.pi * rng.uniform(5, 8) * x + rng.uniform(0, 3)))
+    forma = np.minimum(1, x / 0.015) * np.minimum(1, (dur - x) / 0.05).clip(0, 1)
+    out = roce * vaiven * forma
+    toque = bp(rng.standard_normal(int(0.03 * SR)), 150, 900) * env(int(0.03 * SR), 0.0005, 0.006) * 1.5
+    out[: len(toque)] += toque
+    if chirrido and dur > 0.3:
+        c0 = int(rng.uniform(0.2, 0.6) * n); cl = int(0.06 * SR); xc = np.arange(cl) / SR
+        f = rng.uniform(2600, 3400) * (1 + 0.03 * np.sin(2 * np.pi * 40 * xc))
+        ch = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.hanning(cl) * 0.12
+        out[c0:c0 + cl] += ch[: n - c0]
+    return out * 0.9
+def s_tiza_corta():
+    return s_tiza(0.18, chirrido=False)
+
+GEN = {'tiza': s_tiza, 'tizaCorta': s_tiza_corta, 'pop': s_pop, 'whoosh': s_whoosh, 'tic': s_tic, 'trazo': s_trazo, 'tecleo': s_tecleo,
        'campanita': s_campanita, 'conteo': s_conteo, 'no': s_no}
-NIVEL = {'pop': 0.8, 'whoosh': 0.5, 'tic': 0.35, 'trazo': 0.5, 'tecleo': 0.35, 'campanita': 0.35, 'conteo': 0.45, 'no': 0.6}
+NIVEL = {'tiza': 0.6, 'tizaCorta': 0.45, 'pop': 0.8, 'whoosh': 0.5, 'tic': 0.35, 'trazo': 0.5, 'tecleo': 0.35, 'campanita': 0.35, 'conteo': 0.45, 'no': 0.6}
 efectos = np.zeros((N, 2))
 for e in ([] if SOLO_MUSICA else json.load(open(eventos_path))):
     put(efectos, GEN[e['tipo']](), e['f'] / 30, NIVEL[e['tipo']] * e.get('vol', 1), pan=rng.uniform(-0.15, 0.15))
@@ -150,9 +178,13 @@ def limitar(y, techo=0.89):
     for i in range(len(g)):  # hacia adelante: suelta suave
         v = min(suave[i], a * v + (1 - a) * suave[i]); suave[i] = v
     return y * suave[:, None]
+ganancia = 1.0
 for _ in range(4):
     l = med.integrated_loudness(mezcla)
-    mezcla *= 10 ** ((LUFS - l) / 20)
+    ganancia *= 10 ** ((LUFS - l) / 20); mezcla *= 10 ** ((LUFS - l) / 20)
+    if np.max(np.abs(mezcla)) > 0.89: mezcla = limitar(mezcla)
+if SOLO_EFECTOS:  # misma ganancia que en la mezcla completa, para que encaje al sumarla con la música
+    mezcla = efectos * ganancia
     if np.max(np.abs(mezcla)) > 0.89: mezcla = limitar(mezcla)
 print(f'sonoridad: {med.integrated_loudness(mezcla):.1f} LUFS · pico {20*np.log10(np.max(np.abs(mezcla))):.1f} dBFS')
 import wave
