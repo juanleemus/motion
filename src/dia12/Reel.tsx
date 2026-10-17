@@ -304,9 +304,9 @@ export const Reel12: React.FC = () => {
 						<Texto en={en('Entonces')} tam={80}>
 							{'¿por qué está casi'}
 						</Texto>
-						<Fila gap={30}>
-							<Cifra valor={20} en={en('casi 20')} despues="%" tam={250} />
-							<Icono trazos={ICONOS.flechaAbajo} en={en('casi 20') + 6} enciendeEn={en('abajo')} tam={140} />
+						<Fila gap={10}>
+							<Cifra valor={20} en={en('casi 20')} despues="%" tam={232} />
+							<Icono trazos={ICONOS.flechaAbajo} en={en('casi 20') + 6} enciendeEn={en('abajo')} tam={130} />
 						</Fila>
 						<Texto en={en('abajo')} tam={110}>
 							{'*abajo*?'}
