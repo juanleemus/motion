@@ -26,18 +26,32 @@
   },
   {
    "inicio": 4.0,
-   "fin": 7.0,
-   "tramo": "mitad",
+   "fin": 5.6,
+   "tramo": "completa",
+   "destello": true,
    "pieza": "IconoApp",
    "datos": {
     "logo": "google",
     "en": 4.72
    },
-   "nota": "Google anunció que con su IA"
+   "nota": "esta semana Google anunció"
   },
   {
-   "inicio": 7.0,
-   "fin": 10.2,
+   "inicio": 5.6,
+   "fin": 7.1,
+   "tramo": "mitad",
+   "pieza": "Chip",
+   "datos": {
+    "texto": "",
+    "icono": "rayo",
+    "en": 6.12,
+    "tam": 130
+   },
+   "nota": "con su IA"
+  },
+  {
+   "inicio": 7.1,
+   "fin": 8.7,
    "tramo": "mitad",
    "pieza": "Grafica",
    "datos": {
@@ -45,22 +59,61 @@
     "valores": [
      1,
      2,
-     3,
-     4
+     3
     ],
     "en": 7.12
    },
-   "nota": "más links, más arriba y más fáciles de tocar"
+   "nota": "va a mostrar más links"
   },
   {
-   "inicio": 10.2,
+   "inicio": 8.7,
+   "fin": 10.3,
+   "tramo": "mitad",
+   "pieza": "PilaChips",
+   "datos": {
+    "chips": [
+     {
+      "texto": "",
+      "icono": "sube",
+      "en": 8.72
+     },
+     {
+      "texto": "",
+      "icono": "check",
+      "en": 9.94
+     }
+    ],
+    "actual": 2,
+    "tam": 100
+   },
+   "nota": "más arriba y más fáciles de tocar"
+  },
+  {
+   "inicio": 10.3,
    "fin": 12.8,
-   "tramo": "a-camara",
+   "tramo": "completa",
+   "pieza": "PilaChips",
+   "datos": {
+    "chips": [
+     {
+      "texto": "",
+      "icono": "usuario",
+      "en": 11.2
+     },
+     {
+      "texto": "",
+      "icono": "check",
+      "en": 12.28
+     }
+    ],
+    "actual": 1,
+    "tam": 140
+   },
    "nota": "pero fíjate a quién le manda esos clics"
   },
   {
    "inicio": 12.8,
-   "fin": 15.4,
+   "fin": 14.9,
    "tramo": "mitad",
    "pieza": "Chip",
    "datos": {
@@ -72,7 +125,7 @@
    "nota": "a la página oficial, cuando hay una sola fuente"
   },
   {
-   "inicio": 15.4,
+   "inicio": 14.9,
    "fin": 18.2,
    "tramo": "mitad",
    "pieza": "PilaChips",
@@ -87,9 +140,15 @@
       "texto": "",
       "icono": "check",
       "en": 16.9
+     },
+     {
+      "texto": "",
+      "icono": "sube",
+      "en": 17.44
      }
     ],
-    "tam": 110
+    "actual": 3,
+    "tam": 80
    },
    "nota": "los medios que la gente marca como favoritos"
   },
@@ -125,16 +184,21 @@
       "texto": "",
       "icono": "x",
       "en": 22.62
+     },
+     {
+      "texto": "",
+      "icono": "x",
+      "en": 23.04
      }
     ],
-    "tam": 110
+    "tam": 80
    },
    "nota": "ya no gana el que más keywords mete"
   },
   {
    "inicio": 23.6,
    "fin": 25.7,
-   "tramo": "mitad",
+   "tramo": "completa",
    "pieza": "PilaChips",
    "datos": {
     "chips": [
@@ -147,8 +211,14 @@
       "texto": "",
       "icono": "usuario",
       "en": 24.56
+     },
+     {
+      "texto": "",
+      "icono": "check",
+      "en": 24.94
      }
     ],
+    "actual": 3,
     "tam": 110
    },
    "nota": "gana el que la gente elige"
@@ -170,33 +240,51 @@
   },
   {
    "inicio": 28.0,
-   "fin": 31.2,
+   "fin": 29.3,
    "tramo": "a-camara",
-   "nota": "y en video están probando algo más"
+   "nota": "y en video"
+  },
+  {
+   "inicio": 29.3,
+   "fin": 31.2,
+   "tramo": "mitad",
+   "pieza": "Chip",
+   "datos": {
+    "texto": "",
+    "icono": "rayo",
+    "en": 30.04,
+    "tam": 130
+   },
+   "nota": "están probando algo más"
   },
   {
    "inicio": 31.2,
-   "fin": 34.4,
-   "tramo": "mitad",
+   "fin": 33.1,
+   "tramo": "completa",
+   "destello": true,
    "pieza": "Chip",
    "datos": {
     "texto": "",
     "icono": "usuario",
     "en": 32.18,
-    "tam": 130
+    "tam": 170
    },
    "nota": "el nombre del creador como link"
   },
   {
-   "inicio": 34.4,
+   "inicio": 33.1,
    "fin": 36.1,
    "tramo": "mitad",
    "pieza": "TarjetaLogo",
    "datos": {
     "logos": [
      {
-      "logo": "google-texto",
+      "logo": "google",
       "en": 34.48
+     },
+     {
+      "logo": "google-texto",
+      "en": 35.76
      }
     ]
    },
@@ -221,15 +309,14 @@
      }
     ],
     "actual": 2,
-    "tam": 110
+    "tam": 100
    },
    "nota": "tu cara se vuelve tu SEO"
   },
   {
    "inicio": 38.2,
-   "fin": 40.7,
+   "fin": 39.8,
    "tramo": "mitad",
-   "destello": true,
    "pieza": "Grafica",
    "datos": {
     "tipo": "linea",
@@ -241,11 +328,24 @@
     ],
     "en": 38.84
    },
-   "nota": "el SEO no murió, cambió de dueño"
+   "nota": "el SEO no murió"
   },
   {
-   "inicio": 40.7,
-   "fin": 42.9,
+   "inicio": 39.8,
+   "fin": 41.5,
+   "tramo": "mitad",
+   "pieza": "Chip",
+   "datos": {
+    "texto": "",
+    "icono": "usuario",
+    "en": 40.26,
+    "tam": 130
+   },
+   "nota": "cambió de dueño"
+  },
+  {
+   "inicio": 41.5,
+   "fin": 43.2,
    "tramo": "completa",
    "pieza": "PilaChips",
    "datos": {
@@ -253,7 +353,7 @@
      {
       "texto": "",
       "icono": "rayo",
-      "en": 41.14
+      "en": 41.6
      },
      {
       "texto": "",
@@ -267,26 +367,40 @@
    "nota": "pasó del algoritmo a tu audiencia"
   },
   {
-   "inicio": 42.9,
-   "fin": 46.3,
+   "inicio": 43.2,
+   "fin": 44.8,
    "tramo": "mitad",
+   "destello": true,
    "pieza": "PilaChips",
    "datos": {
     "chips": [
      {
       "texto": "",
-      "icono": "grafica",
-      "en": 43.94
+      "icono": "dinero",
+      "en": 43.4
      },
      {
       "texto": "",
-      "icono": "comentario",
-      "en": 44.88
+      "icono": "grafica",
+      "en": 43.94
      }
     ],
-    "tam": 110
+    "tam": 100
    },
-   "nota": "si tu empresa está haciendo SEO, mándale este video al SEO de tu empresa"
+   "nota": "si tu empresa está haciendo SEO"
+  },
+  {
+   "inicio": 44.8,
+   "fin": 46.3,
+   "tramo": "completa",
+   "pieza": "Chip",
+   "datos": {
+    "texto": "",
+    "icono": "comentario",
+    "en": 44.88,
+    "tam": 170
+   },
+   "nota": "mándale este video al SEO de tu empresa"
   },
   {
    "inicio": 46.3,

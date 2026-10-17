@@ -1,44 +1,54 @@
 HOJA DE MONTAJE · contenido6
 Motion: contenido6-motion.mp4 · 1080×1920 · 24 fps · 00:47:07 (47,29 s) · empieza en 00:00:00
 Tiempos en mm:ss:ff (ff = fotograma). Ponlo encima del video de Juan Pablo desde 00:00.
-Tramos: mitad 71 % · completa 13 % · a cámara 16 %
-Efectos: -24.5 LUFS (objetivo −24) · pico -8.9 dBFS · sin música
+Tramos: mitad 61 % · completa 32 % · a cámara 7 %
+Efectos: -24.3 LUFS (objetivo −24) · pico -6.6 dBFS · sin música
 
 00:00:00 → 00:01:22  (1,92 s)  A CÁMARA  Borra el motion: Juan Pablo a pantalla completa.
     gancho: todos dicen que el SEO murió
 00:01:22 → 00:04:00  (2,08 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
     pieza: TarjetaLogo · Google acaba de decir lo contrario
-00:04:00 → 00:07:00  (3,00 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
-    pieza: IconoApp · Google anunció que con su IA
-00:07:00 → 00:10:05  (3,21 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
-    pieza: Grafica · más links, más arriba y más fáciles de tocar
-00:10:05 → 00:12:19  (2,58 s)  A CÁMARA  Borra el motion: Juan Pablo a pantalla completa.
-    pero fíjate a quién le manda esos clics
-00:12:19 → 00:15:10  (2,63 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+00:04:00 → 00:05:14  (1,58 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: IconoApp · con destello · esta semana Google anunció
+00:05:14 → 00:07:02  (1,50 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Chip · con su IA
+00:07:02 → 00:08:17  (1,63 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Grafica · va a mostrar más links
+00:08:17 → 00:10:07  (1,58 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: PilaChips · más arriba y más fáciles de tocar
+00:10:07 → 00:12:19  (2,50 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: PilaChips · pero fíjate a quién le manda esos clics
+00:12:19 → 00:14:22  (2,13 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
     pieza: Chip · a la página oficial, cuando hay una sola fuente
-00:15:10 → 00:18:05  (2,79 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+00:14:22 → 00:18:05  (3,29 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
     pieza: PilaChips · los medios que la gente marca como favoritos
 00:18:05 → 00:21:05  (3,00 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
     pieza: Grafica · con destello · esa función creció más de 7 veces este año
 00:21:05 → 00:23:14  (2,38 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
     pieza: PilaChips · ya no gana el que más keywords mete
-00:23:14 → 00:25:17  (2,13 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+00:23:14 → 00:25:17  (2,13 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
     pieza: PilaChips · gana el que la gente elige
 00:25:17 → 00:28:00  (2,29 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
     pieza: TarjetaLogo · el que Google reconoce como una fuente oficial
-00:28:00 → 00:31:05  (3,21 s)  A CÁMARA  Borra el motion: Juan Pablo a pantalla completa.
-    y en video están probando algo más
-00:31:05 → 00:34:10  (3,21 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
-    pieza: Chip · el nombre del creador como link
-00:34:10 → 00:36:02  (1,67 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+00:28:00 → 00:29:07  (1,29 s)  A CÁMARA  Borra el motion: Juan Pablo a pantalla completa.
+    y en video
+00:29:07 → 00:31:05  (1,92 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Chip · están probando algo más
+00:31:05 → 00:33:02  (1,88 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: Chip · con destello · el nombre del creador como link
+00:33:02 → 00:36:02  (3,00 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
     pieza: TarjetaLogo · a su cuenta de Google o su perfil de Google
 00:36:02 → 00:38:05  (2,13 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
     pieza: PilaChips · tu cara se vuelve tu SEO
-00:38:05 → 00:40:17  (2,50 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
-    pieza: Grafica · con destello · el SEO no murió, cambió de dueño
-00:40:17 → 00:42:22  (2,21 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+00:38:05 → 00:39:19  (1,58 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Grafica · el SEO no murió
+00:39:19 → 00:41:12  (1,71 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Chip · cambió de dueño
+00:41:12 → 00:43:05  (1,71 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
     pieza: PilaChips · pasó del algoritmo a tu audiencia
-00:42:22 → 00:46:07  (3,38 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
-    pieza: PilaChips · si tu empresa está haciendo SEO, mándale este video al SEO de tu empresa
+00:43:05 → 00:44:19  (1,58 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: PilaChips · con destello · si tu empresa está haciendo SEO
+00:44:19 → 00:46:07  (1,50 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: Chip · mándale este video al SEO de tu empresa
 00:46:07 → 00:47:07  (1,00 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
     pieza: Firma · firma JPR
