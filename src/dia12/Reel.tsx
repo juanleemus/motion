@@ -106,7 +106,8 @@ export const Reel12: React.FC = () => {
 				</E>
 
 				<E k="dia12">
-					<Columna gap={125}>
+					{/* Arriba y más junto: abajo queda libre para lo que el cliente superpone */}
+					<Columna gap={78} style={{position: 'absolute', top: 30}}>
 						<Insignia numero={12} etiqueta="de 100" en={en('Día 12')} />
 						<Icono
 							trazos={ICONOS.calendario}
@@ -123,10 +124,12 @@ export const Reel12: React.FC = () => {
 								</g>
 							)}
 						/>
-						<Texto en={en('de la Escuela')} tam={84}>
-							{'de la escuela'}
-						</Texto>
-						<LogoInvora en={en('Invora', 1)} />
+						<Columna gap={30} style={{marginTop: 24}}>
+							<Texto en={en('de la Escuela')} tam={84}>
+								{'de la escuela'}
+							</Texto>
+							<LogoInvora en={en('Invora', 1)} />
+						</Columna>
 					</Columna>
 				</E>
 
