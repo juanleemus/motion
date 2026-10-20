@@ -1,0 +1,697 @@
+[
+ {
+  "palabra": "Meta",
+  "inicio": 0.0,
+  "fin": 0.54
+ },
+ {
+  "palabra": "acaba",
+  "inicio": 0.54,
+  "fin": 0.78
+ },
+ {
+  "palabra": "de",
+  "inicio": 0.78,
+  "fin": 0.94
+ },
+ {
+  "palabra": "lanzar",
+  "inicio": 0.94,
+  "fin": 1.18
+ },
+ {
+  "palabra": "un",
+  "inicio": 1.18,
+  "fin": 1.3
+ },
+ {
+  "palabra": "botón",
+  "inicio": 1.3,
+  "fin": 1.54
+ },
+ {
+  "palabra": "que",
+  "inicio": 1.54,
+  "fin": 1.66
+ },
+ {
+  "palabra": "te",
+  "inicio": 1.66,
+  "fin": 1.8
+ },
+ {
+  "palabra": "va",
+  "inicio": 1.8,
+  "fin": 1.92
+ },
+ {
+  "palabra": "a",
+  "inicio": 1.92,
+  "fin": 1.96
+ },
+ {
+  "palabra": "bajar",
+  "inicio": 1.96,
+  "fin": 2.16
+ },
+ {
+  "palabra": "el",
+  "inicio": 2.16,
+  "fin": 2.36
+ },
+ {
+  "palabra": "ROAS.",
+  "inicio": 2.36,
+  "fin": 2.6
+ },
+ {
+  "palabra": "Se",
+  "inicio": 2.76,
+  "fin": 2.94
+ },
+ {
+  "palabra": "llama",
+  "inicio": 2.94,
+  "fin": 3.26
+ },
+ {
+  "palabra": "Customer",
+  "inicio": 3.26,
+  "fin": 3.92
+ },
+ {
+  "palabra": "Lifecycle",
+  "inicio": 3.92,
+  "fin": 4.94
+ },
+ {
+  "palabra": "Strategy.",
+  "inicio": 4.94,
+  "fin": 5.64
+ },
+ {
+  "palabra": "Ya",
+  "inicio": 6.22,
+  "fin": 6.42
+ },
+ {
+  "palabra": "está",
+  "inicio": 6.42,
+  "fin": 6.6
+ },
+ {
+  "palabra": "disponible",
+  "inicio": 6.6,
+  "fin": 7.12
+ },
+ {
+  "palabra": "para",
+  "inicio": 7.12,
+  "fin": 7.38
+ },
+ {
+  "palabra": "algunos",
+  "inicio": 7.38,
+  "fin": 7.64
+ },
+ {
+  "palabra": "anunciantes.",
+  "inicio": 7.64,
+  "fin": 8.4
+ },
+ {
+  "palabra": "Marcas",
+  "inicio": 8.64,
+  "fin": 8.9
+ },
+ {
+  "palabra": "tu",
+  "inicio": 8.9,
+  "fin": 9.1
+ },
+ {
+  "palabra": "campaña",
+  "inicio": 9.1,
+  "fin": 9.6
+ },
+ {
+  "palabra": "como",
+  "inicio": 9.6,
+  "fin": 9.84
+ },
+ {
+  "palabra": "de",
+  "inicio": 9.84,
+  "fin": 10.06
+ },
+ {
+  "palabra": "adquisición",
+  "inicio": 10.06,
+  "fin": 10.7
+ },
+ {
+  "palabra": "y",
+  "inicio": 10.7,
+  "fin": 11.04
+ },
+ {
+  "palabra": "Meta",
+  "inicio": 11.04,
+  "fin": 11.32
+ },
+ {
+  "palabra": "te",
+  "inicio": 11.32,
+  "fin": 11.52
+ },
+ {
+  "palabra": "recomienda",
+  "inicio": 11.52,
+  "fin": 11.98
+ },
+ {
+  "palabra": "sacar",
+  "inicio": 11.98,
+  "fin": 12.36
+ },
+ {
+  "palabra": "a",
+  "inicio": 12.36,
+  "fin": 12.52
+ },
+ {
+  "palabra": "los",
+  "inicio": 12.52,
+  "fin": 12.72
+ },
+ {
+  "palabra": "que",
+  "inicio": 12.72,
+  "fin": 12.86
+ },
+ {
+  "palabra": "ya",
+  "inicio": 12.86,
+  "fin": 13.14
+ },
+ {
+  "palabra": "son",
+  "inicio": 13.14,
+  "fin": 13.42
+ },
+ {
+  "palabra": "clientes.",
+  "inicio": 13.42,
+  "fin": 13.9
+ },
+ {
+  "palabra": "¿Por",
+  "inicio": 13.94,
+  "fin": 14.12
+ },
+ {
+  "palabra": "qué",
+  "inicio": 14.12,
+  "fin": 14.2
+ },
+ {
+  "palabra": "haría",
+  "inicio": 14.2,
+  "fin": 14.44
+ },
+ {
+  "palabra": "falta",
+  "inicio": 14.44,
+  "fin": 14.74
+ },
+ {
+  "palabra": "eso?",
+  "inicio": 14.74,
+  "fin": 15.08
+ },
+ {
+  "palabra": "Porque",
+  "inicio": 15.16,
+  "fin": 15.44
+ },
+ {
+  "palabra": "tus",
+  "inicio": 15.44,
+  "fin": 15.68
+ },
+ {
+  "palabra": "campañas",
+  "inicio": 15.68,
+  "fin": 16.32
+ },
+ {
+  "palabra": "normalmente",
+  "inicio": 17.18,
+  "fin": 17.62
+ },
+ {
+  "palabra": "no",
+  "inicio": 17.62,
+  "fin": 18.06
+ },
+ {
+  "palabra": "están",
+  "inicio": 18.06,
+  "fin": 18.34
+ },
+ {
+  "palabra": "excluyendo",
+  "inicio": 18.34,
+  "fin": 18.88
+ },
+ {
+  "palabra": "a",
+  "inicio": 18.88,
+  "fin": 18.98
+ },
+ {
+  "palabra": "los",
+  "inicio": 18.98,
+  "fin": 19.08
+ },
+ {
+  "palabra": "que",
+  "inicio": 19.08,
+  "fin": 19.22
+ },
+ {
+  "palabra": "ya",
+  "inicio": 19.22,
+  "fin": 19.46
+ },
+ {
+  "palabra": "son",
+  "inicio": 19.46,
+  "fin": 19.64
+ },
+ {
+  "palabra": "tus",
+  "inicio": 19.64,
+  "fin": 19.84
+ },
+ {
+  "palabra": "compradores",
+  "inicio": 19.84,
+  "fin": 20.34
+ },
+ {
+  "palabra": "reales.",
+  "inicio": 20.34,
+  "fin": 20.94
+ },
+ {
+  "palabra": "Y",
+  "inicio": 21.02,
+  "fin": 21.24
+ },
+ {
+  "palabra": "muchos",
+  "inicio": 21.24,
+  "fin": 21.44
+ },
+ {
+  "palabra": "de",
+  "inicio": 21.44,
+  "fin": 21.62
+ },
+ {
+  "palabra": "esos",
+  "inicio": 21.62,
+  "fin": 21.78
+ },
+ {
+  "palabra": "clientes",
+  "inicio": 21.78,
+  "fin": 22.22
+ },
+ {
+  "palabra": "igual",
+  "inicio": 22.22,
+  "fin": 22.44
+ },
+ {
+  "palabra": "ya",
+  "inicio": 22.44,
+  "fin": 22.58
+ },
+ {
+  "palabra": "te",
+  "inicio": 22.58,
+  "fin": 22.72
+ },
+ {
+  "palabra": "van",
+  "inicio": 22.72,
+  "fin": 22.82
+ },
+ {
+  "palabra": "a",
+  "inicio": 22.82,
+  "fin": 23.04
+ },
+ {
+  "palabra": "comprar.",
+  "inicio": 23.04,
+  "fin": 23.28
+ },
+ {
+  "palabra": "Meta",
+  "inicio": 23.56,
+  "fin": 23.82
+ },
+ {
+  "palabra": "se",
+  "inicio": 23.82,
+  "fin": 24.0
+ },
+ {
+  "palabra": "lleva",
+  "inicio": 24.0,
+  "fin": 24.14
+ },
+ {
+  "palabra": "el",
+  "inicio": 24.14,
+  "fin": 24.34
+ },
+ {
+  "palabra": "crédito",
+  "inicio": 24.34,
+  "fin": 24.86
+ },
+ {
+  "palabra": "y",
+  "inicio": 24.86,
+  "fin": 25.06
+ },
+ {
+  "palabra": "tú",
+  "inicio": 25.06,
+  "fin": 25.28
+ },
+ {
+  "palabra": "celebras",
+  "inicio": 25.28,
+  "fin": 25.64
+ },
+ {
+  "palabra": "un",
+  "inicio": 25.64,
+  "fin": 25.82
+ },
+ {
+  "palabra": "ROAS",
+  "inicio": 25.82,
+  "fin": 26.04
+ },
+ {
+  "palabra": "que",
+  "inicio": 26.04,
+  "fin": 26.22
+ },
+ {
+  "palabra": "no",
+  "inicio": 26.22,
+  "fin": 26.34
+ },
+ {
+  "palabra": "es",
+  "inicio": 26.34,
+  "fin": 26.48
+ },
+ {
+  "palabra": "real.",
+  "inicio": 26.48,
+  "fin": 26.74
+ },
+ {
+  "palabra": "Cuando",
+  "inicio": 26.74,
+  "fin": 27.14
+ },
+ {
+  "palabra": "los",
+  "inicio": 27.14,
+  "fin": 27.54
+ },
+ {
+  "palabra": "excluyas,",
+  "inicio": 27.54,
+  "fin": 27.88
+ },
+ {
+  "palabra": "naturalmente",
+  "inicio": 28.24,
+  "fin": 28.68
+ },
+ {
+  "palabra": "el",
+  "inicio": 28.68,
+  "fin": 28.9
+ },
+ {
+  "palabra": "ROAS",
+  "inicio": 28.9,
+  "fin": 29.04
+ },
+ {
+  "palabra": "va",
+  "inicio": 29.04,
+  "fin": 29.18
+ },
+ {
+  "palabra": "a",
+  "inicio": 29.18,
+  "fin": 29.22
+ },
+ {
+  "palabra": "bajar.",
+  "inicio": 29.22,
+  "fin": 29.64
+ },
+ {
+  "palabra": "Pero",
+  "inicio": 29.82,
+  "fin": 29.9
+ },
+ {
+  "palabra": "no",
+  "inicio": 29.9,
+  "fin": 30.02
+ },
+ {
+  "palabra": "te",
+  "inicio": 30.02,
+  "fin": 30.2
+ },
+ {
+  "palabra": "asustes.",
+  "inicio": 30.2,
+  "fin": 30.64
+ },
+ {
+  "palabra": "Por",
+  "inicio": 30.7,
+  "fin": 30.9
+ },
+ {
+  "palabra": "fin",
+  "inicio": 30.9,
+  "fin": 31.1
+ },
+ {
+  "palabra": "vas",
+  "inicio": 31.1,
+  "fin": 31.36
+ },
+ {
+  "palabra": "a",
+  "inicio": 31.36,
+  "fin": 31.48
+ },
+ {
+  "palabra": "empezar",
+  "inicio": 31.48,
+  "fin": 31.68
+ },
+ {
+  "palabra": "a",
+  "inicio": 31.68,
+  "fin": 31.84
+ },
+ {
+  "palabra": "medir",
+  "inicio": 31.84,
+  "fin": 32.18
+ },
+ {
+  "palabra": "un",
+  "inicio": 32.18,
+  "fin": 32.4
+ },
+ {
+  "palabra": "crecimiento",
+  "inicio": 32.4,
+  "fin": 32.98
+ },
+ {
+  "palabra": "real.",
+  "inicio": 32.98,
+  "fin": 33.38
+ },
+ {
+  "palabra": "ROAS",
+  "inicio": 33.68,
+  "fin": 34.0
+ },
+ {
+  "palabra": "alto",
+  "inicio": 34.0,
+  "fin": 34.26
+ },
+ {
+  "palabra": "no",
+  "inicio": 34.26,
+  "fin": 34.62
+ },
+ {
+  "palabra": "es",
+  "inicio": 34.62,
+  "fin": 34.86
+ },
+ {
+  "palabra": "crecimiento.",
+  "inicio": 34.86,
+  "fin": 35.46
+ },
+ {
+  "palabra": "Los",
+  "inicio": 35.72,
+  "fin": 35.9
+ },
+ {
+  "palabra": "clientes",
+  "inicio": 35.9,
+  "fin": 36.24
+ },
+ {
+  "palabra": "nuevos",
+  "inicio": 36.24,
+  "fin": 36.6
+ },
+ {
+  "palabra": "sí",
+  "inicio": 36.6,
+  "fin": 36.94
+ },
+ {
+  "palabra": "lo",
+  "inicio": 36.94,
+  "fin": 37.1
+ },
+ {
+  "palabra": "son.",
+  "inicio": 37.1,
+  "fin": 37.26
+ },
+ {
+  "palabra": "Mándale",
+  "inicio": 37.62,
+  "fin": 37.88
+ },
+ {
+  "palabra": "esto",
+  "inicio": 37.88,
+  "fin": 38.24
+ },
+ {
+  "palabra": "a",
+  "inicio": 38.24,
+  "fin": 38.42
+ },
+ {
+  "palabra": "tu",
+  "inicio": 38.42,
+  "fin": 38.56
+ },
+ {
+  "palabra": "cliente",
+  "inicio": 38.56,
+  "fin": 39.22
+ },
+ {
+  "palabra": "o",
+  "inicio": 39.22,
+  "fin": 39.42
+ },
+ {
+  "palabra": "a",
+  "inicio": 39.42,
+  "fin": 39.52
+ },
+ {
+  "palabra": "tu",
+  "inicio": 39.52,
+  "fin": 39.58
+ },
+ {
+  "palabra": "agencia",
+  "inicio": 39.58,
+  "fin": 40.14
+ },
+ {
+  "palabra": "para",
+  "inicio": 40.14,
+  "fin": 40.44
+ },
+ {
+  "palabra": "que",
+  "inicio": 40.44,
+  "fin": 40.58
+ },
+ {
+  "palabra": "puedan",
+  "inicio": 40.58,
+  "fin": 40.78
+ },
+ {
+  "palabra": "revisarlo",
+  "inicio": 40.78,
+  "fin": 41.24
+ },
+ {
+  "palabra": "juntos.",
+  "inicio": 41.24,
+  "fin": 41.56
+ },
+ {
+  "palabra": "Y",
+  "inicio": 41.74,
+  "fin": 41.86
+ },
+ {
+  "palabra": "sígueme",
+  "inicio": 41.86,
+  "fin": 42.12
+ },
+ {
+  "palabra": "para",
+  "inicio": 42.12,
+  "fin": 42.36
+ },
+ {
+  "palabra": "más",
+  "inicio": 42.36,
+  "fin": 42.54
+ },
+ {
+  "palabra": "información.",
+  "inicio": 42.54,
+  "fin": 42.98
+ }
+]

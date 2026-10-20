@@ -1,0 +1,26 @@
+HOJA DE MONTAJE · demo
+Motion: demo.mp4 · 1080×1920 · 30 fps · 00:20:00 (20,00 s) · empieza en 00:00:00
+Tiempos en mm:ss:ff (ff = fotograma). Ponlo encima del video de Juan Pablo desde 00:00.
+Tramos: mitad 62 % · completa 32 % · a cámara 6 %
+Efectos: -23.8 LUFS (objetivo −24) · pico -5.5 dBFS · sin música
+
+00:00:00 → 00:01:06  (1,20 s)  A CÁMARA  Borra el motion: Juan Pablo a pantalla completa.
+    gancho a cámara
+00:01:06 → 00:04:00  (2,80 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: PilaChips · texto: "y nadie te avisa"
+00:04:00 → 00:06:00  (2,00 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Barra · texto: "y se te acaba"
+00:06:00 → 00:08:24  (2,80 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: Cifra · texto: "el retorno real" · con destello
+00:08:24 → 00:10:24  (2,00 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: TarjetaLogo · texto: "una sola estrategia"
+00:10:24 → 00:13:12  (2,60 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: Captura
+00:13:12 → 00:15:06  (1,80 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Nodos · texto: "todo se conecta"
+00:15:06 → 00:17:00  (1,80 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Comparacion
+00:17:00 → 00:19:00  (2,00 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Cta · texto: "y te mando la guía"
+00:19:00 → 00:20:00  (1,00 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: Firma
