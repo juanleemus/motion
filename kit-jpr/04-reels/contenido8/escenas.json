@@ -3,80 +3,442 @@
  "fps": 60,
  "duracion": "00:47:31",
  "escenas": [
-  {"inicio": 0, "fin": 4.3, "tramo": "mitad", "edicion": "recorte", "pieza": "Palabras",
-   "datos": {"palabras": [
-     {"texto": "el {robot}", "en": 0.05, "tam": 130, "golpe": true},
-     {"texto": "que le está robando", "en": 1.0, "tam": 78},
-     {"texto": "tus [ventas]", "en": 1.9, "tam": 130, "golpe": true},
-     {"texto": "a tu tienda online", "en": 2.9, "tam": 78}], "gap": 10},
-   "nota": "gancho pedido: El robot que le está robando tus ventas a tu tienda online"},
-  {"inicio": 4.3, "fin": 6.1, "tramo": "mitad", "edicion": "dividida", "pieza": "TarjetaLogo", "destello": true,
-   "datos": {"logos": [{"logo": "tiktok-texto", "en": 4.4}]},
-   "texto": "anuncia {Buy Direct}", "textoEn": 5.26,
-   "nota": "acaba de anunciar Buy Direct"},
-  {"inicio": 6.1, "fin": 8.75, "tramo": "mitad", "edicion": "recorte", "pieza": "PilaChips",
-   "insignia": {"numero": 1, "etiqueta": "compra directa", "puntos": 3, "actual": 1, "en": 6.12},
-   "datos": {"chips": [{"texto": "un solo clic", "icono": "rayo", "en": 6.96},
-                       {"texto": "sin salir de la app", "icono": "check", "en": 7.82}], "tam": 56},
-   "nota": "compras con un solo clic sin salir de la app"},
-  {"inicio": 8.75, "fin": 10.45, "tramo": "a-camara", "edicion": "completo", "nota": "y un asistente de IA"},
-  {"inicio": 10.45, "fin": 13.2, "tramo": "mitad", "edicion": "dividida", "pieza": "Nodos",
-   "insignia": {"numero": 2, "etiqueta": "asistente de IA", "puntos": 3, "actual": 2, "en": 10.5},
-   "datos": {"centro": {"logo": "tiktok"}, "en": 10.5,
-             "nodos": [{"texto": "talla", "en": 10.62}, {"texto": "envío", "en": 11.46}, {"texto": "pago", "en": 12.24}]},
-   "nota": "que resuelve talla, envío y pago"},
-  {"inicio": 13.2, "fin": 14.95, "tramo": "completa", "fondo": "oscuro", "pieza": "Palabras",
-   "datos": {"palabras": [{"texto": "todo en la misma", "en": 13.32, "tam": 88},
-                          {"texto": "{conversación}", "en": 14.14, "tam": 120, "golpe": true}], "gap": 14},
-   "nota": "todo en la misma conversación"},
-  {"inicio": 14.95, "fin": 16.5, "tramo": "a-camara", "edicion": "completo", "nota": "si vendes servicios"},
-  {"inicio": 16.5, "fin": 19.7, "tramo": "mitad", "edicion": "recorte", "pieza": "Multitud",
-   "insignia": {"numero": 3, "etiqueta": "agente para servicios", "puntos": 3, "actual": 3, "en": 16.56},
-   "datos": {"en": 16.64, "elige": {"en": 17.16}, "elegidos": [3, 8, 10, 15, 20, 22], "columnas": 6, "filas": 3},
-   "texto": "califica tus [leads]", "textoEn": 17.86,
-   "nota": "un agente que califica tus leads por mensaje directo"},
-  {"inicio": 19.7, "fin": 22.05, "tramo": "mitad", "edicion": "dividida", "pieza": "TarjetaLogo", "destello": true,
-   "datos": {"logos": [{"logo": "tiktok", "en": 20.8}]},
-   "texto": "para {descubrir}", "textoEn": 21.56,
-   "nota": "si tú creías que TikTok era para descubrir"},
-  {"inicio": 22.05, "fin": 24.25, "tramo": "mitad", "edicion": "recorte", "pieza": "Palabras",
-   "datos": {"palabras": [{"texto": "tu web para cerrar", "en": 22.32, "tam": 78, "tachar": 23.86},
-                          {"texto": "se [acabó]", "en": 23.86, "tam": 130, "golpe": true}], "gap": 14},
-   "nota": "y tu web para cerrar, esto se acabó"},
-  {"inicio": 24.25, "fin": 27.3, "tramo": "a-camara", "edicion": "completo", "nota": "la primera conversación que va a tener tu cliente"},
-  {"inicio": 27.3, "fin": 29.85, "tramo": "completa", "fondo": "oscuro", "pieza": "Palabras",
-   "datos": {"palabras": [{"texto": "con una {IA}", "en": 27.72, "tam": 120},
-                          {"texto": "que no es [tuya]", "en": 29.04, "tam": 88, "golpe": true}], "gap": 14},
-   "nota": "va a ser con una IA que no es tuya"},
-  {"inicio": 29.85, "fin": 30.85, "tramo": "a-camara", "edicion": "completo", "nota": "como les dije"},
-  {"inicio": 30.85, "fin": 34.4, "tramo": "mitad", "edicion": "dividida", "pieza": "TarjetaLogo",
-   "datos": {"logos": [{"logo": "meta", "en": 30.94}, {"logo": "tiktok", "en": 33.88}]},
-   "texto": "[bloqueó] los anuncios", "textoEn": 31.64,
-   "nota": "este mes Meta bloqueó los anuncios dirigidos a TikTok"},
-  {"inicio": 34.4, "fin": 37.0, "tramo": "completa", "fondo": "oscuro", "destello": true, "pieza": "TarjetaLogo",
-   "datos": {"logos": [{"logo": "tiktok", "en": 34.74}]},
-   "texto": "cierra su {puerta}", "textoEn": 35.72,
-   "nota": "y ahora TikTok cierra su puerta por dentro"},
-  {"inicio": 37.0, "fin": 40.1, "tramo": "mitad", "edicion": "recorte", "pieza": "Palabras",
-   "datos": {"palabras": [{"texto": "ninguna plataforma", "en": 37.08, "tam": 78},
-                          {"texto": "quiere que tu cliente", "en": 37.8, "tam": 78},
-                          {"texto": "[salga]", "en": 39.18, "tam": 130, "golpe": true, "tachar": 39.76}], "gap": 10},
-   "nota": "ninguna plataforma quiere que tu cliente salga de ella"},
-  {"inicio": 40.1, "fin": 42.35, "tramo": "mitad", "edicion": "dividida", "pieza": "Palabras",
-   "datos": {"palabras": [{"texto": "la pregunta ya no es", "en": 40.38, "tam": 78},
-                          {"texto": "¿dónde", "en": 41.3, "tam": 130, "tachar": 41.9},
-                          {"texto": "pautar?", "en": 41.56, "tam": 130, "tachar": 41.95}], "gap": 6},
-   "nota": "la pregunta ya no es dónde pautar"},
-  {"inicio": 42.35, "fin": 44.2, "tramo": "completa", "fondo": "oscuro", "pieza": "Palabras",
-   "datos": {"palabras": [{"texto": "¿quién se queda", "en": 42.52, "tam": 88},
-                          {"texto": "con la", "en": 43.14, "tam": 88},
-                          {"texto": "[conversión]?", "en": 43.56, "tam": 120, "golpe": true}], "gap": 12},
-   "nota": "es quién se queda con la conversión"},
-  {"inicio": 44.2, "fin": 46.5, "tramo": "mitad", "edicion": "recorte", "pieza": "PilaChips",
-   "datos": {"chips": [{"texto": "¿más dudas?", "icono": "comentario", "en": 44.56},
-                       {"texto": "sígueme", "icono": "usuario", "en": 45.52},
-                       {"texto": "compártelo a tu agencia", "icono": "check", "en": 46.1}], "tam": 50},
-   "nota": "si tienes más dudas, sígueme o compártele esto a tu agencia"},
-  {"inicio": 46.5, "fin": "00:47:31", "tramo": "completa", "pieza": "Firma", "datos": {}}
+  {
+   "inicio": 0,
+   "fin": 4.3,
+   "tramo": "mitad",
+   "edicion": "recorte",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "el {robot}",
+      "en": 0.05,
+      "tam": 130,
+      "golpe": true
+     },
+     {
+      "texto": "que le está robando",
+      "en": 1.0,
+      "tam": 78
+     },
+     {
+      "texto": "tus [ventas]",
+      "en": 1.9,
+      "tam": 130,
+      "golpe": true
+     },
+     {
+      "texto": "a tu tienda online",
+      "en": 2.9,
+      "tam": 78
+     }
+    ],
+    "gap": 10
+   },
+   "nota": "gancho pedido: El robot que le está robando tus ventas a tu tienda online"
+  },
+  {
+   "inicio": 4.3,
+   "fin": 6.1,
+   "tramo": "mitad",
+   "edicion": "dividida",
+   "pieza": "TarjetaLogo",
+   "destello": true,
+   "datos": {
+    "logos": [
+     {
+      "logo": "tiktok-texto",
+      "en": 4.4
+     }
+    ]
+   },
+   "texto": "anuncia {Buy Direct}",
+   "textoEn": 5.26,
+   "nota": "acaba de anunciar Buy Direct"
+  },
+  {
+   "inicio": 6.1,
+   "fin": 8.75,
+   "tramo": "mitad",
+   "edicion": "recorte",
+   "pieza": "PilaChips",
+   "insignia": {
+    "numero": 1,
+    "etiqueta": "compra directa",
+    "puntos": 3,
+    "actual": 1,
+    "en": 6.12
+   },
+   "datos": {
+    "chips": [
+     {
+      "texto": "un solo clic",
+      "icono": "rayo",
+      "en": 6.96
+     },
+     {
+      "texto": "sin salir de la app",
+      "icono": "check",
+      "en": 7.82
+     }
+    ],
+    "tam": 56
+   },
+   "nota": "compras con un solo clic sin salir de la app"
+  },
+  {
+   "inicio": 8.75,
+   "fin": 10.45,
+   "tramo": "a-camara",
+   "edicion": "completo",
+   "nota": "y un asistente de IA"
+  },
+  {
+   "inicio": 10.45,
+   "fin": 13.2,
+   "tramo": "mitad",
+   "edicion": "dividida",
+   "pieza": "Nodos",
+   "insignia": {
+    "numero": 2,
+    "etiqueta": "asistente de IA",
+    "puntos": 3,
+    "actual": 2,
+    "en": 10.5
+   },
+   "datos": {
+    "centro": {
+     "logo": "tiktok"
+    },
+    "en": 10.5,
+    "nodos": [
+     {
+      "texto": "talla",
+      "en": 10.62
+     },
+     {
+      "texto": "envío",
+      "en": 11.46
+     },
+     {
+      "texto": "pago",
+      "en": 12.24
+     }
+    ]
+   },
+   "nota": "que resuelve talla, envío y pago"
+  },
+  {
+   "inicio": 13.2,
+   "fin": 14.95,
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "todo en la misma",
+      "en": 13.32,
+      "tam": 88
+     },
+     {
+      "texto": "{conversación}",
+      "en": 14.14,
+      "tam": 120,
+      "golpe": true
+     }
+    ],
+    "gap": 14
+   },
+   "nota": "todo en la misma conversación"
+  },
+  {
+   "inicio": 14.95,
+   "fin": 16.5,
+   "tramo": "a-camara",
+   "edicion": "completo",
+   "nota": "si vendes servicios"
+  },
+  {
+   "inicio": 16.5,
+   "fin": 19.7,
+   "tramo": "mitad",
+   "edicion": "dividida",
+   "pieza": "Multitud",
+   "insignia": {
+    "numero": 3,
+    "etiqueta": "agente para servicios",
+    "puntos": 3,
+    "actual": 3,
+    "en": 16.56
+   },
+   "datos": {
+    "en": 16.64,
+    "elige": {
+     "en": 17.16
+    },
+    "elegidos": [
+     3,
+     8,
+     10,
+     15,
+     20,
+     22
+    ],
+    "columnas": 6,
+    "filas": 3
+   },
+   "texto": "califica tus [leads]",
+   "textoEn": 17.86,
+   "nota": "un agente que califica tus leads por mensaje directo"
+  },
+  {
+   "inicio": 19.7,
+   "fin": 22.05,
+   "tramo": "mitad",
+   "edicion": "recorte",
+   "pieza": "TarjetaLogo",
+   "destello": true,
+   "datos": {
+    "logos": [
+     {
+      "logo": "tiktok",
+      "en": 20.8
+     }
+    ]
+   },
+   "texto": "para {descubrir}",
+   "textoEn": 21.56,
+   "nota": "si tú creías que TikTok era para descubrir"
+  },
+  {
+   "inicio": 22.05,
+   "fin": 24.25,
+   "tramo": "mitad",
+   "edicion": "dividida",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "tu web para cerrar",
+      "en": 22.32,
+      "tam": 78,
+      "tachar": 23.86
+     },
+     {
+      "texto": "se [acabó]",
+      "en": 23.86,
+      "tam": 130,
+      "golpe": true
+     }
+    ],
+    "gap": 14
+   },
+   "nota": "y tu web para cerrar, esto se acabó"
+  },
+  {
+   "inicio": 24.25,
+   "fin": 27.3,
+   "tramo": "a-camara",
+   "edicion": "completo",
+   "nota": "la primera conversación que va a tener tu cliente"
+  },
+  {
+   "inicio": 27.3,
+   "fin": 29.85,
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "con una {IA}",
+      "en": 27.72,
+      "tam": 120
+     },
+     {
+      "texto": "que no es [tuya]",
+      "en": 29.04,
+      "tam": 88,
+      "golpe": true
+     }
+    ],
+    "gap": 14
+   },
+   "nota": "va a ser con una IA que no es tuya"
+  },
+  {
+   "inicio": 29.85,
+   "fin": 30.85,
+   "tramo": "a-camara",
+   "edicion": "completo",
+   "nota": "como les dije"
+  },
+  {
+   "inicio": 30.85,
+   "fin": 34.4,
+   "tramo": "mitad",
+   "edicion": "dividida",
+   "pieza": "TarjetaLogo",
+   "datos": {
+    "logos": [
+     {
+      "logo": "meta",
+      "en": 30.94
+     },
+     {
+      "logo": "tiktok",
+      "en": 33.88
+     }
+    ]
+   },
+   "texto": "[bloqueó] los anuncios",
+   "textoEn": 31.64,
+   "nota": "este mes Meta bloqueó los anuncios dirigidos a TikTok"
+  },
+  {
+   "inicio": 34.4,
+   "fin": 37.0,
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "destello": true,
+   "pieza": "TarjetaLogo",
+   "datos": {
+    "logos": [
+     {
+      "logo": "tiktok",
+      "en": 34.74
+     }
+    ]
+   },
+   "texto": "cierra su {puerta}",
+   "textoEn": 35.72,
+   "nota": "y ahora TikTok cierra su puerta por dentro"
+  },
+  {
+   "inicio": 37.0,
+   "fin": 40.1,
+   "tramo": "mitad",
+   "edicion": "recorte",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "ninguna plataforma",
+      "en": 37.08,
+      "tam": 78
+     },
+     {
+      "texto": "quiere que tu cliente",
+      "en": 37.8,
+      "tam": 78
+     },
+     {
+      "texto": "[salga]",
+      "en": 39.18,
+      "tam": 130,
+      "golpe": true,
+      "tachar": 39.76
+     }
+    ],
+    "gap": 10
+   },
+   "nota": "ninguna plataforma quiere que tu cliente salga de ella"
+  },
+  {
+   "inicio": 40.1,
+   "fin": 42.35,
+   "tramo": "mitad",
+   "edicion": "dividida",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "la pregunta ya no es",
+      "en": 40.38,
+      "tam": 78
+     },
+     {
+      "texto": "¿dónde",
+      "en": 41.3,
+      "tam": 130,
+      "tachar": 41.9
+     },
+     {
+      "texto": "pautar?",
+      "en": 41.56,
+      "tam": 130,
+      "tachar": 41.95
+     }
+    ],
+    "gap": 6
+   },
+   "nota": "la pregunta ya no es dónde pautar"
+  },
+  {
+   "inicio": 42.35,
+   "fin": 44.2,
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "¿quién se queda",
+      "en": 42.52,
+      "tam": 88
+     },
+     {
+      "texto": "con la",
+      "en": 43.14,
+      "tam": 88
+     },
+     {
+      "texto": "[conversión]?",
+      "en": 43.56,
+      "tam": 120,
+      "golpe": true
+     }
+    ],
+    "gap": 12
+   },
+   "nota": "es quién se queda con la conversión"
+  },
+  {
+   "inicio": 44.2,
+   "fin": 46.5,
+   "tramo": "mitad",
+   "edicion": "recorte",
+   "pieza": "PilaChips",
+   "datos": {
+    "chips": [
+     {
+      "texto": "¿más dudas?",
+      "icono": "comentario",
+      "en": 44.56
+     },
+     {
+      "texto": "sígueme",
+      "icono": "usuario",
+      "en": 45.52
+     },
+     {
+      "texto": "compártelo a tu agencia",
+      "icono": "check",
+      "en": 46.1
+     }
+    ],
+    "tam": 50
+   },
+   "nota": "si tienes más dudas, sígueme o compártele esto a tu agencia"
+  },
+  {
+   "inicio": 46.5,
+   "fin": "00:47:31",
+   "tramo": "completa",
+   "pieza": "Firma",
+   "datos": {}
+  }
  ]
 }
