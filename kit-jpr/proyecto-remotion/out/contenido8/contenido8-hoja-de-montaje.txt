@@ -1,0 +1,47 @@
+HOJA DE MONTAJE · contenido8
+Motion: contenido8-motion.mp4 · 1080×1920 · 60 fps · 00:47:31 (47,52 s) · empieza en 00:00:00
+Tiempos en mm:ss:ff (ff = fotograma). Ponlo encima del video de Juan Pablo desde 00:00.
+Tramos: mitad 77 % · completa 21 % · a cámara 2 %
+Efectos: -24.6 LUFS (objetivo −24) · pico -8.0 dBFS · sin música
+
+
+00:00:00 → 00:04:18  (4,30 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Palabras · gancho pedido: El robot que le está robando tus ventas a tu tienda online
+00:04:18 → 00:06:06  (1,80 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: TarjetaLogo · texto: "anuncia Buy Direct" · con destello · acaba de anunciar Buy Direct
+00:06:06 → 00:08:45  (2,65 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: PilaChips · compras con un solo clic sin salir de la app
+00:08:45 → 00:10:27  (1,70 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Palabras · un asistente de IA
+00:10:27 → 00:13:12  (2,75 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Nodos · resuelve talla, envío y pago
+00:13:12 → 00:14:57  (1,75 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: Palabras · todo en la misma conversación
+00:14:57 → 00:16:30  (1,55 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Chip · si vendes servicios
+00:16:30 → 00:19:42  (3,20 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Multitud · texto: "por mensaje directo" · un agente que califica tus leads por mensaje directo
+00:19:42 → 00:22:03  (2,35 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: TarjetaLogo · texto: "para descubrir" · con destello · si tú creías que TikTok era para descubrir
+00:22:03 → 00:24:15  (2,20 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Palabras · y tu web para cerrar, esto se acabó
+00:24:15 → 00:27:18  (3,05 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Palabras · la primera conversación que va a tener tu cliente
+00:27:18 → 00:29:51  (2,55 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: Palabras · va a ser con una IA que no es tuya
+00:29:51 → 00:30:51  (1,00 s)  A CÁMARA  Borra el motion: Juan Pablo a pantalla completa.
+    como les dije
+00:30:51 → 00:34:24  (3,55 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: TarjetaLogo · texto: "bloqueó los anuncios" · este mes Meta bloqueó los anuncios dirigidos a TikTok
+00:34:24 → 00:37:00  (2,60 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: TarjetaLogo · texto: "cierra su puerta" · con destello · y ahora TikTok cierra su puerta por dentro
+00:37:00 → 00:40:06  (3,10 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Palabras · ninguna plataforma quiere que tu cliente salga de ella
+00:40:06 → 00:42:21  (2,25 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Palabras · la pregunta ya no es dónde pautar
+00:42:21 → 00:44:12  (1,85 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: Palabras · es quién se queda con la conversión
+00:44:12 → 00:46:30  (2,30 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: PilaChips · si tienes más dudas, sígueme o compártele esto a tu agencia
+00:46:30 → 00:47:31  (1,02 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: Firma
