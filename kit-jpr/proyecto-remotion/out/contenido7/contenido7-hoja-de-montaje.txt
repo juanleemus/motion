@@ -1,0 +1,43 @@
+HOJA DE MONTAJE · contenido7
+Motion: contenido7-motion.mp4 · 1080×1920 · 60 fps · 00:43:00 (43,00 s) · empieza en 00:00:00
+Tiempos en mm:ss:ff (ff = fotograma). Ponlo encima del video de Juan Pablo desde 00:00.
+Tramos: mitad 68 % · completa 14 % · a cámara 18 %
+Efectos: -24.6 LUFS (objetivo −24) · pico -8.5 dBFS · sin música
+
+
+00:00:00 → 00:05:54  (5,90 s)  A CÁMARA  Borra el motion: Juan Pablo a pantalla completa.
+    gancho: Meta lanzó un botón que baja el ROAS (Customer Lifecycle Strategy). En blanco a pedido
+00:05:54 → 00:08:30  (2,60 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: PilaChips · ya está disponible para algunos anunciantes
+00:08:30 → 00:10:54  (2,40 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Palabras · marcas tu campaña como de adquisición
+00:10:54 → 00:12:24  (1,50 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: TarjetaLogo · texto: "te recomienda" · y Meta te recomienda
+00:12:24 → 00:13:54  (1,50 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Chip · sacar a los que ya son clientes
+00:13:54 → 00:15:24  (1,50 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: Palabras · con destello · ¿por qué haría falta eso?
+00:15:24 → 00:18:18  (2,90 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: PilaChips · porque tus campañas normalmente no están excluyendo
+00:18:18 → 00:21:00  (2,70 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Palabras · a los que ya son tus compradores reales
+00:21:00 → 00:23:27  (2,45 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Multitud · texto: "igual te compran" · muchos de esos clientes igual ya te van a comprar
+00:23:27 → 00:25:00  (1,55 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: TarjetaLogo · texto: "se lleva el crédito" · Meta se lleva el crédito
+00:25:00 → 00:26:42  (1,70 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: Palabras · y tú celebras un ROAS que no es real
+00:26:42 → 00:29:45  (3,05 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Grafica · texto: "el ROAS baja" · con destello · cuando los excluyas, el ROAS va a bajar
+00:29:45 → 00:31:24  (1,65 s)  A CÁMARA  Borra el motion: Juan Pablo a pantalla completa.
+    pero no te asustes
+00:31:24 → 00:33:24  (2,00 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Grafica · texto: "crecimiento real" · por fin vas a medir un crecimiento real
+00:33:24 → 00:37:24  (4,00 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Comparacion · ROAS alto no es crecimiento; los clientes nuevos sí lo son
+00:37:24 → 00:40:00  (2,60 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Palabras · mándale esto a tu cliente o a tu agencia
+00:40:00 → 00:41:48  (1,80 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: Palabras · para que puedan revisarlo juntos
+00:41:48 → 00:43:00  (1,20 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: Firma · y sígueme: firma JPR

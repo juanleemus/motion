@@ -1,0 +1,717 @@
+[
+ {
+  "palabra": "TikTok",
+  "inicio": 0.0,
+  "fin": 0.46
+ },
+ {
+  "palabra": "ya",
+  "inicio": 0.46,
+  "fin": 0.78
+ },
+ {
+  "palabra": "no",
+  "inicio": 0.78,
+  "fin": 0.9
+ },
+ {
+  "palabra": "quiere",
+  "inicio": 0.9,
+  "fin": 1.14
+ },
+ {
+  "palabra": "mandarte",
+  "inicio": 1.14,
+  "fin": 1.62
+ },
+ {
+  "palabra": "tráfico,",
+  "inicio": 1.62,
+  "fin": 2.28
+ },
+ {
+  "palabra": "quiere",
+  "inicio": 2.48,
+  "fin": 2.68
+ },
+ {
+  "palabra": "quedarse",
+  "inicio": 2.68,
+  "fin": 3.28
+ },
+ {
+  "palabra": "con",
+  "inicio": 3.28,
+  "fin": 3.48
+ },
+ {
+  "palabra": "la",
+  "inicio": 3.48,
+  "fin": 3.64
+ },
+ {
+  "palabra": "venta.",
+  "inicio": 3.64,
+  "fin": 4.18
+ },
+ {
+  "palabra": "Acaba",
+  "inicio": 4.34,
+  "fin": 4.48
+ },
+ {
+  "palabra": "de",
+  "inicio": 4.48,
+  "fin": 4.64
+ },
+ {
+  "palabra": "anunciar",
+  "inicio": 4.64,
+  "fin": 5.26
+ },
+ {
+  "palabra": "Buy",
+  "inicio": 5.26,
+  "fin": 5.54
+ },
+ {
+  "palabra": "Direct.",
+  "inicio": 5.54,
+  "fin": 5.94
+ },
+ {
+  "palabra": "Compras",
+  "inicio": 6.12,
+  "fin": 6.58
+ },
+ {
+  "palabra": "con",
+  "inicio": 6.58,
+  "fin": 6.8
+ },
+ {
+  "palabra": "un",
+  "inicio": 6.8,
+  "fin": 6.96
+ },
+ {
+  "palabra": "solo",
+  "inicio": 6.96,
+  "fin": 7.18
+ },
+ {
+  "palabra": "clic",
+  "inicio": 7.18,
+  "fin": 7.46
+ },
+ {
+  "palabra": "sin",
+  "inicio": 7.46,
+  "fin": 7.82
+ },
+ {
+  "palabra": "salir",
+  "inicio": 7.82,
+  "fin": 8.06
+ },
+ {
+  "palabra": "de",
+  "inicio": 8.06,
+  "fin": 8.24
+ },
+ {
+  "palabra": "la",
+  "inicio": 8.24,
+  "fin": 8.4
+ },
+ {
+  "palabra": "app,",
+  "inicio": 8.4,
+  "fin": 8.6
+ },
+ {
+  "palabra": "y",
+  "inicio": 8.78,
+  "fin": 8.86
+ },
+ {
+  "palabra": "un",
+  "inicio": 8.86,
+  "fin": 9.08
+ },
+ {
+  "palabra": "asistente",
+  "inicio": 9.08,
+  "fin": 9.56
+ },
+ {
+  "palabra": "de",
+  "inicio": 9.56,
+  "fin": 9.78
+ },
+ {
+  "palabra": "IA",
+  "inicio": 9.78,
+  "fin": 9.88
+ },
+ {
+  "palabra": "que",
+  "inicio": 9.88,
+  "fin": 10.2
+ },
+ {
+  "palabra": "resuelve",
+  "inicio": 10.2,
+  "fin": 10.62
+ },
+ {
+  "palabra": "talla,",
+  "inicio": 10.62,
+  "fin": 11.28
+ },
+ {
+  "palabra": "envío",
+  "inicio": 11.46,
+  "fin": 11.94
+ },
+ {
+  "palabra": "y",
+  "inicio": 11.94,
+  "fin": 12.24
+ },
+ {
+  "palabra": "pago.",
+  "inicio": 12.24,
+  "fin": 13.16
+ },
+ {
+  "palabra": "Todo",
+  "inicio": 13.32,
+  "fin": 13.52
+ },
+ {
+  "palabra": "en",
+  "inicio": 13.52,
+  "fin": 13.78
+ },
+ {
+  "palabra": "la",
+  "inicio": 13.78,
+  "fin": 13.88
+ },
+ {
+  "palabra": "misma",
+  "inicio": 13.88,
+  "fin": 14.14
+ },
+ {
+  "palabra": "conversación.",
+  "inicio": 14.14,
+  "fin": 14.78
+ },
+ {
+  "palabra": "Si",
+  "inicio": 15.02,
+  "fin": 15.2
+ },
+ {
+  "palabra": "vendes",
+  "inicio": 15.2,
+  "fin": 15.58
+ },
+ {
+  "palabra": "servicios,",
+  "inicio": 15.58,
+  "fin": 16.16
+ },
+ {
+  "palabra": "un",
+  "inicio": 16.56,
+  "fin": 16.64
+ },
+ {
+  "palabra": "agente",
+  "inicio": 16.64,
+  "fin": 16.96
+ },
+ {
+  "palabra": "que",
+  "inicio": 16.96,
+  "fin": 17.16
+ },
+ {
+  "palabra": "califica",
+  "inicio": 17.16,
+  "fin": 17.62
+ },
+ {
+  "palabra": "tus",
+  "inicio": 17.62,
+  "fin": 17.86
+ },
+ {
+  "palabra": "leads",
+  "inicio": 17.86,
+  "fin": 18.12
+ },
+ {
+  "palabra": "por",
+  "inicio": 18.12,
+  "fin": 18.5
+ },
+ {
+  "palabra": "mensaje",
+  "inicio": 18.5,
+  "fin": 19.04
+ },
+ {
+  "palabra": "directo.",
+  "inicio": 19.04,
+  "fin": 19.68
+ },
+ {
+  "palabra": "Si",
+  "inicio": 19.76,
+  "fin": 19.92
+ },
+ {
+  "palabra": "tú",
+  "inicio": 19.92,
+  "fin": 20.2
+ },
+ {
+  "palabra": "creías",
+  "inicio": 20.2,
+  "fin": 20.58
+ },
+ {
+  "palabra": "que",
+  "inicio": 20.58,
+  "fin": 20.8
+ },
+ {
+  "palabra": "TikTok",
+  "inicio": 20.8,
+  "fin": 21.14
+ },
+ {
+  "palabra": "era",
+  "inicio": 21.14,
+  "fin": 21.32
+ },
+ {
+  "palabra": "para",
+  "inicio": 21.32,
+  "fin": 21.56
+ },
+ {
+  "palabra": "descubrir",
+  "inicio": 21.56,
+  "fin": 22.1
+ },
+ {
+  "palabra": "y",
+  "inicio": 22.1,
+  "fin": 22.32
+ },
+ {
+  "palabra": "tu",
+  "inicio": 22.32,
+  "fin": 22.44
+ },
+ {
+  "palabra": "web",
+  "inicio": 22.44,
+  "fin": 22.54
+ },
+ {
+  "palabra": "para",
+  "inicio": 22.54,
+  "fin": 22.78
+ },
+ {
+  "palabra": "cerrar,",
+  "inicio": 22.78,
+  "fin": 23.18
+ },
+ {
+  "palabra": "esto",
+  "inicio": 23.32,
+  "fin": 23.56
+ },
+ {
+  "palabra": "se",
+  "inicio": 23.56,
+  "fin": 23.86
+ },
+ {
+  "palabra": "acabó.",
+  "inicio": 23.86,
+  "fin": 24.16
+ },
+ {
+  "palabra": "La",
+  "inicio": 24.3,
+  "fin": 24.56
+ },
+ {
+  "palabra": "primera",
+  "inicio": 24.56,
+  "fin": 24.82
+ },
+ {
+  "palabra": "conversación",
+  "inicio": 24.82,
+  "fin": 25.48
+ },
+ {
+  "palabra": "que",
+  "inicio": 25.48,
+  "fin": 25.7
+ },
+ {
+  "palabra": "va",
+  "inicio": 25.7,
+  "fin": 25.9
+ },
+ {
+  "palabra": "a",
+  "inicio": 25.9,
+  "fin": 26.2
+ },
+ {
+  "palabra": "tener",
+  "inicio": 26.2,
+  "fin": 26.3
+ },
+ {
+  "palabra": "tu",
+  "inicio": 26.3,
+  "fin": 26.58
+ },
+ {
+  "palabra": "cliente",
+  "inicio": 26.58,
+  "fin": 27.36
+ },
+ {
+  "palabra": "va",
+  "inicio": 27.36,
+  "fin": 27.58
+ },
+ {
+  "palabra": "a",
+  "inicio": 27.58,
+  "fin": 27.64
+ },
+ {
+  "palabra": "ser",
+  "inicio": 27.64,
+  "fin": 27.72
+ },
+ {
+  "palabra": "con",
+  "inicio": 27.72,
+  "fin": 27.98
+ },
+ {
+  "palabra": "una",
+  "inicio": 27.98,
+  "fin": 28.32
+ },
+ {
+  "palabra": "IA",
+  "inicio": 28.32,
+  "fin": 28.56
+ },
+ {
+  "palabra": "que",
+  "inicio": 28.56,
+  "fin": 28.74
+ },
+ {
+  "palabra": "no",
+  "inicio": 28.74,
+  "fin": 28.9
+ },
+ {
+  "palabra": "es",
+  "inicio": 28.9,
+  "fin": 29.04
+ },
+ {
+  "palabra": "tuya.",
+  "inicio": 29.04,
+  "fin": 29.34
+ },
+ {
+  "palabra": "Como",
+  "inicio": 29.34,
+  "fin": 29.64
+ },
+ {
+  "palabra": "les",
+  "inicio": 29.64,
+  "fin": 29.88
+ },
+ {
+  "palabra": "dije,",
+  "inicio": 29.88,
+  "fin": 30.16
+ },
+ {
+  "palabra": "este",
+  "inicio": 30.4,
+  "fin": 30.5
+ },
+ {
+  "palabra": "mes",
+  "inicio": 30.5,
+  "fin": 30.94
+ },
+ {
+  "palabra": "Meta",
+  "inicio": 30.94,
+  "fin": 31.64
+ },
+ {
+  "palabra": "bloqueó",
+  "inicio": 31.64,
+  "fin": 32.28
+ },
+ {
+  "palabra": "los",
+  "inicio": 32.28,
+  "fin": 32.58
+ },
+ {
+  "palabra": "anuncios",
+  "inicio": 32.58,
+  "fin": 33.12
+ },
+ {
+  "palabra": "dirigidos",
+  "inicio": 33.12,
+  "fin": 33.64
+ },
+ {
+  "palabra": "a",
+  "inicio": 33.64,
+  "fin": 33.88
+ },
+ {
+  "palabra": "TikTok.",
+  "inicio": 33.88,
+  "fin": 34.18
+ },
+ {
+  "palabra": "Y",
+  "inicio": 34.44,
+  "fin": 34.58
+ },
+ {
+  "palabra": "ahora",
+  "inicio": 34.58,
+  "fin": 34.74
+ },
+ {
+  "palabra": "TikTok",
+  "inicio": 34.74,
+  "fin": 35.18
+ },
+ {
+  "palabra": "cierra",
+  "inicio": 35.18,
+  "fin": 35.52
+ },
+ {
+  "palabra": "su",
+  "inicio": 35.52,
+  "fin": 35.72
+ },
+ {
+  "palabra": "puerta",
+  "inicio": 35.72,
+  "fin": 36.06
+ },
+ {
+  "palabra": "por",
+  "inicio": 36.06,
+  "fin": 36.36
+ },
+ {
+  "palabra": "dentro.",
+  "inicio": 36.36,
+  "fin": 36.66
+ },
+ {
+  "palabra": "Ninguna",
+  "inicio": 37.08,
+  "fin": 37.26
+ },
+ {
+  "palabra": "plataforma",
+  "inicio": 37.26,
+  "fin": 37.8
+ },
+ {
+  "palabra": "quiere",
+  "inicio": 37.8,
+  "fin": 38.14
+ },
+ {
+  "palabra": "que",
+  "inicio": 38.14,
+  "fin": 38.38
+ },
+ {
+  "palabra": "tu",
+  "inicio": 38.38,
+  "fin": 38.54
+ },
+ {
+  "palabra": "cliente",
+  "inicio": 38.54,
+  "fin": 39.18
+ },
+ {
+  "palabra": "salga",
+  "inicio": 39.18,
+  "fin": 39.52
+ },
+ {
+  "palabra": "de",
+  "inicio": 39.52,
+  "fin": 39.76
+ },
+ {
+  "palabra": "ella.",
+  "inicio": 39.76,
+  "fin": 39.92
+ },
+ {
+  "palabra": "La",
+  "inicio": 40.14,
+  "fin": 40.38
+ },
+ {
+  "palabra": "pregunta",
+  "inicio": 40.38,
+  "fin": 40.76
+ },
+ {
+  "palabra": "ya",
+  "inicio": 40.76,
+  "fin": 41.06
+ },
+ {
+  "palabra": "no",
+  "inicio": 41.06,
+  "fin": 41.14
+ },
+ {
+  "palabra": "es",
+  "inicio": 41.14,
+  "fin": 41.3
+ },
+ {
+  "palabra": "dónde",
+  "inicio": 41.3,
+  "fin": 41.56
+ },
+ {
+  "palabra": "pautar,",
+  "inicio": 41.56,
+  "fin": 42.1
+ },
+ {
+  "palabra": "es",
+  "inicio": 42.38,
+  "fin": 42.52
+ },
+ {
+  "palabra": "quién",
+  "inicio": 42.52,
+  "fin": 42.7
+ },
+ {
+  "palabra": "se",
+  "inicio": 42.7,
+  "fin": 42.96
+ },
+ {
+  "palabra": "queda",
+  "inicio": 42.96,
+  "fin": 43.14
+ },
+ {
+  "palabra": "con",
+  "inicio": 43.14,
+  "fin": 43.34
+ },
+ {
+  "palabra": "la",
+  "inicio": 43.34,
+  "fin": 43.56
+ },
+ {
+  "palabra": "conversión.",
+  "inicio": 43.56,
+  "fin": 44.04
+ },
+ {
+  "palabra": "Si",
+  "inicio": 44.24,
+  "fin": 44.34
+ },
+ {
+  "palabra": "tienes",
+  "inicio": 44.34,
+  "fin": 44.56
+ },
+ {
+  "palabra": "más",
+  "inicio": 44.56,
+  "fin": 44.82
+ },
+ {
+  "palabra": "dudas,",
+  "inicio": 44.82,
+  "fin": 45.34
+ },
+ {
+  "palabra": "sígueme",
+  "inicio": 45.52,
+  "fin": 45.82
+ },
+ {
+  "palabra": "o",
+  "inicio": 45.82,
+  "fin": 46.1
+ },
+ {
+  "palabra": "compártele",
+  "inicio": 46.1,
+  "fin": 46.6
+ },
+ {
+  "palabra": "esto",
+  "inicio": 46.6,
+  "fin": 46.82
+ },
+ {
+  "palabra": "a",
+  "inicio": 46.82,
+  "fin": 47.0
+ },
+ {
+  "palabra": "tu",
+  "inicio": 47.0,
+  "fin": 47.08
+ },
+ {
+  "palabra": "agencia.",
+  "inicio": 47.08,
+  "fin": 47.52
+ }
+]

@@ -1,0 +1,136 @@
+PROMPTS · MOTION GRAPHICS · JUAN PABLO RAMOS (JPR)
+Llena lo que está entre [corchetes] y pega el prompt completo en Claude Code, en el repositorio kit-jpr.
+
+==================================================
+PROMPT 0 · CREAR EL KIT (UNA SOLA VEZ)
+==================================================
+
+Vas a dejar listo el proyecto de motion graphics del cliente JUAN PABLO RAMOS (JPR) para que cada reel después salga rápido y siempre igual. Todo con código: Remotion para animar y ffmpeg para el audio. Háblame en español de Colombia, claro y sin tecnicismos. Si te falta alguna herramienta, instálala sin preguntarme.
+
+LO QUE YA HAY EN ESTE REPOSITORIO (kit-jpr)
+- 01-fondo/fondo-x.jpg: fondo blanco con cuadrícula de x grises. Va en TODO el motion.
+- 02-referencia/referencia-estilo.mp4: el video de inspiración. Sácale fotogramas y míralos antes de empezar.
+- 03-logos/: más de 100 logos en PNG, uno por marca.
+- fuentes/: Poppins (Regular, Medium, Bold) y Lora Italic. Cárgalas desde aquí, nunca desde internet.
+
+QUÉ VAS A CONSTRUIR
+1. proyecto-remotion/ con Remotion, 1080×1920. Los fps se leen de cada reel (normalmente 25 o 30).
+2. proyecto-remotion/ESTILO.md con TODAS las reglas de este mensaje, para que cada reel las siga.
+3. Las piezas reutilizables en src/jpr/ui.tsx: Fondo, Texto (texto de apoyo con acento), Insignia, Chip, PilaChips, Barra, Cifra, Grafica (barras o línea), TarjetaLogo, Captura (con Recuadro y Marcador), IconoApp, Nodos, Comparacion (bien / mal), Destello, Cta, Firma.
+4. Una composición "Reel" que se arma SOLO leyendo un archivo escenas.json (fps, duración y la lista de escenas con inicio, fin, tramo, pieza, textos y recursos). Así, en cada reel solo se escribe ese archivo y no código nuevo.
+5. Los efectos de sonido generados con código (whoosh, pop, tic, clic, tecleo, trazo) en public/sfx/, cada uno atado a su pieza.
+6. Un script que renderice los entregables con un solo comando, usando todos los núcleos del computador.
+7. Un demo de 20 s con todas las piezas (out/demo/demo.mp4) y una hoja de fotogramas para que yo lo apruebe.
+
+LO QUE NUNCA HACES
+- Nunca generas subtítulos ni escribes palabra por palabra lo que dice Juan Pablo.
+- Nunca usas, recortas ni montas el video de Juan Pablo. El editor lo pone después en CapCut.
+- Nunca entregas capas transparentes (ni ProRes, ni .mov, ni .webm): solo MP4 normales.
+- Nunca dejas la pantalla en negro: donde no hay gráfico, va el fondo x limpio.
+
+IDENTIDAD VISUAL
+- Fondo: fondo-x.jpg escalado para cubrir, con un zoom muy lento (de 1 a 1,06) durante todo el video.
+- Colores: azul medianoche #0A1F44 (texto, tarjetas, chips), azul eléctrico #2F5FFF (formas, líneas, recuadros, gráficas), verde lima #C8F542 (acento: marcador detrás de palabras clave, botones, CTA, la última barra), blanco #FFFFFF (texto dentro de tarjetas oscuras), gris #8A94A6 (etiquetas y lo que "no"). Nada fuera de esta paleta.
+- El verde lima NUNCA va como texto sobre el fondo blanco: va como marcador detrás de la palabra, con el texto en azul medianoche encima.
+- Letras: Poppins para todo (Bold para textos y cifras, Medium para chips y etiquetas). Lora Italic solo para una palabra de acento. Ninguna otra.
+- Firma: "JPR" escrito con texto (no imagen), Poppins Bold, espaciado 0,08 em, azul medianoche, con una raya lima de 120×8 px debajo que se dibuja de izquierda a derecha.
+
+TEXTOS DE APOYO (no son subtítulos)
+- Cada escena lleva un texto corto con la idea clave: de 2 a 6 palabras, máximo 2 líneas, Poppins Bold de 70 a 100 px, azul medianoche, en minúscula salvo siglas (IA, ROAS, CPA, B2B), marcas, personas y países. Sin puntos finales.
+- De 1 a 3 palabras de acento: en azul eléctrico, en Lora Italic o con marcador lima detrás.
+- Entra justo cuando Juan Pablo dice esa idea, en 4 fotogramas: opacidad de 0 a 1, escala de 0,92 a 1 y sube 12 px.
+
+TRES TIPOS DE TRAMO
+- "mitad" (la mayor parte del reel, cerca del 70 %): todo el contenido arriba, entre y = 300 y 900. De y = 960 hacia abajo, SOLO el fondo x limpio, sin nada encima: ahí el editor pone a Juan Pablo.
+- "completa": el motion usa toda la pantalla (contenido entre y = 300 y 1520). Solo para momentos fuertes: una cifra grande, una captura, el CTA.
+- "a cámara": solo el fondo x limpio, sin nada (ahí el editor pone a Juan Pablo completo).
+- Ritmo: algo nuevo cada 2 a 4 s. Un tramo "mitad" o "completa" dura mínimo 1,5 s.
+
+ESTILO DE ANIMACIÓN (sale de la referencia, adaptado a JPR)
+- Insignia: círculo azul eléctrico con el número de la sección y una etiqueta corta al lado, arriba de la escena (y = 320). En listas lleva puntos de progreso.
+- Chips: tarjetas azul medianoche (radio 18) con un ícono de línea lima y texto blanco. Entran uno por uno desde abajo y se apilan, todos derechos.
+- Barra de progreso: se llena en azul eléctrico; al llegar al 100 % cambia a lima y aparece un ícono de alerta de línea.
+- Cifras: Poppins Bold de 220 a 260 px que cuentan hasta el valor dicho (18 fotogramas, con tic).
+- Gráfica: barras o línea azul eléctrico que suben hacia donde se dice; la última barra en lima. Sin cifras inventadas.
+- Logos: en tarjeta blanca redondeada (radio 28) con sombra suave. Entran en la palabra exacta en que se nombra la marca.
+- Captura: entra con escala de 1,08 a 1 y luego un zoom lento. Un recuadro azul eléctrico (8 px, radio 20) se dibuja alrededor del dato y un marcador lima barre detrás del texto importante.
+- Ícono de herramienta: su logo en un cuadrado redondeado que flota encima de la captura.
+- Nodos: puntos y líneas azul eléctrico que se dibujan solos.
+- Comparación: dos tarjetas; la mala en gris y tachada, la buena con borde lima.
+- Destello: luz blanca y lima suave de 8 fotogramas entre bloques grandes, máximo una cada 12 s.
+- CTA: "comenta" + la palabra en una pastilla lima + un chip de comentario que se escribe solo.
+- Salidas: desvanecido y desenfoque en 6 fotogramas. Nada salta de lugar ni se monta sobre otra cosa.
+
+PREMIUM, NO INFANTIL
+- Todo va derecho: nada inclinado ni rotado. Rebote máximo del 6 %. Máximo 2 elementos moviéndose a la vez. Una idea por pantalla.
+- Sin emojis, stickers, GIFs, memes ni efectos de sonido de caricatura. Íconos siempre de línea.
+
+ZONAS SEGURAS Y ZOOM
+- Nada importante en los 250 px de arriba, los 380 px de abajo ni los 140 px de la derecha. Contenido entre x = 110 y 900, para que el editor pueda hacer zoom de hasta 115 % en CapCut sin cortar nada.
+
+LOGOS
+- Primero en 03-logos/: más de 100 logos de IA, redes y marketing, un PNG transparente por marca (ej. 03-logos/openai.png; con el nombre escrito: openai-texto.png). Mira 03-logos/LEEME.txt para ver cuáles hay. Si falta alguno, intenta Wikimedia Commons; si está bloqueado, usa el paquete simple-icons de npm. Guarda el logo en 03-logos/ para la próxima vez.
+
+SONIDO
+- Solo efectos, sin música, generados con código (nada de bancos de sonidos). Cada efecto atado a su animación.
+- Los efectos suaves, alrededor de −24 LUFS, para que queden debajo de la voz de JPR.
+
+BIBLIOTECA (cuando se dice… → pieza)
+- Se nombra una marca o herramienta → TarjetaLogo o IconoApp en esa palabra.
+- Se muestra una página o un dato → Captura con Recuadro y Marcador.
+- Se dice un número → Cifra que cuenta.
+- Métrica de marketing (ROAS, CAC, CPA, CTR) → Grafica.
+- Problema, riesgo o error → PilaChips con alerta.
+- Algo llega al límite → Barra.
+- Pasos → Insignia con número + chips numerados.
+- Proceso o automatización → Nodos.
+- Antes vs. después / algo "no es" → Comparacion.
+- Remate o frase emocional → Texto con la palabra en Lora Italic.
+- Llamado a comentar → Cta. Fin del reel → Firma (1 s).
+
+Al terminar, muéstrame la hoja de fotogramas del demo y espera mi OK. Después guarda todo en el repositorio (commit y push) para que el equipo lo use en cada reel.
+
+==================================================
+PROMPT 1 · MOTION DE UN REEL
+==================================================
+
+Vas a crear el motion graphics de un reel de JUAN PABLO RAMOS con el proyecto del kit (proyecto-remotion), siguiendo proyecto-remotion/ESTILO.md al pie de la letra. No escribas piezas nuevas: arma el reel escribiendo escenas.json. Si te falta una herramienta, instálala sin preguntarme. Háblame en español de Colombia, claro y sin tecnicismos.
+
+MATERIAL
+- Tiempos: [ruta del .srt de subtítulos automáticos exportado de CapCut, o del audio del reel (.mp3 / .m4a)]
+- fps del video de JPR: [25 o 30]
+- Duración exacta del video de JPR: [mm:ss:ff]
+- Guion: [pega aquí el guion]
+- Nombre: [nombre-corto-sin-espacios]
+- CTA: comenta [PALABRA] y te mando [lo que recibe]
+- Capturas: [imágenes subidas a 04-reels/[nombre]/ o "ninguna"]
+
+PASOS (solo te detienes UNA vez)
+1. Saca el tiempo de cada palabra. Si te di un .srt, úsalo: reparte las palabras de cada bloque según su largo. Si te di audio, transcríbelo con whisper (modelo medium) en español. Si whisper no puede bajar su modelo, NO inventes los tiempos: dime que exporte el .srt de CapCut y espera.
+2. PARADA ÚNICA: muéstrame en un solo mensaje el plan en una tabla: tiempo → idea → tramo (mitad / completa / a cámara) → texto de apoyo → pieza → recurso. Cerca del 70 % del reel en "mitad", algo nuevo cada 2 a 4 s, usando la biblioteca de ESTILO.md. Si el guion y los tiempos no coinciden, dime dónde. Espera mi OK.
+3. Escribe escenas.json. Logos: 03-logos/, luego Wikimedia y, si está bloqueado, simple-icons de npm. Capturas: solo las que estén en 04-reels/[nombre]/; no intentes abrir páginas web.
+4. Revisa con fotogramas, no con video: una hoja con un fotograma de cada escena con las zonas seguras en rojo y una línea en y = 960, y otra a mitad de cada animación. Comprueba que en los tramos "mitad" no hay NADA debajo de y = 900, que todo entra en su momento y que nada se monta ni salta. Corrige.
+5. Renderiza con un solo comando en out/[nombre]/, con los fps y la duración exacta del video de JPR, empezando en 00:00:
+   - [nombre]-motion.mp4 → 1080×1920, H.264, con efectos
+   - [nombre]-motion-mudo.mp4 → igual, sin sonido
+   - [nombre]-efectos.wav → solo los efectos
+   - [nombre]-hoja-de-montaje.txt → cada tramo con su tiempo, tipo y texto
+   Nada más: ni subtítulos, ni capas transparentes, ni el video de JPR montado.
+6. Dame un resumen corto: dónde están los archivos y la tabla final.
+
+REGLAS
+- No inventes cifras ni datos: solo lo que se dice.
+- Cada marca nombrada lleva su logo en la palabra exacta.
+- Nunca me pidas contraseñas ni claves.
+- Si algo está bloqueado, sigue con lo demás y al final dime qué archivo debo subir.
+
+==================================================
+PROMPT 2 · REVISIÓN FINAL
+==================================================
+
+Antes de darme los archivos, revísalos así y dime el resultado punto por punto:
+1. Saca una hoja con un fotograma de cada escena, con las zonas seguras marcadas en rojo (250 px arriba, 380 px abajo, 140 px a la derecha), una línea en y = 960 y el área de zoom (x de 110 a 900), y mírala.
+2. Saca otra hoja con los momentos en movimiento (chips entrando, recuadros, cifras contando).
+3. Comprueba: en los tramos "mitad" no hay nada debajo de y = 900; no hay subtítulos, solo textos de apoyo cortos; solo Poppins y Lora Italic; lima nunca como texto sobre blanco; logos completos en la palabra exacta; ninguna cifra inventada; ninguna pantalla en negro; nada inclinado; nada infantil (sin emojis, rebote de máximo 6 %).
+4. Comprueba que el .mp4 es normal (H.264, sin transparencia), que tiene los fps del video de JPR, que dura exactamente lo mismo y empieza en 00:00, y que los efectos quedan alrededor de −24 LUFS.
+5. Corrige lo que encuentres, vuelve a renderizar y dime qué corregiste.

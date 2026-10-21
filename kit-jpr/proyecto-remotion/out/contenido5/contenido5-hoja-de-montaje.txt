@@ -1,0 +1,42 @@
+HOJA DE MONTAJE · contenido5
+Motion: contenido5-motion.mp4 · 1080×1920 · 30 fps · 00:48:26 (48,87 s) · empieza en 00:00:00
+Tiempos en mm:ss:ff (ff = fotograma). Ponlo encima del video de Juan Pablo desde 00:00.
+Tramos: mitad 68 % · completa 17 % · a cámara 15 %
+Efectos: -24.7 LUFS (objetivo −24) · pico -5.9 dBFS · sin música
+
+00:00:00 → 00:01:23  (1,77 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: TarjetaLogo · texto: "pauta a TikTok prohibida" · gancho: Instagram y TikTok en su palabra
+00:01:23 → 00:03:08  (1,50 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: Cifra · texto: "la regla ya empezó"
+00:03:08 → 00:05:26  (2,60 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: TarjetaLogo · texto: "rechaza cuentas publicitarias"
+00:05:26 → 00:07:12  (1,53 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: TarjetaLogo · texto: "si le pautan a TikTok"
+00:07:12 → 00:11:05  (3,77 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: Cifra · texto: "incluido Estados Unidos"
+00:11:05 → 00:13:24  (2,63 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Chip · texto: "no pierdas tu cuenta"
+00:13:24 → 00:15:27  (2,10 s)  A CÁMARA  Borra el motion: Juan Pablo a pantalla completa.
+    fondo limpio
+00:15:27 → 00:17:12  (1,50 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: IconoApp · texto: "evita esa pauta"
+00:17:12 → 00:19:18  (2,20 s)  A CÁMARA  Borra el motion: Juan Pablo a pantalla completa.
+    fondo limpio
+00:19:18 → 00:23:27  (4,30 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Comparacion
+00:23:27 → 00:28:12  (4,50 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: TarjetaLogo · texto: "una pelea entre plataformas"
+00:28:12 → 00:30:12  (2,00 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: IconoApp · texto: "hoy le tocó"
+00:30:12 → 00:34:11  (3,97 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Chip · texto: "ten mucho cuidado"
+00:34:11 → 00:38:26  (4,50 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Chip · texto: "nadie te la va a quitar"
+00:38:26 → 00:41:24  (2,93 s)  A CÁMARA  Borra el motion: Juan Pablo a pantalla completa.
+    fondo limpio
+00:41:24 → 00:45:23  (3,97 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: PilaChips · texto: "alimentadas por ti"
+00:45:23 → 00:47:26  (2,10 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: Texto · texto: "sígueme para más noticias" · cierre: Juan Pablo dice «sígueme»
+00:47:26 → 00:48:26  (1,00 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: Firma · con destello

@@ -1,0 +1,32 @@
+{
+  "name": "jpr-motion",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "preparar": "node scripts/preparar.mjs",
+    "studio": "node scripts/preparar.mjs && remotion studio",
+    "sfx": "python3 scripts/sfx.py public/sfx",
+    "reel": "tsx scripts/render.ts",
+    "demo": "tsx scripts/render.ts demo",
+    "hoja": "python3 scripts/hoja.py",
+    "tipos": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.535",
+    "@remotion/cli": "4.0.535",
+    "@remotion/fonts": "4.0.535",
+    "@remotion/renderer": "4.0.535",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.535"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "@types/node": "22.15.3",
+    "@types/react": "19.1.8",
+    "simple-icons": "^15.0.0",
+    "tsx": "4.19.4",
+    "typescript": "5.8.3"
+  }
+}

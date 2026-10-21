@@ -1,0 +1,4 @@
+Una carpeta por reel, con el nombre corto del reel (sin espacios).
+Adentro: los subtitulos automaticos de CapCut exportados en .srt (o el audio .mp3/.m4a), el guion (guion.txt) y las capturas si las hay.
+El .srt solo sirve para los tiempos: Claude no genera subtitulos.
+Claude no usa ni modifica el video de Juan Pablo.
