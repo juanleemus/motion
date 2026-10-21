@@ -39,6 +39,7 @@ export interface ReelJson {
   duracion: Tiempo;
   escenas: EscenaJson[];
   musica?: MusicaJson;
+  sinFondo?: boolean; // solo para montar el video final: capa de gráficos sin el fondo x
 }
 
 export interface Sonido {tipo: TipoSonido; frame: number; ganancia: number; escena: number}

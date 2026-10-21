@@ -16,7 +16,7 @@ export const Reel: React.FC<PropsReel> = ({reel}) => {
   const carpeta = `reels/${reel.nombre}`;
   return (
     <AbsoluteFill>
-      <Fondo />
+      {!reel.sinFondo && <Fondo />}
       {plan.escenas
         .filter((e) => e.tramo !== 'a-camara')
         .map((e) => (
