@@ -1,0 +1,529 @@
+{
+ "nombre": "contenido9",
+ "fps": 30,
+ "duracion": "01:10:00",
+ "escenas": [
+  {
+   "inicio": 0,
+   "fin": 4.0,
+   "tramo": "a-camara",
+   "nota": "gancho: ¿Sabes si ChatGPT permite hacer pauta en tu país? OpenAI acaba de abrir 14 países… (en blanco a pedido)"
+  },
+  {
+   "inicio": 4.0,
+   "fin": 5.85,
+   "tramo": "mitad",
+   "pieza": "Cifra",
+   "datos": {
+    "valor": 14,
+    "etiqueta": "países en [Latinoamérica]",
+    "en": 4.0
+   },
+   "nota": "14 países en Latinoamérica"
+  },
+  {
+   "inicio": 5.85,
+   "fin": 8.55,
+   "tramo": "mitad",
+   "pieza": "Nodos",
+   "datos": {
+    "centro": {
+     "texto": "Latinoamérica"
+    },
+    "en": 5.88,
+    "nodos": [
+     {
+      "logo": "bandera-colombia",
+      "en": 6.22
+     },
+     {
+      "logo": "bandera-argentina",
+      "en": 6.62
+     },
+     {
+      "logo": "bandera-chile",
+      "en": 7.26
+     },
+     {
+      "logo": "bandera-peru",
+      "en": 7.6
+     }
+    ]
+   },
+   "nota": "Colombia, Argentina, Chile, Perú: cada bandera en su palabra"
+  },
+  {
+   "inicio": 8.55,
+   "fin": 11.8,
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "destello": true,
+   "pieza": "Cifra",
+   "datos": {
+    "valor": 100,
+    "prefijo": "+",
+    "etiqueta": "mil anunciantes en el [mundo]",
+    "en": 9.56
+   },
+   "nota": "más de 100.000 anunciantes en el mundo"
+  },
+  {
+   "inicio": 11.8,
+   "fin": 13.3,
+   "tramo": "mitad",
+   "pieza": "TarjetaLogo",
+   "datos": {
+    "logos": [
+     {
+      "logo": "google",
+      "en": 12.48
+     }
+    ]
+   },
+   "nota": "¿Tú crees que es Google otra vez?"
+  },
+  {
+   "inicio": 13.3,
+   "fin": 14.8,
+   "tramo": "mitad",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "compras",
+      "en": 13.48,
+      "tam": 110
+     },
+     {
+      "texto": "[palabras]",
+      "en": 13.76,
+      "tam": 160,
+      "golpe": true
+     }
+    ],
+    "gap": 16
+   },
+   "nota": "que compras palabras"
+  },
+  {
+   "inicio": 14.8,
+   "fin": 16.45,
+   "tramo": "mitad",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "¿y listo?",
+      "en": 14.8,
+      "tam": 170,
+      "tachar": 16.0
+     }
+    ]
+   },
+   "nota": "y listo… No (se tacha en el No)"
+  },
+  {
+   "inicio": 16.45,
+   "fin": 20.0,
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "nota": "B-ROLL 1 (clip de Gemini): el anuncio sale según la conversación que estás teniendo"
+  },
+  {
+   "inicio": 20.0,
+   "fin": 21.95,
+   "tramo": "a-camara",
+   "nota": "y aquí viene lo que nadie te dice"
+  },
+  {
+   "inicio": 21.95,
+   "fin": 25.3,
+   "tramo": "mitad",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "no cambia",
+      "en": 22.74,
+      "tam": 120
+     },
+     {
+      "texto": "la {respuesta}",
+      "en": 23.54,
+      "tam": 100
+     },
+     {
+      "texto": "sale [debajo]",
+      "en": 24.38,
+      "tam": 140,
+      "golpe": true
+     }
+    ],
+    "gap": 16
+   },
+   "nota": "el anuncio no cambia la respuesta, sale debajo"
+  },
+  {
+   "inicio": 25.3,
+   "fin": 28.2,
+   "tramo": "mitad",
+   "pieza": "TarjetaLogo",
+   "datos": {
+    "logos": [
+     {
+      "logo": "openai",
+      "en": 25.4
+     }
+    ]
+   },
+   "texto": "recomienda tu *competencia*",
+   "textoEn": 26.62,
+   "nota": "si ChatGPT recomienda tu competencia arriba"
+  },
+  {
+   "inicio": 28.2,
+   "fin": 30.3,
+   "tramo": "mitad",
+   "pieza": "PilaChips",
+   "datos": {
+    "chips": [
+     {
+      "texto": "tu competencia",
+      "en": 28.25
+     },
+     {
+      "texto": "tú, segunda opción",
+      "en": 29.12
+     }
+    ],
+    "numerados": true,
+    "actual": 2,
+    "tam": 58
+   },
+   "nota": "tú quedas de segunda opción"
+  },
+  {
+   "inicio": 30.3,
+   "fin": 33.05,
+   "tramo": "mitad",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "la pauta",
+      "en": 30.38,
+      "tam": 100
+     },
+     {
+      "texto": "no te [salva]",
+      "en": 30.86,
+      "tam": 140,
+      "golpe": true
+     },
+     {
+      "texto": "si la {IA} no te *reconoce*",
+      "en": 31.46,
+      "tam": 62
+     }
+    ],
+    "gap": 14
+   },
+   "nota": "la pauta no te salva si la IA no te reconoce"
+  },
+  {
+   "inicio": 33.05,
+   "fin": 35.5,
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "destello": true,
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "primero",
+      "en": 33.2,
+      "tam": 120
+     },
+     {
+      "texto": "estar en la",
+      "en": 34.04,
+      "tam": 100
+     },
+     {
+      "texto": "[respuesta]",
+      "en": 34.64,
+      "tam": 150,
+      "golpe": true
+     }
+    ],
+    "gap": 16
+   },
+   "nota": "primero tienes que estar en la respuesta"
+  },
+  {
+   "inicio": 35.5,
+   "fin": 37.4,
+   "tramo": "mitad",
+   "pieza": "PilaChips",
+   "datos": {
+    "chips": [
+     {
+      "texto": "SEO",
+      "icono": "grafica",
+      "en": 36.12
+     },
+     {
+      "texto": "SEM",
+      "icono": "dinero",
+      "en": 36.96
+     }
+    ],
+    "tam": 80
+   },
+   "nota": "antes el SEO y el SEM"
+  },
+  {
+   "inicio": 37.4,
+   "fin": 41.6,
+   "tramo": "mitad",
+   "pieza": "Comparacion",
+   "datos": {
+    "mal": {
+     "titulo": "antes",
+     "texto": "dos cosas distintas",
+     "en": 37.66
+    },
+    "bien": {
+     "titulo": "ahora",
+     "texto": "en conjunto",
+     "en": 40.68
+    }
+   },
+   "nota": "eran dos cosas distintas; ahora actúan en conjunto"
+  },
+  {
+   "inicio": 41.6,
+   "fin": 43.7,
+   "tramo": "mitad",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "{GEO}",
+      "en": 41.74,
+      "tam": 230,
+      "golpe": true
+     }
+    ]
+   },
+   "nota": "para que el GEO"
+  },
+  {
+   "inicio": 43.7,
+   "fin": 45.9,
+   "tramo": "mitad",
+   "pieza": "Chip",
+   "datos": {
+    "texto": "respuesta probable",
+    "icono": "check",
+    "en": 43.94,
+    "tam": 62
+   },
+   "texto": "dentro del *proceso*",
+   "textoEn": 45.0,
+   "nota": "te genere una respuesta probable dentro del proceso"
+  },
+  {
+   "inicio": 45.9,
+   "fin": 48.85,
+   "tramo": "mitad",
+   "pieza": "Grafica",
+   "datos": {
+    "tipo": "barras",
+    "valores": [
+     1,
+     2,
+     3,
+     5
+    ],
+    "en": 46.66
+   },
+   "texto": "mucho más {rentable}",
+   "textoEn": 47.32,
+   "nota": "ahí sí va a ser mucho más rentable comprar el anuncio"
+  },
+  {
+   "inicio": 48.85,
+   "fin": 50.4,
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "destello": true,
+   "pieza": "TarjetaLogo",
+   "datos": {
+    "logos": [
+     {
+      "logo": "openai",
+      "en": 49.1
+     }
+    ]
+   },
+   "nota": "en ChatGPT"
+  },
+  {
+   "inicio": 50.4,
+   "fin": 52.3,
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "el anuncio",
+      "en": 50.46,
+      "tam": 110
+     },
+     {
+      "texto": "es el [plan B]",
+      "en": 51.14,
+      "tam": 140,
+      "golpe": true
+     }
+    ],
+    "gap": 16
+   },
+   "nota": "el anuncio es el plan B"
+  },
+  {
+   "inicio": 52.3,
+   "fin": 55.15,
+   "tramo": "mitad",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "el [plan A]",
+      "en": 52.32,
+      "tam": 170,
+      "golpe": true
+     },
+     {
+      "texto": "es la *respuesta*",
+      "en": 53.2,
+      "tam": 100
+     }
+    ],
+    "gap": 16
+   },
+   "nota": "el plan A es la respuesta que da el modelo"
+  },
+  {
+   "inicio": 55.15,
+   "fin": 57.7,
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "nota": "B-ROLL 2 (clip de Gemini): según el aprendizaje que tienen los motores de búsqueda"
+  },
+  {
+   "inicio": 57.7,
+   "fin": 59.7,
+   "tramo": "mitad",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "¿no haces",
+      "en": 58.44,
+      "tam": 110
+     },
+     {
+      "texto": "{GEO}?",
+      "en": 59.02,
+      "tam": 200,
+      "golpe": true
+     }
+    ],
+    "gap": 10
+   },
+   "nota": "así que si no estás haciendo GEO"
+  },
+  {
+   "inicio": 59.7,
+   "fin": 62.3,
+   "tramo": "mitad",
+   "pieza": "TarjetaLogo",
+   "datos": {
+    "logos": [
+     {
+      "logo": "openai",
+      "en": 60.52
+     }
+    ]
+   },
+   "texto": "ChatGPT [Ads]",
+   "textoEn": 61.25,
+   "nota": "y vas a empezar a hacer ChatGPT Ads"
+  },
+  {
+   "inicio": 62.3,
+   "fin": 65.6,
+   "tramo": "mitad",
+   "pieza": "PilaChips",
+   "insignia": {
+    "numero": "!",
+    "etiqueta": "ten en cuenta",
+    "en": 62.36
+   },
+   "datos": {
+    "chips": [
+     {
+      "texto": "estrategia",
+      "icono": "grafica",
+      "en": 63.44
+     },
+     {
+      "texto": "de inversión",
+      "icono": "dinero",
+      "en": 64.94
+     }
+    ],
+    "tam": 64
+   },
+   "nota": "tienes que tener en cuenta la estrategia de inversión"
+  },
+  {
+   "inicio": 65.6,
+   "fin": 67.95,
+   "tramo": "mitad",
+   "pieza": "Barra",
+   "datos": {
+    "etiqueta": "costo",
+    "en": 65.7,
+    "llenoEn": 67.34,
+    "hasta": 100
+   },
+   "nota": "para que no te salga más caro"
+  },
+  {
+   "inicio": 67.95,
+   "fin": 69.5,
+   "tramo": "mitad",
+   "pieza": "TarjetaLogo",
+   "datos": {
+    "logos": [
+     {
+      "logo": "google",
+      "en": 69.0
+     }
+    ]
+   },
+   "nota": "de lo que te saldría una conversión en Google (el logo entra en 'en Google', medio segundo antes, para dejar la firma)"
+  },
+  {
+   "inicio": 69.5,
+   "fin": 70.0,
+   "tramo": "completa",
+   "pieza": "Firma",
+   "datos": {}
+  }
+ ]
+}

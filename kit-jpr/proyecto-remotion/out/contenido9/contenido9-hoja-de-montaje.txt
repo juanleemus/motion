@@ -1,0 +1,65 @@
+HOJA DE MONTAJE · contenido9
+Motion: contenido9-motion.mp4 · 1080×1920 · 30 fps · 01:10:00 (70,00 s) · empieza en 00:00:00
+Tiempos en mm:ss:ff (ff = fotograma). Ponlo encima del video de Juan Pablo desde 00:00.
+Tramos: mitad 69 % · completa 22 % · a cámara 9 %
+Efectos: -24.9 LUFS (objetivo −24) · pico -5.8 dBFS · sin música
+
+
+00:00:00 → 00:04:00  (4,00 s)  A CÁMARA  Borra el motion: Juan Pablo a pantalla completa.
+    gancho: ¿Sabes si ChatGPT permite hacer pauta en tu país? OpenAI acaba de abrir 14 países… (en blanco a pedido)
+00:04:00 → 00:05:26  (1,87 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Cifra · 14 países en Latinoamérica
+00:05:26 → 00:08:17  (2,70 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Nodos · Colombia, Argentina, Chile, Perú: cada bandera en su palabra
+00:08:17 → 00:11:24  (3,23 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: Cifra · con destello · más de 100.000 anunciantes en el mundo
+00:11:24 → 00:13:09  (1,50 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: TarjetaLogo · ¿Tú crees que es Google otra vez?
+00:13:09 → 00:14:24  (1,50 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Palabras · que compras palabras
+00:14:24 → 00:16:14  (1,67 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Palabras · y listo… No (se tacha en el No)
+00:16:14 → 00:20:00  (3,53 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    B-ROLL 1 (clip de Gemini): el anuncio sale según la conversación que estás teniendo
+00:20:00 → 00:21:29  (1,97 s)  A CÁMARA  Borra el motion: Juan Pablo a pantalla completa.
+    y aquí viene lo que nadie te dice
+00:21:29 → 00:25:09  (3,33 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Palabras · el anuncio no cambia la respuesta, sale debajo
+00:25:09 → 00:28:06  (2,90 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: TarjetaLogo · texto: "recomienda tu competencia" · si ChatGPT recomienda tu competencia arriba
+00:28:06 → 00:30:09  (2,10 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: PilaChips · tú quedas de segunda opción
+00:30:09 → 00:33:01  (2,73 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Palabras · la pauta no te salva si la IA no te reconoce
+00:33:01 → 00:35:15  (2,47 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: Palabras · con destello · primero tienes que estar en la respuesta
+00:35:15 → 00:37:12  (1,90 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: PilaChips · antes el SEO y el SEM
+00:37:12 → 00:41:18  (4,20 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Comparacion · eran dos cosas distintas; ahora actúan en conjunto
+00:41:18 → 00:43:21  (2,10 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Palabras · para que el GEO
+00:43:21 → 00:45:27  (2,20 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Chip · texto: "dentro del proceso" · te genere una respuesta probable dentro del proceso
+00:45:27 → 00:48:26  (2,97 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Grafica · texto: "mucho más rentable" · ahí sí va a ser mucho más rentable comprar el anuncio
+00:48:26 → 00:50:12  (1,53 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: TarjetaLogo · con destello · en ChatGPT
+00:50:12 → 00:52:09  (1,90 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: Palabras · el anuncio es el plan B
+00:52:09 → 00:55:05  (2,87 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Palabras · el plan A es la respuesta que da el modelo
+00:55:05 → 00:57:21  (2,53 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    B-ROLL 2 (clip de Gemini): según el aprendizaje que tienen los motores de búsqueda
+00:57:21 → 00:59:21  (2,00 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Palabras · así que si no estás haciendo GEO
+00:59:21 → 01:02:09  (2,60 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: TarjetaLogo · texto: "ChatGPT Ads" · y vas a empezar a hacer ChatGPT Ads
+01:02:09 → 01:05:18  (3,30 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: PilaChips · tienes que tener en cuenta la estrategia de inversión
+01:05:18 → 01:07:29  (2,37 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: Barra · para que no te salga más caro
+01:07:29 → 01:09:15  (1,53 s)  MITAD     Recorta el motion a la mitad de arriba (hasta y = 960) y pon a Juan Pablo en la mitad de abajo.
+    pieza: TarjetaLogo · de lo que te saldría una conversión en Google (el logo entra en 'en Google', medio segundo antes, para dejar la firma)
+01:09:15 → 01:10:00  (0,50 s)  COMPLETA  Deja el motion en pantalla completa (Juan Pablo no se ve).
+    pieza: Firma

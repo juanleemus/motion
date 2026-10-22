@@ -1,0 +1,14 @@
+PROMPTS DE B-ROLL PARA GEMINI (Veo) · contenido9
+Formato para los dos: vertical 9:16, 1080x1920, sin texto, sin logos, sin voz ni música.
+Paleta JPR: azul medianoche #0A1F44, azul eléctrico #2F5FFF, toques verde lima #C8F542.
+En el motion estos tramos quedan en fondo azul: pon el clip encima, a pantalla completa.
+
+B-ROLL 1 · 00:16:14 → 00:20:00 (3,6 s; pide un clip de 4 s y córtalo)
+JPR dice: "el anuncio sale según la conversación que estás teniendo"
+Prompt:
+Vertical 9:16 cinematic close-up of a person's hands holding a smartphone in a dim modern office at night, the screen shows a generic AI chat interface with message bubbles appearing one by one, and below the AI answer a small sponsored product card slides in softly. Screen glow in electric blue (#2F5FFF) lighting the hands, deep midnight navy background (#0A1F44), a subtle lime green (#C8F542) accent on the sponsored card. Slow push-in camera move, shallow depth of field, premium tech commercial look, realistic. No readable text, no brand logos, no people's faces.
+
+B-ROLL 2 · 00:55:05 → 00:57:21 (2,6 s; pide un clip de 4 s y córtalo)
+JPR dice: "según el aprendizaje que tienen los motores de búsqueda"
+Prompt:
+Vertical 9:16 abstract visualization of an AI model learning from search engines: thousands of tiny glowing search result cards and data points flow through space and connect into a luminous neural network, lines of light in electric blue (#2F5FFF) on a deep midnight navy background (#0A1F44), a few nodes pulse in lime green (#C8F542). Smooth slow forward camera glide through the network, elegant, premium, minimal, no neon, no rainbow gradients. No readable text, no logos.
