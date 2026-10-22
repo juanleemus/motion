@@ -1,0 +1,742 @@
+[
+ {
+  "palabra": "Todos",
+  "inicio": 0.0,
+  "fin": 0.28
+ },
+ {
+  "palabra": "dicen",
+  "inicio": 0.28,
+  "fin": 0.6
+ },
+ {
+  "palabra": "que",
+  "inicio": 0.6,
+  "fin": 0.78
+ },
+ {
+  "palabra": "el",
+  "inicio": 0.78,
+  "fin": 0.96
+ },
+ {
+  "palabra": "CEO",
+  "inicio": 0.96,
+  "fin": 1.14
+ },
+ {
+  "palabra": "murió,",
+  "inicio": 1.14,
+  "fin": 1.8
+ },
+ {
+  "palabra": "Google",
+  "inicio": 1.98,
+  "fin": 2.44
+ },
+ {
+  "palabra": "acaba",
+  "inicio": 2.44,
+  "fin": 2.76
+ },
+ {
+  "palabra": "de",
+  "inicio": 2.76,
+  "fin": 3.02
+ },
+ {
+  "palabra": "decir",
+  "inicio": 3.02,
+  "fin": 3.22
+ },
+ {
+  "palabra": "lo",
+  "inicio": 3.22,
+  "fin": 3.44
+ },
+ {
+  "palabra": "contrario.",
+  "inicio": 3.44,
+  "fin": 3.86
+ },
+ {
+  "palabra": "Esta",
+  "inicio": 4.06,
+  "fin": 4.16
+ },
+ {
+  "palabra": "semana,",
+  "inicio": 4.16,
+  "fin": 4.64
+ },
+ {
+  "palabra": "Google",
+  "inicio": 4.72,
+  "fin": 5.02
+ },
+ {
+  "palabra": "anunció",
+  "inicio": 5.02,
+  "fin": 5.6
+ },
+ {
+  "palabra": "que",
+  "inicio": 5.6,
+  "fin": 5.74
+ },
+ {
+  "palabra": "con",
+  "inicio": 5.74,
+  "fin": 6.0
+ },
+ {
+  "palabra": "su",
+  "inicio": 6.0,
+  "fin": 6.12
+ },
+ {
+  "palabra": "IGA",
+  "inicio": 6.12,
+  "fin": 6.38
+ },
+ {
+  "palabra": "va",
+  "inicio": 6.38,
+  "fin": 6.58
+ },
+ {
+  "palabra": "a",
+  "inicio": 6.58,
+  "fin": 7.12
+ },
+ {
+  "palabra": "mostrar",
+  "inicio": 7.12,
+  "fin": 7.12
+ },
+ {
+  "palabra": "más",
+  "inicio": 7.12,
+  "fin": 7.54
+ },
+ {
+  "palabra": "links,",
+  "inicio": 7.54,
+  "fin": 8.12
+ },
+ {
+  "palabra": "más",
+  "inicio": 8.38,
+  "fin": 8.7
+ },
+ {
+  "palabra": "arriba",
+  "inicio": 8.7,
+  "fin": 9.02
+ },
+ {
+  "palabra": "y",
+  "inicio": 9.02,
+  "fin": 9.24
+ },
+ {
+  "palabra": "más",
+  "inicio": 9.24,
+  "fin": 9.44
+ },
+ {
+  "palabra": "fáciles",
+  "inicio": 9.44,
+  "fin": 9.8
+ },
+ {
+  "palabra": "de",
+  "inicio": 9.8,
+  "fin": 9.94
+ },
+ {
+  "palabra": "tocar.",
+  "inicio": 9.94,
+  "fin": 10.16
+ },
+ {
+  "palabra": "Pero",
+  "inicio": 10.3,
+  "fin": 10.48
+ },
+ {
+  "palabra": "fíjate",
+  "inicio": 10.48,
+  "fin": 10.98
+ },
+ {
+  "palabra": "a",
+  "inicio": 10.98,
+  "fin": 11.2
+ },
+ {
+  "palabra": "quién",
+  "inicio": 11.2,
+  "fin": 11.32
+ },
+ {
+  "palabra": "le",
+  "inicio": 11.32,
+  "fin": 11.58
+ },
+ {
+  "palabra": "manda",
+  "inicio": 11.58,
+  "fin": 11.98
+ },
+ {
+  "palabra": "esos",
+  "inicio": 11.98,
+  "fin": 12.28
+ },
+ {
+  "palabra": "clics.",
+  "inicio": 12.28,
+  "fin": 12.68
+ },
+ {
+  "palabra": "A",
+  "inicio": 12.86,
+  "fin": 12.96
+ },
+ {
+  "palabra": "la",
+  "inicio": 12.96,
+  "fin": 13.12
+ },
+ {
+  "palabra": "página",
+  "inicio": 13.12,
+  "fin": 13.38
+ },
+ {
+  "palabra": "oficial,",
+  "inicio": 13.38,
+  "fin": 13.86
+ },
+ {
+  "palabra": "cuando",
+  "inicio": 13.96,
+  "fin": 14.22
+ },
+ {
+  "palabra": "hay",
+  "inicio": 14.22,
+  "fin": 14.4
+ },
+ {
+  "palabra": "una",
+  "inicio": 14.4,
+  "fin": 14.6
+ },
+ {
+  "palabra": "sola",
+  "inicio": 14.6,
+  "fin": 14.82
+ },
+ {
+  "palabra": "fuente,",
+  "inicio": 14.82,
+  "fin": 15.38
+ },
+ {
+  "palabra": "y",
+  "inicio": 15.5,
+  "fin": 15.56
+ },
+ {
+  "palabra": "a",
+  "inicio": 15.56,
+  "fin": 15.64
+ },
+ {
+  "palabra": "los",
+  "inicio": 15.64,
+  "fin": 15.86
+ },
+ {
+  "palabra": "medios",
+  "inicio": 15.86,
+  "fin": 16.1
+ },
+ {
+  "palabra": "que",
+  "inicio": 16.1,
+  "fin": 16.32
+ },
+ {
+  "palabra": "la",
+  "inicio": 16.32,
+  "fin": 16.5
+ },
+ {
+  "palabra": "gente",
+  "inicio": 16.5,
+  "fin": 16.9
+ },
+ {
+  "palabra": "marca",
+  "inicio": 16.9,
+  "fin": 17.2
+ },
+ {
+  "palabra": "como",
+  "inicio": 17.2,
+  "fin": 17.44
+ },
+ {
+  "palabra": "favoritos.",
+  "inicio": 17.44,
+  "fin": 18.1
+ },
+ {
+  "palabra": "Esa",
+  "inicio": 18.28,
+  "fin": 18.54
+ },
+ {
+  "palabra": "función",
+  "inicio": 18.54,
+  "fin": 18.9
+ },
+ {
+  "palabra": "creció",
+  "inicio": 18.9,
+  "fin": 19.26
+ },
+ {
+  "palabra": "más",
+  "inicio": 19.26,
+  "fin": 19.5
+ },
+ {
+  "palabra": "de",
+  "inicio": 19.5,
+  "fin": 19.74
+ },
+ {
+  "palabra": "7",
+  "inicio": 19.74,
+  "fin": 19.96
+ },
+ {
+  "palabra": "veces",
+  "inicio": 19.96,
+  "fin": 20.42
+ },
+ {
+  "palabra": "este",
+  "inicio": 20.42,
+  "fin": 20.8
+ },
+ {
+  "palabra": "año.",
+  "inicio": 20.8,
+  "fin": 21.06
+ },
+ {
+  "palabra": "O",
+  "inicio": 21.26,
+  "fin": 21.44
+ },
+ {
+  "palabra": "sea,",
+  "inicio": 21.44,
+  "fin": 21.6
+ },
+ {
+  "palabra": "ya",
+  "inicio": 21.62,
+  "fin": 21.82
+ },
+ {
+  "palabra": "no",
+  "inicio": 21.82,
+  "fin": 21.96
+ },
+ {
+  "palabra": "gana",
+  "inicio": 21.96,
+  "fin": 22.2
+ },
+ {
+  "palabra": "el",
+  "inicio": 22.2,
+  "fin": 22.32
+ },
+ {
+  "palabra": "que",
+  "inicio": 22.32,
+  "fin": 22.38
+ },
+ {
+  "palabra": "más",
+  "inicio": 22.38,
+  "fin": 22.62
+ },
+ {
+  "palabra": "keywords",
+  "inicio": 22.62,
+  "fin": 23.04
+ },
+ {
+  "palabra": "mete,",
+  "inicio": 23.04,
+  "fin": 23.38
+ },
+ {
+  "palabra": "gana",
+  "inicio": 23.7,
+  "fin": 24.08
+ },
+ {
+  "palabra": "el",
+  "inicio": 24.08,
+  "fin": 24.28
+ },
+ {
+  "palabra": "que",
+  "inicio": 24.28,
+  "fin": 24.38
+ },
+ {
+  "palabra": "la",
+  "inicio": 24.38,
+  "fin": 24.56
+ },
+ {
+  "palabra": "gente",
+  "inicio": 24.56,
+  "fin": 24.94
+ },
+ {
+  "palabra": "elige,",
+  "inicio": 24.94,
+  "fin": 25.42
+ },
+ {
+  "palabra": "el",
+  "inicio": 25.74,
+  "fin": 25.9
+ },
+ {
+  "palabra": "que",
+  "inicio": 25.9,
+  "fin": 26.06
+ },
+ {
+  "palabra": "Google",
+  "inicio": 26.06,
+  "fin": 26.44
+ },
+ {
+  "palabra": "reconoce",
+  "inicio": 26.44,
+  "fin": 26.94
+ },
+ {
+  "palabra": "como",
+  "inicio": 26.94,
+  "fin": 27.18
+ },
+ {
+  "palabra": "una",
+  "inicio": 27.18,
+  "fin": 27.36
+ },
+ {
+  "palabra": "fuente",
+  "inicio": 27.36,
+  "fin": 27.66
+ },
+ {
+  "palabra": "oficial.",
+  "inicio": 27.66,
+  "fin": 28.08
+ },
+ {
+  "palabra": "Y",
+  "inicio": 28.08,
+  "fin": 28.6
+ },
+ {
+  "palabra": "en",
+  "inicio": 28.6,
+  "fin": 28.76
+ },
+ {
+  "palabra": "video",
+  "inicio": 28.76,
+  "fin": 29.12
+ },
+ {
+  "palabra": "están",
+  "inicio": 29.12,
+  "fin": 29.42
+ },
+ {
+  "palabra": "probando",
+  "inicio": 29.42,
+  "fin": 30.04
+ },
+ {
+  "palabra": "algo",
+  "inicio": 30.04,
+  "fin": 30.32
+ },
+ {
+  "palabra": "más.",
+  "inicio": 30.32,
+  "fin": 30.72
+ },
+ {
+  "palabra": "El",
+  "inicio": 31.28,
+  "fin": 31.38
+ },
+ {
+  "palabra": "nombre",
+  "inicio": 31.38,
+  "fin": 31.8
+ },
+ {
+  "palabra": "del",
+  "inicio": 31.8,
+  "fin": 32.18
+ },
+ {
+  "palabra": "creador",
+  "inicio": 32.18,
+  "fin": 32.78
+ },
+ {
+  "palabra": "como",
+  "inicio": 32.78,
+  "fin": 33.2
+ },
+ {
+  "palabra": "link",
+  "inicio": 33.2,
+  "fin": 33.56
+ },
+ {
+  "palabra": "a",
+  "inicio": 33.56,
+  "fin": 33.86
+ },
+ {
+  "palabra": "su",
+  "inicio": 33.86,
+  "fin": 33.98
+ },
+ {
+  "palabra": "cuenta",
+  "inicio": 33.98,
+  "fin": 34.3
+ },
+ {
+  "palabra": "de",
+  "inicio": 34.3,
+  "fin": 34.48
+ },
+ {
+  "palabra": "Google",
+  "inicio": 34.48,
+  "fin": 34.74
+ },
+ {
+  "palabra": "o",
+  "inicio": 34.74,
+  "fin": 35.1
+ },
+ {
+  "palabra": "su",
+  "inicio": 35.1,
+  "fin": 35.3
+ },
+ {
+  "palabra": "perfil",
+  "inicio": 35.3,
+  "fin": 35.64
+ },
+ {
+  "palabra": "de",
+  "inicio": 35.64,
+  "fin": 35.76
+ },
+ {
+  "palabra": "Google.",
+  "inicio": 35.76,
+  "fin": 36.02
+ },
+ {
+  "palabra": "Tu",
+  "inicio": 36.26,
+  "fin": 36.28
+ },
+ {
+  "palabra": "cara",
+  "inicio": 36.28,
+  "fin": 36.62
+ },
+ {
+  "palabra": "se",
+  "inicio": 36.62,
+  "fin": 36.82
+ },
+ {
+  "palabra": "vuelve",
+  "inicio": 36.82,
+  "fin": 37.58
+ },
+ {
+  "palabra": "tu",
+  "inicio": 37.58,
+  "fin": 37.88
+ },
+ {
+  "palabra": "CEO.",
+  "inicio": 37.88,
+  "fin": 38.0
+ },
+ {
+  "palabra": "El",
+  "inicio": 38.32,
+  "fin": 38.54
+ },
+ {
+  "palabra": "CEO",
+  "inicio": 38.54,
+  "fin": 38.84
+ },
+ {
+  "palabra": "no",
+  "inicio": 38.84,
+  "fin": 39.3
+ },
+ {
+  "palabra": "murió,",
+  "inicio": 39.3,
+  "fin": 39.64
+ },
+ {
+  "palabra": "cambió",
+  "inicio": 39.88,
+  "fin": 40.12
+ },
+ {
+  "palabra": "de",
+  "inicio": 40.12,
+  "fin": 40.26
+ },
+ {
+  "palabra": "dueño,",
+  "inicio": 40.26,
+  "fin": 40.66
+ },
+ {
+  "palabra": "pasó",
+  "inicio": 40.86,
+  "fin": 40.96
+ },
+ {
+  "palabra": "del",
+  "inicio": 40.96,
+  "fin": 41.14
+ },
+ {
+  "palabra": "algoritmo",
+  "inicio": 41.14,
+  "fin": 41.86
+ },
+ {
+  "palabra": "a",
+  "inicio": 41.86,
+  "fin": 42.08
+ },
+ {
+  "palabra": "tu",
+  "inicio": 42.08,
+  "fin": 42.18
+ },
+ {
+  "palabra": "audiencia.",
+  "inicio": 42.18,
+  "fin": 42.7
+ },
+ {
+  "palabra": "Si",
+  "inicio": 43.16,
+  "fin": 43.28
+ },
+ {
+  "palabra": "tu",
+  "inicio": 43.28,
+  "fin": 43.4
+ },
+ {
+  "palabra": "empresa",
+  "inicio": 43.4,
+  "fin": 43.72
+ },
+ {
+  "palabra": "está",
+  "inicio": 43.72,
+  "fin": 43.94
+ },
+ {
+  "palabra": "haciendo",
+  "inicio": 43.94,
+  "fin": 44.2
+ },
+ {
+  "palabra": "CEO,",
+  "inicio": 44.2,
+  "fin": 44.56
+ },
+ {
+  "palabra": "mándale",
+  "inicio": 44.88,
+  "fin": 45.02
+ },
+ {
+  "palabra": "este",
+  "inicio": 45.02,
+  "fin": 45.16
+ },
+ {
+  "palabra": "video",
+  "inicio": 45.16,
+  "fin": 45.54
+ },
+ {
+  "palabra": "al",
+  "inicio": 45.54,
+  "fin": 45.86
+ },
+ {
+  "palabra": "CEO",
+  "inicio": 45.86,
+  "fin": 46.1
+ },
+ {
+  "palabra": "de",
+  "inicio": 46.1,
+  "fin": 46.28
+ },
+ {
+  "palabra": "tu",
+  "inicio": 46.28,
+  "fin": 46.38
+ },
+ {
+  "palabra": "empresa.",
+  "inicio": 46.38,
+  "fin": 46.66
+ }
+]

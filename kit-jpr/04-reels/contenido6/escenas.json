@@ -1,0 +1,422 @@
+{
+ "nombre": "contenido6",
+ "fps": 24,
+ "duracion": "00:47:07",
+ "musica": {
+  "bpm": 100,
+  "golpes": [
+   1.9,
+   18.2,
+   36.1
+  ],
+  "pausas": [
+   [
+    28.0,
+    29.3
+   ]
+  ],
+  "final": 46.3
+ },
+ "escenas": [
+  {
+   "inicio": 0,
+   "fin": 1.9,
+   "tramo": "mitad",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "el [SEO]",
+      "en": 0.78,
+      "tam": 170,
+      "golpe": true
+     },
+     {
+      "texto": "*murió*",
+      "en": 1.14,
+      "tam": 170
+     }
+    ]
+   },
+   "nota": "gancho: dicen que el SEO murió"
+  },
+  {
+   "inicio": 1.9,
+   "fin": 4.0,
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "destello": true,
+   "pieza": "TarjetaLogo",
+   "datos": {
+    "logos": [
+     {
+      "logo": "google-texto",
+      "en": 1.98
+     }
+    ]
+   },
+   "texto": "dice lo *contrario*",
+   "textoEn": 3.22,
+   "nota": "Google acaba de decir lo contrario"
+  },
+  {
+   "inicio": 4.0,
+   "fin": 10.2,
+   "tramo": "mitad",
+   "pieza": "Buscador",
+   "datos": {
+    "vista": "ia",
+    "consulta": "seo",
+    "en": 4.06,
+    "escribe": {
+     "en": 4.72,
+     "sonido": "tecleo"
+    },
+    "ia": {
+     "en": 6.12,
+     "sonido": "whoosh"
+    },
+    "links": [
+     {
+      "en": 7.12
+     },
+     {
+      "en": 7.32
+     },
+     {
+      "en": 7.54
+     }
+    ],
+    "sube": {
+     "en": 8.7,
+     "sonido": "whoosh"
+    },
+    "toca": {
+     "en": 9.94,
+     "sonido": "clic"
+    }
+   },
+   "nota": "Google anunció que con su IA va a mostrar más links, más arriba y más fáciles de tocar"
+  },
+  {
+   "inicio": 10.2,
+   "fin": 12.8,
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "¿a quién le manda",
+      "en": 11.2,
+      "tam": 92
+     },
+     {
+      "texto": "esos [clics]?",
+      "en": 12.2,
+      "tam": 170,
+      "golpe": true
+     }
+    ]
+   },
+   "nota": "pero fíjate a quién le manda esos clics"
+  },
+  {
+   "inicio": 12.8,
+   "fin": 15.4,
+   "tramo": "mitad",
+   "pieza": "Buscador",
+   "datos": {
+    "vista": "resultados",
+    "consulta": "seo",
+    "en": 12.86,
+    "oficial": {
+     "en": 13.38,
+     "sonido": "whoosh"
+    },
+    "unica": {
+     "en": 14.6,
+     "sonido": "trazo"
+    }
+   },
+   "nota": "a la página oficial, cuando hay una sola fuente"
+  },
+  {
+   "inicio": 15.4,
+   "fin": 18.2,
+   "tramo": "mitad",
+   "pieza": "Buscador",
+   "datos": {
+    "vista": "favoritos",
+    "consulta": "seo",
+    "en": 15.5,
+    "estrellas": [
+     {
+      "en": 16.9
+     },
+     {
+      "en": 17.44
+     }
+    ]
+   },
+   "nota": "y a los medios que la gente marca como favoritos"
+  },
+  {
+   "inicio": 18.2,
+   "fin": 21.2,
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "destello": true,
+   "pieza": "Cifra",
+   "datos": {
+    "valor": 7,
+    "sufijo": "x",
+    "etiqueta": "creció más de",
+    "en": 19.74,
+    "grafica": {
+     "tipo": "barras",
+     "valores": [
+      1,
+      7
+     ]
+    }
+   },
+   "texto": "este *año*",
+   "textoEn": 20.42,
+   "nota": "esa función creció más de 7 veces este año"
+  },
+  {
+   "inicio": 21.2,
+   "fin": 23.6,
+   "tramo": "mitad",
+   "fondo": "oscuro",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "ya no gana",
+      "en": 21.82,
+      "tam": 96
+     },
+     {
+      "texto": "más keywords",
+      "en": 22.38,
+      "tam": 112,
+      "tachar": 23.04
+     }
+    ]
+   },
+   "nota": "o sea, ya no gana el que más keywords mete"
+  },
+  {
+   "inicio": 23.6,
+   "fin": 25.7,
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "pieza": "Multitud",
+   "datos": {
+    "en": 23.7,
+    "elige": {
+     "en": 24.94
+    },
+    "elegidos": [
+     7,
+     16,
+     21
+    ],
+    "columnas": 6,
+    "filas": 5
+   },
+   "texto": "la gente *elige*",
+   "textoEn": 24.56,
+   "nota": "gana el que la gente elige"
+  },
+  {
+   "inicio": 25.7,
+   "fin": 28.0,
+   "tramo": "mitad",
+   "pieza": "Buscador",
+   "datos": {
+    "vista": "verificado",
+    "consulta": "seo",
+    "en": 25.74,
+    "verificado": {
+     "en": 26.06
+    },
+    "oficial": {
+     "en": 27.36,
+     "sonido": "clic"
+    }
+   },
+   "nota": "el que Google reconoce como una fuente oficial"
+  },
+  {
+   "inicio": 28.0,
+   "fin": 29.3,
+   "tramo": "a-camara",
+   "nota": "y en video"
+  },
+  {
+   "inicio": 29.3,
+   "fin": 36.1,
+   "tramo": "mitad",
+   "pieza": "Video",
+   "datos": {
+    "en": 29.34,
+    "prueba": {
+     "en": 30.04
+    },
+    "creador": {
+     "en": 32.18,
+     "sonido": "whoosh"
+    },
+    "link": {
+     "en": 33.2,
+     "sonido": "clic"
+    },
+    "cuenta": {
+     "en": 34.48
+    },
+    "perfil": {
+     "en": 35.76
+    }
+   },
+   "nota": "están probando algo más: el nombre del creador como link a su cuenta o su perfil de Google"
+  },
+  {
+   "inicio": 36.1,
+   "fin": 38.2,
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "destello": true,
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "tu cara",
+      "en": 36.28,
+      "tam": 190
+     },
+     {
+      "texto": "se vuelve",
+      "en": 36.82,
+      "tam": 90
+     },
+     {
+      "texto": "tu [SEO]",
+      "en": 37.88,
+      "tam": 230,
+      "golpe": true
+     }
+    ]
+   },
+   "nota": "tu cara se vuelve tu SEO"
+  },
+  {
+   "inicio": 38.2,
+   "fin": 40.7,
+   "tramo": "mitad",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "el SEO",
+      "en": 38.54,
+      "tam": 140
+     },
+     {
+      "texto": "no *murió*",
+      "en": 38.84,
+      "tam": 140,
+      "golpe": true
+     },
+     {
+      "texto": "cambió de [dueño]",
+      "en": 39.88,
+      "tam": 96
+     }
+    ]
+   },
+   "nota": "el SEO no murió, cambió de dueño"
+  },
+  {
+   "inicio": 40.7,
+   "fin": 42.9,
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "del algoritmo",
+      "en": 41.0,
+      "tam": 112,
+      "tachar": 41.86
+     },
+     {
+      "texto": "a tu [audiencia]",
+      "en": 42.08,
+      "tam": 118,
+      "golpe": true
+     }
+    ],
+    "gap": 30
+   },
+   "nota": "pasó del algoritmo a tu audiencia"
+  },
+  {
+   "inicio": 42.9,
+   "fin": 44.8,
+   "tramo": "mitad",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "si tu empresa",
+      "en": 43.28,
+      "tam": 110
+     },
+     {
+      "texto": "hace [SEO]",
+      "en": 43.94,
+      "tam": 170,
+      "golpe": true
+     }
+    ]
+   },
+   "nota": "si tu empresa está haciendo SEO"
+  },
+  {
+   "inicio": 44.8,
+   "fin": 46.3,
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "mándale este video",
+      "en": 44.88,
+      "tam": 88
+     },
+     {
+      "texto": "al [CEO]",
+      "en": 45.72,
+      "tam": 230,
+      "golpe": true
+     }
+    ],
+    "gap": 20
+   },
+   "nota": "mándale este video al CEO de tu empresa"
+  },
+  {
+   "inicio": 46.3,
+   "fin": "00:47:07",
+   "tramo": "completa",
+   "pieza": "Firma",
+   "datos": {},
+   "nota": "firma JPR"
+  }
+ ]
+}

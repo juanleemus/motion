@@ -1,0 +1,1072 @@
+[
+ {
+  "palabra": "¿Sabes",
+  "inicio": 0.0,
+  "fin": 0.34
+ },
+ {
+  "palabra": "si",
+  "inicio": 0.34,
+  "fin": 0.52
+ },
+ {
+  "palabra": "ChatGPT",
+  "inicio": 0.52,
+  "fin": 1.06
+ },
+ {
+  "palabra": "permite",
+  "inicio": 1.06,
+  "fin": 1.32
+ },
+ {
+  "palabra": "hacer",
+  "inicio": 1.32,
+  "fin": 1.54
+ },
+ {
+  "palabra": "pauta",
+  "inicio": 1.54,
+  "fin": 1.72
+ },
+ {
+  "palabra": "en",
+  "inicio": 1.72,
+  "fin": 1.84
+ },
+ {
+  "palabra": "tu",
+  "inicio": 1.84,
+  "fin": 2.0
+ },
+ {
+  "palabra": "país?",
+  "inicio": 2.0,
+  "fin": 2.3
+ },
+ {
+  "palabra": "OpenAI",
+  "inicio": 2.58,
+  "fin": 3.08
+ },
+ {
+  "palabra": "acaba",
+  "inicio": 3.08,
+  "fin": 3.44
+ },
+ {
+  "palabra": "de",
+  "inicio": 3.44,
+  "fin": 3.6
+ },
+ {
+  "palabra": "abrir",
+  "inicio": 3.6,
+  "fin": 3.78
+ },
+ {
+  "palabra": "14",
+  "inicio": 3.78,
+  "fin": 4.26
+ },
+ {
+  "palabra": "países",
+  "inicio": 4.26,
+  "fin": 4.66
+ },
+ {
+  "palabra": "en",
+  "inicio": 4.66,
+  "fin": 4.88
+ },
+ {
+  "palabra": "Latinoamérica.",
+  "inicio": 4.88,
+  "fin": 5.62
+ },
+ {
+  "palabra": "Entre",
+  "inicio": 5.88,
+  "fin": 6.04
+ },
+ {
+  "palabra": "esos",
+  "inicio": 6.04,
+  "fin": 6.28
+ },
+ {
+  "palabra": "está",
+  "inicio": 6.28,
+  "fin": 6.48
+ },
+ {
+  "palabra": "Colombia,",
+  "inicio": 6.48,
+  "fin": 6.86
+ },
+ {
+  "palabra": "Argentina,",
+  "inicio": 6.88,
+  "fin": 7.3
+ },
+ {
+  "palabra": "Chile,",
+  "inicio": 7.52,
+  "fin": 7.8
+ },
+ {
+  "palabra": "Perú.",
+  "inicio": 7.86,
+  "fin": 8.48
+ },
+ {
+  "palabra": "Ya",
+  "inicio": 8.66,
+  "fin": 8.84
+ },
+ {
+  "palabra": "hay",
+  "inicio": 8.84,
+  "fin": 9.04
+ },
+ {
+  "palabra": "más",
+  "inicio": 9.04,
+  "fin": 9.3
+ },
+ {
+  "palabra": "de",
+  "inicio": 9.3,
+  "fin": 9.56
+ },
+ {
+  "palabra": "100",
+  "inicio": 9.56,
+  "fin": 9.8
+ },
+ {
+  "palabra": "mil",
+  "inicio": 9.8,
+  "fin": 10.1
+ },
+ {
+  "palabra": "anunciantes",
+  "inicio": 10.1,
+  "fin": 10.86
+ },
+ {
+  "palabra": "en",
+  "inicio": 10.86,
+  "fin": 11.08
+ },
+ {
+  "palabra": "el",
+  "inicio": 11.08,
+  "fin": 11.28
+ },
+ {
+  "palabra": "mundo.",
+  "inicio": 11.28,
+  "fin": 11.62
+ },
+ {
+  "palabra": "¿Tú",
+  "inicio": 11.9,
+  "fin": 12.02
+ },
+ {
+  "palabra": "crees",
+  "inicio": 12.02,
+  "fin": 12.26
+ },
+ {
+  "palabra": "que",
+  "inicio": 12.26,
+  "fin": 12.34
+ },
+ {
+  "palabra": "es",
+  "inicio": 12.34,
+  "fin": 12.48
+ },
+ {
+  "palabra": "Google",
+  "inicio": 12.48,
+  "fin": 12.72
+ },
+ {
+  "palabra": "otra",
+  "inicio": 12.72,
+  "fin": 13.04
+ },
+ {
+  "palabra": "vez,",
+  "inicio": 13.04,
+  "fin": 13.22
+ },
+ {
+  "palabra": "que",
+  "inicio": 13.34,
+  "fin": 13.48
+ },
+ {
+  "palabra": "compras",
+  "inicio": 13.48,
+  "fin": 13.76
+ },
+ {
+  "palabra": "palabras?",
+  "inicio": 13.76,
+  "fin": 14.36
+ },
+ {
+  "palabra": "Y",
+  "inicio": 14.8,
+  "fin": 14.9
+ },
+ {
+  "palabra": "listo.",
+  "inicio": 14.9,
+  "fin": 15.82
+ },
+ {
+  "palabra": "No.",
+  "inicio": 16.0,
+  "fin": 16.2
+ },
+ {
+  "palabra": "El",
+  "inicio": 16.5,
+  "fin": 16.7
+ },
+ {
+  "palabra": "anuncio",
+  "inicio": 16.7,
+  "fin": 17.28
+ },
+ {
+  "palabra": "sale",
+  "inicio": 17.28,
+  "fin": 17.58
+ },
+ {
+  "palabra": "según",
+  "inicio": 17.58,
+  "fin": 18.0
+ },
+ {
+  "palabra": "la",
+  "inicio": 18.0,
+  "fin": 18.32
+ },
+ {
+  "palabra": "conversación",
+  "inicio": 18.32,
+  "fin": 18.84
+ },
+ {
+  "palabra": "que",
+  "inicio": 18.84,
+  "fin": 19.08
+ },
+ {
+  "palabra": "estás",
+  "inicio": 19.08,
+  "fin": 19.36
+ },
+ {
+  "palabra": "teniendo.",
+  "inicio": 19.36,
+  "fin": 19.86
+ },
+ {
+  "palabra": "Y",
+  "inicio": 20.06,
+  "fin": 20.24
+ },
+ {
+  "palabra": "aquí",
+  "inicio": 20.24,
+  "fin": 20.38
+ },
+ {
+  "palabra": "viene",
+  "inicio": 20.38,
+  "fin": 20.54
+ },
+ {
+  "palabra": "lo",
+  "inicio": 20.54,
+  "fin": 20.74
+ },
+ {
+  "palabra": "que",
+  "inicio": 20.74,
+  "fin": 20.84
+ },
+ {
+  "palabra": "nadie",
+  "inicio": 20.84,
+  "fin": 21.04
+ },
+ {
+  "palabra": "te",
+  "inicio": 21.04,
+  "fin": 21.28
+ },
+ {
+  "palabra": "dice.",
+  "inicio": 21.28,
+  "fin": 21.48
+ },
+ {
+  "palabra": "El",
+  "inicio": 22.06,
+  "fin": 22.26
+ },
+ {
+  "palabra": "anuncio",
+  "inicio": 22.26,
+  "fin": 22.74
+ },
+ {
+  "palabra": "no",
+  "inicio": 22.74,
+  "fin": 23.0
+ },
+ {
+  "palabra": "cambia",
+  "inicio": 23.0,
+  "fin": 23.32
+ },
+ {
+  "palabra": "la",
+  "inicio": 23.32,
+  "fin": 23.54
+ },
+ {
+  "palabra": "respuesta,",
+  "inicio": 23.54,
+  "fin": 24.0
+ },
+ {
+  "palabra": "sale",
+  "inicio": 24.38,
+  "fin": 24.6
+ },
+ {
+  "palabra": "debajo.",
+  "inicio": 24.6,
+  "fin": 25.08
+ },
+ {
+  "palabra": "Si",
+  "inicio": 25.24,
+  "fin": 25.4
+ },
+ {
+  "palabra": "ChatGPT",
+  "inicio": 25.4,
+  "fin": 26.16
+ },
+ {
+  "palabra": "recomienda",
+  "inicio": 26.16,
+  "fin": 26.62
+ },
+ {
+  "palabra": "tu",
+  "inicio": 26.62,
+  "fin": 26.88
+ },
+ {
+  "palabra": "competencia",
+  "inicio": 26.88,
+  "fin": 27.46
+ },
+ {
+  "palabra": "arriba,",
+  "inicio": 27.46,
+  "fin": 27.84
+ },
+ {
+  "palabra": "tú",
+  "inicio": 28.38,
+  "fin": 28.52
+ },
+ {
+  "palabra": "quedas",
+  "inicio": 28.52,
+  "fin": 28.84
+ },
+ {
+  "palabra": "de",
+  "inicio": 28.84,
+  "fin": 29.12
+ },
+ {
+  "palabra": "segunda",
+  "inicio": 29.12,
+  "fin": 29.28
+ },
+ {
+  "palabra": "opción.",
+  "inicio": 29.28,
+  "fin": 29.62
+ },
+ {
+  "palabra": "O",
+  "inicio": 29.62,
+  "fin": 30.06
+ },
+ {
+  "palabra": "sea,",
+  "inicio": 30.06,
+  "fin": 30.3
+ },
+ {
+  "palabra": "la",
+  "inicio": 30.38,
+  "fin": 30.52
+ },
+ {
+  "palabra": "pauta",
+  "inicio": 30.52,
+  "fin": 30.76
+ },
+ {
+  "palabra": "no",
+  "inicio": 30.76,
+  "fin": 30.86
+ },
+ {
+  "palabra": "te",
+  "inicio": 30.86,
+  "fin": 31.04
+ },
+ {
+  "palabra": "salva",
+  "inicio": 31.04,
+  "fin": 31.3
+ },
+ {
+  "palabra": "si",
+  "inicio": 31.3,
+  "fin": 31.46
+ },
+ {
+  "palabra": "la",
+  "inicio": 31.46,
+  "fin": 31.58
+ },
+ {
+  "palabra": "IA",
+  "inicio": 31.58,
+  "fin": 31.72
+ },
+ {
+  "palabra": "no",
+  "inicio": 31.72,
+  "fin": 31.82
+ },
+ {
+  "palabra": "te",
+  "inicio": 31.82,
+  "fin": 32.14
+ },
+ {
+  "palabra": "reconoce.",
+  "inicio": 32.14,
+  "fin": 32.88
+ },
+ {
+  "palabra": "Primero",
+  "inicio": 33.2,
+  "fin": 33.46
+ },
+ {
+  "palabra": "tienes",
+  "inicio": 33.46,
+  "fin": 33.76
+ },
+ {
+  "palabra": "que",
+  "inicio": 33.76,
+  "fin": 34.04
+ },
+ {
+  "palabra": "estar",
+  "inicio": 34.04,
+  "fin": 34.26
+ },
+ {
+  "palabra": "en",
+  "inicio": 34.26,
+  "fin": 34.64
+ },
+ {
+  "palabra": "la",
+  "inicio": 34.64,
+  "fin": 34.96
+ },
+ {
+  "palabra": "respuesta.",
+  "inicio": 34.96,
+  "fin": 35.32
+ },
+ {
+  "palabra": "Antes",
+  "inicio": 35.62,
+  "fin": 35.82
+ },
+ {
+  "palabra": "el",
+  "inicio": 35.82,
+  "fin": 36.12
+ },
+ {
+  "palabra": "SEO",
+  "inicio": 36.12,
+  "fin": 36.34
+ },
+ {
+  "palabra": "y",
+  "inicio": 36.34,
+  "fin": 36.96
+ },
+ {
+  "palabra": "SEM",
+  "inicio": 36.96,
+  "fin": 37.3
+ },
+ {
+  "palabra": "eran",
+  "inicio": 37.3,
+  "fin": 37.66
+ },
+ {
+  "palabra": "dos",
+  "inicio": 37.66,
+  "fin": 38.0
+ },
+ {
+  "palabra": "cosas",
+  "inicio": 38.0,
+  "fin": 38.22
+ },
+ {
+  "palabra": "totalmente",
+  "inicio": 38.22,
+  "fin": 38.78
+ },
+ {
+  "palabra": "distintas.",
+  "inicio": 38.78,
+  "fin": 39.32
+ },
+ {
+  "palabra": "Ahora",
+  "inicio": 39.38,
+  "fin": 39.56
+ },
+ {
+  "palabra": "tienen",
+  "inicio": 39.56,
+  "fin": 39.86
+ },
+ {
+  "palabra": "que",
+  "inicio": 39.86,
+  "fin": 40.04
+ },
+ {
+  "palabra": "actuar",
+  "inicio": 40.04,
+  "fin": 40.36
+ },
+ {
+  "palabra": "en",
+  "inicio": 40.36,
+  "fin": 40.68
+ },
+ {
+  "palabra": "conjunto",
+  "inicio": 40.68,
+  "fin": 40.94
+ },
+ {
+  "palabra": "para",
+  "inicio": 40.94,
+  "fin": 41.32
+ },
+ {
+  "palabra": "que",
+  "inicio": 41.32,
+  "fin": 41.44
+ },
+ {
+  "palabra": "el",
+  "inicio": 41.44,
+  "fin": 41.74
+ },
+ {
+  "palabra": "GEO",
+  "inicio": 41.74,
+  "fin": 42.0
+ },
+ {
+  "palabra": "te",
+  "inicio": 42.0,
+  "fin": 42.44
+ },
+ {
+  "palabra": "genere",
+  "inicio": 42.44,
+  "fin": 42.92
+ },
+ {
+  "palabra": "una",
+  "inicio": 42.92,
+  "fin": 43.34
+ },
+ {
+  "palabra": "respuesta",
+  "inicio": 43.34,
+  "fin": 43.94
+ },
+ {
+  "palabra": "probable",
+  "inicio": 43.94,
+  "fin": 44.82
+ },
+ {
+  "palabra": "dentro",
+  "inicio": 44.82,
+  "fin": 45.28
+ },
+ {
+  "palabra": "del",
+  "inicio": 45.28,
+  "fin": 45.52
+ },
+ {
+  "palabra": "proceso.",
+  "inicio": 45.52,
+  "fin": 45.84
+ },
+ {
+  "palabra": "Y",
+  "inicio": 46.14,
+  "fin": 46.26
+ },
+ {
+  "palabra": "ahí",
+  "inicio": 46.26,
+  "fin": 46.46
+ },
+ {
+  "palabra": "sí",
+  "inicio": 46.46,
+  "fin": 46.66
+ },
+ {
+  "palabra": "va",
+  "inicio": 46.66,
+  "fin": 46.86
+ },
+ {
+  "palabra": "a",
+  "inicio": 46.86,
+  "fin": 46.94
+ },
+ {
+  "palabra": "ser",
+  "inicio": 46.94,
+  "fin": 47.02
+ },
+ {
+  "palabra": "mucho",
+  "inicio": 47.02,
+  "fin": 47.2
+ },
+ {
+  "palabra": "más",
+  "inicio": 47.2,
+  "fin": 47.32
+ },
+ {
+  "palabra": "rentable",
+  "inicio": 47.32,
+  "fin": 47.68
+ },
+ {
+  "palabra": "comprar",
+  "inicio": 47.68,
+  "fin": 47.98
+ },
+ {
+  "palabra": "el",
+  "inicio": 47.98,
+  "fin": 48.2
+ },
+ {
+  "palabra": "anuncio.",
+  "inicio": 48.2,
+  "fin": 48.8
+ },
+ {
+  "palabra": "En",
+  "inicio": 48.98,
+  "fin": 49.1
+ },
+ {
+  "palabra": "ChatGPT,",
+  "inicio": 49.1,
+  "fin": 49.98
+ },
+ {
+  "palabra": "el",
+  "inicio": 50.3,
+  "fin": 50.46
+ },
+ {
+  "palabra": "anuncio",
+  "inicio": 50.46,
+  "fin": 50.9
+ },
+ {
+  "palabra": "es",
+  "inicio": 50.9,
+  "fin": 51.14
+ },
+ {
+  "palabra": "el",
+  "inicio": 51.14,
+  "fin": 51.36
+ },
+ {
+  "palabra": "plan",
+  "inicio": 51.36,
+  "fin": 51.52
+ },
+ {
+  "palabra": "B.",
+  "inicio": 51.52,
+  "fin": 51.84
+ },
+ {
+  "palabra": "El",
+  "inicio": 52.08,
+  "fin": 52.32
+ },
+ {
+  "palabra": "plan",
+  "inicio": 52.32,
+  "fin": 52.56
+ },
+ {
+  "palabra": "A",
+  "inicio": 52.56,
+  "fin": 52.94
+ },
+ {
+  "palabra": "es",
+  "inicio": 52.94,
+  "fin": 53.2
+ },
+ {
+  "palabra": "la",
+  "inicio": 53.2,
+  "fin": 53.4
+ },
+ {
+  "palabra": "respuesta",
+  "inicio": 53.4,
+  "fin": 53.92
+ },
+ {
+  "palabra": "que",
+  "inicio": 53.92,
+  "fin": 54.3
+ },
+ {
+  "palabra": "da",
+  "inicio": 54.3,
+  "fin": 54.46
+ },
+ {
+  "palabra": "el",
+  "inicio": 54.46,
+  "fin": 54.92
+ },
+ {
+  "palabra": "modelo",
+  "inicio": 54.92,
+  "fin": 55.22
+ },
+ {
+  "palabra": "según",
+  "inicio": 55.22,
+  "fin": 55.6
+ },
+ {
+  "palabra": "el",
+  "inicio": 55.6,
+  "fin": 55.84
+ },
+ {
+  "palabra": "aprendizaje",
+  "inicio": 55.84,
+  "fin": 56.28
+ },
+ {
+  "palabra": "que",
+  "inicio": 56.28,
+  "fin": 56.52
+ },
+ {
+  "palabra": "tiene",
+  "inicio": 56.52,
+  "fin": 56.66
+ },
+ {
+  "palabra": "los",
+  "inicio": 56.66,
+  "fin": 56.88
+ },
+ {
+  "palabra": "motores",
+  "inicio": 56.88,
+  "fin": 57.2
+ },
+ {
+  "palabra": "de",
+  "inicio": 57.2,
+  "fin": 57.36
+ },
+ {
+  "palabra": "búsqueda.",
+  "inicio": 57.36,
+  "fin": 57.76
+ },
+ {
+  "palabra": "Así",
+  "inicio": 57.76,
+  "fin": 58.14
+ },
+ {
+  "palabra": "que",
+  "inicio": 58.14,
+  "fin": 58.3
+ },
+ {
+  "palabra": "si",
+  "inicio": 58.3,
+  "fin": 58.44
+ },
+ {
+  "palabra": "no",
+  "inicio": 58.44,
+  "fin": 58.56
+ },
+ {
+  "palabra": "estás",
+  "inicio": 58.56,
+  "fin": 58.72
+ },
+ {
+  "palabra": "haciendo",
+  "inicio": 58.72,
+  "fin": 59.02
+ },
+ {
+  "palabra": "GEO,",
+  "inicio": 59.02,
+  "fin": 59.58
+ },
+ {
+  "palabra": "y",
+  "inicio": 59.8,
+  "fin": 59.86
+ },
+ {
+  "palabra": "vas",
+  "inicio": 59.86,
+  "fin": 60.0
+ },
+ {
+  "palabra": "a",
+  "inicio": 60.0,
+  "fin": 60.12
+ },
+ {
+  "palabra": "empezar",
+  "inicio": 60.12,
+  "fin": 60.3
+ },
+ {
+  "palabra": "a",
+  "inicio": 60.3,
+  "fin": 60.38
+ },
+ {
+  "palabra": "hacer",
+  "inicio": 60.38,
+  "fin": 60.52
+ },
+ {
+  "palabra": "ChatGPT",
+  "inicio": 60.52,
+  "fin": 61.2
+ },
+ {
+  "palabra": "Ads,",
+  "inicio": 61.25,
+  "fin": 61.7
+ },
+ {
+  "palabra": "tienes",
+  "inicio": 61.76,
+  "fin": 62.16
+ },
+ {
+  "palabra": "que",
+  "inicio": 62.16,
+  "fin": 62.36
+ },
+ {
+  "palabra": "tener",
+  "inicio": 62.36,
+  "fin": 62.56
+ },
+ {
+  "palabra": "en",
+  "inicio": 62.56,
+  "fin": 62.76
+ },
+ {
+  "palabra": "cuenta",
+  "inicio": 62.76,
+  "fin": 63.06
+ },
+ {
+  "palabra": "la",
+  "inicio": 63.06,
+  "fin": 63.44
+ },
+ {
+  "palabra": "estrategia",
+  "inicio": 63.44,
+  "fin": 63.92
+ },
+ {
+  "palabra": "que",
+  "inicio": 63.92,
+  "fin": 64.0
+ },
+ {
+  "palabra": "vas",
+  "inicio": 64.0,
+  "fin": 64.22
+ },
+ {
+  "palabra": "a",
+  "inicio": 64.22,
+  "fin": 64.38
+ },
+ {
+  "palabra": "tener",
+  "inicio": 64.38,
+  "fin": 64.58
+ },
+ {
+  "palabra": "de",
+  "inicio": 64.58,
+  "fin": 64.94
+ },
+ {
+  "palabra": "inversión",
+  "inicio": 64.94,
+  "fin": 65.48
+ },
+ {
+  "palabra": "para",
+  "inicio": 65.48,
+  "fin": 65.76
+ },
+ {
+  "palabra": "que",
+  "inicio": 65.76,
+  "fin": 66.0
+ },
+ {
+  "palabra": "no",
+  "inicio": 66.0,
+  "fin": 66.36
+ },
+ {
+  "palabra": "te",
+  "inicio": 66.36,
+  "fin": 66.56
+ },
+ {
+  "palabra": "salga",
+  "inicio": 66.56,
+  "fin": 67.06
+ },
+ {
+  "palabra": "más",
+  "inicio": 67.06,
+  "fin": 67.34
+ },
+ {
+  "palabra": "caro",
+  "inicio": 67.34,
+  "fin": 67.6
+ },
+ {
+  "palabra": "de",
+  "inicio": 67.6,
+  "fin": 67.7
+ },
+ {
+  "palabra": "lo",
+  "inicio": 67.7,
+  "fin": 67.8
+ },
+ {
+  "palabra": "que",
+  "inicio": 67.8,
+  "fin": 67.9
+ },
+ {
+  "palabra": "te",
+  "inicio": 67.9,
+  "fin": 68.02
+ },
+ {
+  "palabra": "saldría",
+  "inicio": 68.02,
+  "fin": 68.4
+ },
+ {
+  "palabra": "una",
+  "inicio": 68.4,
+  "fin": 68.72
+ },
+ {
+  "palabra": "conversión",
+  "inicio": 68.72,
+  "fin": 69.32
+ },
+ {
+  "palabra": "en",
+  "inicio": 69.32,
+  "fin": 69.48
+ },
+ {
+  "palabra": "Google.",
+  "inicio": 69.48,
+  "fin": 69.74
+ }
+]

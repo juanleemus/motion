@@ -1,0 +1,348 @@
+{
+ "nombre": "contenido7",
+ "fps": 60,
+ "duracion": "00:43:00",
+ "escenas": [
+  {
+   "inicio": 0,
+   "fin": 5.9,
+   "tramo": "a-camara",
+   "nota": "gancho: Meta lanzó un botón que baja el ROAS (Customer Lifecycle Strategy). En blanco a pedido"
+  },
+  {
+   "inicio": 5.9,
+   "fin": 8.5,
+   "tramo": "mitad",
+   "pieza": "PilaChips",
+   "datos": {
+    "chips": [
+     {
+      "texto": "ya disponible",
+      "icono": "check",
+      "en": 6.42
+     },
+     {
+      "texto": "algunos anunciantes",
+      "icono": "usuario",
+      "en": 7.38
+     }
+    ],
+    "tam": 58
+   },
+   "nota": "ya está disponible para algunos anunciantes"
+  },
+  {
+   "inicio": 8.5,
+   "fin": 10.9,
+   "tramo": "mitad",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "marcas tu campaña",
+      "en": 8.64,
+      "tam": 84
+     },
+     {
+      "texto": "de [adquisición]",
+      "en": 10.06,
+      "tam": 112,
+      "golpe": true
+     }
+    ],
+    "gap": 20
+   },
+   "nota": "marcas tu campaña como de adquisición"
+  },
+  {
+   "inicio": 10.9,
+   "fin": 12.4,
+   "tramo": "mitad",
+   "pieza": "TarjetaLogo",
+   "datos": {
+    "logos": [
+     {
+      "logo": "meta",
+      "en": 11.04
+     }
+    ]
+   },
+   "texto": "te *recomienda*",
+   "textoEn": 11.52,
+   "nota": "y Meta te recomienda"
+  },
+  {
+   "inicio": 12.4,
+   "fin": 13.9,
+   "tramo": "mitad",
+   "pieza": "Chip",
+   "datos": {
+    "texto": "sacar a tus clientes",
+    "icono": "usuario",
+    "en": 12.5,
+    "tam": 56
+   },
+   "nota": "sacar a los que ya son clientes"
+  },
+  {
+   "inicio": 13.9,
+   "fin": 15.4,
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "destello": true,
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "¿por qué",
+      "en": 13.94,
+      "tam": 150
+     },
+     {
+      "texto": "haría [falta]?",
+      "en": 14.44,
+      "tam": 150,
+      "golpe": true
+     }
+    ],
+    "gap": 20
+   },
+   "nota": "¿por qué haría falta eso?"
+  },
+  {
+   "inicio": 15.4,
+   "fin": 18.3,
+   "tramo": "mitad",
+   "pieza": "PilaChips",
+   "datos": {
+    "chips": [
+     {
+      "texto": "tus campañas",
+      "icono": "grafica",
+      "en": 15.68
+     },
+     {
+      "texto": "no excluyen",
+      "icono": "alerta",
+      "en": 17.62
+     }
+    ],
+    "tam": 64
+   },
+   "nota": "porque tus campañas normalmente no están excluyendo"
+  },
+  {
+   "inicio": 18.3,
+   "fin": 21.0,
+   "tramo": "mitad",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "a tus compradores",
+      "en": 19.64,
+      "tam": 86
+     },
+     {
+      "texto": "[reales]",
+      "en": 20.34,
+      "tam": 170,
+      "golpe": true
+     }
+    ],
+    "gap": 20
+   },
+   "nota": "a los que ya son tus compradores reales"
+  },
+  {
+   "inicio": 21.0,
+   "fin": 23.45,
+   "tramo": "mitad",
+   "pieza": "Multitud",
+   "datos": {
+    "en": 21.1,
+    "elige": {
+     "en": 22.44
+    },
+    "elegidos": [
+     3,
+     8,
+     10,
+     15,
+     20,
+     22
+    ],
+    "columnas": 6,
+    "filas": 4
+   },
+   "texto": "igual te {compran}",
+   "textoEn": 23.04,
+   "nota": "muchos de esos clientes igual ya te van a comprar"
+  },
+  {
+   "inicio": 23.45,
+   "fin": 25.0,
+   "tramo": "mitad",
+   "pieza": "TarjetaLogo",
+   "datos": {
+    "logos": [
+     {
+      "logo": "meta",
+      "en": 23.56
+     }
+    ]
+   },
+   "texto": "se lleva el *crédito*",
+   "textoEn": 24.2,
+   "nota": "Meta se lleva el crédito"
+  },
+  {
+   "inicio": 25.0,
+   "fin": 26.7,
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "un ROAS",
+      "en": 25.64,
+      "tam": 190
+     },
+     {
+      "texto": "que no es [real]",
+      "en": 26.22,
+      "tam": 110,
+      "golpe": true
+     }
+    ],
+    "gap": 20
+   },
+   "nota": "y tú celebras un ROAS que no es real"
+  },
+  {
+   "inicio": 26.7,
+   "fin": 29.75,
+   "tramo": "mitad",
+   "destello": true,
+   "pieza": "Grafica",
+   "datos": {
+    "tipo": "linea",
+    "valores": [
+     5,
+     4.6,
+     3.4,
+     2.2
+    ],
+    "en": 27.54
+   },
+   "texto": "el {ROAS} baja",
+   "textoEn": 28.9,
+   "nota": "cuando los excluyas, el ROAS va a bajar"
+  },
+  {
+   "inicio": 29.75,
+   "fin": 31.4,
+   "tramo": "a-camara",
+   "nota": "pero no te asustes"
+  },
+  {
+   "inicio": 31.4,
+   "fin": 33.4,
+   "tramo": "mitad",
+   "pieza": "Grafica",
+   "datos": {
+    "tipo": "barras",
+    "valores": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "en": 31.84
+   },
+   "texto": "crecimiento [real]",
+   "textoEn": 32.4,
+   "nota": "por fin vas a medir un crecimiento real"
+  },
+  {
+   "inicio": 33.4,
+   "fin": 37.4,
+   "tramo": "mitad",
+   "pieza": "Comparacion",
+   "datos": {
+    "mal": {
+     "titulo": "no es crecimiento",
+     "texto": "ROAS alto",
+     "en": 33.68
+    },
+    "bien": {
+     "titulo": "sí es crecimiento",
+     "texto": "clientes nuevos",
+     "en": 35.9
+    }
+   },
+   "nota": "ROAS alto no es crecimiento; los clientes nuevos sí lo son"
+  },
+  {
+   "inicio": 37.4,
+   "fin": 40.0,
+   "tramo": "mitad",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "mándale esto",
+      "en": 37.62,
+      "tam": 96
+     },
+     {
+      "texto": "a tu [cliente]",
+      "en": 38.42,
+      "tam": 130,
+      "golpe": true
+     },
+     {
+      "texto": "o a tu {agencia}",
+      "en": 39.42,
+      "tam": 96
+     }
+    ],
+    "gap": 14
+   },
+   "nota": "mándale esto a tu cliente o a tu agencia"
+  },
+  {
+   "inicio": 40.0,
+   "fin": 41.8,
+   "tramo": "completa",
+   "fondo": "oscuro",
+   "pieza": "Palabras",
+   "datos": {
+    "palabras": [
+     {
+      "texto": "revísenlo",
+      "en": 40.78,
+      "tam": 130
+     },
+     {
+      "texto": "*juntos*",
+      "en": 41.24,
+      "tam": 200,
+      "golpe": true
+     }
+    ],
+    "gap": 20
+   },
+   "nota": "para que puedan revisarlo juntos"
+  },
+  {
+   "inicio": 41.8,
+   "fin": "00:43:00",
+   "tramo": "completa",
+   "pieza": "Firma",
+   "datos": {},
+   "nota": "y sígueme: firma JPR"
+  }
+ ]
+}

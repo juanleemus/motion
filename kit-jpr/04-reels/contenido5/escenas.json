@@ -1,0 +1,231 @@
+{
+ "nombre": "contenido5",
+ "fps": 30,
+ "duracion": "00:48:26",
+ "escenas": [
+  {
+   "inicio": 0,
+   "fin": 1.75,
+   "tramo": "mitad",
+   "pieza": "TarjetaLogo",
+   "datos": {
+    "logos": [
+     {
+      "logo": "instagram",
+      "en": 0.0
+     },
+     {
+      "logo": "tiktok",
+      "en": 1.56
+     }
+    ]
+   },
+   "texto": "pauta a TikTok *prohibida*",
+   "textoEn": 0.64,
+   "nota": "gancho: Instagram y TikTok en su palabra"
+  },
+  {
+   "inicio": 1.75,
+   "fin": 3.25,
+   "tramo": "completa",
+   "pieza": "Cifra",
+   "datos": {
+    "valor": 8,
+    "etiqueta": "de [octubre]",
+    "en": 2.42
+   },
+   "texto": "la regla ya *empezó*",
+   "textoEn": 2.84
+  },
+  {
+   "inicio": 3.25,
+   "fin": 5.85,
+   "tramo": "mitad",
+   "pieza": "TarjetaLogo",
+   "datos": {
+    "logos": [
+     {
+      "logo": "meta",
+      "en": 3.26
+     }
+    ]
+   },
+   "texto": "[rechaza] cuentas publicitarias",
+   "textoEn": 3.55
+  },
+  {
+   "inicio": 5.85,
+   "fin": 7.4,
+   "tramo": "mitad",
+   "pieza": "TarjetaLogo",
+   "datos": {
+    "logos": [
+     {
+      "logo": "tiktok",
+      "en": 6.8
+     }
+    ]
+   },
+   "texto": "si le pautan a {TikTok}",
+   "textoEn": 5.95
+  },
+  {
+   "inicio": 7.4,
+   "fin": 11.15,
+   "tramo": "completa",
+   "pieza": "Cifra",
+   "datos": {
+    "valor": 7,
+    "prefijo": "+",
+    "etiqueta": "[países]",
+    "en": 7.82
+   },
+   "texto": "incluido *Estados Unidos*",
+   "textoEn": 8.43
+  },
+  {
+   "inicio": 11.15,
+   "fin": 13.8,
+   "tramo": "mitad",
+   "pieza": "Chip",
+   "datos": {
+    "texto": "cuenta publicitaria",
+    "icono": "alerta",
+    "en": 12.61
+   },
+   "texto": "no pierdas tu *cuenta*",
+   "textoEn": 11.57
+  },
+  {
+   "inicio": 15.9,
+   "fin": 17.4,
+   "tramo": "mitad",
+   "pieza": "IconoApp",
+   "datos": {
+    "logo": "tiktok",
+    "en": 16.09
+   },
+   "texto": "*evita* esa pauta",
+   "textoEn": 15.92
+  },
+  {
+   "inicio": 19.6,
+   "fin": 23.9,
+   "tramo": "mitad",
+   "pieza": "Comparacion",
+   "datos": {
+    "mal": {
+     "titulo": "lo que crees",
+     "texto": "si pagas, pautas donde sea",
+     "en": 19.68
+    },
+    "bien": {
+     "titulo": "la realidad",
+     "texto": "Meta pone frenos",
+     "en": 21.79
+    }
+   }
+  },
+  {
+   "inicio": 23.9,
+   "fin": 28.4,
+   "tramo": "mitad",
+   "pieza": "TarjetaLogo",
+   "datos": {
+    "logos": [
+     {
+      "logo": "meta",
+      "en": 23.98
+     },
+     {
+      "logo": "tiktok",
+      "en": 27.01
+     }
+    ]
+   },
+   "texto": "una *pelea* entre plataformas",
+   "textoEn": 24.65
+  },
+  {
+   "inicio": 28.4,
+   "fin": 30.4,
+   "tramo": "mitad",
+   "pieza": "IconoApp",
+   "datos": {
+    "logo": "tiktok",
+    "en": 29.02
+   },
+   "texto": "hoy le *tocó*",
+   "textoEn": 28.42
+  },
+  {
+   "inicio": 30.4,
+   "fin": 34.35,
+   "tramo": "mitad",
+   "pieza": "Chip",
+   "datos": {
+    "texto": "tráfico de un lado al otro",
+    "icono": "alerta",
+    "en": 30.89
+   },
+   "texto": "ten mucho *cuidado*",
+   "textoEn": 33.44
+  },
+  {
+   "inicio": 34.35,
+   "fin": 38.85,
+   "tramo": "mitad",
+   "pieza": "Chip",
+   "insignia": {
+    "numero": 1,
+    "etiqueta": "consejo",
+    "en": 34.9
+   },
+   "datos": {
+    "texto": "tus bases de datos",
+    "icono": "usuario",
+    "en": 38.08
+   },
+   "texto": "nadie te la va a *quitar*",
+   "textoEn": 36.64
+  },
+  {
+   "inicio": 41.8,
+   "fin": 45.75,
+   "tramo": "mitad",
+   "pieza": "PilaChips",
+   "datos": {
+    "chips": [
+     {
+      "texto": "sin bases de datos propias",
+      "icono": "x",
+      "en": 41.83
+     },
+     {
+      "texto": "pierdes un montón de dinero",
+      "icono": "dinero",
+      "en": 44.37
+     }
+    ]
+   },
+   "texto": "*alimentadas* por ti",
+   "textoEn": 42.63
+  },
+  {
+   "inicio": 45.75,
+   "fin": 47.87,
+   "tramo": "completa",
+   "pieza": "Texto",
+   "texto": "sígueme para más *noticias*",
+   "textoEn": 45.82,
+   "nota": "cierre: Juan Pablo dice «sígueme»"
+  },
+  {
+   "inicio": 47.87,
+   "fin": "00:48:26",
+   "tramo": "completa",
+   "pieza": "Firma",
+   "destello": true
+  }
+ ]
+}
