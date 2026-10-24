@@ -10,7 +10,7 @@ Vas a crear la capa de motion graphics de este reel de Juan Pablo Ramos (JPR) co
 - Trabajas con el audio del reel ya cortado: lo escuchas para sincronizar y no lo modificas. No recibes el video.
 - Entregas una capa de motion y los efectos de sonido para que el editor los monte en CapCut.
 - No haces subtítulos: los pone el editor. Tu texto solo acompaña la idea, cifra o palabra que Juan Pablo quiere recalcar (máximo 6 palabras por pantalla).
-- Usa el kit de esta carpeta: fondos en 01-fondo/, logos en 03-logos/ y las piezas de proyecto-remotion/src/jpr (FondoX, Titular, Golpe, Chip, Barras3D, Linea3D). Si creas una pieza nueva, guárdala ahí con las mismas reglas.
+- Trabaja en el proyecto de Remotion de JPR: la carpeta jpr/ del repositorio juanleemus/motion (en el kit se llama proyecto-remotion/). Ahí están los fondos (public/fondo-x.png y public/fondo-x-medianoche.png), los logos (public/logos/), las letras y las piezas reutilizables de src/jpr (FondoX, Titular, Golpe, Chip, Barras3D, Linea3D). Antes de empezar corre npm install. Si creas una pieza nueva, guárdala en src/jpr con las mismas reglas.
 
 3. TIEMPOS
 - De 0 a 4 s la capa va vacía: nada de texto, imágenes ni gráficos.
@@ -43,7 +43,7 @@ Vas a crear la capa de motion graphics de este reel de Juan Pablo Ramos (JPR) co
 - Deja libre la franja de subtítulos: y 1120–1260 en el formato A e y 980–1100 en la pantalla dividida.
 
 8. LOGOS, CAPTURAS Y SONIDO
-- Logos: búscalos en 03-logos/; si falta uno, descárgalo en PNG de Wikimedia Commons o Wikipedia y guárdalo ahí.
+- Logos: búscalos en public/logos/; si falta uno, descárgalo en PNG de Wikimedia Commons o Wikipedia y guárdalo ahí.
 - Capturas: tómalas con Playwright de páginas públicas, a 1080 px de ancho, sin iniciar sesión. Pon las URLs en el plan.
 - Sin música. Efectos sobrios hechos con código (whoosh grave, clic, tic, golpe sordo), unos 14 dB por debajo de la voz.
 - No inventes cifras. Cada marca nombrada lleva su logo o captura en la palabra exacta. Nunca me pidas contraseñas.

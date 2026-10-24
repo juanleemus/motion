@@ -21,3 +21,5 @@ const cargar = (familia: string, archivo: string, peso: string) => {
 cargar('Poppins', 'poppins-latin-700-normal.ttf', '700');
 cargar('Poppins', 'poppins-latin-800-normal.ttf', '800');
 cargar('Anton', 'anton-latin-400-normal.ttf', '400');
+cargar('Open Sans', 'open-sans-latin-400-normal.ttf', '400');
+cargar('Open Sans', 'open-sans-latin-600-normal.ttf', '600');

@@ -1,2 +1,4 @@
 import {Config} from '@remotion/cli/config';
-Config.setChromiumOpenGlRenderer('angle');
+
+// swangle: el 3D renderiza tanto en la nube (sin GPU) como en un computador.
+Config.setChromiumOpenGlRenderer('swangle');
