@@ -1,0 +1,105 @@
+JPR · PROMPTS PARA COPIAR (V2 · OCTUBRE 2026)
+Copia cada prompt completo, llena lo que está entre [corchetes] y pégalo en Claude Code, abierto dentro de la carpeta kit-jpr.
+
+====================================================================
+PROMPT 1 · MOTION GRAPHICS DE UN REEL
+====================================================================
+
+Vas a crear la capa de motion graphics de un reel de JUAN PABLO RAMOS (JPR), todo con código: Remotion (con @remotion/three para el 3D), ffmpeg para sacar el audio y whisper.cpp para transcribir en mi computador. Háblame en español de Colombia, claro y sin tecnicismos.
+
+QUÉ HACES Y QUÉ NO
+- NO editas el video de Juan Pablo: no lo cortas, no lo reencuadras, no le cambias el color ni el audio. Solo lo escuchas para saber en qué momento va cada cosa.
+- SÍ creas UNA capa de motion graphics y los efectos de sonido, sincronizados con su voz, para que el editor los monte encima en CapCut.
+- NO haces subtítulos. Los pone el editor en CapCut. El texto que tú pones es de acompañamiento: solo la idea, la cifra o la palabra que Juan Pablo quiere recalcar en ese momento (máximo 6 palabras por pantalla).
+
+MATERIAL
+- Video base: [ruta del video de JPR ya cortado]. Solo para sincronizar; no se modifica.
+- Guion: [pega aquí el guion]. Solo sirve para escribir bien nombres, marcas y cifras.
+- Nombre del reel: [nombre-corto-sin-espacios]
+- Fondo del reel: [blanco / azul medianoche]
+- CTA: la palabra es [PALABRA] y la persona recibe [lo que se le manda].
+- Kit del cliente: esta carpeta (kit-jpr). Ahí están los fondos (01-fondo/fondo-x.png y fondo-x-medianoche.png), los logos (03-logos) y el proyecto de Remotion con las piezas reutilizables (proyecto-remotion/src/jpr: FondoX, Titular, Golpe, Chip, Barras3D, Linea3D). Reutilízalas y, si necesitas una pieza nueva, créala con las mismas reglas y guárdala ahí.
+
+REGLAS DE TIEMPO
+- De 0 a 4 s la capa va VACÍA y transparente: nada de texto, imágenes ni gráficos.
+- Después, algo nuevo en pantalla cada 2 a 4 s. Juan Pablo solo a cámara, máximo 4 s seguidos. Un formato B, C o D dura mínimo 1,5 s.
+- Formato 1080×1920, los mismos fps del video base (míralos con ffprobe) y su duración EXACTA, empezando en 00:00.
+
+IDENTIDAD VISUAL (obligatoria)
+- Colores: azul medianoche #0A1F44, azul eléctrico #2F5FFF, verde lima #C8F542, blanco #FFFFFF, gris acero #8A94A6 y azul profundo #050E22. Nada fuera de esta paleta.
+- Letras: Poppins (ExtraBold para titulares, Bold para textos), Anton solo para la palabra o cifra de golpe, Open Sans solo para textos pequeños de más de 6 palabras. Ninguna otra (nada de Lora Italic).
+- Sobre fondo blanco: texto azul medianoche; tarjetas azul medianoche con sombra azul rgba(10,31,68,0.18). La palabra de golpe va en Anton azul medianoche sobre un marcador lima. El lima NUNCA va como letra sobre blanco.
+- Sobre fondo azul medianoche: texto blanco; tarjetas de vidrio translúcido con borde azul; la palabra de golpe igual, en Anton sobre marcador lima.
+- Los fondos llevan un zoom muy lento (de 1 a 1,05) y un degradado suave de azul eléctrico en una esquina. Nunca sombras negras.
+
+LOS 4 FORMATOS (capa de motion)
+A) JPR a cámara: la capa va transparente; solo, si hace falta, un texto de acompañamiento o un logo pequeño que no tape la cara.
+B) Pantalla dividida: mitad de arriba (y de 0 a 960) con el fondo y el gráfico; mitad de abajo transparente, porque ahí el editor baja a JPR. La mitad de arriba entra deslizándose desde arriba en 12 fotogramas y sale igual. Sin sombra sobre el video.
+C) Gráfico completo: el fondo en toda la pantalla con un gráfico 3D grande y su texto.
+D) Captura completa: captura de una web con zoom lento, recuadro azul eléctrico que se dibuja y marcador lima detrás del dato.
+
+ESTILO: MADURO, MASCULINO, PREMIUM
+- 3D real con @remotion/three: objetos (barras, líneas de métrica, embudos, monedas, paneles, tarjetas, íconos de herramientas), NUNCA personajes. Acabado satinado (roughness cerca de 0,4, poco brillo), luz de estudio con Lightformers (blanca, azul eléctrico y un toque lima), sombras de contacto suaves y una cámara que se mueve lento.
+- Movimiento: todo entra rápido y frena suave (ease-out). Sin rebote ni overshoot. Nada gira más de 3°. Máximo 2 elementos moviéndose a la vez.
+- Texto: entra con una máscara de abajo hacia arriba en 12 a 14 fotogramas. La palabra de golpe aparece con el marcador lima que barre de izquierda a derecha.
+- Entre bloques: corte seco o la mitad de arriba que entra o sale deslizándose. PROHIBIDO: barridos de luz, destellos, flashes, transiciones con degradado, emojis, stickers, partículas, confeti y cualquier cosa que rebote o tiemble.
+
+ZONAS SEGURAS (lo que tapa Instagram)
+- Nada importante en los 250 px de arriba, los 380 px de abajo ni los 140 px de la derecha. Todo el contenido entre x = 70 y 930 e y = 300 y 1520.
+- Deja libre la franja donde el editor pondrá los subtítulos: y de 1120 a 1260 en el formato A y de 980 a 1100 en la pantalla dividida.
+
+LOGOS Y CAPTURAS
+- Logos: primero búscalos en 03-logos/. Si falta alguno, descárgalo en PNG de Wikimedia Commons o Wikipedia (tienes mi permiso) y guárdalo ahí. Debe verse completo y legible.
+- Capturas: tómalas tú con Playwright, de páginas públicas, a 1080 px de ancho. Nunca inicies sesión ni muestres datos personales. Pon la lista de URLs en el plan para que yo la apruebe.
+
+SONIDO
+- Sin música. Solo efectos sobrios generados con código (nada de bancos de sonidos): whoosh grave, clic, tic y golpe sordo. Nada de sonidos de caricatura.
+- Cada efecto atado a una animación. Mide la voz del video base y deja los efectos unos 14 dB por debajo.
+
+REGLAS
+- No inventes cifras ni datos: solo lo que se dice.
+- Cada marca o herramienta nombrada lleva su logo o su captura en la palabra exacta.
+- Nunca me pidas contraseñas ni claves.
+- Si dudas de cómo se usa algo de Remotion, revísalo en remotion.dev/docs.
+
+ORDEN DE TRABAJO (enséñame cada paso y espera mi OK en los pasos 2 y 3)
+1. Prepárate: comprueba que tengo Node, ffmpeg, whisper.cpp con el modelo medium y Playwright. Si falta algo, dime cómo instalarlo y espera. Revisa el video base (vertical, fps, duración) sin modificarlo.
+2. Saca una copia del audio y transcríbela palabra por palabra, con el tiempo de cada palabra. Corrige los nombres con el guion. Muéstrame el texto con tiempos y las diferencias con el guion, y espera mi OK.
+3. Propón el plan en una tabla: tiempo → frase → formato (A/B/C/D) → animación → texto de acompañamiento → recurso (logo o URL). Espera mi OK.
+4. Toma las capturas y busca los logos.
+5. Construye las animaciones y los efectos.
+6. Revisa: arma una vista previa con la capa encima del video base (solo para revisar). Saca una hoja con un fotograma de cada escena con las zonas seguras marcadas en rojo y otra con los momentos en movimiento. Comprueba que de 0 a 4 s no hay nada, que todo entra en la palabra exacta y que nada cae en las zonas seguras ni en la franja de subtítulos. Corrige lo que veas.
+7. Renderiza en out/[nombre]/:
+   - [nombre]-motion.mov → capa con transparencia (ProRes 4444)
+   - [nombre]-motion.webm → la misma capa con transparencia (VP9), de respaldo para CapCut
+   - [nombre]-efectos.wav → solo los efectos
+   - [nombre]-hoja-de-montaje.txt → tiempos de cada escena, formato y en qué tramos el editor baja a JPR a la mitad de abajo
+   - [nombre]-preview.mp4 → vista previa con marca de agua "PREVIEW" (no se publica)
+8. Dame un resumen corto: dónde están los archivos, qué cambió respecto al guion, la tabla de escenas con el minuto y cómo te pido cambios.
+
+====================================================================
+PROMPT 2 · MINIATURA (PORTADA DEL REEL)
+====================================================================
+
+Vas a crear la miniatura del reel [nombre] para JUAN PABLO RAMOS (JPR), con Remotion (imagen fija) y el proyecto del kit (kit-jpr/proyecto-remotion). Sigue el Manual de marca personal JPR v2. Háblame en español de Colombia.
+
+- PNG de 1080×1920.
+- Fondo: uno de los 5 de la marca (red de nodos, dashboard, circuito tecnológico, haz de luz o escenario con vidrio): [cuál]. Siempre azul, desenfocado y más oscuro en el tercio superior, donde va el titular.
+- Foto: [ruta de la foto o fotograma de JPR]. Recórtalo del fondo, de pecho hacia arriba, centrado, con la cara entre el 35 % y el 75 % de la altura. No lo retoques.
+- Titular: [TITULAR DE 2 A 6 PALABRAS], en MAYÚSCULAS, en el tercio superior y sin tapar la cara. Palabras puente pequeñas en Poppins Bold blanco; palabra clave grande en Poppins ExtraBold; la palabra de golpe en Anton. Lima solo en 1 o 2 palabras.
+- Opcional: remate abajo [REMATE] y un ícono 3D o el logo de la plataforma de la que se habla: [plataforma].
+- Todo lo importante dentro del recorte 3:4 del perfil (y de 240 a 1680) y dentro de x = 70 a 930.
+- Nada de emojis, stickers, flechas a mano ni colores fuera de la paleta.
+
+Renderiza out/[nombre]/[nombre]-miniatura.png y una segunda imagen con el recorte 3:4 marcado, y muéstramelas.
+
+====================================================================
+PROMPT 3 · REVISIÓN FINAL
+====================================================================
+
+Antes de darme los archivos, revísalos así y dime el resultado punto por punto:
+1. Arma la vista previa con la capa encima del video base y saca una hoja con un fotograma de cada escena, con las zonas seguras marcadas en rojo (250 px arriba, 380 px abajo, 140 px a la derecha) y la franja de subtítulos marcada en amarillo.
+2. Saca otra hoja con los momentos en movimiento (barras creciendo, líneas que se dibujan, tarjetas entrando, pantallas divididas).
+3. Comprueba: de 0 a 4 s no hay nada; no hay subtítulos en la capa, solo texto de acompañamiento de máximo 6 palabras; solo Poppins, Anton y Open Sans; lima en máximo 1 o 2 palabras y nunca como letra sobre blanco; logos completos en la palabra exacta; ninguna cifra inventada; nada rebota, gira de más ni destella; no hay barridos de luz ni transiciones con degradado.
+4. Comprueba que el .mov y el .webm tienen transparencia, que duran exactamente lo mismo que el video base, que empiezan en 00:00, que no hay música y que los efectos quedan unos 14 dB por debajo de la voz.
+5. Corrige lo que encuentres, vuelve a renderizar y dime qué corregiste.
