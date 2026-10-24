@@ -1,11 +1,11 @@
-import {AbsoluteFill, Img, Sequence, interpolate, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, OffthreadVideo, Sequence, interpolate, staticFile, useCurrentFrame} from 'remotion';
 import {C, entrada} from './marca';
 import {Chip, FondoX, Golpe, Tema, Titular} from './ui';
 import {Barras3D, Linea3D} from './tres';
 
 // Clip de muestra del estilo (no es un reel). Corte seco entre bloques: nada de barridos ni
 // destellos, porque la capa se monta sobre el video real de Juan Pablo.
-// Abajo, un fotograma de Juan Pablo como relleno de lo que pone el editor.
+// Abajo, un tramo real de Juan Pablo como muestra de lo que monta el editor.
 const B = 128;
 
 const Dividida: React.FC<{tema: Tema}> = ({tema}) => {
@@ -13,8 +13,7 @@ const Dividida: React.FC<{tema: Tema}> = ({tema}) => {
   const baja = entrada(f / 12);
   return (
     <AbsoluteFill>
-      <Img src={staticFile('jpr-placeholder.jpg')} style={{position: 'absolute', top: 960, width: 1080, height: 960, objectFit: 'cover'}} />
-      <div style={{position: 'absolute', top: 960, left: 0, right: 0, textAlign: 'center', font: '700 26px Poppins', color: 'rgba(255,255,255,0.7)', letterSpacing: '0.1em', paddingTop: 18}}>VIDEO DE JUAN PABLO (LO MONTA EL EDITOR)</div>
+      <OffthreadVideo src={staticFile('jpr-abajo.mp4')} muted style={{position: 'absolute', top: 960, width: 1080, height: 960, objectFit: 'cover'}} />
       <div style={{position: 'absolute', left: 0, right: 0, top: 0, height: 960, overflow: 'hidden', transform: `translateY(${(baja - 1) * 960}px)`}}>
         <FondoX alto={960} tema={tema} />
         <Titular texto="tu ROAS" desde={10} y={290} tema={tema} />

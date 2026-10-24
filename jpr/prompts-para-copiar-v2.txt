@@ -78,23 +78,7 @@ ORDEN DE TRABAJO (enséñame cada paso y espera mi OK en los pasos 2 y 3)
 8. Dame un resumen corto: dónde están los archivos, qué cambió respecto al guion, la tabla de escenas con el minuto y cómo te pido cambios.
 
 ====================================================================
-PROMPT 2 · MINIATURA (PORTADA DEL REEL)
-====================================================================
-
-Vas a crear la miniatura del reel [nombre] para JUAN PABLO RAMOS (JPR), con Remotion (imagen fija) y el proyecto del kit (kit-jpr/proyecto-remotion). Sigue el Manual de marca personal JPR v2. Háblame en español de Colombia.
-
-- PNG de 1080×1920.
-- Fondo: uno de los 5 de la marca (red de nodos, dashboard, circuito tecnológico, haz de luz o escenario con vidrio): [cuál]. Siempre azul, desenfocado y más oscuro en el tercio superior, donde va el titular.
-- Foto: [ruta de la foto o fotograma de JPR]. Recórtalo del fondo, de pecho hacia arriba, centrado, con la cara entre el 35 % y el 75 % de la altura. No lo retoques.
-- Titular: [TITULAR DE 2 A 6 PALABRAS], en MAYÚSCULAS, en el tercio superior y sin tapar la cara. Palabras puente pequeñas en Poppins Bold blanco; palabra clave grande en Poppins ExtraBold; la palabra de golpe en Anton. Lima solo en 1 o 2 palabras.
-- Opcional: remate abajo [REMATE] y un ícono 3D o el logo de la plataforma de la que se habla: [plataforma].
-- Todo lo importante dentro del recorte 3:4 del perfil (y de 240 a 1680) y dentro de x = 70 a 930.
-- Nada de emojis, stickers, flechas a mano ni colores fuera de la paleta.
-
-Renderiza out/[nombre]/[nombre]-miniatura.png y una segunda imagen con el recorte 3:4 marcado, y muéstramelas.
-
-====================================================================
-PROMPT 3 · REVISIÓN FINAL
+PROMPT 2 · REVISIÓN FINAL
 ====================================================================
 
 Antes de darme los archivos, revísalos así y dime el resultado punto por punto:
