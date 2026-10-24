@@ -1,15 +1,13 @@
 PROMPT · MOTION GRAPHICS DE UN REEL DE JPR
 
 1. DATOS DEL REEL (llena solo esto)
-- Video ya cortado: [ruta del video]
+- Audio del reel ya cortado: [ruta del audio]
 - Guion: [pega el guion]
 - Nombre del reel: [nombre-sin-espacios]
-- Fondo: [blanco / azul medianoche]
-- CTA: palabra [PALABRA] · se le manda [qué recibe]
 
 2. TU TRABAJO
 Vas a crear la capa de motion graphics de este reel de Juan Pablo Ramos (JPR) con código: Remotion (con @remotion/three para el 3D), ffmpeg y whisper.cpp. Háblame en español de Colombia, claro y sin tecnicismos.
-- No tocas el video de Juan Pablo: ni cortes, ni encuadre, ni color, ni audio. Solo lo escuchas para sincronizar.
+- Trabajas con el audio del reel ya cortado: lo escuchas para sincronizar y no lo modificas. No recibes el video.
 - Entregas una capa de motion y los efectos de sonido para que el editor los monte en CapCut.
 - No haces subtítulos: los pone el editor. Tu texto solo acompaña la idea, cifra o palabra que Juan Pablo quiere recalcar (máximo 6 palabras por pantalla).
 - Usa el kit de esta carpeta: fondos en 01-fondo/, logos en 03-logos/ y las piezas de proyecto-remotion/src/jpr (FondoX, Titular, Golpe, Chip, Barras3D, Linea3D). Si creas una pieza nueva, guárdala ahí con las mismas reglas.
@@ -17,13 +15,14 @@ Vas a crear la capa de motion graphics de este reel de Juan Pablo Ramos (JPR) co
 3. TIEMPOS
 - De 0 a 4 s la capa va vacía: nada de texto, imágenes ni gráficos.
 - Después, algo nuevo cada 2 a 4 s. Juan Pablo solo a cámara, máximo 4 s seguidos. Cada formato B, C o D dura mínimo 1,5 s.
-- 1080×1920, mismos fps y duración exacta del video (revísalos con ffprobe), empezando en 00:00.
+- 1080×1920 a 30 fps, con la duración exacta del audio (revísala con ffprobe), empezando en 00:00.
 
 4. MARCA
 - Colores: medianoche #0A1F44, eléctrico #2F5FFF, lima #C8F542, blanco #FFFFFF, gris #8A94A6, profundo #050E22. Ningún otro.
 - Letras: Poppins (ExtraBold titulares, Bold textos), Anton solo para la palabra o cifra de golpe, Open Sans solo para textos largos pequeños. Ninguna otra.
-- Fondo blanco (fondo-x.png): texto medianoche, tarjetas medianoche con sombra azul suave. El lima nunca como letra sobre blanco.
-- Fondo medianoche (fondo-x-medianoche.png): texto blanco, tarjetas de vidrio con borde azul.
+- Fondo blanco (fondo-x.png) como principal; azul medianoche (fondo-x-medianoche.png) solo para momentos de peso, máximo un cambio por reel.
+- Sobre blanco: texto medianoche, tarjetas medianoche con sombra azul suave. El lima nunca como letra sobre blanco.
+- Sobre medianoche: texto blanco, tarjetas de vidrio con borde azul.
 - La palabra de golpe va en Anton medianoche sobre un marcador lima que barre de izquierda a derecha.
 - Fondos con zoom lento (1 a 1,05) y un degradado suave azul en una esquina. Nunca sombras negras.
 
@@ -50,11 +49,11 @@ Vas a crear la capa de motion graphics de este reel de Juan Pablo Ramos (JPR) co
 - No inventes cifras. Cada marca nombrada lleva su logo o captura en la palabra exacta. Nunca me pidas contraseñas.
 
 9. PASOS (muéstrame cada uno y espera mi OK en los pasos 2 y 3)
-1) Revisa que tengo Node, ffmpeg, whisper.cpp (modelo medium) y Playwright; si falta algo, dime cómo instalarlo. Revisa el video sin modificarlo.
+1) Revisa que tengo Node, ffmpeg, whisper.cpp (modelo medium) y Playwright; si falta algo, dime cómo instalarlo. Revisa la duración del audio sin modificarlo.
 2) Transcribe el audio palabra por palabra con tiempos, corrige nombres con el guion y muéstrame las diferencias.
 3) Propón el plan en una tabla: tiempo → frase → formato → animación → texto → recurso.
 4) Toma las capturas y busca los logos.
 5) Construye las animaciones y los efectos.
-6) Revisa antes de entregar y dime el resultado punto por punto: vista previa sobre el video, hoja de fotogramas con zonas seguras (rojo) y franja de subtítulos (amarillo), y hoja de movimiento. Comprueba que 0–4 s está vacío, que no hay subtítulos, que todo entra en la palabra exacta, que nada rebota ni destella, que las capas tienen transparencia y duran lo mismo que el video. Corrige lo que encuentres.
+6) Revisa antes de entregar y dime el resultado punto por punto: vista previa de la capa con el audio, hoja de fotogramas con zonas seguras (rojo) y franja de subtítulos (amarillo), y hoja de movimiento. Comprueba que 0–4 s está vacío, que no hay subtítulos, que todo entra en la palabra exacta, que nada rebota ni destella, que las capas tienen transparencia y duran lo mismo que el audio. Corrige lo que encuentres.
 7) Entrega en out/[nombre]/: [nombre]-motion.mov (ProRes 4444 con transparencia), [nombre]-motion.webm (respaldo con transparencia para CapCut), [nombre]-efectos.wav, [nombre]-hoja-de-montaje.txt (escenas y tramos donde se baja a Juan Pablo) y [nombre]-preview.mp4 con marca de agua PREVIEW.
 8) Dame un resumen corto: dónde están los archivos, qué cambió frente al guion y la tabla de escenas con el minuto.
