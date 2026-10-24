@@ -2,3 +2,10 @@ node_modules
 out
 # material del cliente: no se sube al repositorio público
 public/jpr-abajo.mp4
+
+# audio y guiones de los reels del cliente
+*.mp3
+*.wav
+*.m4a
+*.aac
+src/reels/*/guion*.txt
