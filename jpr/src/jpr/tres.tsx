@@ -28,7 +28,8 @@ const Camara: React.FC<{desde: [number, number, number]; hasta: [number, number,
   return null;
 };
 
-const vidrio = (color: string) => ({color, roughness: 0.18, metalness: 0.05, clearcoat: 1, clearcoatRoughness: 0.08, envMapIntensity: 1.3});
+// Acabado satinado: serio, sin brillo de juguete. El lima lleva menos metal para que conserve su color.
+const satin = (color: string) => ({color, roughness: 0.38, metalness: color === C.lima ? 0.08 : 0.45, clearcoat: 0.6, clearcoatRoughness: 0.3, envMapIntensity: 1.1});
 
 // Gráfica de barras 3D sobre una base: las barras crecen con rebote corto y la última es lima.
 export const Barras3D: React.FC<{ancho: number; alto: number; desde: number}> = ({ancho, alto, desde}) => {
@@ -40,70 +41,60 @@ export const Barras3D: React.FC<{ancho: number; alto: number; desde: number}> = 
       <Camara desde={[-5.5, 3.2, 9.5]} hasta={[-3.2, 2.6, 8.2]} mira={[0, 1.2, 0]} dur={110} />
       <Estudio />
       <group rotation={[0, interpolate(f, [0, 200], [0.35, 0.15]), 0]}>
-        <RoundedBox args={[5.6, 0.35, 2.2]} radius={0.16} position={[0, -0.18, 0]}>
-          <meshPhysicalMaterial {...vidrio(C.medianoche)} />
+        <RoundedBox args={[5.6, 0.18, 2.0]} radius={0.04} position={[0, -0.09, 0]}>
+          <meshPhysicalMaterial {...satin(C.medianoche)} />
         </RoundedBox>
         {alturas.map((h, i) => {
-          const s = spring({frame: f - desde - i * 5, fps, config: {damping: 14, stiffness: 120, mass: 0.7}});
+          const s = spring({frame: f - desde - i * 6, fps, config: {damping: 200, stiffness: 90}});
           const hh = Math.max(0.02, h * s);
           const ultima = i === alturas.length - 1;
           return (
-            <RoundedBox key={i} args={[0.9, hh, 0.9]} radius={Math.min(0.14, hh / 2.1)} position={[-1.95 + i * 1.3, hh / 2, 0]}>
-              <meshPhysicalMaterial {...vidrio(ultima ? C.lima : C.electrico)} emissive={ultima ? '#6E8F12' : '#0B2A9E'} emissiveIntensity={0.25} />
+            <RoundedBox key={i} args={[0.9, hh, 0.9]} radius={Math.min(0.05, hh / 2.1)} position={[-1.95 + i * 1.3, hh / 2, 0]}>
+              <meshPhysicalMaterial {...satin(ultima ? C.lima : C.electrico)} emissive={ultima ? '#7FA01A' : '#081E70'} emissiveIntensity={ultima ? 0.35 : 0.15} />
             </RoundedBox>
           );
         })}
       </group>
-      <ContactShadows position={[0, -0.36, 0]} opacity={0.35} scale={14} blur={2.6} far={4} color={C.medianoche} frames={1} />
+      <ContactShadows position={[0, -0.19, 0]} opacity={0.35} scale={14} blur={2.6} far={4} color={C.medianoche} frames={1} />
     </ThreeCanvas>
   );
 };
 
-// Ícono 3D de alerta: triángulo redondeado extruido en lima, con signo en medianoche. Flota y gira poco.
-export const Alerta3D: React.FC<{ancho: number; alto: number; desde: number}> = ({ancho, alto, desde}) => {
+// Línea 3D que se dibuja sobre un panel: para métricas que suben o bajan (CPA, costo por venta).
+export const Linea3D: React.FC<{ancho: number; alto: number; desde: number; dur?: number}> = ({ancho, alto, desde, dur = 45}) => {
   const f = useCurrentFrame();
-  const {fps} = useVideoConfig();
-  const geo = useMemo(() => {
-    const s = new THREE.Shape();
-    const r = 0.28, a = 1.55;
-    const p = [new THREE.Vector2(0, a), new THREE.Vector2(-a * 0.95, -a * 0.7), new THREE.Vector2(a * 0.95, -a * 0.7)];
-    p.forEach((pt, i) => {
-      const prev = p[(i + 2) % 3], next = p[(i + 1) % 3];
-      const d1 = prev.clone().sub(pt).normalize().multiplyScalar(r * 1.8);
-      const d2 = next.clone().sub(pt).normalize().multiplyScalar(r * 1.8);
-      const a1 = pt.clone().add(d1), a2 = pt.clone().add(d2);
-      if (i === 0) s.moveTo(a1.x, a1.y); else s.lineTo(a1.x, a1.y);
-      s.quadraticCurveTo(pt.x, pt.y, a2.x, a2.y);
-    });
-    s.closePath();
-    const g = new THREE.ExtrudeGeometry(s, {depth: 0.45, bevelEnabled: true, bevelThickness: 0.14, bevelSize: 0.12, bevelSegments: 8, curveSegments: 24});
-    g.center();
-    return g;
-  }, []);
-  const e = spring({frame: f - desde, fps, config: {damping: 12, stiffness: 110}});
-  const flota = Math.sin((f - desde) / 18) * 0.08;
+  const t = 1 - Math.pow(1 - Math.min(Math.max((f - desde) / dur, 0), 1), 3);
+  const curva = useMemo(() => new THREE.CatmullRomCurve3(
+    [[-2.4, -1.0], [-1.5, -0.75], [-0.6, -0.35], [0.3, -0.25], [1.2, 0.45], [2.3, 1.15]].map(([x, y]) => new THREE.Vector3(x, y, 0.12))), []);
+  const tubo = useMemo(() => new THREE.TubeGeometry(curva, 240, 0.06, 16, false), [curva]);
+  tubo.setDrawRange(0, Math.floor((tubo.index?.count ?? 0) * t / 6) * 6);
+  const p = curva.getPoint(Math.max(t, 0.001));
+  const panel = Math.min(1, Math.max(0, (f - desde + 12) / 12));
   return (
-    <ThreeCanvas width={ancho} height={alto} camera={{fov: 30, position: [0, 0.4, 9]}} gl={{antialias: true, alpha: true}} style={{position: 'absolute', left: 0, top: 0}}>
+    <ThreeCanvas width={ancho} height={alto} camera={{fov: 30}} gl={{antialias: true, alpha: true}} style={{position: 'absolute', left: 0, top: 0}}>
+      <Camara desde={[1.6, 0.9, 9.4]} hasta={[0.9, 0.5, 8.6]} mira={[0, 0, 0]} dur={140} />
       <Estudio />
-      <group position={[0, 0.2 + flota, 0]} scale={0.4 + 0.6 * e} rotation={[0.12, interpolate(f - desde, [0, 120], [-0.9, 0.35], {extrapolateRight: 'clamp'}) + (1 - e) * 1.5, 0]}>
-        <mesh geometry={geo}>
-          <meshPhysicalMaterial {...vidrio(C.lima)} emissive="#5C7A0A" emissiveIntensity={0.2} />
-        </mesh>
-        <RoundedBox args={[0.26, 1.0, 0.2]} radius={0.1} position={[0, 0.12, 0.42]}>
-          <meshPhysicalMaterial {...vidrio(C.medianoche)} />
+      <group rotation={[-0.08, -0.18, 0]} scale={0.94 + 0.06 * panel}>
+        <RoundedBox args={[5.8, 3.3, 0.14]} radius={0.06} position={[0, 0, -0.1]}>
+          <meshPhysicalMaterial {...satin(C.medianoche)} />
         </RoundedBox>
-        <mesh position={[0, -0.68, 0.42]}>
-          <sphereGeometry args={[0.15, 32, 32]} />
-          <meshPhysicalMaterial {...vidrio(C.medianoche)} />
+        {[-1.0, -0.33, 0.33, 1.0].map((y) => (
+          <mesh key={y} position={[0, y, 0.0]}>
+            <boxGeometry args={[5.2, 0.012, 0.01]} />
+            <meshBasicMaterial color="#2A4A8F" />
+          </mesh>
+        ))}
+        <mesh geometry={tubo}>
+          <meshPhysicalMaterial {...satin(C.electrico)} emissive="#0B2A9E" emissiveIntensity={0.35} />
         </mesh>
+        {t > 0.02 && (
+          <mesh position={p}>
+            <sphereGeometry args={[0.13, 32, 32]} />
+            <meshPhysicalMaterial {...satin(C.lima)} emissive="#4E6A08" emissiveIntensity={0.3} />
+          </mesh>
+        )}
       </group>
-      {[[-2.3, 1.6, -1, C.electrico, 0.22], [2.4, -1.2, -0.5, C.electrico, 0.16], [2.0, 1.9, -2, C.lima, 0.12], [-2.0, -1.7, -1.5, C.lima, 0.1]].map(([x, y, z, c, r], i) => (
-        <mesh key={i} position={[x as number, (y as number) + Math.sin((f + i * 20) / 22) * 0.12, z as number]} scale={e}>
-          <sphereGeometry args={[r as number, 32, 32]} />
-          <meshPhysicalMaterial {...vidrio(c as string)} />
-        </mesh>
-      ))}
-      <ContactShadows position={[0, -1.9, 0]} opacity={0.3} scale={8} blur={2.8} far={3} color={C.medianoche} frames={1} />
+      <ContactShadows position={[0, -1.85, 0]} opacity={0.25} scale={10} blur={2.8} far={3} color={C.medianoche} frames={1} />
     </ThreeCanvas>
   );
 };
