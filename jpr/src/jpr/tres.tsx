@@ -7,7 +7,7 @@ import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {C} from './marca';
 
 // Luz de estudio: dos paneles suaves y un contraluz azul. No depende de archivos HDR.
-const Estudio: React.FC = () => (
+export const Estudio: React.FC = () => (
   <>
     <ambientLight intensity={0.35} />
     <directionalLight position={[4, 8, 6]} intensity={1.6} />
@@ -29,7 +29,7 @@ const Camara: React.FC<{desde: [number, number, number]; hasta: [number, number,
 };
 
 // Acabado satinado: serio, sin brillo de juguete. El lima lleva menos metal para que conserve su color.
-const satin = (color: string) => ({color, roughness: 0.38, metalness: color === C.lima ? 0.08 : 0.45, clearcoat: 0.6, clearcoatRoughness: 0.3, envMapIntensity: 1.1});
+export const satin = (color: string) => ({color, roughness: 0.38, metalness: color === C.lima ? 0.08 : 0.45, clearcoat: 0.6, clearcoatRoughness: 0.3, envMapIntensity: 1.1});
 
 // Gráfica de barras 3D sobre una base: las barras crecen sin rebote y la última es lima.
 // `pasos` deja crecer cada barra en un fotograma propio (para que entre en la palabra exacta).
