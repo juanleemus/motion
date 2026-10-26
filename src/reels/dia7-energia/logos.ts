@@ -2,5 +2,5 @@
 export const LOGOS = {
 	nvidia: {archivo: 'nvidia.svg', alto: 74},
 	amazon: {archivo: 'amazon.svg', alto: 96},
-	xenergy: {archivo: 'xenergy.png', alto: 110},
+	xenergy: {archivo: 'xenergy.png', alto: 58},
 };

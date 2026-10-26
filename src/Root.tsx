@@ -7,6 +7,8 @@ import {DURACION_INTRO, TOTAL_DIAS} from './tiemposIntro';
 import {DURACION, FPS} from './tiempos';
 import {ReelDia7} from './reels/dia7-energia/Reel';
 import {DURACION as DURACION_DIA7} from './reels/dia7-energia/tiempos';
+import {ReelDia8} from './reels/dia8-thiel/Reel';
+import {DURACION as DURACION_DIA8} from './reels/dia8-thiel/tiempos';
 
 for (const peso of ['500', '800', '900']) {
 	loadFont({family: 'Montserrat', url: staticFile(`fuentes/montserrat-latin-${peso}-normal.woff2`), weight: peso});
@@ -16,6 +18,7 @@ export const RemotionRoot: React.FC = () => (
 	<>
 		<Composition id="dia5-uber-escuela-invora" component={Reel} durationInFrames={DURACION} fps={FPS} width={1080} height={1920} />
 		<Composition id="dia7-energia-escuela-invora" component={ReelDia7} durationInFrames={DURACION_DIA7} fps={FPS} width={1080} height={1920} />
+		<Composition id="dia8-thiel-escuela-invora" component={ReelDia8} durationInFrames={DURACION_DIA8} fps={FPS} width={1080} height={1920} />
 		{/* Intros "Día X de 12": una composición por día (dia1-escuela-invora … dia12-escuela-invora) */}
 		{Array.from({length: TOTAL_DIAS}, (_, i) => i + 1).map((dia) => (
 			<Composition

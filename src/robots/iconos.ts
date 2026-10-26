@@ -170,6 +170,16 @@ export const ICONOS: Record<string, Trazo[]> = {
 		{d: 'M30 32 v1 M42 32 v1 M52 32 v1 M30 48 v1 M42 48 v1 M52 48 v1 M30 64 v1 M52 64 v1'},
 		{d: 'M36 92 V76 h10 v16'},
 	],
+	lupa: [
+		{d: circulo(42, 42, 28), relleno: 'a'},
+		{d: circulo(42, 42, 15), relleno: 'b'},
+		{d: 'M63 63 L90 90'},
+	],
+	brujula: [
+		{d: circulo(50, 50, 42), relleno: 'b'},
+		{d: 'M50 22 L60 50 L50 78 L40 50Z', relleno: 'a'},
+		{d: 'M50 8 V14 M50 86 V92 M8 50 H14 M86 50 H92'},
+	],
 	chat: [
 		{d: 'M14 16 h72 a8 8 0 0 1 8 8 v42 a8 8 0 0 1 -8 8 h-40 l-18 16 v-16 h-14 a8 8 0 0 1 -8 -8 v-42 a8 8 0 0 1 8 -8Z', relleno: 'a'},
 		{d: 'M30 45 v1 M50 45 v1 M70 45 v1'},
