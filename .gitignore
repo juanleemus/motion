@@ -2,3 +2,5 @@ node_modules/
 .cache/
 trabajo/
 out/dia7-*
+# Provisional hasta bajar el logo real de Wikimedia
+public/logos/xenergy.png
