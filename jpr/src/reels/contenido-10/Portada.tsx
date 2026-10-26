@@ -79,15 +79,11 @@ export const Portada10: React.FC = () => (
       </div>
     </div>
 
-    {/* 1 · Gancho */}
-    <div style={{position: 'absolute', top: 300, left: 70, width: 860, display: 'flex', flexDirection: 'column', alignItems: 'center', lineHeight: 0.9}}>
-      <div style={{display: 'flex', alignItems: 'flex-end', gap: 18}}>
-        <span style={{font: '700 66px Poppins', color: C.blanco, paddingBottom: 14}}>EL</span>
-        <span style={{font: '800 158px Poppins', color: C.blanco, letterSpacing: '-0.02em'}}>CPC</span>
-      </div>
-      <div style={{display: 'flex', alignItems: 'flex-end', gap: 22, marginTop: 6}}>
-        <span style={{font: '700 66px Poppins', color: C.blanco, textAlign: 'right', paddingBottom: 30, lineHeight: 1}}>VOLVIÓ<br />A</span>
-        <span style={{font: '400 270px Anton', color: C.lima, lineHeight: 0.95}}>SUBIR</span>
+    {/* 1 · Gancho: un solo bloque centrado; la línea blanca mide lo mismo que la palabra de golpe */}
+    <div style={{position: 'absolute', top: 340, left: 70, width: 860, display: 'flex', justifyContent: 'center'}}>
+      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'stretch'}}>
+        <div style={{font: '800 88px Poppins', color: C.blanco, letterSpacing: '-0.01em', lineHeight: 1, textAlign: 'center', whiteSpace: 'nowrap'}}>EL CPC VOLVIÓ A</div>
+        <div style={{font: '400 334px Anton', color: C.lima, lineHeight: 0.9, textAlign: 'center', letterSpacing: '0.02em', marginTop: 4}}>SUBIR</div>
       </div>
     </div>
 
