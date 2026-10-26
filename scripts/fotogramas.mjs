@@ -6,7 +6,7 @@ import fs from 'node:fs';
 
 const [carpeta, ...frames] = process.argv.slice(2);
 fs.mkdirSync(carpeta, {recursive: true});
-const browserExecutable = '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell';
+const browserExecutable = process.env.CHROME ?? '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
 const serveUrl = await bundle({entryPoint: path.resolve('src/index.ts')});
 const composition = await selectComposition({serveUrl, id: process.env.COMP ?? 'dia5-uber-escuela-invora', browserExecutable});
 for (const f of frames.map(Number)) {

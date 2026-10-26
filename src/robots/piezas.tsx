@@ -125,11 +125,12 @@ export const ChatInvora: React.FC<{
 };
 
 // ---------- Teclas 3D que escriben la palabra ----------
-export const Teclas: React.FC<{palabra: string; en: number; paso?: number}> = ({palabra, en, paso = 5}) => {
+export const Teclas: React.FC<{palabra: string; en: number; paso?: number; tam?: number}> = ({palabra, en, paso = 5, tam = 150}) => {
+	const k = tam / 150;
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
 	return (
-		<div style={{display: 'flex', gap: 22}}>
+		<div style={{display: 'flex', gap: 22 * k}}>
 			{palabra.split('').map((l, i) => {
 				const t = en + i * paso;
 				const entra = spring({frame: frame - (en - 6 + i * 2), fps, config: {damping: 12, mass: 0.5}});
@@ -139,21 +140,21 @@ export const Teclas: React.FC<{palabra: string; en: number; paso?: number}> = ({
 					<div
 						key={i}
 						style={{
-							width: 150,
-							height: 150,
-							borderRadius: 30,
+							width: tam,
+							height: tam,
+							borderRadius: 30 * k,
 							background: marcada ? C.azul : '#1d2638',
-							boxShadow: `0 ${16 - baja * 12}px 0 ${marcada ? C.azulOscuro : '#0b0f19'}, 0 ${26 - baja * 12}px 40px rgba(0,0,0,0.6)${
+							boxShadow: `0 ${(16 - baja * 12) * k}px 0 ${marcada ? C.azulOscuro : '#0b0f19'}, 0 ${(26 - baja * 12) * k}px 40px rgba(0,0,0,0.6)${
 								marcada ? `, 0 0 40px ${C.brillo}` : ''
 							}`,
-							transform: `translateY(${baja * 12}px) scale(${interpolate(entra, [0, 1], [0.5, 1])})`,
+							transform: `translateY(${baja * 12 * k}px) scale(${interpolate(entra, [0, 1], [0.5, 1])})`,
 							opacity: aparece(frame, en - 6 + i * 2, 4),
 							display: 'flex',
 							alignItems: 'center',
 							justifyContent: 'center',
 							fontFamily: FUENTE,
 							fontWeight: 900,
-							fontSize: 84,
+							fontSize: 84 * k,
 							color: marcada ? C.tinta : C.blanco,
 						}}
 					>
@@ -448,5 +449,182 @@ export const RayaRoja: React.FC<{en: number; ancho: number; alto: number; hasta?
 				zIndex: 5,
 			}}
 		/>
+	);
+};
+
+// ---------- Tarjeta con el nombre de una persona (no es marca: va sin logo) ----------
+export const TarjetaNombre: React.FC<{nombre: string; en: number; tam?: number}> = ({nombre, en, tam = 52}) => {
+	const frame = useCurrentFrame();
+	const r = useRebote(en, {damping: 10, mass: 0.7, stiffness: 150});
+	const c = tam * 1.5;
+	return (
+		<div
+			style={{
+				display: 'flex',
+				alignItems: 'center',
+				gap: tam * 0.4,
+				padding: `${tam * 0.3}px ${tam * 0.6}px ${tam * 0.3}px ${tam * 0.3}px`,
+				borderRadius: c,
+				background: 'rgba(16,22,36,0.92)',
+				border: '2px solid rgba(42,157,255,0.45)',
+				boxShadow: `0 18px 44px rgba(0,0,0,0.65), 0 0 36px rgba(42,157,255,0.3)`,
+				transform: `scale(${interpolate(r, [0, 1], [0.5, 1])}) rotate(${interpolate(r, [0, 1], [-6, 0])}deg)`,
+				opacity: aparece(frame, en, 4),
+				fontFamily: FUENTE,
+				whiteSpace: 'nowrap',
+			}}
+		>
+			<div
+				style={{
+					width: c,
+					height: c,
+					borderRadius: c / 2,
+					background: C.azul,
+					boxShadow: `0 0 20px ${C.brillo}`,
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
+					flexShrink: 0,
+				}}
+			>
+				<svg viewBox="0 0 100 100" width={c * 0.62} height={c * 0.62}>
+					<path d="M16 92c0-20 15-33 34-33s34 13 34 33Z" fill={C.tinta} />
+					<circle cx={50} cy={30} r={19} fill={C.tinta} />
+				</svg>
+			</div>
+			<div style={{fontWeight: 900, fontSize: tam, color: C.blanco, textShadow: SOMBRA}}>{nombre}</div>
+		</div>
+	);
+};
+
+// ---------- Barra de capacidad que se llena hasta el tope (sin cifras) ----------
+export const Medidor: React.FC<{en: number; llenaEn: number; etiqueta: string; ancho?: number}> = ({
+	en,
+	llenaEn,
+	etiqueta,
+	ancho = 760,
+}) => {
+	const frame = useCurrentFrame();
+	const r = useRebote(en);
+	const p = interpolate(frame, [en + 4, llenaEn], [0.15, 1], {...clamp, easing: Easing.inOut(Easing.cubic)});
+	const lleno = frame >= llenaEn;
+	const late = lleno ? 0.5 + 0.5 * Math.cos(((frame - llenaEn) / 9) * Math.PI) : 0;
+	return (
+		<div
+			style={{
+				display: 'flex',
+				flexDirection: 'column',
+				gap: 18,
+				width: ancho,
+				opacity: aparece(frame, en, 5),
+				transform: `scale(${interpolate(r, [0, 1], [0.7, 1])})`,
+				fontFamily: FUENTE,
+			}}
+		>
+			<div style={{display: 'flex', justifyContent: 'space-between', fontWeight: 800, fontSize: 38, textShadow: SOMBRA}}>
+				<span style={{color: C.gris}}>{etiqueta}</span>
+				<span style={{color: C.azul, opacity: lleno ? 1 : 0}}>tope</span>
+			</div>
+			<div
+				style={{
+					height: 74,
+					borderRadius: 37,
+					border: '4px solid rgba(255,255,255,0.85)',
+					padding: 8,
+					background: 'rgba(15,20,32,0.7)',
+					boxShadow: lleno ? `0 0 ${30 + 30 * late}px ${C.brillo}` : '0 10px 30px rgba(0,0,0,0.5)',
+				}}
+			>
+				<div
+					style={{
+						width: `${p * 100}%`,
+						height: '100%',
+						borderRadius: 29,
+						background: `linear-gradient(90deg, ${C.azulOscuro}, ${C.azul})`,
+					}}
+				/>
+			</div>
+		</div>
+	);
+};
+
+// ---------- Gráfica de la brecha: lo que vale hoy vs. el precio objetivo (sin cifras) ----------
+export const GraficaBrecha: React.FC<{en: number; objetivoEn: number; brechaEn: number; ancho?: number; alto?: number}> = ({
+	en,
+	objetivoEn,
+	brechaEn,
+	ancho = 820,
+	alto = 560,
+}) => {
+	const frame = useCurrentFrame();
+	const yHoy = alto - 110;
+	const yObj = 70;
+	const xFin = ancho - 60;
+	const hoy = interpolate(frame, [en, en + 14], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
+	const sube = interpolate(frame, [objetivoEn, objetivoEn + 18], [0, 1], {...clamp, easing: Easing.inOut(Easing.cubic)});
+	const brecha = interpolate(frame, [brechaEn, brechaEn + 12], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
+	// Línea de precio de hoy: zigzag suave que termina en "hoy".
+	const puntos: [number, number][] = [
+		[40, yHoy - 40],
+		[140, yHoy + 6],
+		[240, yHoy - 30],
+		[340, yHoy + 10],
+		[440, yHoy - 18],
+		[xFin * 0.62, yHoy],
+	];
+	const dHoy = 'M' + puntos.map(([x, y]) => `${x} ${y}`).join(' L');
+	const xHoy = puntos[puntos.length - 1][0];
+	const dObj = `M${xHoy} ${yHoy} C${xHoy + 80} ${yHoy}, ${xFin - 110} ${yObj + 40}, ${xFin} ${yObj}`;
+	return (
+		<div style={{position: 'relative', width: ancho, height: alto, opacity: aparece(frame, en, 4), fontFamily: FUENTE}}>
+			<svg width={ancho} height={alto} style={{overflow: 'visible'}}>
+				<defs>
+					<clipPath id="revela-objetivo">
+						<rect x={xHoy - 20} y={-40} width={(xFin - xHoy + 60) * sube} height={alto + 80} />
+					</clipPath>
+				</defs>
+				<line x1={20} y1={alto - 40} x2={ancho} y2={alto - 40} stroke="rgba(255,255,255,0.35)" strokeWidth={4} />
+				<path d={dHoy} pathLength={1} strokeDasharray="1 1" strokeDashoffset={1 - hoy} fill="none" stroke={C.blanco} strokeWidth={10} strokeLinecap="round" strokeLinejoin="round" />
+				<circle cx={xHoy} cy={yHoy} r={16} fill={C.blanco} opacity={hoy >= 1 ? 1 : 0} />
+				<path
+					d={dObj}
+					pathLength={1}
+					strokeDasharray="0.04 0.03"
+					fill="none"
+					stroke={C.azul}
+					strokeWidth={10}
+					strokeLinecap="round"
+					style={{filter: `drop-shadow(0 0 14px ${C.brillo})`}}
+					clipPath="url(#revela-objetivo)"
+				/>
+				<circle cx={xFin} cy={yObj} r={20} fill={C.azul} opacity={sube >= 1 ? 1 : 0} style={{filter: `drop-shadow(0 0 16px ${C.brillo})`}} />
+				{/* brecha: corchete entre las dos alturas */}
+				<g opacity={brecha}>
+					<line x1={xFin} y1={yHoy} x2={xFin} y2={yHoy - (yHoy - yObj - 30) * brecha} stroke={C.azul} strokeWidth={6} strokeDasharray="14 12" />
+					<line x1={xHoy} y1={yHoy} x2={xFin} y2={yHoy} stroke="rgba(255,255,255,0.5)" strokeWidth={4} strokeDasharray="10 10" />
+				</g>
+			</svg>
+			<div style={{position: 'absolute', left: xHoy - 60, top: yHoy + 26, fontWeight: 800, fontSize: 40, color: C.gris, textShadow: SOMBRA, opacity: hoy}}>
+				hoy
+			</div>
+			<div style={{position: 'absolute', right: 0, top: yObj - 76, fontWeight: 800, fontSize: 40, color: C.azul, textShadow: SOMBRA, opacity: sube >= 1 ? 1 : 0, whiteSpace: 'nowrap'}}>
+				precio objetivo
+			</div>
+			<div
+				style={{
+					position: 'absolute',
+					right: 80,
+					top: (yHoy + yObj) / 2 + 10,
+					fontWeight: 900,
+					fontSize: 54,
+					color: C.blanco,
+					textShadow: SOMBRA,
+					opacity: brecha,
+					transform: `scale(${interpolate(brecha, [0, 1], [0.6, 1])})`,
+				}}
+			>
+				brecha
+			</div>
+		</div>
 	);
 };
