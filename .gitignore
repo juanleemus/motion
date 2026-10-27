@@ -1,3 +1,6 @@
 node_modules/
 .cache/
 trabajo/
+
+# Entregas de audio/video del cliente (no se suben: repo público)
+entregas/
