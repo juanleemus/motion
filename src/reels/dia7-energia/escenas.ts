@@ -1,0 +1,33 @@
+import {DURACION, en} from './tiempos.ts';
+
+// Inicio de cada escena: la primera palabra de su frase (3 fotogramas antes).
+export const ESCENAS = {
+	portada: 0,
+	sinLuz: en('Se está') - 3,
+	nvidia: en('El CEO') - 3,
+	inversores: en('y Amazon') - 3,
+	dia7: en('Día 7') - 3,
+	centro: en('En este momento', 2) - 3,
+	red: en('y en muchas') - 3,
+	dondeSale: en('De dónde') - 3,
+	solar: en('Tanto') - 3,
+	gas: en('Las turbinas') - 3,
+	nuclear: en('Queda') - 3,
+	brutal: en('pero la de') - 3,
+	plantas: en('Y las últimas') - 3,
+	costo: en('alrededor') - 3,
+	tarde: en('más del doble') - 3,
+	reactores: en('La solución para') - 3,
+	serie: en('Fabricarlos') - 3,
+	chat: en('Le pregunté') - 3,
+	xenergy: en('X-energy') - 3,
+	licencia: en('Tiene la primera') - 3,
+	plata: en('y acaba') - 3,
+	objetivo: en('Y el precio') - 3,
+	ojo: en('Ojo') - 3,
+	comenta: en('Comenta') - 3,
+	contratos: en('Por un lado') - 3,
+	gringos: en('Esto los gringos') - 3,
+	cierre: en('Por esto') - 3,
+	fin: DURACION,
+};

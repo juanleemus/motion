@@ -325,7 +325,8 @@ export const Cifra: React.FC<{
 	despues?: string;
 	tam?: number;
 	dur?: number;
-}> = ({valor, en, antes = '', despues = '', tam = 300, dur = 22}) => {
+	miles?: boolean; // separa los miles con punto (35.000)
+}> = ({valor, en, antes = '', despues = '', tam = 300, dur = 22, miles = false}) => {
 	const frame = useCurrentFrame();
 	const r = useRebote(en);
 	const p = interpolate(frame, [en, en + dur], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
@@ -349,7 +350,7 @@ export const Cifra: React.FC<{
 			}}
 		>
 			{antes}
-			{n}
+			{miles ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.') : n}
 			{despues}
 		</div>
 	);

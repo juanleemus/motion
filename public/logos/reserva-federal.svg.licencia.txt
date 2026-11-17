@@ -1,0 +1,23 @@
+Seal of the United States Federal Reserve System.svg
+https://commons.wikimedia.org/wiki/File:Seal_of_the_United_States_Federal_Reserve_System.svg
+
+== {{int:filedesc}} ==
+{{Information
+|description=Seal of the United States {{W|Federal Reserve System}}.
+The seal has most of the elements of the {{F|US-FederalReserveBoard-Seal.svg|Board of Governors seal}}.  A version is printed on all U.S. {{W|Federal Reserve Note}}s redesigned since 1996 (replacing the letter of the bank which printed the note, which was used in earlier designs).
+|date=
+|source=Extracted from PDF version of the Federal Reserve's [http://federalreserve.gov/pf/pf.htm Purposes & Functions] document (direct PDF URL [http://federalreserve.gov/pf/pdf/pf_1.pdf]).
+|author=U.S. Government
+|permission=Public domain from a copyright perspective, but other trademark-like restrictions apply.  The symbol may not be used to convey the impression that a nonmember bank, banking association, firm or partnership is a member of the Federal reserve system (per [https://www4.law.cornell.edu/uscode/html/uscode18/usc_sec_18_00000709----000-.html 18 U.S.C § 709]).  Also see [https://www4.law.cornell.edu/uscode/html/uscode18/usc_sec_18_00000701----000-.html 18 U.S.C § 701].
+|other versions=[[Image:US-FederalReserveBoard-Seal.svg |thumb|left|100px|Board of Governors seal]]
+|other fields={{Igen|U|+|s=s|sd=&#x20;(US)}}
+}}
+
+== {{int:license-header}} ==
+{{PD-USGov-Federal Reserve}}
+{{insignia}}
+
+[[Category:Federal Reserve]]
+[[Category:SVG seals of the United States]]
+[[Category:SVG logos of banks in the United States| ]]
+[[Category:Symbols of central banks|United States]]

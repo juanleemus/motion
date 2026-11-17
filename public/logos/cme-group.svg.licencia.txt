@@ -1,0 +1,22 @@
+CME Group Logo.svg
+https://commons.wikimedia.org/wiki/File:CME_Group_Logo.svg
+
+=={{int:filedesc}}==
+{{Information
+|description={{en|1=CME Group Logo}}
+|date=2019-04-02
+|source=Extracted from: cmegroup.com
+|author=CME Group
+|permission=
+|other versions=
+}}
+
+=={{int:license-header}}==
+
+{{PD-textlogo}}{{SVG-logo}}
+
+[[Category:Logos of companies based in Illinois]]
+[[Category:CME Group]]
+[[Category:SVG logos of companies of the United States]]
+[[Category:Logos of derivatives markets]]
+[[Category:Logos of financial services companies of the United States]]

@@ -1,3 +1,7 @@
 node_modules/
 .cache/
 trabajo/
+out/dia7-*
+out/dia8-*
+public/apoyo-semana-bolsa/
+out/semana-bolsa*
