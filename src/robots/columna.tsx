@@ -38,7 +38,7 @@ const resaltar = (texto: string, color: string, brillo?: string) =>
 	);
 
 // ---------- Ícono chico: se dibuja y se rellena de azul ----------
-export const IconoMini: React.FC<{trazos: Trazo[]; en: number; tam?: number; trazo?: string}> = ({trazos, en, tam = 64, trazo = C.blanco}) => {
+export const IconoMini: React.FC<{trazos: Trazo[]; en: number; tam?: number; trazo?: string; relleno?: string}> = ({trazos, en, tam = 64, trazo = C.blanco, relleno}) => {
 	const frame = useCurrentFrame();
 	const dibujo = interpolate(frame, [en, en + 10], [0, 1], {...clamp, easing: Easing.inOut(Easing.cubic)});
 	const lleno = interpolate(frame, [en + 8, en + 13], [0, 1], clamp);
@@ -49,7 +49,7 @@ export const IconoMini: React.FC<{trazos: Trazo[]; en: number; tam?: number; tra
 					key={i}
 					d={t.d}
 					pathLength={1}
-					fill={t.relleno === 'a' ? C.azul : t.relleno === 'b' ? C.azulOscuro : 'none'}
+					fill={relleno && t.relleno ? relleno : t.relleno === 'a' ? C.azul : t.relleno === 'b' ? C.azulOscuro : 'none'}
 					fillOpacity={t.relleno ? lleno : 0}
 					stroke={trazo}
 					strokeWidth={7}
@@ -354,7 +354,7 @@ export const Pildora: React.FC<{
 				...style,
 			}}
 		>
-			{icono ? <IconoMini trazos={icono} en={en + 2} tam={tam * 1.2} trazo={tipo === 'acento' ? C.tinta : C.blanco} /> : null}
+			{icono ? <IconoMini trazos={icono} en={en + 2} tam={tam * 1.2} trazo={tipo === 'acento' ? C.tinta : C.blanco} relleno={tipo === 'negativo' ? C.tinta : undefined} /> : null}
 			<span>
 				{tipo === 'acento'
 					? resaltar(texto, C.blanco)

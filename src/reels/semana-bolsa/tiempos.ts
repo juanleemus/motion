@@ -3,6 +3,6 @@
 import palabras from './palabras.json' with {type: 'json'};
 import {crearTiempos, type Palabra} from '../../tiemposBase.ts';
 
-export const DURACION = 1689; // 00:00:56:09 (duración exacta de la voz editada, 56,278 s)
+export const DURACION = 1579; // 00:00:52:19 (duración exacta de la voz editada, 52,621 s)
 
 export const {seg, segFin, f, en, finDe} = crearTiempos(palabras as Palabra[]);

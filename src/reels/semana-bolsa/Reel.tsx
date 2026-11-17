@@ -178,7 +178,7 @@ export const ReelSemanaBolsa: React.FC = () => (
 				<TarjetaClara en={en('Y eso puede')} icono={I.gota} texto="y eso puede mover el *petróleo*" tam={58} />
 				<div style={{display: 'flex', gap: 30, marginTop: 10}}>
 					<Pildora en={en('petróleo')} texto="petróleo" icono={I.sube} tipo="acento" giro={-2} tam={56} />
-					<Pildora en={en('petróleo') + 6} texto="petróleo" icono={I.baja} tipo="negativo" giro={2} tam={56} />
+					<Pildora en={en('petróleo') + 3} texto="petróleo" icono={I.baja} tipo="negativo" giro={2} tam={56} />
 				</div>
 			</S>
 

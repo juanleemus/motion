@@ -2,6 +2,8 @@
 # muletillas), une con fundidos cortos, limpia y deja en -14 LUFS (pico -1,5 dBTP).
 # Uso: python3 scripts/editar_voz.py cruda.wav salida.wav lista-de-cortes.txt [quitar.txt]
 #   quitar.txt (opcional): una línea por tramo a quitar de la voz cruda, "inicio fin motivo" en segundos.
+#   FRASES=transcripcion.json (whisper.cpp de la voz cruda): las pausas tras punto, "?" o "!" quedan en
+#   PAUSA_FRASE; todas las demás (comas, respiros, pausas leves) en PAUSA_COMA.
 import subprocess, sys, re, wave
 import numpy as np
 import pyloudnorm as pyln
@@ -16,8 +18,10 @@ if len(sys.argv) > 4:
             a, b, *m = l.split(); quitar.append((float(a), float(b), ' '.join(m)))
 
 SR = 48000
-PAUSA = 0.17      # silencio que queda entre frases
-ANTES, DESPUES = 0.05, 0.08  # aire que se deja antes y después de cada tramo de voz
+import os, json
+PAUSA_FRASE = float(os.environ.get('PAUSA_FRASE', 0.13))  # silencio que queda entre frases
+PAUSA_COMA = float(os.environ.get('PAUSA_COMA', 0.08))    # silencio que queda dentro de una frase
+ANTES, DESPUES = 0.03, 0.05  # aire que se deja antes y después de cada tramo de voz (no se come consonantes)
 FUNDIDO = 0.018   # 18 ms
 
 def leer(p):
@@ -26,7 +30,7 @@ def leer(p):
 
 x = leer(cruda); dur = len(x) / SR
 # 1) Tramos con voz (silencedetect)
-log = subprocess.run(['ffmpeg', '-i', cruda, '-af', 'silencedetect=noise=-45dB:d=0.2', '-f', 'null', '-'], capture_output=True, text=True).stderr
+log = subprocess.run(['ffmpeg', '-i', cruda, '-af', 'silencedetect=noise=-42dB:d=0.08', '-f', 'null', '-'], capture_output=True, text=True).stderr
 ini = [float(v) for v in re.findall(r'silence_start: ([\d.]+)', log)]
 fin = [float(v) for v in re.findall(r'silence_end: ([\d.]+)', log)]
 sil = list(zip(ini, fin + [dur] * (len(ini) - len(fin))))
@@ -45,30 +49,37 @@ def resta(tramos, a, b):
             if e > b: out.append((b, e))
     return [(s, e) for s, e in out if e - s > 0.04]
 for a, b, _ in quitar: voz = resta(voz, a, b)
-# 3) Une: cada tramo con su aire; si la pausa original es corta, se deja tal cual
-piezas = []
-for i, (s, e) in enumerate(voz):
-    s0 = max(0, s - ANTES); e0 = min(dur, e + DESPUES)
-    piezas.append([s0, e0])
-# fusiona piezas que se pisan o cuya pausa ya es corta
-fus = [piezas[0]]
-for s, e in piezas[1:]:
-    hueco = s - fus[-1][1]
-    if hueco <= PAUSA - ANTES - DESPUES + 0.04 and not any(fus[-1][1] <= a < s + 0.01 for a, _, _ in quitar):
-        fus[-1][1] = e
-    else:
-        fus.append([s, e])
+# 3) Fin de frase: el silencio más cercano después de cada palabra con . ? !
+finales = []
+if os.environ.get('FRASES'):
+    for seg in json.load(open(os.environ['FRASES'], encoding='utf-8'))['transcription']:
+        w = seg['text'].strip()
+        if w and w[-1] in '.?!': finales.append(seg['offsets']['to'] / 1000)
+def es_fin(a, b):
+    return any(a - 0.6 <= t <= b + 0.3 for t in finales)
+# 4) Une: cada tramo con su aire; la pausa queda en PAUSA_FRASE o PAUSA_COMA (nunca se alarga)
 nf = int(FUNDIDO * SR)
 salida_buf = np.zeros(0); mapa = []
-hueco = int((PAUSA - ANTES - DESPUES) * SR)
+fus = [[max(0, s - ANTES), min(dur, e + DESPUES)] for s, e in voz]
 for i, (s, e) in enumerate(fus):
+    if i:
+        p_s, p_e = voz[i - 1][1], voz[i][0]  # silencio original entre los dos tramos
+        objetivo = PAUSA_FRASE if es_fin(p_s, p_e) else PAUSA_COMA
+        cortado = any(p_s <= a < p_e + 0.01 for a, _, _ in quitar)
+        hueco = min(objetivo, p_e - p_s) if not cortado else objetivo
+        relleno = hueco - ANTES - DESPUES
+        if relleno < 0:  # pausa original más corta que el aire: se solapan, se recorta el aire
+            s = max(s, fus[i - 1][1] + relleno) if False else s
+        salida_buf = np.concatenate([salida_buf, np.zeros(max(0, int(relleno * SR)))])
+        if relleno < 0:
+            # quita del final lo que sobra para que la pausa no supere la original
+            salida_buf = salida_buf[: len(salida_buf) + int(relleno * SR)]
     seg = x[int(s * SR):int(e * SR)].copy()
     rampa = np.linspace(0, 1, nf)
     seg[:nf] *= rampa; seg[-nf:] *= rampa[::-1]
-    if i: salida_buf = np.concatenate([salida_buf, np.zeros(max(0, hueco))])
     mapa.append((s, e, len(salida_buf) / SR))
     salida_buf = np.concatenate([salida_buf, seg])
-# 4) Limpieza: graves que retumban, ruido de fondo, compresión suave
+# 5) Limpieza: graves que retumban, ruido de fondo, compresión suave
 tmp = salida + '.tmp.wav'
 pcm = (np.clip(salida_buf, -1, 1) * 32767).astype('<i2')
 with wave.open(tmp, 'wb') as w:
@@ -78,7 +89,7 @@ y = leer_f = None
 raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', tmp, '-af', filtro, '-ac', '1', '-ar', str(SR), '-f', 'f32le', '-'], capture_output=True, check=True).stdout
 y = np.frombuffer(raw, '<f4').astype(np.float64)
 import os; os.remove(tmp)
-# 5) -14 LUFS con pico real (4x) por debajo de -1,5 dBTP
+# 6) -14 LUFS con pico real (4x) por debajo de -1,5 dBTP
 med = pyln.Meter(SR)
 techo = 10 ** (-1.9 / 20)
 def pico_real(v): return np.max(np.abs(resample_poly(v, 4, 1)))
@@ -97,11 +108,11 @@ print(f'voz editada: {med.integrated_loudness(y):.2f} LUFS · pico real {20*np.l
 pcm = (np.clip(y, -1, 1) * 32767).astype('<i2')
 with wave.open(salida, 'wb') as w:
     w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes(pcm.tobytes())
-# 6) Lista de cortes
+# 7) Lista de cortes
 def hms(s): return f'{int(s//60)}:{s%60:06.3f}'
 with open(lista, 'w', encoding='utf-8') as f:
     f.write(f'Voz cruda: {dur:.3f} s  ->  voz editada: {len(y)/SR:.3f} s\n')
-    f.write(f'Pausas entre frases: {PAUSA:.2f} s · fundidos de {FUNDIDO*1000:.0f} ms\n\n')
+    f.write(f'Pausas: {PAUSA_FRASE:.2f} s entre frases, {PAUSA_COMA:.2f} s dentro de la frase · fundidos de {FUNDIDO*1000:.0f} ms\n\n')
     f.write('TRAMOS QUE QUEDARON (voz cruda -> voz editada)\n')
     for s, e, d in mapa:
         f.write(f'  cruda {hms(s)} - {hms(e)}  ->  editada {hms(d)} - {hms(d + e - s)}\n')
@@ -110,7 +121,7 @@ with open(lista, 'w', encoding='utf-8') as f:
     for s, e, _ in mapa:
         if s - prev > 0.005:
             motivo = next((m for a, b, m in quitar if a < s and b > prev), None)
-            f.write(f'  cruda {hms(prev)} - {hms(s)}  ({s-prev:.2f} s)  {motivo or "silencio acortado"}\n')
+            f.write(f'  cruda {hms(prev)} - {hms(s)}  ({s-prev:.2f} s)  {motivo or "pausa acortada"}\n')
         prev = e
     if dur - prev > 0.005: f.write(f'  cruda {hms(prev)} - {hms(dur)}  ({dur-prev:.2f} s)  silencio final\n')
 print(lista)

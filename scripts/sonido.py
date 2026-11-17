@@ -1,5 +1,7 @@
 # Música lo-fi a 100 BPM + efectos sintetizados con código (sin bancos de sonido).
 # Uso: python3 scripts/sonido.py trabajo/eventos.json salida.wav [segundos] [lufs]
+#   PISTAS=1: además escribe salida-musica.wav y salida-efectos.wav por separado, con la misma ganancia
+#   que la mezcla (música + efectos a LUFS), para mezclarlas aparte manteniendo la relación de siempre.
 import json, sys
 import numpy as np
 from scipy.signal import butter, sosfilt
@@ -150,6 +152,8 @@ def limitar(y, techo=0.89):
     for i in range(len(g)):  # hacia adelante: suelta suave
         v = min(suave[i], a * v + (1 - a) * suave[i]); suave[i] = v
     return y * suave[:, None]
+g_pistas = 10 ** ((LUFS - med.integrated_loudness(mezcla)) / 20)
+pistas = {'musica': musica * 0.55 * g_pistas, 'efectos': efectos * g_pistas}
 for _ in range(4):
     l = med.integrated_loudness(mezcla)
     mezcla *= 10 ** ((LUFS - l) / 20)
@@ -160,3 +164,13 @@ pcm = (np.clip(mezcla, -1, 1) * 32767).astype('<i2')
 with wave.open(salida, 'wb') as w:
     w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes(pcm.tobytes())
 print(salida, f'{N/SR:.3f} s')
+import os
+if os.environ.get('PISTAS'):
+    for nombre, y in pistas.items():
+        if np.max(np.abs(y)) > 0.89: y = y * (0.89 / np.max(np.abs(y)))
+        ruta = salida.replace('.wav', f'-{nombre}.wav')
+        pcm = (np.clip(y, -1, 1) * 32767).astype('<i2')
+        with wave.open(ruta, 'wb') as w:
+            w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes(pcm.tobytes())
+        l = med.integrated_loudness(y) if np.any(y) else float('-inf')
+        print(ruta, f'{l:.1f} LUFS · pico {20*np.log10(np.max(np.abs(y))+1e-12):.1f} dBFS')

@@ -9,7 +9,7 @@ export const ESCENAS = {
 	fedwatch: en('Según CME') - 3,
 	jueves: en('Y el jueves') - 3,
 	iran: en('Se espera') - 3,
-	cierre: en('Nadie') - 3,
+	cierre: en('Nadie') + 4, // un poco después: deja ver las píldoras del petróleo
 	encuesta: en('Y tú') - 3,
 	sigue: en('y sigue') - 3,
 	fin: DURACION,
