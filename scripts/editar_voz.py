@@ -21,7 +21,7 @@ SR = 48000
 import os, json
 PAUSA_FRASE = float(os.environ.get('PAUSA_FRASE', 0.13))  # silencio que queda entre frases
 PAUSA_COMA = float(os.environ.get('PAUSA_COMA', 0.08))    # silencio que queda dentro de una frase
-ANTES, DESPUES = 0.03, 0.05  # aire que se deja antes y después de cada tramo de voz (no se come consonantes)
+ANTES, DESPUES = 0.06, 0.05  # aire antes y después de cada tramo de voz (los arranques suaves necesitan más)
 FUNDIDO = 0.018   # 18 ms
 
 def leer(p):
@@ -30,7 +30,7 @@ def leer(p):
 
 x = leer(cruda); dur = len(x) / SR
 # 1) Tramos con voz (silencedetect)
-log = subprocess.run(['ffmpeg', '-i', cruda, '-af', 'silencedetect=noise=-42dB:d=0.08', '-f', 'null', '-'], capture_output=True, text=True).stderr
+log = subprocess.run(['ffmpeg', '-i', cruda, '-af', 'silencedetect=noise=-42dB:d=0.12', '-f', 'null', '-'], capture_output=True, text=True).stderr
 ini = [float(v) for v in re.findall(r'silence_start: ([\d.]+)', log)]
 fin = [float(v) for v in re.findall(r'silence_end: ([\d.]+)', log)]
 sil = list(zip(ini, fin + [dur] * (len(ini) - len(fin))))
@@ -93,9 +93,9 @@ import os; os.remove(tmp)
 med = pyln.Meter(SR)
 techo = 10 ** (-1.9 / 20)
 def pico_real(v): return np.max(np.abs(resample_poly(v, 4, 1)))
-def limitar(v):
+def limitar(v, t=None):
     env = maximum_filter1d(np.abs(v), size=int(0.005 * SR))
-    g = np.minimum(1.0, techo / np.maximum(env, 1e-9))
+    g = np.minimum(1.0, (t or techo) / np.maximum(env, 1e-9))
     a = np.exp(-1 / (0.06 * SR)); s = np.empty_like(g); k = 1.0
     for i in range(len(g) - 1, -1, -1): k = min(g[i], a * k + (1 - a) * g[i]); s[i] = k
     k = 1.0
@@ -104,6 +104,9 @@ def limitar(v):
 for _ in range(5):
     y *= 10 ** ((-14 - med.integrated_loudness(y)) / 20)
     if pico_real(y) > techo: y = limitar(y * 0.999)
+for _ in range(8):  # el último paso siempre es el limitador: el pico nunca pasa de -1,5 dBTP
+    y *= 10 ** ((-14 - med.integrated_loudness(y)) / 20)
+    if pico_real(y) > techo: y = limitar(y, techo * 0.94)  # margen: el pico real queda entre muestras
 print(f'voz editada: {med.integrated_loudness(y):.2f} LUFS · pico real {20*np.log10(pico_real(y)):.2f} dBTP · {len(y)/SR:.3f} s (cruda {dur:.3f} s)')
 pcm = (np.clip(y, -1, 1) * 32767).astype('<i2')
 with wave.open(salida, 'wb') as w:

@@ -11,6 +11,8 @@ import {ReelDia8} from './reels/dia8-thiel/Reel';
 import {DURACION as DURACION_DIA8} from './reels/dia8-thiel/tiempos';
 import {ReelSemanaBolsa} from './reels/semana-bolsa/Reel';
 import {DURACION as DURACION_SEMANA_BOLSA} from './reels/semana-bolsa/tiempos';
+import {ReelNvidiaResultados} from './reels/nvidia-resultados/Reel';
+import {DURACION as DURACION_NVIDIA_RESULTADOS} from './reels/nvidia-resultados/tiempos';
 
 for (const peso of ['500', '800', '900']) {
 	loadFont({family: 'Montserrat', url: staticFile(`fuentes/montserrat-latin-${peso}-normal.woff2`), weight: peso});
@@ -22,6 +24,7 @@ export const RemotionRoot: React.FC = () => (
 		<Composition id="dia7-energia-escuela-invora" component={ReelDia7} durationInFrames={DURACION_DIA7} fps={FPS} width={1080} height={1920} />
 		<Composition id="dia8-thiel-escuela-invora" component={ReelDia8} durationInFrames={DURACION_DIA8} fps={FPS} width={1080} height={1920} />
 		<Composition id="semana-bolsa-escuela-invora" component={ReelSemanaBolsa} durationInFrames={DURACION_SEMANA_BOLSA} fps={FPS} width={1080} height={1920} />
+		<Composition id="nvidia-resultados-escuela-invora" component={ReelNvidiaResultados} durationInFrames={DURACION_NVIDIA_RESULTADOS} fps={FPS} width={1080} height={1920} />
 		{/* Intros "Día X de 12": una composición por día (dia1-escuela-invora … dia12-escuela-invora) */}
 		{Array.from({length: TOTAL_DIAS}, (_, i) => i + 1).map((dia) => (
 			<Composition

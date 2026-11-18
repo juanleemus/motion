@@ -326,11 +326,14 @@ export const Cifra: React.FC<{
 	tam?: number;
 	dur?: number;
 	miles?: boolean; // separa los miles con punto (35.000)
-}> = ({valor, en, antes = '', despues = '', tam = 300, dur = 22, miles = false}) => {
+	decimales?: number; // 2,68 (coma decimal)
+	color?: string; // azul por defecto; rojo solo si es negativo
+}> = ({valor, en, antes = '', despues = '', tam = 300, dur = 22, miles = false, decimales = 0, color = C.azul}) => {
 	const frame = useCurrentFrame();
 	const r = useRebote(en);
 	const p = interpolate(frame, [en, en + dur], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
-	const n = Math.round(valor * p);
+	const n = decimales ? (valor * p).toFixed(decimales) : String(Math.round(valor * p));
+	const [ent, dec] = n.split('.');
 	const din = useDinamico();
 	const golpe = din && frame >= en + dur ? 0.12 * Math.exp(-(frame - en - dur) / 4) : 0;
 	return (
@@ -340,8 +343,8 @@ export const Cifra: React.FC<{
 				fontWeight: 900,
 				fontSize: tam,
 				lineHeight: 1,
-				color: C.azul,
-				textShadow: `0 0 50px ${C.brillo}, ${SOMBRA}`,
+				color,
+				textShadow: `0 0 50px ${color === C.rojo ? 'rgba(255,77,94,0.55)' : C.brillo}, ${SOMBRA}`,
 				transform: `scale(${interpolate(r, [0, 1], [0.6, 1]) * (1 + golpe)})`,
 				opacity: aparece(frame, en, 4),
 				fontVariantNumeric: 'tabular-nums',
@@ -350,7 +353,8 @@ export const Cifra: React.FC<{
 			}}
 		>
 			{antes}
-			{miles ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.') : n}
+			{miles ? ent.replace(/\B(?=(\d{3})+(?!\d))/g, '.') : ent}
+			{dec ? `,${dec}` : ''}
 			{despues}
 		</div>
 	);

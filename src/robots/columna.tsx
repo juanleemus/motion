@@ -583,4 +583,99 @@ export const EncuestaFinal: React.FC<{subeEn: number; caeEn: number; votoEn?: nu
 	);
 };
 
+// ---------- Barras comparadas: lo que pasó vs. lo que se esperaba (cifras dichas en la voz) ----------
+export type BarraComp = {etiqueta: string; valor: number; texto: string; en: number; tono?: 'azul' | 'gris' | 'rojo'};
+export const BarrasComparadas: React.FC<{en: number; titulo?: string; barras: BarraComp[]; max?: number}> = ({en, titulo, barras, max}) => {
+	const frame = useCurrentFrame();
+	const e = useEntrada(en);
+	const tope = max ?? Math.max(...barras.map((b) => b.valor));
+	return (
+		<div
+			style={{
+				...e,
+				width: '100%',
+				boxSizing: 'border-box',
+				background: TINTA85,
+				border: BORDE,
+				borderRadius: 28,
+				padding: '26px 34px 30px',
+				display: 'flex',
+				flexDirection: 'column',
+				gap: 20,
+				boxShadow: '0 16px 40px rgba(0,0,0,0.55)',
+				fontFamily: FUENTE,
+			}}
+		>
+			{titulo ? <div style={{...ETIQUETA, fontSize: 26, color: C.gris}}>{titulo}</div> : null}
+			{barras.map((b, i) => {
+				const p = interpolate(frame, [b.en, b.en + 16], [0, b.valor / tope], {...clamp, easing: Easing.out(Easing.cubic)});
+				const color = b.tono === 'gris' ? C.gris : b.tono === 'rojo' ? C.rojo : C.azul;
+				const fondo =
+					b.tono === 'gris'
+						? 'linear-gradient(90deg, #4b5568, #8b95a8)'
+						: b.tono === 'rojo'
+							? `linear-gradient(90deg, #b3283a, ${C.rojo})`
+							: `linear-gradient(90deg, ${C.azulOscuro}, ${C.azul})`;
+				const listo = frame >= b.en + 16;
+				return (
+					<div key={i} style={{display: 'flex', flexDirection: 'column', gap: 10, opacity: aparece(frame, b.en, 4)}}>
+						<div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'baseline'}}>
+							<span style={{fontWeight: 800, fontSize: 40, color: C.blanco}}>{b.etiqueta}</span>
+							<span style={{fontWeight: 900, fontSize: 44, color, opacity: interpolate(frame, [b.en + 8, b.en + 14], [0, 1], clamp)}}>{b.texto}</span>
+						</div>
+						<div style={{height: 46, borderRadius: 23, background: 'rgba(255,255,255,0.1)'}}>
+							<div
+								style={{
+									width: `${p * 100}%`,
+									height: '100%',
+									borderRadius: 23,
+									background: fondo,
+									boxShadow: listo && b.tono !== 'gris' ? `0 0 ${18 + 12 * pulsoBeat(frame)}px ${b.tono === 'rojo' ? 'rgba(255,77,94,0.55)' : C.brillo}` : undefined,
+								}}
+							/>
+						</div>
+					</div>
+				);
+			})}
+		</div>
+	);
+};
+
+// ---------- Botón "Seguir" que pasa a "Siguiendo" (llamado final).
+export const BotonSeguir: React.FC<{en: number; sigueEn: number}> = ({en, sigueEn}) => {
+	const frame = useCurrentFrame();
+	const r = useRebote(en);
+	const si = frame >= sigueEn;
+	const golpe = si ? 0.12 * Math.exp(-(frame - sigueEn) / 4) : 0;
+	return (
+		<div
+			style={{
+				display: 'flex',
+				alignItems: 'center',
+				gap: 18,
+				padding: '22px 54px',
+				borderRadius: 70,
+				background: si ? 'rgba(15,20,32,0.85)' : C.azul,
+				border: si ? `3px solid ${C.azul}` : '3px solid transparent',
+				boxShadow: `0 0 40px ${C.brillo}, 0 16px 34px rgba(0,0,0,0.55)`,
+				fontFamily: FUENTE,
+				fontWeight: 900,
+				fontSize: 58,
+				color: si ? C.azul : C.tinta,
+				opacity: aparece(frame, en, 4),
+				transform: `scale(${interpolate(r, [0, 1], [0.5, 1]) * (1 + golpe)})`,
+			}}
+		>
+			<svg viewBox="0 0 24 24" width={56} height={56}>
+				{si ? (
+					<path d="M5 12.5 L10 17.5 L19 7" fill="none" stroke={C.azul} strokeWidth={3.4} strokeLinecap="round" strokeLinejoin="round" />
+				) : (
+					<path d="M12 5 V19 M5 12 H19" fill="none" stroke={C.tinta} strokeWidth={3.4} strokeLinecap="round" />
+				)}
+			</svg>
+			{si ? 'Siguiendo' : 'Seguir'}
+		</div>
+	);
+};
+
 export {Dinamico};

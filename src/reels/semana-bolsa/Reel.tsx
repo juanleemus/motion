@@ -12,6 +12,7 @@ import {
 	FondoSeccion,
 	FranjaDato,
 	LogoChico,
+	BotonSeguir,
 	PanelProbabilidad,
 	Pildora,
 	SeccionColumna,
@@ -33,43 +34,6 @@ const S: React.FC<{k: keyof typeof ESCENAS; gap?: number; children: React.ReactN
 	</SeccionColumna>
 );
 const FOTOS = 'apoyo-semana-bolsa/fotos';
-
-// Botón "Seguir" que pasa a "Siguiendo" (llamado final).
-const BotonSeguir: React.FC<{en: number; sigueEn: number}> = ({en, sigueEn}) => {
-	const frame = useCurrentFrame();
-	const r = useRebote(en);
-	const si = frame >= sigueEn;
-	const golpe = si ? 0.12 * Math.exp(-(frame - sigueEn) / 4) : 0;
-	return (
-		<div
-			style={{
-				display: 'flex',
-				alignItems: 'center',
-				gap: 18,
-				padding: '22px 54px',
-				borderRadius: 70,
-				background: si ? 'rgba(15,20,32,0.85)' : C.azul,
-				border: si ? `3px solid ${C.azul}` : '3px solid transparent',
-				boxShadow: `0 0 40px ${C.brillo}, 0 16px 34px rgba(0,0,0,0.55)`,
-				fontFamily: FUENTE,
-				fontWeight: 900,
-				fontSize: 58,
-				color: si ? C.azul : C.tinta,
-				opacity: aparece(frame, en, 4),
-				transform: `scale(${interpolate(r, [0, 1], [0.5, 1]) * (1 + golpe)})`,
-			}}
-		>
-			<svg viewBox="0 0 24 24" width={56} height={56}>
-				{si ? (
-					<path d="M5 12.5 L10 17.5 L19 7" fill="none" stroke={C.azul} strokeWidth={3.4} strokeLinecap="round" strokeLinejoin="round" />
-				) : (
-					<path d="M12 5 V19 M5 12 H19" fill="none" stroke={C.tinta} strokeWidth={3.4} strokeLinecap="round" />
-				)}
-			</svg>
-			{si ? 'Siguiendo' : 'Seguir'}
-		</div>
-	);
-};
 
 export const ReelSemanaBolsa: React.FC = () => (
 	<Dinamico.Provider value>
