@@ -107,7 +107,7 @@ def componer(proj: str) -> None:
     cam = camara(proj)
     g = (f"[1:v]scale={d}:{d}:flags=lanczos,fps={FPS},format=rgba[cam];"
          f"[2:v]format=gray,scale={d}:{d}[m];[cam][m]alphamerge[circ];"
-         f"[0:v][3:v]overlay={cx - d // 2 - pad}:{cy - d // 2 - pad}[a];"
+         f"[0:v][3:v]overlay={cx - d // 2 - pad}:{cy - d // 2 - pad}:shortest=1[a];"
          f"[a][circ]overlay={cx - d // 2}:{cy - d // 2}:shortest=1,format=yuv420p[v]")
     sh(["ffmpeg", "-hide_banner", "-y", "-i", graf, "-i", cam, "-loop", "1", "-i", fm,
         "-loop", "1", "-i", fa, "-filter_complex", g, "-map", "[v]", "-map", "0:a", *ENC, "-c:a", "copy",
