@@ -14,7 +14,7 @@ const relativo = (x: unknown, d: number): unknown => {
   if (Array.isArray(x)) return x.map((v) => relativo(v, d));
   if (x && typeof x === 'object') {
     const o: Record<string, unknown> = {};
-    for (const [k, v] of Object.entries(x)) o[k] = /^(f|kf|ft|fa|fe|ff|kf0)$/.test(k) && typeof v === 'number' ? v - d : relativo(v, d);
+    for (const [k, v] of Object.entries(x)) o[k] = /^(f|kf|ft|fa|fe|ff|fp|kf0)$/.test(k) && typeof v === 'number' ? v - d : relativo(v, d);
     return o;
   }
   return x;

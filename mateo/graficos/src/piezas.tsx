@@ -9,7 +9,7 @@ const TAM = {xl: [150, 72], l: [112, 60], m: [78, 50]} as const;
 // ---------- FRASE: una a tres líneas grandes, centradas; la palabra clave se enciende cuando se dice ----------
 export const Frase: React.FC<{kicker?: string; kf0?: number; lineas: L[]; cita?: boolean}> = ({kicker, kf0, lineas, cita}) => (
   <Zona alinear={cita ? 'flex-start' : 'center'}>
-    {kicker ? <div style={{marginBottom: 34}}><Kicker texto={kicker} f={kf0 ?? lineas[0]?.f} centro={!cita} /></div> : null}
+    {kicker ? <div style={{marginBottom: 34}}><Kicker texto={kicker} f={kf0 ?? 2} centro={!cita} /></div> : null}
     {cita ? <Comillas f={lineas[0]?.f} /> : null}
     {lineas.map((l, i) => (
       <Linea key={i} l={l} cita={cita} />
@@ -23,7 +23,8 @@ const Comillas: React.FC<{f?: number}> = ({f}) => {
 const Linea: React.FC<{l: L; cita?: boolean}> = ({l, cita}) => {
   const {style} = useEntrada(l.f);
   const [max, min] = TAM[l.tam ?? (cita ? 'm' : 'l')];
-  const fs = ajustar(plano(l.t), ZONA.w * (cita ? 0.92 : 0.96), max, min, cita ? 700 : 900);
+  const vis = cita ? plano(l.t) : plano(l.t).toUpperCase();
+  const fs = ajustar(vis, ZONA.w * (cita ? 0.9 : 0.9), max, min, cita ? 700 : 900);
   return (
     <div
       style={{
@@ -43,9 +44,10 @@ const Linea: React.FC<{l: L; cita?: boolean}> = ({l, cita}) => {
 };
 
 // ---------- CIFRA: un número enorme que cuenta hasta su valor en la palabra en que se dice ----------
-export const Cifra: React.FC<{kicker?: string; valor: string; sufijo?: string; etiqueta?: string; f?: number; fe?: number; chips?: {t: string; f?: number}[]}> = ({
-  kicker, valor, sufijo, etiqueta, f, fe, chips,
+export const Cifra: React.FC<{kicker?: string; previo?: string; fp?: number; valor: string; sufijo?: string; etiqueta?: string; f?: number; fe?: number; chips?: {t: string; f?: number}[]}> = ({
+  kicker, previo, fp, valor, sufijo, etiqueta, f, fe, chips,
 }) => {
+  const pre = useEntrada(fp ?? 2, 20);
   const fr = useCurrentFrame();
   const {style} = useEntrada(f, 40);
   const m = valor.match(/^(\D*)([\d.,]+)(.*)$/);
@@ -60,7 +62,8 @@ export const Cifra: React.FC<{kicker?: string; valor: string; sufijo?: string; e
   const e = useEncendido(f !== undefined ? f + 10 : undefined);
   return (
     <Zona>
-      {kicker ? <div style={{marginBottom: 26}}><Kicker texto={kicker} f={f} centro /></div> : null}
+      {kicker ? <div style={{marginBottom: 26}}><Kicker texto={kicker} f={2} centro /></div> : null}
+      {previo ? <div style={{...pre.style, marginBottom: 18, font: `800 ${ajustar(previo.toUpperCase(), ZONA.w * 0.9, 72, 44)}px/1.05 ${F.display}`, letterSpacing: '-0.02em', textTransform: 'uppercase', color: C.blanco}}>{previo}</div> : null}
       <div style={{...style, display: 'flex', alignItems: 'baseline', gap: 14, font: `900 ${fs}px/0.9 ${F.display}`, letterSpacing: '-0.05em', color: C.azulBrillo, textShadow: `0 0 ${50 * e}px ${C.azul}88`}}>
         {shown}
         {sufijo ? <span style={{fontSize: fs * 0.3, color: C.tinta100, letterSpacing: '-0.02em', textShadow: 'none'}}>{sufijo}</span> : null}
@@ -100,7 +103,7 @@ export const Lista: React.FC<{titulo?: string; ft?: number; items: Item[]; activ
   const fr = useCurrentFrame();
   return (
     <Zona>
-      {titulo ? <div style={{marginBottom: 40, alignSelf: 'stretch'}}><Kicker texto={titulo} f={ft ?? items[0]?.f} /></div> : null}
+      {titulo ? <div style={{marginBottom: 40, alignSelf: 'stretch'}}><Kicker texto={titulo} f={ft ?? 2} /></div> : null}
       <div style={{display: 'flex', flexWrap: 'wrap', gap, width: ZONA.w}}>
         {items.map((it, i) => (
           <ItemTarjeta key={i} it={it} w={w} fsT={fsT} alto={n === 4 ? 210 : 330} activa={activo === i && fa !== undefined && fr >= fa} />
@@ -168,7 +171,7 @@ export const Pasos: React.FC<{titulo?: string; ft?: number; items: {t: string; s
   const fsT = Math.min(58, Math.max(40, Math.floor((w - 60) / (Math.max(...items.map((x) => Math.min(x.t.length, 14))) * 0.56))));
   return (
     <Zona>
-      {titulo ? <div style={{marginBottom: 44, alignSelf: 'stretch'}}><Kicker texto={titulo} f={ft ?? items[0]?.f} /></div> : null}
+      {titulo ? <div style={{marginBottom: 44, alignSelf: 'stretch'}}><Kicker texto={titulo} f={ft ?? 2} /></div> : null}
       <div style={{display: 'flex', alignItems: 'stretch', gap, width: ZONA.w}}>
         {items.map((it, i) => (
           <Paso key={i} i={i} it={it} w={w} fsT={fsT} ultimo={i === n - 1} />
@@ -194,7 +197,7 @@ const Paso: React.FC<{i: number; it: {t: string; sub?: string; f?: number}; w: n
 // ---------- CASO: nombre (y foto) + antes → después ----------
 type Num = {v: string; l: string; f?: number};
 export const Caso: React.FC<{nombre: string; rol?: string; foto?: string; f?: number; antes: Num; despues: Num}> = ({nombre, rol, foto, f, antes, despues}) => {
-  const cab = useEntrada(f, 20);
+  const cab = useEntrada(Math.min(f ?? 2, 2), 20);
   const w = (ZONA.w - 140) / 2;
   return (
     <Zona>
@@ -235,7 +238,7 @@ export const Imagen: React.FC<{src: string; kicker?: string; f?: number; foco?: 
   const pf = interpolate(fr, [ff ?? 1e9, (ff ?? 1e9) + 10], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   return (
     <Zona>
-      {kicker ? <div style={{marginBottom: 30, alignSelf: 'stretch'}}><Kicker texto={kicker} f={f} /></div> : null}
+      {kicker ? <div style={{marginBottom: 30, alignSelf: 'stretch'}}><Kicker texto={kicker} f={2} /></div> : null}
       <div style={{...style, width: ancho, borderRadius: 26, overflow: 'hidden', border: `2px solid ${C.tinta700}`, boxShadow: '0 30px 70px rgba(0,0,0,.5)', position: 'relative'}}>
         <div style={{transform: `scale(${z})`, transformOrigin: '20% 70%', position: 'relative'}}>
           <Img src={staticFile(src)} style={{width: '100%', display: 'block'}} />

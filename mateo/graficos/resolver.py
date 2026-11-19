@@ -24,7 +24,7 @@ FPS = 30
 LEAD = 0.25       # s: la escena aparece un poco antes de la primera palabra
 ANTICIPO = 0.08
 # ancla → clave de cuadro que lee cada pieza
-CLAVES = {"en": "f", "kw_en": "kf", "titulo_en": "ft", "activo_en": "fa", "foco_en": "ff", "etiqueta_en": "fe"}   # s: un elemento entra apenas antes de su palabra (se lee justo cuando se oye)
+CLAVES = {"en": "f", "kw_en": "kf", "titulo_en": "ft", "activo_en": "fa", "foco_en": "ff", "etiqueta_en": "fe", "previo_en": "fp"}   # s: un elemento entra apenas antes de su palabra (se lee justo cuando se oye)
 
 
 def main() -> None:
