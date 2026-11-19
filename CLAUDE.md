@@ -18,5 +18,5 @@ Dos proyectos de Remotion independientes:
 ## Videos largos de Mateo Folador
 
 - Si el pedido menciona a Mateo, Mateo Folador, un video largo de YouTube, el kit de edición v2, `pipeline-largo` o `/video-largo`, trabaja solo dentro de `mateo/` y lee primero `mateo/LEEME.md`.
-- No se hace con Remotion: se usa el kit de Mateo (pipeline en Python y plantillas de HyperFrames). Se prepara con `bash mateo/preparar.sh <zip del paquete en Drive>`.
+- Con cámara a cuadro completo se usa el kit de Mateo (pipeline en Python y plantillas de HyperFrames), que se prepara con `bash mateo/preparar.sh <zip del paquete en Drive>`. Cuando Mateo solo aparece en el círculo de Tella, los gráficos se hacen con el sistema propio en Remotion de `mateo/graficos/` (ver `mateo/LEEME.md` § Gráficos en Remotion).
 - Kit, grabaciones y renders van en `mateo/paquete/`, que está fuera de git. No subas su contenido ni los enlaces de Drive.

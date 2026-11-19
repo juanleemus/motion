@@ -64,6 +64,26 @@ no se edita la imagen: se arma solo la capa gráfica, y Mateo va en un círculo 
 
 Los cambios al kit están en `linux/burbuja.patch` y `linux/burbuja.py`, y `aplicar.sh` los aplica.
 
+## Gráficos en Remotion (modo círculo, versión que se entrega)
+Las plantillas del kit están pensadas para un panel al lado de la cámara a cuadro completo. En modo círculo se desarman:
+textos chicos, tarjetas a medio llenar y contenido pegado abajo. Para estos videos se usa `mateo/graficos/`, que tiene
+la marca de Mateo (colores e Inter Tight) y reglas fijas:
+- **Zona única:** todo el contenido va centrado en la zona de la izquierda (`ZONA` en `src/marca.ts`), con el círculo
+  fijo a la derecha.
+- **Tamaños:** textos grandes ajustados al ancho (`ajustar`), nunca por debajo de 32–40 px.
+- **Sincronía:** cada elemento entra en el cuadro en que se dice su frase y la palabra clave se enciende en su palabra.
+- **Piezas:** `frase`, `cifra`, `lista`, `versus`, `pasos`, `caso` e `imagen`, siempre con la misma entrada y salida.
+
+Pasos:
+1. Preparar `burbuja.json`, la voz y el recorte del círculo con `burbuja.py <proyecto> fondo` y `burbuja.camara()`.
+2. Escribir `<proyecto>/plan.json`. Cada escena tiene `desde` y `hasta` como frases ancla, y sus elementos llevan
+   `en` (o `kw_en`). Para tomas repetidas que se van a cortar, `corte` da el segundo exacto del borde.
+3. `cd mateo/graficos && npm install && python3 resolver.py <proyecto> <slug>`: copia la voz y la cámara a
+   `public/<slug>/` y escribe `timeline.json`. Las escenas quedan pegadas una a otra, sin pantalla vacía.
+4. Renderizar los dos archivos:
+   `npx remotion render src/index.ts Mateo out/<slug>-con-circulo.mp4 --props='{"slug":"<slug>","circulo":true,"audio":true}'`
+   y lo mismo con `"circulo":false` para el de solo gráficos.
+
 ## Entregas
 - Borradores en `<proyecto>/renders/borrador/`.
 - El final en `<proyecto>/renders/`: `final.mp4`, `subtitulos.srt`, `CAPITULOS.txt` y `davinci/`.

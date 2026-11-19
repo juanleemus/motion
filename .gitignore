@@ -3,3 +3,8 @@ node_modules/
 trabajo/
 mateo/paquete/
 mateo/entregas/
+mateo/graficos/node_modules/
+mateo/graficos/out/
+mateo/graficos/public/*/
+mateo/graficos/public/*.png
+mateo/graficos/public/*.jpg
