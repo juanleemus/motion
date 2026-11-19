@@ -23,5 +23,10 @@ nuevo = ('import sys as _sys\n'
 if viejo in s:
     open(p, "w").write(s.replace(viejo, nuevo))
 PY
+# 3 · modo burbuja (video sin cámara a cuadro completo: Mateo en un círculo fijo, ver mateo/LEEME.md)
+cp "$AQUI/burbuja.py" "$PL/burbuja.py"
+if ! grep -q BURBUJA "$PL/escenas.py"; then
+  (cd "$PAQ/kit-edicion-v2" && patch -p0 --forward --quiet < "$AQUI/burbuja.patch")
+fi
 if grep -rn "mlx_whisper" "$PL"/*.py | grep -v "^$PL/asr.py"; then echo "✗ quedan usos de mlx_whisper"; exit 1; fi
 echo "✓ pipeline adaptado a Linux en $PL"

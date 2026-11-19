@@ -44,6 +44,26 @@ El usuario puede mandar el video ya cortado en lugar del export de Tella. Entonc
 4. Seguir el skill desde la fase 3 (corte limpio y puertas) en `--borrador`. El render 1080p sale solo con la
    aprobación de Mateo.
 
+## Modo burbuja: sin cámara a cuadro completo
+Algunos exports compuestos de Tella traen a Mateo solo en el círculo de la esquina y la pantalla congelada. En ese caso
+no se edita la imagen: se arma solo la capa gráfica, y Mateo va en un círculo fijo a la derecha.
+1. Crear la carpeta del proyecto con `raw/<export>.mp4`, `work/words-corte.json` (la transcripción con el vocabulario
+   corregido) y `burbuja.json`:
+   - `centro` y `radio`: el círculo en el video fuente. Se mide con `cv2.HoughCircles` sobre un cuadro.
+   - `x`: borde izquierdo de la zona libre (1480).
+   - `cx`, `cy` y `d`: el círculo en 1920×1080 (1680, 540, 400).
+2. `VIDEO_BORRADOR=1 python3 PL/burbuja.py <proyecto> fondo`: crea la grilla de la marca con la voz a −14 LUFS y un
+   `edl.json` de un solo plano.
+3. Escribir `graficos.json` como siempre. Todas las piezas con panel quedan a la izquierda del círculo y los textos se
+   centran en esa zona.
+4. `VIDEO_BORRADOR=1 BURBUJA=1480 python3 PL/escenas.py <proyecto>`, después `componer.py` y al final
+   `burbuja.py <proyecto> componer`. Salen dos archivos:
+   - `final-graficos.mp4`: solo la capa gráfica;
+   - `final-burbuja.mp4`: la capa con el círculo y el aro azul de la marca.
+5. Para el 1080p, lo mismo sin `VIDEO_BORRADOR`.
+
+Los cambios al kit están en `linux/burbuja.patch` y `linux/burbuja.py`, y `aplicar.sh` los aplica.
+
 ## Entregas
 - Borradores en `<proyecto>/renders/borrador/`.
 - El final en `<proyecto>/renders/`: `final.mp4`, `subtitulos.srt`, `CAPITULOS.txt` y `davinci/`.

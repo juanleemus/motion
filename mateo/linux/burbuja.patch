@@ -1,0 +1,67 @@
+--- pipeline-largo/escenas.py	2026-11-19 17:48:32.820825227 +0000
++++ pipeline-largo/escenas.py	2026-11-19 17:41:26.670961818 +0000
+@@ -27,7 +27,9 @@
+ HF = ["npx", "--yes", "hyperframes@0.8.147", "render", "--workers", "2"]
+ PARALELO = int(os.environ.get("ESCENAS_PARALELO", "4"))
+ FPS = 30
+-PRE, POST = 0.35, 0.5  # s antes de la primera palabra y después de la última
++PRE, POST = 0.35, 0.5
++# modo burbuja (BURBUJA=<x>, ver burbuja.py): Mateo va en un círculo fijo a la derecha de x; las capturas se centran a su izquierda
++BURBUJA = int(os.environ.get("BURBUJA", "0"))  # s antes de la primera palabra y después de la última
+ 
+ 
+ def version_kit() -> str:
+@@ -84,9 +86,10 @@
+         bx0, by0 = round(recorte[0] * W0), round(recorte[1] * H0)
+         bx1, by1 = bx0 + round(recorte[2] * W0), by0 + round(recorte[3] * H0)
+     iw, ih = bx1 - bx0, by1 - by0
+-    k = min(W * ancho / iw, H * 0.94 / ih)
++    AW = round((BURBUJA - 60) * ESC) if BURBUJA else W  # ancho útil: en modo burbuja, a la izquierda del círculo
++    k = min(AW * ancho / iw, H * 0.94 / ih)
+     cw, ch = round(iw * k / 2) * 2, round(ih * k / 2) * 2
+-    ox, oy = (W - cw) // 2, (H - ch) // 2
++    ox, oy = (AW - cw) // 2 + (round(20 * ESC) if BURBUJA else 0), (H - ch) // 2
+     n, S = max(1, round(dur * FPS)), 4
+     g = (f"[0]crop={iw}:{ih}:{bx0}:{by0},scale={cw}:{ch}:flags=lanczos,format=rgba[cap];color=c=0x0A0F1A:s={W}x{H}:r={FPS}:d={dur + 0.1:.3f}[bg];"
+          f"[bg][cap]overlay={ox}:{oy}:shortest=1")
+--- templates/mf-capas/scripts/build-escenas.mjs	2026-11-19 17:48:32.822698757 +0000
++++ templates/mf-capas/scripts/build-escenas.mjs	2026-11-19 17:41:30.543367586 +0000
+@@ -45,6 +45,11 @@
+   g50r: { host: [991, 50, 887, 980], panel: [42, 50, 893, 980] },
+   // solo: la pieza a cuadro completo, sin Mateo (definiciones y fórmulas, R12)
+   solo: { panel: [40, 40, 1840, 1000], solo: true } };
++// BURBUJA=<x> (modo burbuja): Mateo no está a cuadro completo sino en un círculo fijo a la derecha de x (lo pone
++// pipeline-largo/burbuja.py encima). Toda pieza con panel usa el área [40, 40, x − 60, 1000], los textos se centran
++// en esa área y el recuadro del host no se dibuja.
++const BURBUJA = +(process.env.BURBUJA || 0);
++if (BURBUJA) for (const k of ["g33", "g50", "g33r", "g50r", "solo"]) H[k] = { panel: [40, 40, BURBUJA - 100, 1000], solo: true };
+ const V = { W: 1080, H: 1920, panel: [0, 250, 918, 556], host: [0, 806, 1080, 1114] };
+ 
+ // piezas nuevas: cada archivo de assets/piezas/ agrega defs a MFA (se cargan después de la biblioteca base)
+@@ -61,7 +66,7 @@
+   const L = vert ? V : H[e.layout] || { host: H.full };
+   const solo = !!L.solo, sigue = !!e.continua && !solo; // continua: el recuadro ya está en su lugar (escena de panel que sigue a otra)
+   const panel = L.panel ? `<div id="panel" style="${box(L.panel)}"><div id="an"></div></div>` : "";
+-  const capY = vert ? "bottom:372px;left:64px;right:162px" : "bottom:180px;left:0;right:0"; // arriba de la barra y los subtítulos de YouTube (≈17 %)
++  const capY = vert ? "bottom:372px;left:64px;right:162px" : BURBUJA ? `bottom:180px;left:0;right:${1920 - BURBUJA + 40}px` : "bottom:180px;left:0;right:0"; // arriba de la barra y los subtítulos de YouTube (≈17 %)
+   return `<!doctype html>
+ <html lang="es" data-resolution="${vert ? "portrait" : "landscape"}">
+ <head>
+@@ -77,7 +82,7 @@
+ #root{position:relative;width:100%;height:100%;overflow:hidden}
+ #stage{position:absolute;left:0;top:0;width:${W}px;height:${Hh}px;${ESC !== 1 ? `transform:scale(${ESC});transform-origin:0 0;` : ""}}
+ #bg{position:absolute;inset:0}
+-#hostbox{position:absolute;z-index:2;overflow:hidden;${box(vert ? V.host : H.full)}${solo ? ";display:none" : ""}}
++#hostbox{position:absolute;z-index:2;overflow:hidden;${box(vert ? V.host : H.full)}${solo || BURBUJA ? ";display:none" : ""}}
+ #hostmove{position:absolute;inset:0}
+ #host{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% ${vert ? 35 : 30}%}
+ #panel{position:absolute;z-index:1;${vert ? "" : paper ? "border-radius:22px;background:#FFFFFF;border:1px solid #E3EAF3;" : "border-radius:22px;background:var(--ink-900);border:1px solid var(--ink-800);"}}
+@@ -146,7 +151,7 @@
+       : "<span>" + c.text + "</span>" + (c.kw ? ' <b class="gl">' + c.kw + "</b>" : "");
+     cap.appendChild(l);
+     // gigante/cifra: la palabra clave se achica hasta entrar en el 88 % del ancho ("BÚSCAME 30 MÁS" tocaba los bordes, 5 niveles r7)
+-    if (est === "gigante" || est === "cifra") { const b = l.querySelector("b"), max = innerWidth * 0.88;
++    if (est === "gigante" || est === "cifra") { const b = l.querySelector("b"), max = (BURBUJA ? ${BURBUJA - 80} : innerWidth) * 0.88;
+       if (b && b.scrollWidth > max) b.style.fontSize = (parseFloat(getComputedStyle(b).fontSize) * max / b.scrollWidth) + "px"; }
+     const end = i + 1 < all.length ? all[i + 1].t : Math.max(c.t + 3.2, (c.kt || 0) + 1.5);
+     tl.fromTo(l, { opacity: 0, y: 18, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.25, ease: "back.out(1.6)" }, c.t);
