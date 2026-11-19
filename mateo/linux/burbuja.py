@@ -80,6 +80,19 @@ def mascaras(proj: str, d: int) -> tuple[str, str]:
     return fm, fa
 
 
+def camara(proj: str) -> str:
+    """El círculo recortado del export una sola vez, al tamaño del final (decodificar el 4K entero tarda; el borrador y el
+    1080p lo reutilizan)."""
+    c = cfg(proj)
+    (x0, y0), r = c["centro"], c["radio"]
+    out = os.path.join(proj, "work", f"burbuja-cam-{c['d']}.mp4")
+    if not os.path.exists(out):
+        sh(["ffmpeg", "-hide_banner", "-y", "-i", os.path.join(proj, c["fuente"]), "-an",
+            "-vf", f"crop={2 * r}:{2 * r}:{x0 - r}:{y0 - r},scale={c['d']}:{c['d']}:flags=lanczos,fps={FPS},format=yuv420p",
+            "-c:v", "libx264", "-preset", "fast", "-crf", "16", out])
+    return out
+
+
 def componer(proj: str) -> None:
     c = cfg(proj)
     graf = salidas(proj, "final.mp4")
@@ -89,14 +102,14 @@ def componer(proj: str) -> None:
     os.link(graf, solo) if os.stat(graf).st_dev == os.stat(os.path.dirname(solo)).st_dev else sh(["cp", graf, solo])
     d = round(c["d"] * ESC)
     fm, fa = mascaras(proj, d)
-    (x0, y0), r = c["centro"], c["radio"]
     pad = round(d * 0.12)
     cx, cy = round(c["cx"] * ESC), round(c["cy"] * ESC)
-    g = (f"[1:v]crop={2 * r}:{2 * r}:{x0 - r}:{y0 - r},scale={d}:{d}:flags=lanczos,fps={FPS},format=rgba[cam];"
+    cam = camara(proj)
+    g = (f"[1:v]scale={d}:{d}:flags=lanczos,fps={FPS},format=rgba[cam];"
          f"[2:v]format=gray,scale={d}:{d}[m];[cam][m]alphamerge[circ];"
          f"[0:v][3:v]overlay={cx - d // 2 - pad}:{cy - d // 2 - pad}[a];"
          f"[a][circ]overlay={cx - d // 2}:{cy - d // 2}:shortest=1,format=yuv420p[v]")
-    sh(["ffmpeg", "-hide_banner", "-y", "-i", graf, "-i", os.path.join(proj, c["fuente"]), "-loop", "1", "-i", fm,
+    sh(["ffmpeg", "-hide_banner", "-y", "-i", graf, "-i", cam, "-loop", "1", "-i", fm,
         "-loop", "1", "-i", fa, "-filter_complex", g, "-map", "[v]", "-map", "0:a", *ENC, "-c:a", "copy",
         "-movflags", "+faststart", salidas(proj, "final-burbuja.mp4")])
     print(f"→ {solo}\n→ {salidas(proj, 'final-burbuja.mp4')}")
