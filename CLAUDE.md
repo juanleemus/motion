@@ -14,3 +14,9 @@ Dos proyectos de Remotion independientes:
 - Cada reel va en su propia composición, registrada en `jpr/src/Root.tsx`, con su carpeta de datos en `jpr/src/reels/[nombre]/`.
 - Al entregar, renderiza en `jpr/out/[nombre]/` y envía al usuario los archivos para descargar (`-motion.mov`, `-motion.webm`, `-efectos.wav`, `-hoja-de-montaje.txt`, `-preview.mp4`).
 - El repositorio es público: no subas a git el audio, el guion ni los videos del cliente. Déjalos fuera con `.gitignore`.
+
+## Videos largos de Mateo Folador
+
+- Si el pedido menciona a Mateo, Mateo Folador, un video largo de YouTube, el kit de edición v2, `pipeline-largo` o `/video-largo`, trabaja solo dentro de `mateo/` y lee primero `mateo/LEEME.md`.
+- No se hace con Remotion: se usa el kit de Mateo (pipeline en Python y plantillas de HyperFrames). Se prepara con `bash mateo/preparar.sh <zip del paquete en Drive>`.
+- Kit, grabaciones y renders van en `mateo/paquete/`, que está fuera de git. No subas su contenido ni los enlaces de Drive.
