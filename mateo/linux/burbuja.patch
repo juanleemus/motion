@@ -1,5 +1,5 @@
---- pipeline-largo/escenas.py	2026-11-19 17:48:32.820825227 +0000
-+++ pipeline-largo/escenas.py	2026-11-19 17:41:26.670961818 +0000
+--- pipeline-largo/escenas.py
++++ pipeline-largo/escenas.py
 @@ -27,7 +27,9 @@
  HF = ["npx", "--yes", "hyperframes@0.8.147", "render", "--workers", "2"]
  PARALELO = int(os.environ.get("ESCENAS_PARALELO", "4"))
@@ -24,8 +24,8 @@
      n, S = max(1, round(dur * FPS)), 4
      g = (f"[0]crop={iw}:{ih}:{bx0}:{by0},scale={cw}:{ch}:flags=lanczos,format=rgba[cap];color=c=0x0A0F1A:s={W}x{H}:r={FPS}:d={dur + 0.1:.3f}[bg];"
           f"[bg][cap]overlay={ox}:{oy}:shortest=1")
---- templates/mf-capas/scripts/build-escenas.mjs	2026-11-19 17:48:32.822698757 +0000
-+++ templates/mf-capas/scripts/build-escenas.mjs	2026-11-19 17:41:30.543367586 +0000
+--- templates/mf-capas/scripts/build-escenas.mjs
++++ templates/mf-capas/scripts/build-escenas.mjs
 @@ -45,6 +45,11 @@
    g50r: { host: [991, 50, 887, 980], panel: [42, 50, 893, 980] },
    // solo: la pieza a cuadro completo, sin Mateo (definiciones y fórmulas, R12)
@@ -61,7 +61,7 @@
      cap.appendChild(l);
      // gigante/cifra: la palabra clave se achica hasta entrar en el 88 % del ancho ("BÚSCAME 30 MÁS" tocaba los bordes, 5 niveles r7)
 -    if (est === "gigante" || est === "cifra") { const b = l.querySelector("b"), max = innerWidth * 0.88;
-+    if (est === "gigante" || est === "cifra") { const b = l.querySelector("b"), max = (BURBUJA ? ${BURBUJA - 80} : innerWidth) * 0.88;
++    if (est === "gigante" || est === "cifra") { const b = l.querySelector("b"), max = (${BURBUJA ? BURBUJA - 80 : "innerWidth"}) * 0.88;
        if (b && b.scrollWidth > max) b.style.fontSize = (parseFloat(getComputedStyle(b).fontSize) * max / b.scrollWidth) + "px"; }
      const end = i + 1 < all.length ? all[i + 1].t : Math.max(c.t + 3.2, (c.kt || 0) + 1.5);
      tl.fromTo(l, { opacity: 0, y: 18, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.25, ease: "back.out(1.6)" }, c.t);
