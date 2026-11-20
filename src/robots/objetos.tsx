@@ -2,7 +2,7 @@
 // EtiquetaPrecio, LluviaBilletes, Foco, GraficaPrecio, Latido, TitularMedio y FichaInvora.
 // Mismo lenguaje de marca que ui.tsx / columna.tsx: Montserrat, azul tech, tinta, rojo solo para "no".
 import React from 'react';
-import {AbsoluteFill, Easing, Img, interpolate, random, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, Easing, Img, interpolate, OffthreadVideo, random, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {aparece, C, FUENTE, pulsoBeat, SOMBRA, useRebote} from './ui';
 import {FPS, type Palabra} from '../tiemposBase';
 
@@ -678,3 +678,48 @@ export const LineaNoRecta: React.FC<{en: number; caidas: number[]; ancho?: numbe
 		</div>
 	);
 };
+
+// ---------- Pantalla dividida: video o foto de apoyo arriba, gráficos abajo ----------
+// Cada tramo cambia de material con un fundido; entra con una cortina desde arriba y sale con fundido.
+export type TramoArriba = {desde: number; src: string; etiqueta?: string; velocidad?: number; inicio?: number};
+export const FotoArriba: React.FC<{desde: number; hasta: number; tramos: TramoArriba[]; alto?: number}> = ({desde, hasta, tramos, alto = 860}) => {
+	const frame = useCurrentFrame();
+	if (frame < desde || frame >= hasta) return null;
+	const entra = interpolate(frame, [desde, desde + 10], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
+	const sale = interpolate(frame, [hasta - 6, hasta], [0, 1], clamp);
+	return (
+		<div style={{position: 'absolute', left: 0, top: 0, width: 1080, height: alto, overflow: 'hidden', clipPath: `inset(0 0 ${(1 - entra) * 100}% 0)`, opacity: 1 - sale}}>
+			{tramos.map((t, i) => {
+				const fin = tramos[i + 1]?.desde ?? hasta;
+				if (frame < t.desde - 1 || frame > fin + 8) return null;
+				const op = Math.min(interpolate(frame, [t.desde, t.desde + 8], [i === 0 ? 1 : 0, 1], clamp), interpolate(frame, [fin, fin + 8], [1, 0], clamp));
+				const zoom = interpolate(frame, [t.desde, fin + 8], [1.04, 1.12], clamp);
+				const esVideo = t.src.endsWith('.mp4');
+				return (
+					<AbsoluteFill key={i} style={{opacity: op}}>
+						<AbsoluteFill style={{transform: `scale(${zoom})`}}>
+							{esVideo ? (
+								<SequenciaVideo desde={t.desde} src={t.src} velocidad={t.velocidad ?? 0.8} inicio={t.inicio ?? 0} />
+							) : (
+								<Img src={staticFile(t.src)} style={{width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.75) saturate(0.85)'}} />
+							)}
+						</AbsoluteFill>
+						{t.etiqueta ? (
+							<div style={{position: 'absolute', left: 70, bottom: 120, ...ETQ, fontSize: 24, color: C.blanco, background: 'rgba(15,20,32,0.75)', padding: '10px 18px', borderRadius: 30, opacity: interpolate(frame, [t.desde + 6, t.desde + 14], [0, 1], clamp)}}>
+								{t.etiqueta}
+							</div>
+						) : null}
+					</AbsoluteFill>
+				);
+			})}
+			{/* tinte azul tinta y fundido hacia los gráficos de abajo */}
+			<AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(15,20,32,0.35) 0%, rgba(11,99,214,0.12) 45%, rgba(15,20,32,0.25) 70%, #0f1420 100%)'}} />
+			<div style={{position: 'absolute', left: 0, right: 0, bottom: 0, height: 4, background: C.azul, boxShadow: `0 0 20px ${C.brillo}`, opacity: 0.6}} />
+		</div>
+	);
+};
+const SequenciaVideo: React.FC<{desde: number; src: string; velocidad: number; inicio: number}> = ({desde, src, velocidad, inicio}) => (
+	<Sequence from={desde - 1} layout="none">
+		<OffthreadVideo src={staticFile(src)} muted playbackRate={velocidad} trimBefore={inicio} style={{width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.72) saturate(0.85)'}} />
+	</Sequence>
+);

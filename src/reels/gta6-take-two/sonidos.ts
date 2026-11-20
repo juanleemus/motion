@@ -15,7 +15,7 @@ add(en('Take-Two', 1), 'pop', 1);
 pildora(en('la empresa'));
 add(en('Rockstar'), 'pop', 1);
 // 2. Precios objetivo
-cambio(ESCENAS.objetivo - 6);
+cambio(ESCENAS.potencial - 6);
 add(en('Según'), 'whoosh', 0.5);
 add(en('Bloomberg'), 'pop', 1);
 add(en('potencial'), 'whoosh', 0.55);

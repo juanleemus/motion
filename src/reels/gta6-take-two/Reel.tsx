@@ -6,7 +6,7 @@ import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {C, Cifra, Dinamico, Escena, FUENTE, Fondo, LogoInvora, Texto} from '../../robots/ui';
 import {Comentario, Tachado, Teclas} from '../../robots/piezas';
 import {BotonSeguir, EtiquetaSeccion, FondoSeccion, FranjaDato, IconoMini, LogoChico, Pildora, SeccionColumna} from '../../robots/columna';
-import {CajaTitular, FichaInvora, LineaNoRecta, RangoPrecios, Subtitulos} from '../../robots/objetos';
+import {CajaTitular, FichaInvora, FotoArriba, LineaNoRecta, RangoPrecios, Subtitulos} from '../../robots/objetos';
 import {ICONOS as I} from '../../robots/iconos';
 import {en, PALABRAS} from './tiempos';
 import {ESCENAS} from './escenas';
@@ -25,6 +25,9 @@ const Fila: React.FC<{gap?: number; children: React.ReactNode}> = ({gap = 22, ch
 	<div style={{display: 'flex', alignItems: 'center', gap}}>{children}</div>
 );
 
+const A = 'apoyo-gta6-take-two';
+const ABAJO = 900; // en pantalla dividida, los gráficos empiezan aquí
+
 const CLAVES = ['GTA', '6', 'hoy', 'Take-Two', 'Rockstar', 'Bloomberg', '30', '280', '300', '170', '330', 'recta', 'caer', 'rumor', 'noticia', 'rico', 'números', 'analistas', 'directivos', 'Invora', 'información'];
 
 // Tarjeta de "lo que importa" (ícono + palabra).
@@ -35,7 +38,7 @@ const Importa: React.FC<{en: number; icono: (typeof I)[string]; texto: string}> 
 		<div
 			style={{
 				width: 262,
-				height: 250,
+				height: 220,
 				borderRadius: 28,
 				background: C.blanco,
 				boxShadow: `0 18px 44px rgba(0,0,0,0.6), 0 0 34px rgba(42,157,255,0.4)`,
@@ -63,25 +66,30 @@ export const ReelGta6TakeTwo: React.FC = () => (
 			<Fondo />
 			<FondoSeccion tramos={FONDOS} />
 
-			{/* Caja de titular fija (como la referencia), hasta que empieza el llamado de Invora */}
-			<CajaTitular texto="GTA 6 sale hoy" hasta={ESCENAS.invora} icono={<IconoMini trazos={I.control} en={-20} tam={76} trazo={C.tinta} />} />
 
-			{/* ---------- 1. La pregunta: Take-Two, dueña de Rockstar ---------- */}
-			<S k="pregunta" gap={36}>
-				<Texto en={-12} sinEntrada tam={84} style={{textAlign: 'left'}}>
+			{/* ---------- 1. La pregunta (pantalla dividida: alguien jugando → sede de Rockstar North) ---------- */}
+			<FotoArriba
+				desde={-12}
+				hasta={ESCENAS.potencial}
+				tramos={[
+					{desde: -12, src: `${A}/control.mp4`},
+					{desde: en('Rockstar'), src: `${A}/fotos/rockstar-north.jpg`, etiqueta: 'Rockstar North · Edimburgo'},
+				]}
+			/>
+			<SeccionColumna desde={ESCENAS.pregunta} hasta={ESCENAS.potencial} top={ABAJO} gap={30}>
+				<Texto en={-12} sinEntrada tam={78} style={{textAlign: 'left'}}>
 					{'¿qué pasa con\nla *acción*?'}
 				</Texto>
-				<Fila gap={40}>
-					<LogoChico {...LOGOS.taketwo} en={en('Take-Two', 1)} caja={220} />
-					<div style={{display: 'flex', flexDirection: 'column', gap: 16, alignItems: 'flex-start'}}>
-						<Pildora en={en('la empresa')} texto="dueña de" icono={I.empresa} giro={-2} tam={44} />
-						<LogoChico {...LOGOS.rockstar} en={en('Rockstar')} />
-					</div>
+				<Fila gap={34}>
+					<LogoChico {...LOGOS.taketwo} alto={130} en={en('Take-Two', 1)} />
+					<Pildora en={en('la empresa')} texto="dueña de" icono={I.empresa} giro={-2} tam={42} />
+					<LogoChico {...LOGOS.rockstar} alto={110} en={en('Rockstar')} />
 				</Fila>
-			</S>
+			</SeccionColumna>
 
-			{/* ---------- 2. Precios objetivo: banda 280–300 y rango 170–330 ---------- */}
-			<S k="objetivo" gap={30}>
+			{/* ---------- 2a. Potencial de subida (pantalla dividida: Wall Street) ---------- */}
+			<FotoArriba desde={ESCENAS.potencial} hasta={ESCENAS.precios} tramos={[{desde: ESCENAS.potencial, src: `${A}/wall-street.mp4`, inicio: 30, etiqueta: 'Wall Street'}]} />
+			<SeccionColumna desde={ESCENAS.potencial} hasta={ESCENAS.precios} top={ABAJO} gap={30}>
 				<Fila>
 					<EtiquetaSeccion texto="Según" en={en('Según')} tam={30} />
 					<LogoChico {...LOGOS.bloomberg} en={en('Bloomberg')} />
@@ -92,6 +100,11 @@ export const ReelGta6TakeTwo: React.FC = () => (
 					dato={<Cifra valor={30} antes="≈" despues=" %" en={en('30')} tam={112} dur={14} />}
 					etiquetas={['potencial de subida', 'lo que ve Wall Street']}
 				/>
+			</SeccionColumna>
+
+			{/* ---------- 2b. Precios objetivo: banda 280–300 y rango 170–330 ---------- */}
+			<S k="precios" gap={34}>
+				<EtiquetaSeccion texto="Precios objetivo" en={en('Los precios')} />
 				<RangoPrecios
 					en={en('Los precios')}
 					min={150}
@@ -117,20 +130,26 @@ export const ReelGta6TakeTwo: React.FC = () => (
 				<Pildora en={en('vende')} texto="se vende la noticia" icono={I.baja} tipo="negativo" giro={2} tam={42} />
 			</S>
 
-			{/* ---------- 4. Lo que importa: los números ---------- */}
-			<S k="numeros" gap={44}>
-				<div style={{paddingLeft: 10, marginTop: 24}}>
-					<Tachado texto="te hace rico" en={en('Un videojuego')} tachaEn={en('no te hace')} tam={80} />
+			{/* ---------- 4. Lo que importa (pantalla dividida: inversionista → analista → directivos) ---------- */}
+			<FotoArriba
+				desde={ESCENAS.numeros}
+				hasta={ESCENAS.invora}
+				tramos={[
+					{desde: ESCENAS.numeros, src: `${A}/inversionista.mp4`},
+					{desde: en('analistas', 2), src: `${A}/analista.mp4`, etiqueta: 'analistas'},
+					{desde: en('directivos'), src: `${A}/directivos.mp4`, etiqueta: 'directivos'},
+				]}
+			/>
+			<SeccionColumna desde={ESCENAS.numeros} hasta={ESCENAS.invora} top={ABAJO} gap={30}>
+				<div style={{paddingLeft: 10}}>
+					<Tachado texto="te hace rico" en={en('Un videojuego')} tachaEn={en('no te hace')} tam={70} />
 				</div>
-				<Texto en={en('lo que importa')} tam={80} style={{textAlign: 'left'}}>
-					{'lo que importa:\nlos *números*'}
-				</Texto>
 				<div style={{display: 'flex', gap: 37}}>
 					<Importa en={en('números', 1)} icono={I.grafica} texto="números" />
 					<Importa en={en('analistas', 2)} icono={I.persona} texto="analistas" />
 					<Importa en={en('directivos')} icono={I.empresa} texto="directivos" />
 				</div>
-			</S>
+			</SeccionColumna>
 
 			{/* ---------- 5. En Invora (fondo clásico) ---------- */}
 			<Escena desde={ESCENAS.invora} hasta={ESCENAS.comenta}>
@@ -166,6 +185,8 @@ export const ReelGta6TakeTwo: React.FC = () => (
 				</div>
 			</Escena>
 
+			{/* Caja de titular fija (como la referencia), va encima de todo, hasta que empieza el llamado de Invora */}
+			<CajaTitular texto="GTA 6 sale hoy" hasta={ESCENAS.invora} icono={<IconoMini trazos={I.control} en={-20} tam={76} trazo={C.tinta} />} />
 			<Subtitulos palabras={PALABRAS} claves={CLAVES} negativas={['no']} y={1340} ocultar={[[ESCENAS.invora, ESCENAS.fin]]} reemplazos={{'280': '280 $', '300': '300 $', '170': '170 $', '330': '330 $', '30%': '30 %'}} propios={['Take-Two', 'Rockstar', 'Bloomberg', 'Wall', 'Street', 'Invora']} />
 		</AbsoluteFill>
 	</Dinamico.Provider>
