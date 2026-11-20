@@ -1,0 +1,18 @@
+== {{int:filedesc}} ==
+{{Information
+| description = {{en|1=Logo of video game company {{W|Take-Two Interactive}}.}}
+{{de|1=Logo des Videospielunternehmens {{W|Take-Two Interactive||de}}.}}
+| source = https://ir.take2games.com/static-files/d3e6ee76-ffe2-4976-9b7f-6ffdc25870c1
+| date = 2003
+| other_versions =<gallery spacing="medium" widths="100" bordersize="none" bordercolor="transparent" position="center" captionalign="center" captionsize="medium" hideaddbutton="true">
+Take-TwoInteractiveBlueLogo.svg|Colored variant
+</gallery>
+| author = {{W|Take-Two Interactive}}
+| other fields={{Igen|U||+|s=tl}}
+}}
+
+== {{int:license-header}} ==
+{{PD-textlogo}}
+{{Trademarked}}
+
+[[Category:SVG logos of Take-Two Interactive]]

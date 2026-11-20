@@ -242,4 +242,9 @@ export const ICONOS: Record<string, Trazo[]> = {
 		{d: 'M50 62 V76'},
 		{d: 'M32 90 H68 V78 H32Z', relleno: 'b'},
 	],
+	control: [
+		{d: 'M22 30 H78 a18 18 0 0 1 17 22 l-6 26 a12 12 0 0 1 -21 4 l-8 -10 H38 l-8 10 a12 12 0 0 1 -21 -4 l-6 -26 a18 18 0 0 1 17 -22Z', relleno: 'a'},
+		{d: 'M28 50 H42 M35 43 V57'},
+		{d: 'M64 46 v1 M72 54 v1'},
+	],
 };

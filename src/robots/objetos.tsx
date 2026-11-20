@@ -26,7 +26,8 @@ export const Subtitulos: React.FC<{
 	max?: number;
 	tam?: number;
 	reemplazos?: Record<string, string>; // cómo se escribe en pantalla (p. ej. "83" -> "83 $")
-}> = ({palabras, claves, negativas = [], ocultar = [], y = 1300, max = 4, tam = 66, reemplazos = {}}) => {
+	propios?: string[]; // nombres que conservan sus mayúsculas (el resto va en minúscula)
+}> = ({palabras, claves, negativas = [], ocultar = [], y = 1300, max = 4, tam = 66, reemplazos = {}, propios = []}) => {
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
 	const t = frame / FPS;
@@ -55,7 +56,8 @@ export const Subtitulos: React.FC<{
 				const limpio = p.w.replace(/[.,?!:¿¡]/g, '');
 				const clave = setC.has(norm(limpio));
 				const neg = setN.has(norm(limpio));
-				const texto = reemplazos[limpio] ?? limpio.toLowerCase().replace(/^nvidia$/, 'NVIDIA').replace(/^amd$/, 'AMD').replace(/^ipo$/, 'IPO').replace(/^ant$/, 'ANT').replace(/^cnbc$/, 'CNBC').replace(/^anthropic$/, 'Anthropic').replace(/^claude$/, 'Claude').replace(/^nasdaq$/, 'Nasdaq').replace(/^yahoo$/, 'Yahoo').replace(/^finance$/, 'Finance').replace(/^bloomberg$/, 'Bloomberg').replace(/^invora$/, 'Invora').replace(/^micron$/, 'Micron');
+				const conserva = new Set(propios.map(norm)).has(norm(limpio)) || /[A-ZÁÉÍÓÚÑ].*[A-ZÁÉÍÓÚÑ]/.test(limpio);
+				const texto = reemplazos[limpio] ?? (conserva ? limpio : limpio.toLowerCase()).replace(/^nvidia$/, 'NVIDIA').replace(/^amd$/, 'AMD').replace(/^ipo$/, 'IPO').replace(/^ant$/, 'ANT').replace(/^cnbc$/, 'CNBC').replace(/^anthropic$/, 'Anthropic').replace(/^claude$/, 'Claude').replace(/^nasdaq$/, 'Nasdaq').replace(/^yahoo$/, 'Yahoo').replace(/^finance$/, 'Finance').replace(/^bloomberg$/, 'Bloomberg').replace(/^invora$/, 'Invora').replace(/^micron$/, 'Micron');
 				const caja = clave || neg;
 				return (
 					<span
@@ -550,6 +552,129 @@ export const FichaInvora: React.FC<{en: number; logo: {archivo: string; alto?: n
 			{[0.9, 0.7].map((w, i) => (
 				<div key={i} style={{width: `${w * 100}%`, height: 12, borderRadius: 6, background: 'rgba(139,149,168,0.35)', opacity: aparece(frame, en + 8 + i * 4, 6)}} />
 			))}
+		</div>
+	);
+};
+
+// ---------- Caja de titular fija arriba (se queda todo el video, como en la referencia) ----------
+export const CajaTitular: React.FC<{texto: string; desde?: number; hasta: number; icono?: React.ReactNode}> = ({texto, desde = 0, hasta, icono}) => {
+	const frame = useCurrentFrame();
+	if (frame < desde || frame >= hasta) return null;
+	const sale = interpolate(frame, [hasta - 6, hasta], [0, 1], clamp);
+	const late = pulsoBeat(frame);
+	return (
+		<div
+			style={{
+				position: 'absolute',
+				left: 70,
+				top: 270,
+				maxWidth: 860,
+				display: 'flex',
+				alignItems: 'center',
+				gap: 18,
+				padding: '18px 34px',
+				borderRadius: 22,
+				background: C.azul,
+				boxShadow: `0 0 ${30 + 14 * late}px ${C.brillo}, 0 16px 34px rgba(0,0,0,0.55)`,
+				fontFamily: FUENTE,
+				fontWeight: 900,
+				fontSize: 64,
+				lineHeight: 1,
+				color: C.tinta,
+				transform: `rotate(-1.5deg) scale(${1 + 0.015 * late})`,
+				opacity: 1 - sale,
+				filter: sale > 0 ? `blur(${sale * 12}px)` : undefined,
+				whiteSpace: 'nowrap',
+			}}
+		>
+			{icono}
+			{texto}
+		</div>
+	);
+};
+
+// ---------- Regla de precios objetivo: banda de la mayoría y rango completo punteado ----------
+export const RangoPrecios: React.FC<{
+	en: number;
+	min: number;
+	max: number;
+	banda: {de: number; a: number; enDe: number; enA: number};
+	rango: {de: number; a: number; enDe: number; enA: number};
+	ancho?: number;
+}> = ({en, min, max, banda, rango, ancho = 860}) => {
+	const frame = useCurrentFrame();
+	const e = useRebote(en);
+	const X = (v: number) => 40 + ((v - min) / (max - min)) * (ancho - 80);
+	const pB = interpolate(frame, [banda.enDe, banda.enA + 6], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
+	const xB0 = X(banda.de);
+	const xB1 = X(banda.de) + (X(banda.a) - X(banda.de)) * pB;
+	const pR0 = interpolate(frame, [rango.enDe, rango.enDe + 12], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
+	const pR1 = interpolate(frame, [rango.enA, rango.enA + 12], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
+	const ticks = [];
+	for (let v = Math.ceil(min / 50) * 50; v <= max; v += 50) ticks.push(v);
+	const etq = (x: number, y: number, t: string, color: string, op: number, tam = 52, ancla: 'start' | 'middle' | 'end' = 'middle') => (
+		<text x={x} y={y} textAnchor={ancla} fill={color} fontFamily={FUENTE} fontWeight={900} fontSize={tam} opacity={op}>
+			{t}
+		</text>
+	);
+	return (
+		<div style={{width: ancho, height: 380, opacity: aparece(frame, en, 5), transform: `translateY(${(1 - e) * 40}px)`}}>
+			<svg width={ancho} height={380} style={{overflow: 'visible'}}>
+				<rect x={0} y={0} width={ancho} height={380} rx={28} fill="rgba(15,20,32,0.85)" stroke="rgba(42,157,255,0.38)" strokeWidth={2} />
+				<text x={34} y={56} fill={C.gris} fontFamily={FUENTE} fontWeight={800} fontSize={26} letterSpacing="0.22em">
+					PRECIOS OBJETIVO · US$
+				</text>
+				{/* eje */}
+				<line x1={40} x2={ancho - 40} y1={230} y2={230} stroke="rgba(255,255,255,0.35)" strokeWidth={4} />
+				{ticks.map((v) => (
+					<g key={v}>
+						<line x1={X(v)} x2={X(v)} y1={222} y2={238} stroke="rgba(255,255,255,0.35)" strokeWidth={3} />
+						<text x={X(v)} y={270} textAnchor="middle" fill={C.gris} fontFamily={FUENTE} fontWeight={800} fontSize={22}>
+							{v}
+						</text>
+					</g>
+				))}
+				{/* rango completo, punteado */}
+				<line x1={X(rango.de)} x2={X(rango.de) + (X((rango.de + rango.a) / 2) - X(rango.de)) * pR0 + (X(rango.a) - X((rango.de + rango.a) / 2)) * pR1} y1={310} y2={310} stroke={C.blanco} strokeWidth={5} strokeDasharray="14 10" opacity={pR0} />
+				<line x1={X(rango.de)} x2={X(rango.de)} y1={292} y2={328} stroke={C.blanco} strokeWidth={5} opacity={pR0} />
+				<line x1={X(rango.a)} x2={X(rango.a)} y1={292} y2={328} stroke={C.blanco} strokeWidth={5} opacity={pR1} />
+				{etq(X(rango.de), 360, String(rango.de), C.blanco, pR0, 34)}
+				{etq(X(rango.a), 360, String(rango.a), C.blanco, pR1, 34)}
+				{/* banda de la mayoría */}
+				{pB > 0 ? <rect x={xB0} y={150} width={Math.max(4, xB1 - xB0)} height={80} rx={12} fill={C.azul} style={{filter: `drop-shadow(0 0 16px ${C.brillo})`}} /> : null}
+				{etq(xB0 - 14, 210, String(banda.de), C.azul, interpolate(frame, [banda.enDe, banda.enDe + 6], [0, 1], clamp), 52, 'end')}
+				{etq(X(banda.a) + 14, 210, String(banda.a), C.azul, interpolate(frame, [banda.enA, banda.enA + 6], [0, 1], clamp), 52, 'start')}
+			</svg>
+		</div>
+	);
+};
+
+// ---------- Esquema "no es una línea recta": sube y baja, con flechas rojas en las caídas ----------
+// Es un esquema (sin escala ni precios), no la cotización real.
+export const LineaNoRecta: React.FC<{en: number; caidas: number[]; ancho?: number; alto?: number}> = ({en, caidas, ancho = 860, alto = 440}) => {
+	const frame = useCurrentFrame();
+	const puntos: [number, number][] = [
+		[0, 340], [90, 300], [170, 320], [250, 220], [320, 150], [380, 260], [460, 230], [540, 120], [600, 90], [660, 210], [740, 160], [860, 60],
+	];
+	const caidaIdx = [5, 9]; // tramos que bajan
+	const dib = interpolate(frame, [en, en + 40], [0, 1], {...clamp, easing: Easing.inOut(Easing.cubic)});
+	const d = 'M ' + puntos.map(([x, y]) => `${(x / 860) * ancho} ${(y / 440) * alto}`).join(' L ');
+	return (
+		<div style={{position: 'relative', width: ancho, height: alto + 40, opacity: aparece(frame, en, 5)}}>
+			<svg width={ancho} height={alto} style={{overflow: 'visible'}}>
+				<line x1={0} x2={ancho} y1={alto * 0.9} y2={(alto * 0.1)} stroke="rgba(255,255,255,0.35)" strokeWidth={4} strokeDasharray="12 12" opacity={interpolate(frame, [en + 6, en + 16], [0, 1], clamp)} />
+				<path d={d} stroke={C.azul} strokeWidth={9} fill="none" strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray="1 1" strokeDashoffset={1 - dib} style={{filter: `drop-shadow(0 0 14px ${C.brillo})`}} />
+				{caidas.map((f, i) => {
+					const [x0, y0] = puntos[caidaIdx[i % caidaIdx.length] - 1];
+					const s = spring({frame: frame - f, fps: 30, config: {damping: 9, mass: 0.5, stiffness: 170}});
+					return frame >= f ? (
+						<g key={i} transform={`translate(${(x0 / 860) * ancho + 30} ${(y0 / 440) * alto - 20}) scale(${s})`}>
+							<path d="M0 0 L0 60 M-24 38 L0 64 L24 38" stroke={C.rojo} strokeWidth={10} fill="none" strokeLinecap="round" strokeLinejoin="round" style={{filter: 'drop-shadow(0 0 12px rgba(255,77,94,0.6))'}} />
+						</g>
+					) : null;
+				})}
+			</svg>
+			<div style={{position: 'absolute', right: 0, bottom: 0, ...ETQ, fontSize: 20, color: C.gris}}>esquema · no es la cotización real</div>
 		</div>
 	);
 };
