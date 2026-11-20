@@ -130,9 +130,21 @@ def s_no():
         c = lp(w, 1600) * env(len(x), 0.004, 0.06); s = int(st * SR); out[s:s + len(c)] += c
     return out * 0.6
 
-GEN = {'pop': s_pop, 'whoosh': s_whoosh, 'tic': s_tic, 'trazo': s_trazo, 'tecleo': s_tecleo,
+def s_golpe():  # golpe grave (subida fuerte, apertura)
+    x = t(0.9); fr = 38 + 60 * np.exp(-x * 18)
+    cuerpo = np.sin(2 * np.pi * np.cumsum(fr) / SR) * env(len(x), 0.002, 0.35)
+    ruido = lp(rng.standard_normal(len(x)), 900) * env(len(x), 0.001, 0.05) * 0.6
+    return (cuerpo + ruido) * 0.9
+def s_latido():  # "pum-pum" de corazón
+    out = np.zeros(int(0.7 * SR))
+    for st, g in [(0, 1.0), (0.22, 0.7)]:
+        x = t(0.25); fr = 45 + 35 * np.exp(-x * 25)
+        c = np.sin(2 * np.pi * np.cumsum(fr) / SR) * env(len(x), 0.004, 0.07) * g
+        s0 = int(st * SR); out[s0:s0 + len(c)] += c
+    return lp(out, 400) * 1.4
+GEN = {'golpe': s_golpe, 'latido': s_latido, 'pop': s_pop, 'whoosh': s_whoosh, 'tic': s_tic, 'trazo': s_trazo, 'tecleo': s_tecleo,
        'campanita': s_campanita, 'conteo': s_conteo, 'no': s_no}
-NIVEL = {'pop': 0.8, 'whoosh': 0.5, 'tic': 0.35, 'trazo': 0.5, 'tecleo': 0.35, 'campanita': 0.35, 'conteo': 0.45, 'no': 0.6}
+NIVEL = {'golpe': 0.9, 'latido': 0.8, 'pop': 0.8, 'whoosh': 0.5, 'tic': 0.35, 'trazo': 0.5, 'tecleo': 0.35, 'campanita': 0.35, 'conteo': 0.45, 'no': 0.6}
 efectos = np.zeros((N, 2))
 for e in ([] if SOLO_MUSICA else json.load(open(eventos_path))):
     put(efectos, GEN[e['tipo']](), e['f'] / 30, NIVEL[e['tipo']] * e.get('vol', 1), pan=rng.uniform(-0.15, 0.15))

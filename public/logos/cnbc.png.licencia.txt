@@ -1,0 +1,29 @@
+== {{int:filedesc}} ==
+{{Information
+| Description    = {{en|1=Logo of [[:en:CNBC|CNBC]], a [[:en:United States|United States]]-based [[:en:Television network|television network]] that specializes in [[:en:Business|business]]-related [[:en:News broadcasting|news broadcasting]]. This logo was used from September 23, 1996 until December 10, 2023, and still used on [[:en:CNBC Asia|CNBC Asia]] and [[:en:CNBC Europe|CNBC Europe]].}}
+| Source         = May be obtained from CNBC. {{transferred from|en.wikipedia|SethAllen623|CommonsHelper}}
+| Date           = 1996-05-12
+| Author         = NBCUniversal
+| Permission     = This logo is in the public domain because it is ineligible for copyright. Even the NBC Peacock is public domain because it is comprised of a series of multiple, colorful geometric shapes (see [[:File:NBC logo.svg]]).
+| other_versions =
+<gallery>
+CNBC 2023.svg|2023 ver.
+CNBC 2025.svg|2025 ver.
+</gallery>
+| other_fields = {{Igen|U|+|lh}}
+}}
+
+== {{int:license-header}} ==
+{{PD-textlogo}}
+{{Trademarked}}
+
+== {{Original upload log}} ==
+{{original description|en.wikipedia|CNBC.svg}}
+* 2010-11-03 16:54 [[:en:User:Gr1st|Gr1st]] 272×203× (4226 bytes) ''<nowiki>per guidelines, plain logo without slogan should be used</nowiki>''
+
+[[Category:SVG CNBC logos]]
+[[Category:SVG logos of companies of the United States]]
+[[Category:SVG logos of media companies]]
+[[Category:SVG logos of television channels in the United States]]
+[[Category:SVG logos of news websites]]
+[[Category:1996 logos]]

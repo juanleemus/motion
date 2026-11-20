@@ -1,0 +1,22 @@
+== {{int:filedesc}} ==
+{{Information
+|description={{depicted logo|Q82059}}
+|date=2019
+|source=Extracted from https://www.nasdaq.net/PublicPages/assets/MyMID/Trade_Calendar_2019.pdf
+|author={{label|Q82059}}
+|other versions={{other|NASDAQ Logo 1971.svg}}
+|other fields={{Igen|U|+|s=tl}}
+}}
+
+== {{int:license-header}} ==
+{{PD-Textlogo}}
+{{Trademark}}
+
+== {{Original upload log}} ==
+{{original description page|en.wikipedia|Nasdaq_logo.svg}}
+* 2019-03-28 19:42 {{U|JC713||en}} 155×44 (3307 bytes) ''<nowiki>Updated and optimized</nowiki>''
+
+[[Category:NASDAQ logos]]
+[[Category:SVG logos of companies of the United States]]
+[[Category:NAS letter combinations]]
+[[Category:DAQ letter combinations]]

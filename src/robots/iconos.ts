@@ -236,4 +236,10 @@ export const ICONOS: Record<string, Trazo[]> = {
 		{d: 'M8 38 L26 30 L46 40 L60 34 L92 42 V62 L74 66 L58 80 a6 6 0 0 1 -9 -8 L40 80 a6 6 0 0 1 -9 -8 L24 76 a6 6 0 0 1 -8 -8 L8 62Z', relleno: 'a'},
 		{d: 'M46 40 L34 52 a6 6 0 0 0 9 7 L56 50'},
 	],
+	trofeo: [
+		{d: 'M28 10 H72 V40 a22 22 0 0 1 -44 0Z', relleno: 'a'},
+		{d: 'M28 18 H12 v8 a16 16 0 0 0 18 16 M72 18 H88 v8 a16 16 0 0 1 -18 16'},
+		{d: 'M50 62 V76'},
+		{d: 'M32 90 H68 V78 H32Z', relleno: 'b'},
+	],
 };

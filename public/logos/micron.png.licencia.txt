@@ -1,0 +1,32 @@
+== {{int:filedesc}} ==
+{{Information
+|Description    = {{en|1=Micron Technology logo}}
+|Date           = 
+|Source         = http://www.micron.com/~/media/Documents/Products/Technical%20Note/NOR%20Flash/tn1313_M29Fxx_driver.pdf
+|Author         = Micron Technology
+|Permission     = 
+|Other_versions = 
+}}
+
+== {{int:license-header}} ==
+{{Licensed-TOO|{{TOO-US}}|
+{{PD-textlogo}}
+{{Trademarked}}}}
+
+== {{Original upload log}} ==
+
+{{transferred from|en.wikipedia||ftcg}} {{original description page|en.wikipedia|Micron_Technology_logo.svg}}
+
+{| class="wikitable"
+! {{int:filehist-datetime}} !! {{int:filehist-dimensions}} !! {{int:filehist-user}} !! {{int:filehist-comment}}
+|-
+| 10:53, 29 September 2013 || 300 × 83 (7,792 bytes) || {{uv|Carniolus|w:en:}} || <nowiki>{{logo fur
+<!-- REQUIRED -->
+ |Article           = Micron Technology
+ |Use               = Org
+<!-- HIGHLY RECOMMENDED -->
+ |Source            = http://www.micron.com/~/media/Documents/Products/Technical%20Note/NOR%20Flash/tn1313_M29Fxx_driver.pdf 
+<!-...</nowiki>
+|}
+
+[[Category:Micron Technology logos]]
