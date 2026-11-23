@@ -6,7 +6,7 @@ import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {C, Cifra, Dinamico, FUENTE, Fondo, LogoInvora, Texto} from '../../robots/ui';
 import {Comentario, Tachado, Teclas} from '../../robots/piezas';
 import {BotonSeguir, EtiquetaSeccion, FilaCifra, IconoMini, LogoChico, Pildora, SeccionColumna, TarjetaClara} from '../../robots/columna';
-import {BarrasCaida, CajaTitular, FichaInvora, FichaPct, PanelTrading, PistaBroll, Presentador, Subtitulos, TitularMedio, VelasRojas, Volatilidad} from '../../robots/objetos';
+import {BarrasCaida, FichaInvora, FichaPct, MiguelRecortado, PalabraGrande, PanelTrading, PistaBroll, Subtitulos, TituloHook, TitularMedio, VelasRojas, Volatilidad} from '../../robots/objetos';
 import {BROLL} from './broll';
 import {ICONOS as I} from '../../robots/iconos';
 import {en, PALABRAS} from './tiempos';
@@ -66,7 +66,7 @@ const PCT: Record<string, string> = {'5%': '5 %', '30%': '30 %', '5.28%': '5,28 
 
 // Capas para el editor: "broll" (fondo), "graficos", "titulo" y "subtitulos" (transparentes) y "preview" (todo junto,
 // con el video del presentador en su lugar). "solo" deja una sola escena de gráficos (una capa por gráfico).
-export type Capa = 'preview' | 'broll' | 'graficos' | 'titulo' | 'subtitulos';
+export type Capa = 'preview' | 'fondo' | 'broll' | 'graficos' | 'titulo' | 'subtitulos' | 'miguel';
 const Graficos: React.FC = () => (
 	<>
 			{/* ---------- 1. Gancho: el viernes cae, hoy NVIDIA sube (portada) ---------- */}
@@ -214,20 +214,8 @@ const Graficos: React.FC = () => (
 				</Texto>
 			</S>
 
-			{/* ---------- 16. Método (fondo clásico) ---------- */}
-			<Arriba k="metodo" centro gap={30}>
-				<div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 40}}>
-					<Texto en={en('Nadie sabe')} tam={64} peso={800}>
-						{'nadie sabe qué viene'}
-					</Texto>
-					<Texto en={en('método')} tam={170}>
-						{'*método*'}
-					</Texto>
-					<Texto en={en('ayuda más')} tam={60} peso={800}>
-						{'ayuda más que asustarse'}
-					</Texto>
-				</div>
-			</Arriba>
+			{/* ---------- 16. Método: Miguel se acerca y la palabra MÉTODO enorme encima (como "PACIENCIA") ---------- */}
+			<PalabraGrande texto="método" en={en('método')} hasta={ESCENAS.invora} />
 
 			{/* ---------- 17. En Invora (fondo clásico) ---------- */}
 			<Arriba k="invora" centro gap={30}>
@@ -270,10 +258,10 @@ const Graficos: React.FC = () => (
 	</>
 );
 const Titulo: React.FC = () => (
-	<CajaTitular texto="La bolsa da un giro" hasta={ESCENAS.metodo} top={115} icono={<IconoMini trazos={I.grafica} en={-20} tam={70} trazo={C.tinta} />} />
+	<TituloHook texto="La bolsa da un giro" hasta={ESCENAS.metodo} icono={<IconoMini trazos={I.grafica} en={-20} tam={64} />} />
 );
 const Subs: React.FC = () => (
-	<Subtitulos palabras={PALABRAS} claves={CLAVES} negativas={['no']} y={935} max={5} tam={50} caja ocultar={[[ESCENAS.metodo, ESCENAS.fin]]} reemplazos={PCT} propios={PROPIOS} />
+	<Subtitulos palabras={PALABRAS} claves={CLAVES} negativas={['no']} y={905} max={5} tam={44} caja ocultar={[[ESCENAS.invora, ESCENAS.fin]]} reemplazos={PCT} propios={PROPIOS} />
 );
 const Broll: React.FC = () => (
 	<>
@@ -286,11 +274,11 @@ export const ReelVentaTecnologicas: React.FC<{capa?: Capa; solo?: K | null}> = (
 	<Dinamico.Provider value>
 		<Solo.Provider value={solo}>
 			<AbsoluteFill style={{fontFamily: FUENTE}}>
-				{capa === 'preview' || capa === 'broll' ? <Broll /> : null}
-				{capa === 'preview' ? <Presentador src={`${A}/presentador-cortado.mp4`} /> : null}
-				{capa === 'preview' || capa === 'graficos' ? <Graficos /> : null}
-				{capa === 'preview' || capa === 'titulo' ? <Titulo /> : null}
-				{capa === 'preview' || capa === 'subtitulos' ? <Subs /> : null}
+				{capa === 'preview' || capa === 'fondo' || capa === 'broll' ? <Broll /> : null}
+				{capa === 'preview' || capa === 'miguel' ? <MiguelRecortado src={`${A}/miguel-transparente.webm`} cerca={[[ESCENAS.metodo, ESCENAS.invora]]} /> : null}
+				{capa === 'preview' || capa === 'fondo' || capa === 'graficos' ? <Graficos /> : null}
+				{capa === 'preview' || capa === 'fondo' || capa === 'titulo' ? <Titulo /> : null}
+				{capa === 'preview' || capa === 'fondo' || capa === 'subtitulos' ? <Subs /> : null}
 			</AbsoluteFill>
 		</Solo.Provider>
 	</Dinamico.Provider>

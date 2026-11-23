@@ -52,7 +52,7 @@ export const Subtitulos: React.FC<{
 	return (
 		<div style={{position: 'absolute', left: 70, width: 860, top: y, display: 'flex', justifyContent: 'center'}}>
 		<div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '10px 18px', ...(conCaja ? {background: 'rgba(0,0,0,0.55)', borderRadius: 22, padding: '14px 26px'} : {})}}>
-			{actual.map((p, i) => {
+			{actual.filter((p) => !conCaja || Math.round(p.t0 * FPS) <= frame + 1).map((p, i) => {
 				const f0 = Math.round(p.t0 * FPS);
 				const r = spring({frame: frame - f0, fps, config: {damping: 11, mass: 0.5, stiffness: 180}});
 				const limpio = p.w.replace(/^[¿¡]+/, '').replace(/[.,?!:¿¡]+$/, '');
@@ -952,3 +952,51 @@ export const Presentador: React.FC<{src?: string; recorteY?: number}> = ({src, r
 		<div style={{position: 'absolute', left: 20, bottom: 20, ...ETQ, fontSize: 22, color: '#fff', background: 'rgba(0,0,0,0.6)', padding: '8px 14px', borderRadius: 8}}>PRESENTADOR · poner aquí el video recortado</div>
 	</div>
 );
+
+// ---------- Título hook fijo arriba en texto (sin caja): blanco, mayúscula, sombra; entra con pop ----------
+export const TituloHook: React.FC<{texto: string; hasta: number; top?: number; icono?: React.ReactNode}> = ({texto, hasta, top = 105, icono}) => {
+	const frame = useCurrentFrame();
+	if (frame >= hasta) return null;
+	const pop = interpolate(frame, [0, 5, 9], [0.8, 1.05, 1], clamp);
+	const sale = interpolate(frame, [hasta - 6, hasta], [0, 1], clamp);
+	return (
+		<div style={{position: 'absolute', left: 0, right: 0, top, display: 'flex', justifyContent: 'center', opacity: 1 - sale}}>
+			<div style={{display: 'flex', alignItems: 'center', gap: 16, transform: `scale(${pop})`, fontFamily: FUENTE, fontWeight: 900, fontSize: 58, color: C.blanco, textTransform: 'uppercase', letterSpacing: '0.02em', textShadow: '0 4px 14px rgba(0,0,0,0.85)', whiteSpace: 'nowrap'}}>
+				{icono}
+				{texto}
+			</div>
+		</div>
+	);
+};
+
+// ---------- Presentador recortado (video con alfa): abajo de pecho para arriba; en los tramos "cerca" se acerca ----------
+export const MiguelRecortado: React.FC<{src: string; cerca?: [number, number][]}> = ({src, cerca = []}) => {
+	const frame = useCurrentFrame();
+	// 0 = abajo (45 % inferior), 1 = cerca (casi pantalla completa)
+	let k = 0;
+	for (const [a, b] of cerca) {
+		k = Math.max(k, Math.min(interpolate(frame, [a, a + 8], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)}), interpolate(frame, [b - 8, b], [1, 0], {...clamp, easing: Easing.in(Easing.cubic)})));
+	}
+	const esc = 1.26 + (1.75 - 1.26) * k;
+	const top = 910 + (60 - 910) * k;
+	const left = (1080 - 1080 * esc) / 2;
+	return (
+		<div style={{position: 'absolute', left, top, width: 1080 * esc, height: 1920 * esc}}>
+			<OffthreadVideo src={staticFile(src)} transparent muted style={{width: '100%', height: '100%'}} />
+		</div>
+	);
+};
+
+// ---------- Palabra enorme sobre el presentador (como "PACIENCIA" en la referencia) ----------
+export const PalabraGrande: React.FC<{texto: string; en: number; hasta: number; y?: number}> = ({texto, en, hasta, y = 1020}) => {
+	const frame = useCurrentFrame();
+	if (frame < en || frame >= hasta) return null;
+	const s = spring({frame: frame - en, fps: 30, config: {damping: 9, mass: 0.5, stiffness: 170}});
+	return (
+		<div style={{position: 'absolute', left: 0, right: 0, top: y, display: 'flex', justifyContent: 'center'}}>
+			<div style={{fontFamily: FUENTE, fontWeight: 900, fontSize: 170, color: C.blanco, textTransform: 'uppercase', textShadow: `0 0 40px ${C.brillo}, 0 8px 24px rgba(0,0,0,0.9)`, transform: `scale(${interpolate(s, [0, 1], [1.4, 1])})`, opacity: Math.min(1, s * 1.5), letterSpacing: '0.02em'}}>
+				{texto}
+			</div>
+		</div>
+	);
+};
