@@ -215,7 +215,7 @@ const Graficos: React.FC = () => (
 			</S>
 
 			{/* ---------- 16. Método: Miguel se acerca y la palabra MÉTODO enorme encima (como "PACIENCIA") ---------- */}
-			<PalabraGrande texto="método" en={en('método')} hasta={ESCENAS.invora} y={560} />
+			<PalabraGrande texto="método" en={en('método')} hasta={ESCENAS.invora} />
 
 			{/* ---------- 17. En Invora (fondo clásico) ---------- */}
 			<Arriba k="invora" centro gap={30}>
