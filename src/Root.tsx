@@ -8,6 +8,7 @@ import {DURACION, FPS} from './tiempos';
 import {IntroPlanV} from './planv/IntroPlanV';
 import {DURACION_OUTRO, OutroPlanV} from './planv/OutroPlanV';
 import {DURACION_PLANV, FPS_PLANV} from './planv/tiempos';
+import {DURACION_LIKE, DURACION_SUSCRIBIR, LikePlanV, SuscribirPlanV} from './planv/Botones';
 
 for (const peso of ['500', '800', '900']) {
 	loadFont({family: 'Montserrat', url: staticFile(`fuentes/montserrat-latin-${peso}-normal.woff2`), weight: peso});
@@ -39,5 +40,7 @@ export const RemotionRoot: React.FC = () => (
 		<Composition id="planv-intro" component={IntroPlanV} durationInFrames={DURACION_PLANV} fps={FPS_PLANV} width={1920} height={1080} />
  		<Composition id="planv-outro" component={OutroPlanV} durationInFrames={DURACION_OUTRO} fps={FPS_PLANV} width={1920} height={1080} />
 		<Composition id="planv-intro-vertical" component={IntroPlanV} durationInFrames={DURACION_PLANV} fps={FPS_PLANV} width={1080} height={1920} />
+		<Composition id="planv-suscribir-verde" component={SuscribirPlanV} durationInFrames={DURACION_SUSCRIBIR} fps={FPS_PLANV} width={1920} height={1080} />
+		<Composition id="planv-like-verde" component={LikePlanV} durationInFrames={DURACION_LIKE} fps={FPS_PLANV} width={1920} height={1080} />
 	</>
 );
