@@ -55,31 +55,31 @@ const icono = (d, color, circulo, tam) => {
 		sombra: [C.sombra, C.papel, C.sombra, C.papel, null],
 		'contorno-blanco': ['transparent', C.blanco, 'transparent', C.blanco, C.blanco],
 	};
-	const mono700 = `@font-face{font-family:SpaceMonoPVB;src:url(data:font/woff2;base64,${fs.readFileSync('public/fuentes/spacemono-700.woff2').toString('base64')})}`;
+	const fuenteUsuario = `@font-face{font-family:InterPV;src:url(data:font/woff2;base64,${fs.readFileSync('public/fuentes/inter-500.woff2').toString('base64')})}`;
 	const etiqueta = (r, [circ, ico, pil, txt, borde], alto) => {
 		const linea = borde ? `border:${alto * 0.025}px solid ${borde};` : '';
 		return `<div class="et" style="display:inline-flex;align-items:center;gap:${alto * 0.18}px;height:${alto}px;padding:0 ${alto * 0.42}px 0 0;border-radius:${alto / 2}px;background:${pil};${linea}box-sizing:border-box">
 			<div style="width:${alto}px;height:${alto}px;margin-left:${borde ? -alto * 0.025 : 0}px">${icono(camino(r), ico, circ, alto)}</div>
-			<span style="font:${alto * 0.3}px SpaceMonoPVB;color:${txt};white-space:nowrap">${USUARIOS[r]}</span></div>`;
+			<span style="font:500 ${alto * 0.32}px InterPV;letter-spacing:-0.01em;color:${txt};white-space:nowrap">${USUARIOS[r]}</span></div>`;
 	};
 	const pe = await b.newPage({viewport: {width: 2000, height: 600}});
 	for (const r of REDES) {
 		for (const [v, est] of Object.entries(ETIQUETAS)) {
-			await pe.setContent(`<style>${mono700}</style><body style="margin:0;background:transparent;padding:20px">${etiqueta(r, est, 240)}</body>`);
-			await pe.evaluate(async () => { await document.fonts.load('20px SpaceMonoPVB'); });
+			await pe.setContent(`<style>${fuenteUsuario}</style><body style="margin:0;background:transparent;padding:20px">${etiqueta(r, est, 240)}</body>`);
+			await pe.evaluate(async () => { await document.fonts.load('20px InterPV'); });
 			await pe.locator('.et').screenshot({path: `out/planv/redes/planv-${r}-etiqueta-${v}.png`, omitBackground: true});
 		}
 	}
 	// Muestra de las etiquetas
 	const fondoEt = (v) => (v === 'papel' ? '#000' : v === 'contorno-blanco' ? C.sombra : C.papel);
 	const hoja2 = await b.newPage({viewport: {width: 1830, height: 800}});
-	await hoja2.setContent(`<style>${fuentes}${mono700}</style><body style="margin:0;background:#000"><div style="padding:60px">
+	await hoja2.setContent(`<style>${fuentes}${fuenteUsuario}</style><body style="margin:0;background:#000"><div style="padding:60px">
 		<div style="font:64px Serif;color:#EDEDEA">plan <span style="color:#F2381F">v</span> <span style="font:22px SpaceMonoPV;letter-spacing:.3em;color:rgba(237,237,234,.7);margin-left:16px">etiquetas</span></div>
 		<div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:20px;margin-top:40px">
 		${Object.entries(ETIQUETAS).map(([v, est]) => REDES.map((r) => `<div style="background:${fondoEt(v)};border-radius:18px;padding:26px;display:flex;flex-direction:column;align-items:center;gap:10px">
 			${etiqueta(r, est, 90)}<div style="font:13px SpaceMonoPV;color:${fondoEt(v) === C.papel ? '#111' : '#EDEDEA'}">${r} · ${v}</div></div>`).join('')).join('')}
 		</div></div></body>`);
-	await hoja2.evaluate(async () => { await document.fonts.load('20px SpaceMonoPVB'); await document.fonts.load('14px SpaceMonoPV'); await document.fonts.ready; });
+	await hoja2.evaluate(async () => { await document.fonts.load('20px InterPV'); await document.fonts.load('14px SpaceMonoPV'); await document.fonts.ready; });
 	await hoja2.screenshot({path: 'out/planv/redes-planv-etiquetas-muestra.png', fullPage: true});
 	await b.close();
 })();
