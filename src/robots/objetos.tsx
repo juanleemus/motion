@@ -27,7 +27,8 @@ export const Subtitulos: React.FC<{
 	tam?: number;
 	reemplazos?: Record<string, string>; // cómo se escribe en pantalla (p. ej. "83" -> "83 $")
 	propios?: string[]; // nombres que conservan sus mayúsculas (el resto va en minúscula)
-}> = ({palabras, claves, negativas = [], ocultar = [], y = 1300, max = 4, tam = 66, reemplazos = {}, propios = []}) => {
+	caja?: boolean; // caja oscura al 55 % detrás de la frase
+}> = ({palabras, claves, negativas = [], ocultar = [], y = 1300, max = 4, tam = 66, reemplazos = {}, propios = [], caja: conCaja = false}) => {
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
 	const t = frame / FPS;
@@ -49,11 +50,12 @@ export const Subtitulos: React.FC<{
 	const setC = new Set(claves.map(norm));
 	const setN = new Set(negativas.map(norm));
 	return (
-		<div style={{position: 'absolute', left: 70, width: 860, top: y, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '10px 18px'}}>
+		<div style={{position: 'absolute', left: 70, width: 860, top: y, display: 'flex', justifyContent: 'center'}}>
+		<div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '10px 18px', ...(conCaja ? {background: 'rgba(0,0,0,0.55)', borderRadius: 22, padding: '14px 26px'} : {})}}>
 			{actual.map((p, i) => {
 				const f0 = Math.round(p.t0 * FPS);
 				const r = spring({frame: frame - f0, fps, config: {damping: 11, mass: 0.5, stiffness: 180}});
-				const limpio = p.w.replace(/[.,?!:¿¡]/g, '');
+				const limpio = p.w.replace(/^[¿¡]+/, '').replace(/[.,?!:¿¡]+$/, '');
 				const clave = setC.has(norm(limpio));
 				const neg = setN.has(norm(limpio));
 				const conserva = new Set(propios.map(norm)).has(norm(limpio)) || /[A-ZÁÉÍÓÚÑ].*[A-ZÁÉÍÓÚÑ]/.test(limpio);
@@ -82,6 +84,7 @@ export const Subtitulos: React.FC<{
 					</span>
 				);
 			})}
+		</div>
 		</div>
 	);
 };
@@ -477,7 +480,7 @@ export const Latido: React.FC<{en: number; etiqueta: string; ancho?: number}> = 
 };
 
 // ---------- Tarjeta de titular de un medio (texto parafraseado de la voz, con el medio) ----------
-export const TitularMedio: React.FC<{en: number; medio: string; logo?: {archivo: string; alto?: number}; texto: string}> = ({en, medio, logo, texto}) => {
+export const TitularMedio: React.FC<{en: number; medio: string; logo?: {archivo: string; alto?: number}; texto: string; tam?: number}> = ({en, medio, logo, texto, tam = 58}) => {
 	const frame = useCurrentFrame();
 	const r = useRebote(en, {damping: 12, mass: 0.7, stiffness: 130});
 	const flota = Math.sin((frame - en) / 24) * 5;
@@ -502,7 +505,7 @@ export const TitularMedio: React.FC<{en: number; medio: string; logo?: {archivo:
 				{logo ? <Img src={staticFile(`logos/${logo.archivo}`)} style={{height: logo.alto ?? 44, display: 'block'}} /> : null}
 				<div style={{...ETQ, fontSize: 24, color: C.gris}}>{medio}</div>
 			</div>
-			<div style={{fontWeight: 900, fontSize: 58, lineHeight: 1.08, color: C.tinta}}>
+			<div style={{fontWeight: 900, fontSize: tam, lineHeight: 1.08, color: C.tinta}}>
 				{texto.split(/(\*[^*]+\*)/g).map((p, i) =>
 					p.startsWith('*') ? (
 						<span key={i} style={{color: C.azulOscuro}}>
@@ -557,7 +560,7 @@ export const FichaInvora: React.FC<{en: number; logo: {archivo: string; alto?: n
 };
 
 // ---------- Caja de titular fija arriba (se queda todo el video, como en la referencia) ----------
-export const CajaTitular: React.FC<{texto: string; desde?: number; hasta: number; icono?: React.ReactNode}> = ({texto, desde = 0, hasta, icono}) => {
+export const CajaTitular: React.FC<{texto: string; desde?: number; hasta: number; icono?: React.ReactNode; top?: number}> = ({texto, desde = 0, hasta, icono, top = 270}) => {
 	const frame = useCurrentFrame();
 	if (frame < desde || frame >= hasta) return null;
 	const sale = interpolate(frame, [hasta - 6, hasta], [0, 1], clamp);
@@ -567,7 +570,7 @@ export const CajaTitular: React.FC<{texto: string; desde?: number; hasta: number
 			style={{
 				position: 'absolute',
 				left: 70,
-				top: 270,
+				top,
 				maxWidth: 860,
 				display: 'flex',
 				alignItems: 'center',
@@ -722,4 +725,230 @@ const SequenciaVideo: React.FC<{desde: number; src: string; velocidad: number; i
 	<Sequence from={desde - 1} layout="none">
 		<OffthreadVideo src={staticFile(src)} muted playbackRate={velocidad} trimBefore={inicio} style={{width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.72) saturate(0.85)'}} />
 	</Sequence>
+);
+
+// ---------- Tarjeta de activo: blanca, logo circular arriba, línea con punto y el % debajo ----------
+// Rojo si cae, azul Invora si sube. Entra deslizando desde la izquierda con rebote; el número cuenta.
+export const FichaPct: React.FC<{
+	en: number;
+	nombre: string;
+	logo?: {archivo: string; alto?: number};
+	valor: number;
+	decimales?: number;
+	signo?: string;
+	tono: 'rojo' | 'azul';
+	tam?: number;
+	cuentaEn?: number;
+}> = ({en, nombre, logo, valor, decimales = 0, signo = '', tono, tam = 72, cuentaEn}) => {
+	const frame = useCurrentFrame();
+	const r = spring({frame: frame - en, fps: 30, config: {damping: 10, mass: 0.6, stiffness: 170}});
+	const c0 = cuentaEn ?? en;
+	const p = interpolate(frame, [c0, c0 + 16], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
+	const n = (valor * p).toFixed(decimales).replace('.', ',');
+	const color = tono === 'rojo' ? C.rojo : C.azul;
+	const k = tam / 72;
+	const W = 300 * k;
+	const punto = tono === 'rojo' ? 0.25 : 0.8;
+	return (
+		<div
+			style={{
+				width: W,
+				boxSizing: 'border-box',
+				background: C.blanco,
+				borderRadius: 20,
+				padding: `${22 * k}px ${22 * k}px ${18 * k}px`,
+				display: 'flex',
+				flexDirection: 'column',
+				alignItems: 'center',
+				gap: 14 * k,
+				boxShadow: `0 18px 40px rgba(0,0,0,0.5), 0 0 ${24 + 8 * pulsoBeat(frame)}px ${tono === 'rojo' ? 'rgba(255,77,94,0.35)' : 'rgba(42,157,255,0.4)'}`,
+				opacity: aparece(frame, en, 3),
+				transform: `translateX(${(1 - r) * -260}px)`,
+				fontFamily: FUENTE,
+			}}
+		>
+			<div style={{width: 96 * k, height: 96 * k, borderRadius: '50%', border: '3px solid #e3e8f0', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', background: C.blanco}}>
+				{logo ? <Img src={staticFile(`logos/${logo.archivo}`)} style={{width: 74 * k, maxHeight: 50 * k, objectFit: 'contain'}} /> : <span style={{fontWeight: 900, fontSize: 28 * k, color: C.tinta}}>{nombre.slice(0, 4)}</span>}
+			</div>
+			<div style={{fontWeight: 800, fontSize: 24 * k, color: C.tinta, letterSpacing: '0.06em'}}>{nombre}</div>
+			<div style={{position: 'relative', width: '86%', height: 8 * k, borderRadius: 4, background: '#e3e8f0'}}>
+				<div style={{position: 'absolute', left: 0, top: 0, bottom: 0, width: `${punto * 100 * p}%`, borderRadius: 4, background: color}} />
+				<div style={{position: 'absolute', left: `calc(${punto * 100 * p}% - ${10 * k}px)`, top: -6 * k, width: 20 * k, height: 20 * k, borderRadius: '50%', background: color, border: '3px solid white', boxShadow: '0 2px 6px rgba(0,0,0,0.3)'}} />
+			</div>
+			<div style={{fontWeight: 900, fontSize: 56 * k, color, fontVariantNumeric: 'tabular-nums', whiteSpace: 'nowrap', lineHeight: 1}}>
+				{signo}
+				{n} %
+			</div>
+		</div>
+	);
+};
+
+// ---------- Barras de caída con logo (de mayor a menor) ----------
+export type BarraCaida = {logo?: {archivo: string; alto?: number}; nombre: string; sub?: string; valor: number; en: number};
+export const BarrasCaida: React.FC<{barras: BarraCaida[]; max: number; ancho?: number}> = ({barras, max, ancho = 860}) => {
+	const frame = useCurrentFrame();
+	return (
+		<div style={{width: ancho, display: 'flex', flexDirection: 'column', gap: 16}}>
+			{barras.map((b, i) => {
+				const r = spring({frame: frame - b.en, fps: 30, config: {damping: 12, mass: 0.6, stiffness: 150}});
+				const p = interpolate(frame, [b.en, b.en + 14], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
+				return (
+					<div key={i} style={{display: 'flex', alignItems: 'center', gap: 18, opacity: aparece(frame, b.en, 4), transform: `translateX(${(1 - r) * -60}px)`, fontFamily: FUENTE}}>
+						<div style={{width: 190, height: 74, flexShrink: 0, background: C.blanco, borderRadius: 16, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+							{b.logo ? <Img src={staticFile(`logos/${b.logo.archivo}`)} style={{height: b.logo.alto ?? 34, maxWidth: 160, objectFit: 'contain'}} /> : <span style={{fontWeight: 900, fontSize: 30, color: C.tinta}}>{b.nombre}</span>}
+						</div>
+						<div style={{flex: 1, position: 'relative', height: 74}}>
+							<div
+								style={{
+									position: 'absolute',
+									left: 0,
+									top: 10,
+									height: 54,
+									width: `${(b.valor / max) * 100 * p * 0.5}%`,
+									borderRadius: 12,
+									background: `linear-gradient(90deg, #b3283a, ${C.rojo})`,
+									boxShadow: '0 0 18px rgba(255,77,94,0.5)',
+								}}
+							/>
+							<div style={{position: 'absolute', left: `calc(${(b.valor / max) * 100 * p * 0.5}% + 14px)`, top: 6, fontWeight: 900, fontSize: 52, color: C.rojo, whiteSpace: 'nowrap', textShadow: SOMBRA}}>
+								−{(b.valor * p).toFixed(2).replace('.', ',')} %
+							</div>
+							{b.sub ? (
+								<div style={{position: 'absolute', left: 4, top: 70, ...ETQ, fontSize: 18, color: C.gris, whiteSpace: 'nowrap'}}>{b.sub}</div>
+							) : null}
+						</div>
+					</div>
+				);
+			})}
+		</div>
+	);
+};
+
+// ---------- Siete velas rojas seguidas (sesiones a la baja) ----------
+export const VelasRojas: React.FC<{en: number; n?: number; paso?: number; ancho?: number}> = ({en, n = 7, paso = 4, ancho = 860}) => {
+	const frame = useCurrentFrame();
+	const w = ancho / n;
+	return (
+		<div style={{position: 'relative', width: ancho, height: 360}}>
+			<svg width={ancho} height={360} style={{overflow: 'visible'}}>
+				{Array.from({length: n}).map((_, i) => {
+					const f = en + i * paso;
+					const s = spring({frame: frame - f, fps: 30, config: {damping: 10, mass: 0.5, stiffness: 170}});
+					const top = 30 + i * 30;
+					const h = 120 + (i % 3) * 20;
+					const x = i * w + w * 0.22;
+					return frame >= f ? (
+						<g key={i} opacity={Math.min(1, s * 1.5)} transform={`translate(0 ${(1 - s) * -30})`}>
+							<line x1={x + w * 0.28} x2={x + w * 0.28} y1={top - 20} y2={top + h + 20} stroke={C.rojo} strokeWidth={5} />
+							<rect x={x} y={top} width={w * 0.56} height={h * s} rx={8} fill={C.rojo} style={{filter: 'drop-shadow(0 0 12px rgba(255,77,94,0.55))'}} />
+							<text x={x + w * 0.28} y={340} textAnchor="middle" fill={C.gris} fontFamily={FUENTE} fontWeight={800} fontSize={26}>
+								{i + 1}
+							</text>
+						</g>
+					) : null;
+				})}
+			</svg>
+		</div>
+	);
+};
+
+// ---------- Volatilidad: la línea sube y se abre en dos caminos (rebote o caída fuerte) ----------
+export const Volatilidad: React.FC<{en: number; reboteEn: number; caidaEn: number; ancho?: number; alto?: number}> = ({en, reboteEn, caidaEn, ancho = 860, alto = 380}) => {
+	const frame = useCurrentFrame();
+	const tronco = interpolate(frame, [en, en + 20], [0, 1], {...clamp, easing: Easing.inOut(Easing.cubic)});
+	const rb = interpolate(frame, [reboteEn, reboteEn + 18], [0, 1], {...clamp, easing: Easing.inOut(Easing.cubic)});
+	const cd = interpolate(frame, [caidaEn, caidaEn + 18], [0, 1], {...clamp, easing: Easing.inOut(Easing.cubic)});
+	const px = ancho * 0.45, py = alto * 0.45;
+	const tr = `M 20 ${alto * 0.8} L ${ancho * 0.15} ${alto * 0.7} L ${ancho * 0.28} ${alto * 0.62} L ${px} ${py}`;
+	const reb = `M ${px} ${py} L ${ancho * 0.58} ${alto * 0.32} L ${ancho * 0.68} ${alto * 0.38} L ${ancho * 0.8} ${alto * 0.18} L ${ancho * 0.86} ${alto * 0.1}`;
+	const cai = `M ${px} ${py} L ${ancho * 0.55} ${alto * 0.62} L ${ancho * 0.62} ${alto * 0.5} L ${ancho * 0.72} ${alto * 0.78} L ${ancho * 0.78} ${alto * 0.66} L ${ancho * 0.86} ${alto * 0.92}`;
+	const lbl = (x: number, y: number, t: string, color: string, op: number) => (
+		<text x={x} y={y} fill={color} fontFamily={FUENTE} fontWeight={900} fontSize={40} opacity={op}>
+			{t}
+		</text>
+	);
+	return (
+		<div style={{position: 'relative', width: ancho, height: alto + 30, opacity: aparece(frame, en, 5)}}>
+			<svg width={ancho} height={alto} style={{overflow: 'visible'}}>
+				<path d={tr} stroke={C.blanco} strokeWidth={8} fill="none" strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray="1 1" strokeDashoffset={1 - tronco} />
+				<path d={reb} stroke={C.azul} strokeWidth={8} fill="none" strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray="1 1" strokeDashoffset={1 - rb} style={{filter: `drop-shadow(0 0 12px ${C.brillo})`}} />
+				<path d={cai} stroke={C.rojo} strokeWidth={8} fill="none" strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray="1 1" strokeDashoffset={1 - cd} style={{filter: 'drop-shadow(0 0 12px rgba(255,77,94,0.55))'}} />
+				<circle cx={px} cy={py} r={14} fill={C.blanco} opacity={tronco >= 1 ? 1 : 0} />
+				{lbl(ancho * 0.88, alto * 0.12, 'rebote', C.azul, rb)}
+				{lbl(ancho * 0.88, alto * 0.95, 'caída', C.rojo, cd)}
+			</svg>
+			<div style={{position: 'absolute', right: 0, bottom: 0, ...ETQ, fontSize: 18, color: C.gris}}>esquema · no es la cotización real</div>
+		</div>
+	);
+};
+
+// ---------- Gráfica estilo TradingView: panel oscuro, ticker, grilla, línea que se dibuja en 1,2 s ----------
+// Sin escala de precios: solo une los porcentajes que dice la voz (es un esquema).
+export const PanelTrading: React.FC<{en: number; ticker: string; puntos: number[]; ultimo: string; tono?: 'rojo' | 'azul'; ancho?: number; alto?: number}> = ({en, ticker, puntos, ultimo, tono = 'rojo', ancho = 860, alto = 420}) => {
+	const frame = useCurrentFrame();
+	const e = useRebote(en);
+	const dib = interpolate(frame, [en + 4, en + 40], [0, 1], {...clamp, easing: Easing.inOut(Easing.cubic)});
+	const color = tono === 'rojo' ? C.rojo : C.azul;
+	const pad = {l: 30, r: 170, t: 80, b: 40};
+	const min = Math.min(...puntos), max = Math.max(...puntos);
+	const X = (i: number) => pad.l + (i / (puntos.length - 1)) * (ancho - pad.l - pad.r);
+	const Y = (v: number) => pad.t + (1 - (v - min) / (max - min || 1)) * (alto - pad.t - pad.b);
+	const d = 'M ' + puntos.map((v, i) => `${X(i)} ${Y(v)}`).join(' L ');
+	const ult = puntos[puntos.length - 1];
+	return (
+		<div style={{position: 'relative', width: ancho, height: alto, borderRadius: 22, overflow: 'hidden', background: 'rgba(11,15,20,0.85)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,0.12)', opacity: aparece(frame, en, 5), transform: `translateY(${(1 - e) * 20}px)`, fontFamily: FUENTE}}>
+			<svg width={ancho} height={alto} style={{position: 'absolute', inset: 0}}>
+				{[0, 1, 2, 3, 4].map((k) => (
+					<line key={k} x1={0} x2={ancho} y1={pad.t + (k * (alto - pad.t - pad.b)) / 4} y2={pad.t + (k * (alto - pad.t - pad.b)) / 4} stroke="rgba(255,255,255,0.07)" strokeWidth={1.5} />
+				))}
+				{[1, 2, 3, 4, 5].map((k) => (
+					<line key={k} y1={pad.t - 20} y2={alto} x1={(k * ancho) / 6} x2={(k * ancho) / 6} stroke="rgba(255,255,255,0.05)" strokeWidth={1.5} />
+				))}
+				<path d={d} stroke={color} strokeWidth={5} fill="none" strokeLinejoin="round" pathLength={1} strokeDasharray="1 1" strokeDashoffset={1 - dib} />
+				{dib >= 1 ? <line x1={X(puntos.length - 1)} x2={ancho - pad.r + 14} y1={Y(ult)} y2={Y(ult)} stroke={color} strokeWidth={2} strokeDasharray="6 6" /> : null}
+			</svg>
+			<div style={{position: 'absolute', left: 24, top: 20, fontWeight: 800, fontSize: 28, color: C.blanco, letterSpacing: '0.04em'}}>{ticker}</div>
+			<div style={{position: 'absolute', right: 22, top: Y(ult) - 24, background: color, color: C.blanco, fontWeight: 900, fontSize: 32, padding: '6px 14px', borderRadius: 8, opacity: dib >= 1 ? 1 : 0}}>{ultimo}</div>
+			<div style={{position: 'absolute', left: 24, bottom: 10, ...ETQ, fontSize: 16, color: C.gris}}>esquema con los % que dice la voz</div>
+		</div>
+	);
+};
+
+// ---------- Pista de B-roll: cortes secos cada pocos segundos con zoom suave (105 % → 110 %) ----------
+export type ClipBroll = {desde: number; src: string; etiqueta: string; inicio?: number};
+export const PistaBroll: React.FC<{clips: ClipBroll[]; fin: number; oscurecer?: number; rotulos?: boolean}> = ({clips, fin, oscurecer = 0.8, rotulos = false}) => {
+	const frame = useCurrentFrame();
+	const i = clips.findIndex((c, k) => frame >= c.desde && frame < (clips[k + 1]?.desde ?? fin));
+	if (i < 0) return null;
+	const c = clips[i];
+	const h = (clips[i + 1]?.desde ?? fin) - c.desde;
+	const zoom = interpolate(frame, [c.desde, c.desde + h], [1.05, 1.1], clamp);
+	const esVideo = c.src.endsWith('.mp4');
+	return (
+		<AbsoluteFill style={{backgroundColor: '#000'}}>
+			<AbsoluteFill style={{transform: `scale(${zoom})`, filter: `brightness(${oscurecer})`}}>
+				{esVideo ? (
+					<Sequence from={c.desde} layout="none">
+						<OffthreadVideo src={staticFile(c.src)} muted playbackRate={0.85} trimBefore={c.inicio ?? 0} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+					</Sequence>
+				) : (
+					<Img src={staticFile(c.src)} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+				)}
+			</AbsoluteFill>
+			{rotulos ? (
+				<div style={{position: 'absolute', right: 20, top: 20, ...ETQ, fontSize: 18, color: '#fff', background: 'rgba(0,0,0,0.6)', padding: '6px 12px', borderRadius: 8}}>{c.etiqueta}</div>
+			) : null}
+		</AbsoluteFill>
+	);
+};
+
+// ---------- Placeholder del presentador: 45 % inferior, de pecho para arriba ----------
+export const Presentador: React.FC<{src?: string; recorteY?: number}> = ({src, recorteY = 120}) => (
+	<div style={{position: 'absolute', left: 0, top: 1056, width: 1080, height: 864, overflow: 'hidden'}}>
+		{src ? (
+			<OffthreadVideo src={staticFile(src)} muted style={{position: 'absolute', left: 0, top: -recorteY, width: 1080, height: 1920}} />
+		) : null}
+		<div style={{position: 'absolute', inset: 0, border: '4px dashed rgba(255,255,255,0.7)', boxSizing: 'border-box'}} />
+		<div style={{position: 'absolute', left: 20, bottom: 20, ...ETQ, fontSize: 22, color: '#fff', background: 'rgba(0,0,0,0.6)', padding: '8px 14px', borderRadius: 8}}>PRESENTADOR · poner aquí el video recortado</div>
+	</div>
 );

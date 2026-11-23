@@ -1,0 +1,15 @@
+== {{int:filedesc}} ==
+{{Information
+|description={{en|1=The logo of ASML, a Dutch multinational company that develops and manufactures photolithography systems used in the production of semiconductor chips.}}
+{{nl|1=Het logo van ASML, een Nederlandse multinationale onderneming die fotolithografiesystemen ontwikkelt en produceert voor de vervaardiging van halfgeleiderchips.}}
+|date=2012
+|source={{own}}
+|author={{Label|Q297879|link=wikidata}}
+}}
+
+== {{int:license-header}} ==
+{{PD-textlogo}}
+{{Trademarked}}
+
+[[Category:SVG logos of companies of the Netherlands]]
+[[Category:ASML]]

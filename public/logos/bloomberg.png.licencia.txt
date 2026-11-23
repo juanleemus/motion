@@ -1,0 +1,18 @@
+== {{int:filedesc}} ==
+{{Information
+|description= {{en|{{C|Bloomberg L.P.}} logo}}{{depicted logo|Q13977}}
+|date={{original upload date|2008-01-15}}
+|source={{Using}} http://www.starchoice.com/english/customercare/download/welcome_kit_e.pdf({{W|File:Bloomberg_logo.svg|Original Image}})
+|author={{original uploader|AWeenieMan|wikipedia|en}}
+|other fields={{Igen|T|+|lh|s=tl}}
+}}
+
+== {{int:license-header}} ==
+{{PD-textlogo}}
+{{Trademark}}
+
+[[Category:B in logos]]
+[[Category:Bloomberg logos]]
+[[Category:SVG black text logos]]
+[[Category:SVG logos of media companies]]
+[[Category:SVG logos of the United States]]

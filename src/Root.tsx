@@ -17,6 +17,8 @@ import {ReelAnthropicIpo} from './reels/anthropic-ipo/Reel';
 import {DURACION as DURACION_ANTHROPIC_IPO} from './reels/anthropic-ipo/tiempos';
 import {ReelGta6TakeTwo} from './reels/gta6-take-two/Reel';
 import {DURACION as DURACION_GTA6} from './reels/gta6-take-two/tiempos';
+import {ReelVentaTecnologicas} from './reels/venta-tecnologicas/Reel';
+import {DURACION as DURACION_VENTA} from './reels/venta-tecnologicas/tiempos';
 
 for (const peso of ['500', '800', '900']) {
 	loadFont({family: 'Montserrat', url: staticFile(`fuentes/montserrat-latin-${peso}-normal.woff2`), weight: peso});
@@ -31,6 +33,7 @@ export const RemotionRoot: React.FC = () => (
 		<Composition id="nvidia-resultados-escuela-invora" component={ReelNvidiaResultados} durationInFrames={DURACION_NVIDIA_RESULTADOS} fps={FPS} width={1080} height={1920} />
 		<Composition id="anthropic-ipo-escuela-invora" component={ReelAnthropicIpo} durationInFrames={DURACION_ANTHROPIC_IPO} fps={FPS} width={1080} height={1920} />
 		<Composition id="gta6-take-two-escuela-invora" component={ReelGta6TakeTwo} durationInFrames={DURACION_GTA6} fps={FPS} width={1080} height={1920} />
+		<Composition id="venta-tecnologicas-escuela-invora" component={ReelVentaTecnologicas} durationInFrames={DURACION_VENTA} fps={FPS} width={1080} height={1920} defaultProps={{capa: 'preview' as const, solo: null}} />
 		{/* Intros "Día X de 12": una composición por día (dia1-escuela-invora … dia12-escuela-invora) */}
 		{Array.from({length: TOTAL_DIAS}, (_, i) => i + 1).map((dia) => (
 			<Composition

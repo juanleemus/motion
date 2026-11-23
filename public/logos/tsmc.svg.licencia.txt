@@ -1,0 +1,24 @@
+TSMC_wordmark.svg
+https://commons.wikimedia.org/wiki/File:TSMC_wordmark.svg
+Wikidata Q713418 (TSMC)
+
+=={{int:filedesc}}==
+{{Information
+|description={{en|1=Wordmark of [[:TSMC|TSMC]].}}
+|date=1987
+|source=www.tsmc.com
+|author=Taiwan Semiconductor Manufacturing Company Limited
+|permission=
+|other versions=
+}}
+
+=={{int:license-header}}==
+{{PD-shape}} {{Trademark}}
+
+[[Category:TSMC]]
+[[Category:Logos of electronics companies of Taiwan]]
+[[Category:SVG logos of companies of Taiwan]]
+[[Category:SVG logos of computer hardware manufacturers]]
+[[Category:SVG red text logos]]
+[[Category:Lowercase logos]]
+[[Category:1987 logos]]
