@@ -1,8 +1,8 @@
-// Intro de plan v en clave "title card": frases que se enfocan, un brillo bermellón que sube,
+// Intro de plan v en clave "title card": los nombres de los tres hosts se enfocan uno a uno, un brillo bermellón que sube,
 // el isotipo (sombrero visto desde arriba) se dibuja y se arma con el nombre, y todo se desvanece.
 import React from 'react';
 import {AbsoluteFill, Audio, Easing, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
-import {COLORES as C, DURACION_PLANV, T_PLANV as T} from './tiempos';
+import {COLORES as C, DUR_NOMBRE, DURACION_PLANV, NOMBRES, T_NOMBRES, T_PLANV as T} from './tiempos';
 
 const SERIF = 'DM Serif Display';
 const SANS = 'Inter';
@@ -36,32 +36,22 @@ const enfoque = (frame: number, entra: number, sale: number, dur = 14) => {
 	};
 };
 
-const Palabra: React.FC<{entra: number; sale: number; estilo: React.CSSProperties; children: React.ReactNode}> = ({entra, sale, estilo, children}) => {
+// Nombre de un host: número en Space Mono y nombre en DM Serif itálica.
+const Host: React.FC<{nombre: string; i: number; tam: number}> = ({nombre, i, tam}) => {
 	const frame = useCurrentFrame();
-	return <span style={{display: 'inline-block', ...estilo, ...enfoque(frame, entra, sale)}}>{children}</span>;
+	const entra = T_NOMBRES[i];
+	const sale = entra + DUR_NOMBRE;
+	return (
+		<AbsoluteFill style={{alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: tam * 0.18}}>
+			<div style={{fontFamily: MONO, fontSize: tam * 0.24, letterSpacing: '0.35em', color: C.bermellon, ...enfoque(frame, entra, sale, 12)}}>
+				{`0${i + 1} / 03`}
+			</div>
+			<div style={{fontFamily: SERIF, fontStyle: 'italic', fontSize: tam, lineHeight: 1, color: C.papel, ...enfoque(frame, entra + 2, sale, 14)}}>
+				{nombre}
+			</div>
+		</AbsoluteFill>
+	);
 };
-
-// Frase centrada que mezcla Inter y DM Serif itálica, palabra por palabra.
-const Frase: React.FC<{partes: {t: string; serif?: boolean}[]; entra: number; sale: number; tam: number}> = ({partes, entra, sale, tam}) => (
-	<AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
-		<div style={{display: 'flex', gap: tam * 0.28, alignItems: 'baseline', color: C.papel, whiteSpace: 'nowrap'}}>
-			{partes.map((p, i) => (
-				<Palabra
-					key={i}
-					entra={entra + i * 5}
-					sale={sale}
-					estilo={
-						p.serif
-							? {fontFamily: SERIF, fontStyle: 'italic', fontSize: tam * 1.12, color: C.bermellon}
-							: {fontFamily: SANS, fontWeight: 500, fontSize: tam, letterSpacing: '-0.02em'}
-					}
-				>
-					{p.t}
-				</Palabra>
-			))}
-		</div>
-	</AbsoluteFill>
-);
 
 // Brillo difuso que sube desde abajo (como en la referencia, pero en bermellón).
 const Brillo: React.FC<{entra: number; pico: number; sale: number; fuerza?: number}> = ({entra, pico, sale, fuerza = 1}) => {
@@ -175,7 +165,7 @@ export const IntroPlanV: React.FC = () => {
 	const vertical = height > width;
 	const cx = width / 2;
 	const cy = height / 2;
-	const tamFrase = vertical ? 64 : 78;
+	const tamHost = vertical ? 150 : 140;
 
 	// El isotipo aparece centrado y se corre para armarse con el nombre.
 	const tamIso = vertical ? 280 : 230;
@@ -191,8 +181,9 @@ export const IntroPlanV: React.FC = () => {
 			<Brillo entra={T.brillo} pico={T.logo - 2} sale={T.logo + 22} />
 			<Brillo entra={T.brillo2} pico={T.sale + 10} sale={DURACION_PLANV - 6} fuerza={0.8} />
 
-			<Frase partes={[{t: 'hablamos'}, {t: 'de'}, {t: 'todo,', serif: true}]} entra={T.frase1} sale={T.frase1Sale} tam={tamFrase} />
-			<Frase partes={[{t: 'sin'}, {t: 'plan.', serif: true}]} entra={T.frase2} sale={T.frase2Sale} tam={tamFrase} />
+			{NOMBRES.map((n, i) => (
+				<Host key={n} nombre={n} i={i} tam={tamHost} />
+			))}
 
 			<div
 				style={{
@@ -219,7 +210,7 @@ export const IntroPlanV: React.FC = () => {
 				}}
 			>
 				<Nombre tam={tamNombre} />
-				<div style={{fontFamily: MONO, fontSize: vertical ? 26 : 24, color: C.papel, letterSpacing: '0.35em', opacity: 0.75, paddingLeft: vertical ? 0 : 6, ...enfoque(frame, T.etiqueta, T.sale, 14)}}>
+				<div style={{fontFamily: MONO, fontSize: vertical ? 26 : 24, color: 'rgba(237,237,234,0.75)', letterSpacing: '0.35em', paddingLeft: vertical ? 0 : 6, ...enfoque(frame, T.etiqueta, T.sale, 14)}}>
 					podcast
 				</div>
 			</div>
