@@ -155,7 +155,7 @@ const Graficos: React.FC = () => (
 				</Fila>
 				<Fila>
 					<LogoChico {...LOGOS.cnbc} alto={52} en={en('CNBC', 3)} />
-					<Medio en={en('Market')} nombre="MarketWatch" />
+					<Medio en={en('MarketWatch')} nombre="MarketWatch" />
 				</Fila>
 			</S>
 

@@ -72,7 +72,7 @@ add(en('6%'), 'conteo', 0.8);
 add(en('Anthropic'), 'pop', 0.9);
 pildora(en('también está subiendo'));
 add(en('CNBC', 3), 'pop', 0.8);
-add(en('Market'), 'pop', 0.8);
+add(en('MarketWatch'), 'pop', 0.8);
 // 10. Ojo
 cambio(ESCENAS.ojo - 6);
 add(en('Pero ojo'), 'whoosh', 0.55);

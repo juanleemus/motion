@@ -10,7 +10,7 @@ const POOLS: [keyof typeof E, Pool][] = [
 	['viernes', [['grafica-cae.mp4', 'gráfica del Nasdaq cayendo'], ['cotizaciones.mp4', 'pantalla de cotizaciones en rojo']]],
 	['racha', [['cotizaciones.mp4', 'tablero de bolsa en rojo'], ['grafica-cae.mp4', 'velas rojas en una pantalla']]],
 	['cnbc', [['periodico.mp4', 'titulares de CNBC / prensa financiera']]],
-	['chips', [['fabrica-chips.mp4', 'fábrica de chips (TSMC)'], ['maquina-chips.mp4', 'máquina que fabrica chips (ASML)'], ['microchips.mp4', 'chips de Micron / AMD']]],
+	['chips', [['fabrica-chips.mp4', 'fábrica de chips (TSMC)'], ['fabrica-chips.mp4', 'máquina que fabrica chips (ASML)'], ['microchips.mp4', 'chips de Micron / AMD']]],
 	['cadena', [['microchips.mp4', 'cadena de chips de IA'], ['fabrica-chips.mp4', 'línea de producción de semiconductores']]],
 	['giro', [['fotos/jensen-huang.jpg', 'Jensen Huang en escenario'], ['cotizaciones.mp4', 'logo de NVIDIA / sede']]],
 	['nvidia30', [['grafica.mp4', 'acción de NVIDIA subiendo en verde'], ['cotizaciones.mp4', 'ticker NVDA en pantalla']]],

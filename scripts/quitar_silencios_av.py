@@ -6,6 +6,7 @@ import numpy as np
 ent, voz, out = sys.argv[1:4]
 UMBRAL = float(sys.argv[4]) if len(sys.argv) > 4 else -38
 RESPIRO = float(sys.argv[5]) if len(sys.argv) > 5 else 0.06
+HUECO = float(sys.argv[6]) if len(sys.argv) > 6 else 0.06  # huecos más cortos que esto no cuentan como silencio
 SR, FPS = 48000, 30
 w = wave.open(voz); x = np.frombuffer(w.readframes(w.getnframes()), '<i2').astype(np.float64) / 32768
 H = int(0.01 * SR)
@@ -19,7 +20,7 @@ for i, v in enumerate(voz_on):
 if ini is not None: tramos.append([ini, len(voz_on)])
 uni = [tramos[0]]
 for a, b in tramos[1:]:
-    if (a - uni[-1][1]) * 0.01 < 0.06: uni[-1][1] = b
+    if (a - uni[-1][1]) * 0.01 < HUECO: uni[-1][1] = b
     else: uni.append([a, b])
 # cada tramo con medio respiro antes y después, en fotogramas exactos
 seg = []
