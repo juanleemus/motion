@@ -5,10 +5,18 @@ import {Reel} from './Reel';
 import {Intro} from './Intro';
 import {DURACION_INTRO, TOTAL_DIAS} from './tiemposIntro';
 import {DURACION, FPS} from './tiempos';
+import {IntroPlanV} from './planv/IntroPlanV';
+import {DURACION_PLANV, FPS_PLANV} from './planv/tiempos';
 
 for (const peso of ['500', '800', '900']) {
 	loadFont({family: 'Montserrat', url: staticFile(`fuentes/montserrat-latin-${peso}-normal.woff2`), weight: peso});
 }
+loadFont({family: 'DM Serif Display', url: staticFile('fuentes/dmserif-400.woff2'), weight: '400'});
+loadFont({family: 'DM Serif Display', url: staticFile('fuentes/dmserif-italic.woff2'), weight: '400', style: 'italic'});
+loadFont({family: 'Inter', url: staticFile('fuentes/inter-400.woff2'), weight: '400'});
+loadFont({family: 'Inter', url: staticFile('fuentes/inter-500.woff2'), weight: '500'});
+loadFont({family: 'Space Mono', url: staticFile('fuentes/spacemono-400.woff2'), weight: '400'});
+loadFont({family: 'Space Mono', url: staticFile('fuentes/spacemono-700.woff2'), weight: '700'});
 
 export const RemotionRoot: React.FC = () => (
 	<>
@@ -26,5 +34,8 @@ export const RemotionRoot: React.FC = () => (
 				height={1920}
 			/>
 		))}
+		{/* Intro de plan v (podcast): horizontal para YouTube y vertical para reels */}
+		<Composition id="planv-intro" component={IntroPlanV} durationInFrames={DURACION_PLANV} fps={FPS_PLANV} width={1920} height={1080} />
+		<Composition id="planv-intro-vertical" component={IntroPlanV} durationInFrames={DURACION_PLANV} fps={FPS_PLANV} width={1080} height={1920} />
 	</>
 );
