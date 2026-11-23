@@ -1,12 +1,12 @@
 // Animaciones de "suscribirse" y "me gusta" de plan v sobre fondo verde (chroma) para montar encima del video.
-// Sin grano ni desenfoques: así el verde se recorta limpio.
+// Sin grano, sin desenfoques y sin audio: así el verde se recorta limpio.
 import React from 'react';
-import {AbsoluteFill, Audio, Easing, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, Easing, interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {COLORES as C} from './tiempos';
 
 export const VERDE = '#00FF00';
-export const DURACION_SUSCRIBIR = 120;
-export const DURACION_LIKE = 90;
+export const DURACION_SUSCRIBIR = 240;
+export const DURACION_LIKE = 180;
 const SERIF = 'DM Serif Display';
 const SANS = 'Inter';
 const MONO = 'Space Mono';
@@ -42,11 +42,11 @@ const IsotipoChico: React.FC<{tam: number; giro?: number}> = ({tam, giro = 0}) =
 // Cursor de flecha que viaja hasta un punto y hace clic.
 const Cursor: React.FC<{desde: [number, number]; hasta: [number, number]; llega: number; clic: number; sale: number}> = ({desde, hasta, llega, clic, sale}) => {
 	const frame = useCurrentFrame();
-	const p = interpolate(frame, [llega - 22, llega], [0, 1], {...clamp, easing: Easing.inOut(Easing.cubic)});
+	const p = interpolate(frame, [llega - 34, llega], [0, 1], {...clamp, easing: Easing.inOut(Easing.cubic)});
 	const x = interpolate(p, [0, 1], [desde[0], hasta[0]]);
 	const y = interpolate(p, [0, 1], [desde[1], hasta[1]]);
 	const aprieta = interpolate(frame, [clic - 2, clic, clic + 5], [1, 0.82, 1], clamp);
-	const op = interpolate(frame, [llega - 22, llega - 16, sale, sale + 8], [0, 1, 1, 0], clamp);
+	const op = interpolate(frame, [llega - 34, llega - 26, sale, sale + 10], [0, 1, 1, 0], clamp);
 	return (
 		<svg width={80} height={80} viewBox="0 0 24 24" style={{position: 'absolute', left: x - 12, top: y - 6, opacity: op, transform: `scale(${aprieta})`, transformOrigin: '20% 15%'}}>
 			<path d="M5 2 L5 20 L9.6 15.6 L12.6 22 L15.4 20.8 L12.4 14.6 L19 14.6 Z" fill={C.papel} stroke={C.negro} strokeWidth={1.4} strokeLinejoin="round" />
@@ -72,7 +72,7 @@ const Campana: React.FC<{tam: number; color: string}> = ({tam, color}) => (
 export const SuscribirPlanV: React.FC = () => {
 	const frame = useCurrentFrame();
 	const {width, height, fps} = useVideoConfig();
-	const T = {entra: 4, llega: 42, clic: 46, campana: 58, sale: 104};
+	const T = {entra: 4, llega: 84, clic: 88, campana: 100, sale: 224};
 	const {escala, opacidad} = usarAparicion(T.entra, T.sale);
 	const hecho = frame >= T.clic + 2;
 	const boton = interpolate(frame, [T.clic - 2, T.clic, T.clic + 8], [1, 0.92, 1], clamp);
@@ -88,7 +88,6 @@ export const SuscribirPlanV: React.FC = () => {
 	const botonY = y0 + 55;
 	return (
 		<AbsoluteFill style={{backgroundColor: VERDE}}>
-			<Audio src={staticFile('planv/sfx-suscribir.wav')} />
 			<div style={{position: 'absolute', left: x0, top: y0, width: W, height: H, transform: `scale(${escala})`, opacity: opacidad, transformOrigin: 'center'}}>
 				<div style={{position: 'absolute', inset: 0, background: C.negro, borderRadius: 100, border: `3px solid ${C.bermellon}`}} />
 				<div style={{position: 'absolute', left: 30, top: 30}}>
@@ -138,7 +137,7 @@ export const SuscribirPlanV: React.FC = () => {
 				</div>
 			</div>
 			<Onda x={botonX + 130} y={botonY + 45} clic={T.clic} color={C.papel} />
-			<Cursor desde={[width * 0.78, height * 0.92]} hasta={[botonX + 150, botonY + 52]} llega={T.llega} clic={T.clic} sale={T.campana + 12} />
+			<Cursor desde={[width * 0.78, height * 0.92]} hasta={[botonX + 150, botonY + 52]} llega={T.llega} clic={T.clic} sale={T.campana + 30} />
 		</AbsoluteFill>
 	);
 };
@@ -157,7 +156,7 @@ const Pulgar: React.FC<{tam: number; lleno: number}> = ({tam, lleno}) => (
 export const LikePlanV: React.FC = () => {
 	const frame = useCurrentFrame();
 	const {width, height, fps} = useVideoConfig();
-	const T = {entra: 4, llega: 38, clic: 42, sale: 76};
+	const T = {entra: 4, llega: 70, clic: 74, sale: 164};
 	const {escala, opacidad} = usarAparicion(T.entra, T.sale);
 	const hecho = frame >= T.clic;
 	const rebote = hecho ? 1 + 0.35 * Math.sin(Math.min(1, (frame - T.clic) / 10) * Math.PI) : interpolate(frame, [T.clic - 3, T.clic], [1, 0.9], clamp);
@@ -180,7 +179,6 @@ export const LikePlanV: React.FC = () => {
 		: null;
 	return (
 		<AbsoluteFill style={{backgroundColor: VERDE}}>
-			<Audio src={staticFile('planv/sfx-like.wav')} />
 			<div style={{position: 'absolute', left: x0, top: y0, width: W, height: H, transform: `scale(${escala})`, opacity: opacidad}}>
 				<div style={{position: 'absolute', inset: 0, background: C.negro, borderRadius: 85, border: `3px solid ${C.bermellon}`}} />
 				<div style={{position: 'absolute', left: 50, top: 25, transform: `scale(${rebote})`}}>
@@ -195,7 +193,7 @@ export const LikePlanV: React.FC = () => {
 			</div>
 			{chispas}
 			<Onda x={iconoX + 60} y={iconoY + 60} clic={T.clic} color={C.bermellon} />
-			<Cursor desde={[width * 0.75, height * 0.9]} hasta={[iconoX + 70, iconoY + 62]} llega={T.llega} clic={T.clic} sale={T.clic + 14} />
+			<Cursor desde={[width * 0.75, height * 0.9]} hasta={[iconoX + 70, iconoY + 62]} llega={T.llega} clic={T.clic} sale={T.clic + 30} />
 		</AbsoluteFill>
 	);
 };
