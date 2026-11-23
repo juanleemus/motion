@@ -982,7 +982,7 @@ export const MiguelRecortado: React.FC<{src: string; cerca?: [number, number][]}
 	const left = (1080 - 1080 * esc) / 2;
 	return (
 		<div style={{position: 'absolute', left, top, width: 1080 * esc, height: 1920 * esc}}>
-			<OffthreadVideo src={staticFile(src)} transparent muted style={{width: '100%', height: '100%', filter: 'saturate(1.45) contrast(1.1) brightness(1.04)'}} />
+			<OffthreadVideo src={staticFile(src)} transparent muted style={{width: '100%', height: '100%'}} />
 		</div>
 	);
 };
