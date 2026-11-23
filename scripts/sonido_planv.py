@@ -10,8 +10,8 @@ import numpy as np
 
 SR = 48000
 FPS = 30
-DUR = 195 / FPS
-T = dict(nombres=(4, 30, 56), brillo=62, logo=84, arma=104, etiqueta=118, sale=172, brillo2=164)
+DUR = 210 / FPS
+T = dict(nombres=(4, 30, 56), brillo=62, logo=84, arma=104, etiqueta=118, sale=166, brillo2=156)
 rng = np.random.default_rng(11)
 n = int(SR * DUR)
 out = np.zeros((n, 2))

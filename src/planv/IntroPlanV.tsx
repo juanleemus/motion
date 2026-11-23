@@ -2,7 +2,7 @@
 // el isotipo (sombrero visto desde arriba) se dibuja y se arma con el nombre, y todo se desvanece.
 import React from 'react';
 import {AbsoluteFill, Audio, Easing, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
-import {COLORES as C, DUR_NOMBRE, DURACION_PLANV, NOMBRES, T_NOMBRES, T_PLANV as T} from './tiempos';
+import {COLORES as C, DUR_NOMBRE, NEGRO_FINAL, NOMBRES, T_NOMBRES, T_PLANV as T} from './tiempos';
 
 const SERIF = 'DM Serif Display';
 const SANS = 'Inter';
@@ -70,9 +70,9 @@ const Brillo: React.FC<{entra: number; pico: number; sale: number; fuerza?: numb
 				width: width * 1.4,
 				top: y,
 				height: height * 1.1,
-				background: `radial-gradient(ellipse 50% 45% at 50% 55%, ${C.bermellon} 0%, ${C.sombra} 45%, transparent 75%)`,
+				background: `radial-gradient(ellipse 50% 45% at 50% 55%, ${C.bermellon} 0%, rgba(242,56,31,0.55) 40%, rgba(242,56,31,0) 75%)`,
 				filter: 'blur(90px)',
-				opacity: v * 0.85,
+				opacity: Math.min(1, v * 1.05),
 			}}
 		/>
 	);
@@ -83,7 +83,7 @@ const Grano: React.FC = () => {
 	const frame = useCurrentFrame();
 	const {width, height} = useVideoConfig();
 	return (
-		<svg width={width} height={height} style={{position: 'absolute', inset: 0, mixBlendMode: 'screen', opacity: 0.07}}>
+		<svg width={width} height={height} style={{position: 'absolute', inset: 0, mixBlendMode: 'overlay', opacity: 0.35}}>
 			<filter id="grano">
 				<feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed={Math.floor(frame / 2)} />
 				<feColorMatrix type="saturate" values="0" />
@@ -176,10 +176,10 @@ export const IntroPlanV: React.FC = () => {
 	const isoSale = enfoque(frame, T.logo - 2, T.sale, 6);
 
 	return (
-		<AbsoluteFill style={{backgroundColor: '#0A0A0A', overflow: 'hidden'}}>
+		<AbsoluteFill style={{backgroundColor: '#000000', overflow: 'hidden'}}>
 			<Audio src={staticFile('planv/intro-sfx.wav')} />
 			<Brillo entra={T.brillo} pico={T.logo - 2} sale={T.logo + 22} />
-			<Brillo entra={T.brillo2} pico={T.sale + 10} sale={DURACION_PLANV - 6} fuerza={0.8} />
+			<Brillo entra={T.brillo2} pico={T.sale} sale={NEGRO_FINAL - 2} fuerza={0.8} />
 
 			{NOMBRES.map((n, i) => (
 				<Host key={n} nombre={n} i={i} tam={tamHost} />
@@ -215,6 +215,7 @@ export const IntroPlanV: React.FC = () => {
 				</div>
 			</div>
 			<Grano />
+			{frame >= NEGRO_FINAL && <AbsoluteFill style={{backgroundColor: '#000000'}} />}
 		</AbsoluteFill>
 	);
 };
