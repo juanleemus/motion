@@ -26,7 +26,7 @@ const zigzag = (r: number, amp: number, picos: number) => {
 };
 
 // Entrada y salida con desenfoque: de borroso a nítido y de vuelta.
-const enfoque = (frame: number, entra: number, sale: number, dur = 14) => {
+export const enfoque = (frame: number, entra: number, sale: number, dur = 14) => {
 	const e = interpolate(frame, [entra, entra + dur], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
 	const s = interpolate(frame, [sale, sale + 10], [0, 1], {...clamp, easing: Easing.in(Easing.cubic)});
 	return {
@@ -54,7 +54,7 @@ const Host: React.FC<{nombre: string; i: number; tam: number}> = ({nombre, i, ta
 };
 
 // Brillo difuso que sube desde abajo (como en la referencia, pero en bermellón).
-const Brillo: React.FC<{entra: number; pico: number; sale: number; fuerza?: number}> = ({entra, pico, sale, fuerza = 1}) => {
+export const Brillo: React.FC<{entra: number; pico: number; sale: number; fuerza?: number}> = ({entra, pico, sale, fuerza = 1}) => {
 	const frame = useCurrentFrame();
 	const {width, height} = useVideoConfig();
 	const sube = interpolate(frame, [entra, pico], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
@@ -79,7 +79,7 @@ const Brillo: React.FC<{entra: number; pico: number; sale: number; fuerza?: numb
 };
 
 // Grano analógico sobre todo el cuadro.
-const Grano: React.FC = () => {
+export const Grano: React.FC = () => {
 	const frame = useCurrentFrame();
 	const {width, height} = useVideoConfig();
 	return (
@@ -94,11 +94,11 @@ const Grano: React.FC = () => {
 };
 
 // Isotipo: los anillos se dibujan girando de adentro hacia afuera, con textura de sello.
-const Isotipo: React.FC<{tam: number}> = ({tam}) => {
+export const Isotipo: React.FC<{tam: number; en?: number; giroExtra?: number}> = ({tam, en = T.logo, giroExtra = 0}) => {
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
-	const giro = interpolate(frame, [T.logo, T.logo + 40], [-120, 0], {...clamp, easing: Easing.out(Easing.cubic)});
-	const disco = spring({frame: frame - T.logo, fps, config: {damping: 13, stiffness: 150}});
+	const giro = interpolate(frame, [en, en + 40], [-120, 0], {...clamp, easing: Easing.out(Easing.cubic)}) + giroExtra;
+	const disco = spring({frame: frame - en, fps, config: {damping: 13, stiffness: 150}});
 	return (
 		<svg width={tam} height={tam} viewBox="-600 -600 1200 1200" style={{overflow: 'visible'}}>
 			<defs>
@@ -110,7 +110,7 @@ const Isotipo: React.FC<{tam: number}> = ({tam}) => {
 			</defs>
 			<g filter="url(#sello)" transform={`rotate(${giro})`}>
 				{ANILLOS.map((a, k) => {
-					const inicio = T.logo + 4 + (ANILLOS.length - 1 - k) * 4;
+					const inicio = en + 4 + (ANILLOS.length - 1 - k) * 4;
 					const p = interpolate(frame, [inicio, inicio + 20], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
 					const medio = (a.ext + a.int) / 2;
 					const largo = 2 * Math.PI * medio;
@@ -131,7 +131,7 @@ const Isotipo: React.FC<{tam: number}> = ({tam}) => {
 					fill="none"
 					stroke={C.negro}
 					strokeWidth={12}
-					opacity={interpolate(frame, [T.logo + 22, T.logo + 30], [0, 1], clamp)}
+					opacity={interpolate(frame, [en + 22, en + 30], [0, 1], clamp)}
 				/>
 				<g transform={`scale(${disco})`}>
 					<circle r={DISCO} fill={C.bermellon} />
