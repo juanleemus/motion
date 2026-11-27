@@ -1,3 +1,6 @@
 node_modules/
 .cache/
 trabajo/
+
+# material de Audiocolor (otro cliente): no se sube a este repositorio público
+locaciones-audiocolor/
